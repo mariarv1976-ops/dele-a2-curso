@@ -97,6 +97,34 @@ assert len(B.FUENTES_T3) == 12 and all(len(x[5]) == 5 and x[2] in ("tu", "usted"
 for x in B.FUENTES_T3:
     # el candidato habla de tu en las de planificar y de usted en las de servicio: las frases de rescate se eligen por este trato
     assert ("su amigo" in x[3] or "su hermano" in x[3] or "su compañero" in x[3]) == (x[2] == "tu"), "Tarea 3, situación %d: el trato no va con el examinador" % x[0]
+# Entrar y terminar (23/10)
+assert len(B.DIA_ORAL) >= 6 and all(d["o"] or d["h"] for d in B.DIA_ORAL) and all(d["tu"] for d in B.DIA_ORAL), "El día de la oral: cada paso con lo oficial o lo habitual y el consejo"
+fj = [c.get("fijo") for c in B.CONTACTO]
+assert fj.count("ini") == fj.count("nom") == fj.count("fin") == 1 and sum(1 for f in fj if not f) >= 4, "Preguntas de contacto: una inicial, una del nombre, una final y al menos cuatro al azar"
+for c in B.CONTACTO:
+    trato_ok(c["q"], "usted", "Pregunta de contacto"); trato_ok(c["mod"], "usted", "Pregunta de contacto (respuesta modelo)")
+    assert c["evita"] and c["por"]
+for k in ("T1", "T2"):
+    assert len(B.CIERRES[k]) >= 3
+    for x in B.CIERRES[k]: trato_ok(x, None, "Fórmula de cierre %s" % k)
+trato_ok(B.DESPEDIDA["e"], "usted", "Despedida (examinador)")
+for x in B.DESPEDIDA["c"]: trato_ok(x, "usted", "Despedida (candidato)")
+for i, q in enumerate(B.ELIGE_CIERRE, 1):
+    ref = "Elige el cierre, %d" % i
+    assert len(q["ops"]) == 3 and 0 <= q["ok"] < 3 and q["por"] and q["tipo"] in ("cierre", "pronto", "final"), ref
+    trato_ok(q["ops"][q["ok"]], q["trato"], ref + " (respuesta buena)")
+assert sum(1 for q in B.ELIGE_CIERRE if q["tipo"] == "pronto") >= 2, "Elige el cierre: al menos dos de «todavía no hay que cerrar»"
+ID1, ID2 = {x[0] for x in B.FUENTES_T1}, {x[0] for x in B.FUENTES_T2}
+for c in B.CIERRA_20:
+    ref = "Cierra en 20 segundos (%s %d)" % (c["k"], c["id"])
+    assert (c["k"] == "T1" and c["id"] in ID1) or (c["k"] == "T2" and c["id"] in ID2), ref + ": la lámina no existe"
+    assert len(c["dicho"]) >= 4 and len(c["mod"]) == 2, ref
+    for m in c["mod"]: trato_ok(m, None, ref + " (cierre modelo)")
+# Nada de B1 en lo que dice el candidato en lo nuevo (formas frecuentes de subjuntivo y condicional)
+B1 = re.compile(r"(?i)(?<![%s])(aunque|quiera|tenga|sea|vaya|haya|pueda|sepa|esté|gustaría que|ojalá|hubiera|habría)(?![%s])" % (W, W))
+for t in [c["mod"] for c in B.CONTACTO] + B.CIERRES["T1"] + B.CIERRES["T2"] + B.DESPEDIDA["c"] + \
+         [q["ops"][q["ok"]] for q in B.ELIGE_CIERRE] + [m for c in B.CIERRA_20 for m in c["mod"]]:
+    m = B1.search(t); assert not m, "Forma de B1 (%s) en: %s" % (m.group(0), t[:70])
 
 # ------------------------------------------------------------ datos para el JS
 def mk(s):
@@ -115,6 +143,8 @@ DATA = {
  "t2": [{"id": a, "t": b, "alt": c, "pal": d, "img": IMG_T2 % a} for a, b, c, d in B.FUENTES_T2], "pf": B.PREGUNTAS_FOTO,
  "t3": [{"id": a, "t": b, "tr": c, "rol": d, "sit": e, "pa": f} for a, b, c, d, e, f in B.FUENTES_T3],
  "suc3": B.SUCESOS_T3,
+ "contacto": B.CONTACTO, "cierres": B.CIERRES, "desp": B.DESPEDIDA, "ec": B.ELIGE_CIERRE,
+ "c20": B.CIERRA_20,
 }
 
 # ------------------------------------------------------------ CSS
@@ -288,6 +318,45 @@ h3.grp{margin:22px 0 2px}
 .tj h4{margin:0 0 4px;font-size:1rem}
 .tj p{margin:2px 0;font-size:.95rem}
 .tj p.tu{color:#1E4A87}.tj p.us{color:#7A4E0E}
+/* entrar y terminar */
+.ch.of{background:var(--blu);color:#fff}.ch.hb{background:var(--amb);color:#fff}
+.tl{list-style:none;padding:0;margin:14px 0;position:relative}
+.tl:before{content:"";position:absolute;left:17px;top:6px;bottom:6px;width:3px;background:var(--line)}
+.tl > li{position:relative;padding:0 0 14px 52px}
+.tl .tn{position:absolute;left:0;top:0;width:37px;height:37px;border-radius:50%;background:var(--ink);color:#fff;font-family:Georgia,serif;font-weight:700;display:grid;place-items:center}
+.tl .tb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+.tl h4{margin:4px 0 6px}
+.tl ul{margin:4px 0;padding-left:0;list-style:none;font-size:.94rem}
+.tl ul li{padding:3px 0 3px 0}
+.tl ul.of li:before{content:"OFICIAL";font-size:.66rem;font-weight:700;letter-spacing:.05em;background:var(--blu);color:#fff;border-radius:999px;padding:1px 7px;margin-right:7px;vertical-align:1px}
+.tl ul.hb li:before{content:"HABITUAL";font-size:.66rem;font-weight:700;letter-spacing:.05em;background:var(--amb);color:#fff;border-radius:999px;padding:1px 7px;margin-right:7px;vertical-align:1px}
+.tl .tu{background:var(--ok-soft);border-radius:8px;padding:6px 10px;font-size:.93rem;margin-top:6px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.9rem;margin:8px 0}
+.part{border-top:3px solid var(--coral);margin-top:34px;padding-top:6px}
+.part > .pn{font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--coral)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.f2 > div{background:#fff;border:1px solid var(--line);border-top:5px solid var(--ok);border-radius:12px;padding:10px 16px}
+.f2 ul{margin:4px 0 0;padding-left:1.1em}.f2 li{font-style:italic}
+.nol{list-style:none;padding:0;margin:8px 0}
+.nol li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px 8px 44px;margin:6px 0;position:relative;font-size:.94rem}
+.nol li:before{content:"\2715";position:absolute;left:14px;top:8px;width:22px;height:22px;border-radius:50%;background:var(--bad);color:#fff;font-weight:700;font-size:.75rem;display:grid;place-items:center}
+.nol li b{display:block}
+table.mods td:first-child{width:34%}
+table.mods td i{color:var(--muted)}
+.dch{list-style:none;padding:0;margin:6px 0;font-size:1rem;font-family:system-ui,sans-serif}
+.dch li{padding:3px 0 3px 26px;position:relative}
+.dch li:before{content:"\2713";position:absolute;left:4px;color:var(--ok);font-weight:700}
+.oc{background:var(--ink);color:#fff;border:0;border-radius:14px;padding:16px 20px;width:100%;text-align:left;font:inherit;cursor:pointer;margin:12px 0}
+.oc b{font-family:Georgia,serif;font-size:1.25rem;display:block}
+.oc span{font-size:.92rem;opacity:.85}
+.oc:hover{background:#2A2D36}
+.prep{font-family:Georgia,serif;font-size:3rem;font-weight:700;font-variant-numeric:tabular-nums}
+.prep.red{color:var(--bad)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+.g3 textarea{width:100%;font:inherit;font-size:.92rem;border:1.5px solid #CFC6BB;border-radius:8px;padding:8px 10px;min-height:120px;background:#fff}
+.g3 .lam{font-size:.86rem}
+@media (max-width:900px){.g3{grid-template-columns:1fr}}
+@media (max-width:760px){.f2{grid-template-columns:1fr}}
 /* modo concentracion */
 body.wide .wrap,body.wide .top-in{max-width:1180px}
 body.focus header.top{display:none}
@@ -304,7 +373,7 @@ body.focus .run .side{top:12px}
 """
 
 # ------------------------------------------------------------ VISTAS
-STEPS = [("importa", "Por qué importa"), ("frases", "Las frases"), ("dices", "¿Qué dices?"), ("palabra", "Describe la palabra"),
+STEPS = [("entrar", "Entrar y terminar"), ("importa", "Por qué importa"), ("frases", "Las frases"), ("dices", "¿Qué dices?"), ("palabra", "Describe la palabra"),
          ("entrena", "Entrenador"), ("ahora", "Ahora tú"), ("opinion", "Tu opinión")]
 
 def ic(x):
@@ -315,6 +384,46 @@ ESCALA = [("3", "Habla con cierta seguridad. Puede hacer alguna pausa, pero no m
           ("2", "Comete errores y hace alguna pausa. A veces necesita alguna ayuda del examinador. Es el A2: <b>aprueba</b>."),
           ("1", "Hace pausas o errores todo el tiempo. Necesita ayuda: que le repitan, que le pregunten otra vez."),
           ("0", "Silencios largos y frecuentes, palabras sueltas o de otras lenguas. No siempre se le entiende.")]
+
+def paso(d):
+    return ('<li><span class="tn">%s</span><div class="tb"><h4>%s</h4>%s%s<div class="tu"><b>Tú:</b> %s</div></div></li>'
+            % (d["ico"], d["t"], '<ul class="of">%s</ul>' % "".join("<li>%s</li>" % x for x in d["o"]) if d["o"] else "",
+               '<ul class="hb">%s</ul>' % "".join("<li>%s</li>" % x for x in d["h"]) if d["h"] else "", d["tu"]))
+
+def fila_contacto(c):
+    return ('<tr><td>«%s»%s</td><td><b>%s</b><br><span class="small"><i>Mejor no:</i> %s<br>%s</span></td></tr>'
+            % (c["q"], ' <span class="ch hb">habitual</span>' if c["h"] else "", c["mod"], c["evita"], c["por"]))
+
+V_ENTRAR = """
+<h2>Entrar y terminar</h2>
+<p class="lead">Muchos bloqueos llegan al principio, cuando entras en la sala, o al final de una tarea, cuando no sabes cómo terminar. Aquí ves cómo es el día de la oral, practicas las primeras preguntas y aprendes a cerrar sin cortar de golpe.</p>
+<div class="legend"><span><span class="ch of">OFICIAL</span> lo dice la Guía del examen</span><span><span class="ch hb">HABITUAL</span> suele pasar así, pero no está escrito: puede cambiar un poco</span></div>
+
+<div class="part"><div class="pn">1 · EL DÍA DE LA ORAL</div><h3>Paso a paso</h3>
+<ol class="tl">""" + "".join(paso(d) for d in B.DIA_ORAL) + """</ol></div>
+
+<div class="part" id="p-entrada"><div class="pn">2 · LA ENTRADA</div><h3>Simulador de las preguntas de contacto</h3>
+<p>Las preguntas de contacto no se evalúan, pero son el momento de los nervios. Si las practicas, entras en la tarea 1 tranquilo. La regla: <b>una frase completa y un detalle pequeño</b>. Ni una palabra sola, ni un discurso.</p>
+<div id="en"></div>
+<details><summary>Todas las preguntas y las respuestas modelo</summary><p class="small muted">Las respuestas son de Anna, una candidata. Tú contesta con tus datos.</p>
+<table class="t mods"><thead><tr><th>El examinador</th><th>Respuesta modelo</th></tr></thead><tbody>""" + "".join(fila_contacto(c) for c in B.CONTACTO) + """</tbody></table></details>
+</div>
+
+<div class="part" id="p-cierre"><div class="pn">3 · TERMINAR BIEN</div><h3>Cómo cerrar la tarea 1 y la tarea 2</h3>
+<p>En la tarea 1 y en la tarea 2 hablas tú solo, y el examinador no sabe cuándo has terminado si no se lo dices. Un buen cierre es <b>una fórmula y una frase final</b>: tu opinión, un resumen o lo que van a hacer después. Cierra cuando has hablado de todas las pautas y llevas unos dos minutos o más.</p>
+<div class="f2"><div><h4>Tarea 1 · el monólogo</h4><ul>""" + "".join("<li>%s</li>" % x for x in B.CIERRES["T1"]) + """</ul></div>
+<div><h4>Tarea 2 · la foto</h4><ul>""" + "".join("<li>%s</li>" % x for x in B.CIERRES["T2"]) + """</ul></div></div>
+<h4>Así no</h4><ul class="nol">""" + "".join("<li><b>%s</b>%s</li>" % x for x in B.CIERRES_MAL) + """</ul>
+<div class="note"><b>Y al final de la oral:</b> el examinador dice algo como «""" + B.DESPEDIDA["e"] + """» <span class="ch hb">habitual</span>. Tú: <i>«""" + "» o «".join(B.DESPEDIDA["c"]) + """»</i>. Deja las notas en la mesa.</div>
+<h3>Elige el cierre</h3>
+<p class="small muted">Diez momentos del final de una tarea. Cuidado: a veces todavía no es el momento de cerrar.</p>
+<div id="ec"></div>
+<h3>Te quedan 20 segundos: cierra</h3>
+<p>Ves lo que ya has dicho de un tema o de una foto. Tienes 20 segundos para cerrar en voz alta. Después escuchas tu cierre y lo comparas con dos cierres modelo.</p>
+<div id="ci"></div>
+</div>
+<div class="row"><button class="btn cta" data-go="importa">Siguiente: por qué importa no quedarse callado</button></div>
+"""
 
 V_IMPORTA = """
 <h2>Por qué importa no quedarse callado</h2>
@@ -409,13 +518,20 @@ V_OPINION = """
  <textarea id="o2"></textarea>
  <label class="q" id="o4l">5. Ahora, si te bloqueas en la oral, ¿cuánto control sientes? (1 = nada, 10 = total)</label>
  <div class="scale" role="group" aria-labelledby="o4l" id="o4"></div>
+ <label class="q" id="o6l">6. ¿Te ha ayudado saber cómo es el día de la oral y practicar la entrada y los cierres?</label>
+ <div class="chips" role="group" aria-labelledby="o6l">
+  <label><input type="radio" name="o6" value="Sí, mucho">Sí, mucho</label>
+  <label><input type="radio" name="o6" value="Un poco">Un poco</label>
+  <label><input type="radio" name="o6" value="No">No</label>
+  <label><input type="radio" name="o6" value="No lo he mirado">No lo he mirado</label>
+ </div>
 </div>
 <div class="sendbox">
  <h3>Envía tus resultados y tu opinión a tu profesora</h3>
  <label><b>Tu nombre</b><br><input type="text" id="sname" autocomplete="name"></label>
  <div class="row"><button class="btn cta" data-act="copy">Copiar</button></div>
  <div class="copied-box" id="cbox" role="status" hidden></div>
- <p class="muted small">Pégalo en un correo para tu profesora: __EMAIL__. Se copian los resultados de los ejercicios, tus descripciones, tus tiempos y silencios del entrenador y de «Ahora tú», y tus respuestas. Las grabaciones no se copian: si quieres que tu profesora te escuche, guarda el audio y envíalo tú.</p>
+ <p class="muted small">Pégalo en un correo para tu profesora: __EMAIL__. Se copian tus prácticas de la entrada y de los cierres, los resultados de los ejercicios, tus descripciones, tus tiempos y silencios del entrenador y de «Ahora tú», y tus respuestas. Las grabaciones no se copian: si quieres que tu profesora te escuche, guarda el audio y envíalo tú.</p>
 </div>
 """.replace("__CHIPS__", "".join('<label><input type="radio" name="o1" value="%s">%s</label>' % (x, x) for x in CUESTA)).replace("__EMAIL__", EMAIL)
 
@@ -436,9 +552,9 @@ BODY = """
 __VIEWS__
 <footer class="legal">Material de preparación original. No es un examen oficial y es independiente del Instituto Cervantes.</footer>
 </main>
-<div id="sheet"><h2>Mi tarjeta de rescate · Oral DELE A2</h2><p style="margin:0 0 3mm">Nunca más de cinco segundos callado. Respondo + añado + pregunto.</p>__TARJETA__</div>
+<div id="sheet"><h2>Mi tarjeta de rescate · Oral DELE A2</h2><p style="margin:0 0 3mm">Nunca más de cinco segundos callado. Respondo + añado + pregunto.</p>__TARJETA__<p style="margin:3mm 0 0"><b>Para cerrar.</b> Tarea 1: «Y eso es todo sobre...», «Para terminar, creo que...». Tarea 2: «En resumen, en la foto veo...», «Y eso es lo que veo en la foto». Al final: «Gracias a ustedes. Hasta luego».</p></div>
 """
-views = {"importa": V_IMPORTA, "frases": V_FRASES, "dices": V_DICES, "palabra": V_PALABRA, "entrena": V_ENTRENA, "ahora": V_AHORA, "opinion": V_OPINION}
+views = {"entrar": V_ENTRAR, "importa": V_IMPORTA, "frases": V_FRASES, "dices": V_DICES, "palabra": V_PALABRA, "entrena": V_ENTRENA, "ahora": V_AHORA, "opinion": V_OPINION}
 VIEWS_HTML = "\n".join('<section class="view" id="v-%s">%s</section>' % (k, views[k]) for k, _ in STEPS)
 body = BODY.replace("__TITLE__", TITLE).replace("__VIEWS__", VIEWS_HTML).replace("__TARJETA__", tarjeta())
 DATA["steps"] = [{"id": k, "label": l} for k, l in STEPS]
@@ -455,21 +571,24 @@ function mmss(s){ s=Math.max(0,Math.round(s)); return Math.floor(s/60)+':'+('0'+
 function sec1(s){ return (Math.round(s*10)/10).toFixed(1).replace('.',','); }
 function today(){ return new Date().toISOString().slice(0,10); }
 function fdate(d){ return d.split('-').reverse().join('/'); }
-function blank(){ return {cur:'importa', seen:{}, qz:{best:null,last:null}, pw:{best:null,last:null,mine:{}},
+function blank(){ return {cur:'entrar', seen:{}, qz:{best:null,last:null}, pw:{best:null,last:null,mine:{}}, ec:{best:null,last:null},
+ en:{n:5, d:20, lim:5, mic:true, rec:false, voz:false}, enh:[], cih:[], ci:null,
+ oc:{t1:null, t2:null, t3:null, dur:'n', n:3, lim:5, prep:true, mic:true, rec:false, beep:true, voz:false, notes:{T1:'',T2:'',T3:''}}, o6:'',
  o:{dur:120, every:20, lim:5, mode:'mix', trato:'ambos', mic:true, rec:false, beep:true},
  ao:{n:3, lim:5, mic:true, rec:false, beep:true, notas:true, dur:{T1:150,T2:150,T3:210}}, trh:[], ath:[], sel:null,
  o1:'', o2:'', o3:'', o4:'', o5:'', name:''}; }
-var S = (function(){ try{ var r=localStorage.getItem(D.key); if(r){ var o=JSON.parse(r), b=blank(); for(var k in b){ if(!(k in o)) o[k]=b[k]; } ['o','ao','pw'].forEach(function(g){ for(var j in b[g]){ if(!(j in o[g])) o[g][j]=b[g][j]; } }); return o; } }catch(e){} return blank(); })();
+var S = (function(){ try{ var r=localStorage.getItem(D.key); if(r){ var o=JSON.parse(r), b=blank(); for(var k in b){ if(!(k in o)) o[k]=b[k]; } ['o','ao','pw','ec','en','oc'].forEach(function(g){ for(var j in b[g]){ if(!(j in o[g])) o[g][j]=b[g][j]; } }); return o; } }catch(e){} return blank(); })();
 function save(){ try{ localStorage.setItem(D.key, JSON.stringify(S)); }catch(e){} }
 function other(k){ try{ var r=localStorage.getItem(D.keys[k]); return r ? JSON.parse(r) : null; }catch(e){ return null; } }
 
 /* ---------------- navegacion ---------------- */
 function tabDone(id){
+ if(id==='entrar') return !!S.seen.entrar || S.enh.length>0 || S.ec.best!==null || S.cih.length>0;
  if(id==='dices') return S.qz.best!==null;
  if(id==='palabra') return S.pw.best!==null;
  if(id==='entrena') return S.trh.length>0;
  if(id==='ahora') return S.ath.length>0;
- if(id==='opinion') return !!(S.o1||S.o2||S.o3||S.o4||S.o5);
+ if(id==='opinion') return !!(S.o1||S.o2||S.o3||S.o4||S.o5||S.o6);
  return !!S.seen[id];
 }
 function nav(){
@@ -481,11 +600,12 @@ function nav(){
  $('steps').innerHTML=o;
 }
 function go(id){
- if(R.active) stopRun(true);
+ if(R.active) stopRun(true); prepStop();
  S.seen[S.cur]=true; S.cur=id; save();
  var vs=document.querySelectorAll('section.view');
  for(var i=0;i<vs.length;i++) vs[i].classList.toggle('on', vs[i].id==='v-'+id);
  document.body.classList.toggle('wide', id==='ahora');
+ if(id==='entrar'){ renderEn(); renderCi(); }
  if(id==='entrena') showTrSetup();
  if(id==='ahora') showAtPick();
  nav(); window.scrollTo(0,0);
@@ -498,7 +618,7 @@ function frases(sid, trato, nmax){
  var nt=(sid==='pensar')?1:2; if(trato==='tu') o=o.concat(s.tu.slice(0,nt)); else if(trato==='usted') o=o.concat(s.us.slice(0,nt));
  return o;
 }
-function formsBox(list){ return '<div class="forms"><b>Frases de rescate:</b> <i>'+list.map(esc).join(' · ')+'</i></div>'; }
+function formsBox(list, lab){ return '<div class="forms"><b>'+(lab||'Frases de rescate')+':</b> <i>'+list.map(esc).join(' · ')+'</i></div>'; }
 function trName(t){ return t==='tu'?'tú':(t==='usted'?'usted':''); }
 
 /* ---------------- ejercicio 1: que dices ---------------- */
@@ -652,9 +772,10 @@ function now(){ return (window.performance&&performance.now)?performance.now():D
 function elapsed(){ return R.acc + (R.paused?0:(now()-R.t0)/1000); }
 function totalEl(){ return R.done + elapsed(); }
 function startRun(cfg){
- try{ if(!AC){ var C=window.AudioContext||window.webkitAudioContext; if(C) AC=new C(); } if(AC && AC.resume) AC.resume(); }catch(e){}
+ initAC();
  R={active:false, kind:cfg.kind, segs:cfg.segs, lim:cfg.lim, rec:cfg.rec, beepOn:cfg.beep, src:cfg.src||null, i:0, acc:0, t0:0, paused:false, done:0,
-    gap:0, last:0, inGap:false, count:0, longest:0, voiced:0, calib:true, cal:0, noMic:false, warned:false, tPrev:0, side:cfg.side||null};
+    gap:0, last:0, inGap:false, count:0, longest:0, voiced:0, calib:true, cal:0, noMic:false, warned:false, tPrev:0, side:cfg.side||null,
+    label:cfg.label||'', after:cfg.after||null, chk:cfg.chk||null, voz:!!cfg.voz};
  var box=cfg.box; R.box=box;
  box.innerHTML='<p class="muted">Un momento...</p>';
  micPrepare(cfg.mic, function(){
@@ -672,13 +793,20 @@ function renderCalib(){
 }
 function enterSeg(n){
  R.i=n; R.acc=0; R.t0=now(); R.paused=false; R.evShown=false; R.clarShown=false;
- if(n===0){ recStart(); R.last=now(); R.gap=0; } else if(R.beepOn) beep(R.segs[n].ev?520:660);
+ var sg=R.segs[n];
+ if(n===0){ recStart(); R.last=now(); R.gap=0; } else if(R.beepOn) beep(sg.ev?520:660);
+ if(sg.skip||sg.quiet){ R.last=now(); R.inGap=false; }
+ if(R.voz && sg.say) say(sg.say);
  renderSeg(); if(R.side) renderSide();
 }
-function renderSide(){ var s=R.segs[R.i]; $('side').innerHTML=R.side(s.cur); var c=document.querySelector('#side li.cur'), l=c&&c.closest('.lam'); if(l && l.scrollHeight>l.clientHeight) l.scrollTop=Math.max(0,c.offsetTop-60); }
+function say(t){ try{ if(!window.speechSynthesis || !window.SpeechSynthesisUtterance) return; var u=new SpeechSynthesisUtterance(t); u.lang='es-ES'; u.rate=0.95;
+ var vs=speechSynthesis.getVoices(), v=null; for(var i=0;i<vs.length;i++){ if(/^es[-_]ES/i.test(vs[i].lang)){ v=vs[i]; break; } } if(!v) for(var j=0;j<vs.length;j++){ if(/^es/i.test(vs[j].lang)){ v=vs[j]; break; } }
+ if(v) u.voice=v; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){} }
+function hush(){ try{ if(window.speechSynthesis) speechSynthesis.cancel(); }catch(e){} }
+function renderSide(){ var s=R.segs[R.i]; $('side').innerHTML=R.side(s.cur, s); var c=document.querySelector('#side li.cur'), l=c&&c.closest('.lam'); if(l && l.scrollHeight>l.clientHeight) l.scrollTop=Math.max(0,c.offsetTop-60); }
 function segCard(c, cls){
  return '<div class="card2 '+(cls||'')+'"><div class="ty">'+esc(c.ty)+'</div><div class="mn">'+c.mn+'</div>'+(c.ins?'<div class="in">'+esc(c.ins)+'</div>':'')+
-  (c.clar?'<div class="clar" id="clar'+(cls==='ev'?'e':'')+'" hidden><b>El examinador lo dice de otra forma:</b> «'+esc(c.clar)+'»</div>':'')+'</div>'+(c.ph&&c.ph.length?formsBox(c.ph):'');
+  (c.clar?'<div class="clar" id="clar'+(cls==='ev'?'e':'')+'" hidden><b>El examinador lo dice de otra forma:</b> «'+esc(c.clar)+'»</div>':'')+'</div>'+(c.ph&&c.ph.length?formsBox(c.ph, c.phl):'');
 }
 function renderSeg(){
  var s=R.segs[R.i], n=R.segs.length;
@@ -687,7 +815,9 @@ function renderSeg(){
  o+=segCard(s.card, s.kind==='pauta'?'pt':'');
  if(s.nota) o+='<div class="myn"><b>TUS NOTAS</b>'+esc(s.nota)+'</div>';
  if(s.ev) o+='<div id="evbox"></div>';
- if(MIC.an && !R.noMic) o+='<div class="sil"><span>Silencio</span><span class="sb"><i id="silb"></i></span><b id="silt">0,0 s</b></div><div class="alarm" id="alarm" hidden>¡Habla! «Pues...», «A ver...», «Bueno, ahora...»</div>';
+ if(s.skip) o+='<div class="row" style="margin:8px 0"><button class="btn cta sm" data-act="next">'+esc(s.skipl||'Siguiente →')+'</button></div>';
+ if(s.quiet) o+='<p class="small muted">Ahora habla el examinador: escucha.</p>';
+ else if(MIC.an && !R.noMic) o+='<div class="sil"><span>Silencio</span><span class="sb"><i id="silb"></i></span><b id="silt">0,0 s</b></div><div class="alarm" id="alarm" hidden>¡Habla! «Pues...», «A ver...», «Bueno, ahora...»</div>';
  else o+='<p class="small muted">Sin micrófono: fíjate tú en tus silencios. Nunca más de '+R.lim+' segundos callado.</p>';
  $('pan').innerHTML=o;
 }
@@ -702,6 +832,7 @@ function tick(){
   return;
  }
  var dt=R.tPrev ? Math.min(0.5,(t-R.tPrev)/1000) : 0; R.tPrev=t;
+ if(R.segs[R.i].quiet){ R.last=t; R.inGap=false; }
  if(lv>=0 && !R.noMic){
   if(!R.warned && t-R.tStart>10000){ R.warned=true; if(MIC.max<2){ R.noMic=true; var mw=$('micw'); if(mw) mw.hidden=false; renderSeg(); } }
   if(lv>MIC.thr){ if(R.inGap){ R.inGap=false; } R.last=t; R.voiced+=dt; }
@@ -726,18 +857,19 @@ function togglePause(){
  var b=$('bpause'); if(b) b.textContent=R.paused?'Seguir':'Pausa';
 }
 function stopRun(silent){
- document.body.classList.remove('focus');
+ document.body.classList.remove('focus'); hush();
  if(R.timer) clearInterval(R.timer); R.timer=null; var was=R.active; R.active=false; wake(false); micStop();
- if(!silent && was){ if(R.kind==='tr') showTrSetup(); else showAtSetup(); }
+ if(!silent && was){ if(R.kind==='tr') showTrSetup(); else if(R.kind==='at') showAtSetup(); else if(R.kind==='oc') showOcSetup(); else if(R.kind==='en') renderEn(); else renderCi(); }
 }
 function finishRun(){
  var secs=R.done;
  document.body.classList.remove('focus');
- if(R.timer) clearInterval(R.timer); R.timer=null; R.active=false; wake(false); micStop(); if(R.beepOn) beep(880);
+ if(R.timer) clearInterval(R.timer); R.timer=null; R.active=false; wake(false); micStop(); hush(); if(R.beepOn) beep(880);
  var heard=!!(R.micOn && !R.noMic);
  var res={d:today(), s:Math.round(secs), n:R.segs.length, ev:R.segs.filter(function(x){ return x.ev; }).length, mic:heard, sil:heard?R.count:null, lg:heard?Math.round(R.longest*10)/10:null, vo:heard?Math.round(R.voiced):null, self:null};
- if(R.kind==='tr'){ res.mode=S.o.mode; S.trh.push(res); S.trh=S.trh.slice(-12); }
- else { res.src=R.src.k; res.id=R.src.id; res.t=R.src.t; S.ath.push(res); S.ath=S.ath.slice(-12); }
+ if(R.kind==='tr') res.mode=S.o.mode;
+ if(R.src){ res.src=R.src.k; res.id=R.src.id; res.t=R.src.t; }
+ var hk=HK[R.kind]; S[hk].push(res); S[hk]=S[hk].slice(-12);
  save(); nav(); showDone(res);
 }
 function showDone(res){
@@ -747,18 +879,21 @@ function showDone(res){
   else if(res.sil<=2){ cl='amb'; v='Bien. '+res.sil+' silencio'+(res.sil>1?'s':'')+' largo'+(res.sil>1?'s':'')+'. Mira en qué tarjetas te ha pasado y repasa esas frases.'; }
   else { cl='bad'; v=res.sil+' silencios largos. Ten la tarjeta de rescate delante y prueba con más tiempo por tarjeta.'; }
  } else { cl='amb'; v='Sin micrófono no he podido contar tus silencios. ¿Cuántas veces te has quedado callado más de '+R.lim+' segundos?'; }
- var hist=(R.kind==='tr'?S.trh:S.ath).slice(-6).reverse();
- var o='<div class="row noprint" style="margin-top:0"><button class="btn sm" data-act="'+(R.kind==='tr'?'trset':'atback')+'">← '+(R.kind==='tr'?'Volver al entrenador':'Otras láminas')+'</button></div>';
- o+='<div class="res"><div class="kk muted small">'+(R.kind==='tr'?'ENTRENADOR':'AHORA TÚ · '+esc(R.src.t))+'</div><div class="big">'+mmss(res.s)+'</div>';
+ var hist=S[HK[R.kind]].slice(-6).reverse(), bk=BACK[R.kind];
+ var o='<div class="row noprint" style="margin-top:0"><button class="btn sm" data-act="'+bk[0]+'">← '+bk[1]+'</button></div>';
+ o+='<div class="res"><div class="kk muted small">'+esc(R.label||(R.kind==='tr'?'ENTRENADOR':'AHORA TÚ · '+R.src.t))+'</div><div class="big">'+mmss(res.s)+'</div>';
  if(res.mic) o+='<div class="kpis"><div><b>'+res.sil+'</b>silencios de más de '+R.lim+' s</div><div><b>'+sec1(res.lg)+' s</b>el silencio más largo</div><div><b>'+Math.min(100,Math.round(res.vo/Math.max(1,res.s)*100))+' %</b>del tiempo con voz</div></div>';
  o+='<div class="verd '+cl+'">'+v+'</div>';
  if(!res.mic) o+='<div class="chips" role="group" aria-label="Mis silencios">'+['Ninguna','1 o 2','3 o más'].map(function(x){ return '<label><input type="radio" name="selfsil" value="'+x+'">'+x+'</label>'; }).join('')+'</div>';
  if(hist.length>1) o+='<p class="small" style="margin:10px 0 0"><b>Tus últimas prácticas:</b></p><ul class="hist">'+hist.map(function(x){ return '<li>'+fdate(x.d)+' · '+mmss(x.s)+(x.t?' · '+esc(x.t):'')+' · '+(x.mic?x.sil+' silencios largos (máx. '+sec1(x.lg)+' s)':(x.self?'silencios: '+x.self:'sin micrófono'))+'</li>'; }).join('')+'</ul>';
- o+='</div><div id="recout">'+recBlock()+'</div>';
- o+='<h4>Revísate</h4><ul class="chk">'+['No me he quedado callado más de cinco segundos.','Cuando no sabía una palabra, la he explicado (para qué sirve, cómo es...).','Cuando no entendía, he pedido que repita o he preguntado qué significa.','He usado frases para pensar, pero no siempre la misma.','Me he corregido rápido y he seguido.','He usado tú o usted según la situación.'].map(function(x){ return '<li><label><input type="checkbox"><span>'+x+'</span></label></li>'; }).join('')+'</ul>';
- o+='<div class="row"><button class="btn cta" data-act="'+(R.kind==='tr'?'tragain':'atagain')+'">Otra vez</button><button class="btn" data-act="print" data-p="sheet">Imprimir la tarjeta de rescate</button><button class="btn" data-go="opinion">Tu opinión</button></div>';
- R.box.innerHTML=o; window.scrollTo(0,0);
+ o+='</div>'+(R.after?R.after():'')+'<div id="recout">'+recBlock()+'</div>';
+ o+='<h4>Revísate</h4><ul class="chk">'+(R.chk||['No me he quedado callado más de cinco segundos.','Cuando no sabía una palabra, la he explicado (para qué sirve, cómo es...).','Cuando no entendía, he pedido que repita o he preguntado qué significa.','He usado frases para pensar, pero no siempre la misma.','Me he corregido rápido y he seguido.','He usado tú o usted según la situación.']).map(function(x){ return '<li><label><input type="checkbox"><span>'+x+'</span></label></li>'; }).join('')+'</ul>';
+ o+='<div class="row"><button class="btn cta" data-act="'+AGAIN[R.kind]+'">Otra vez</button><button class="btn" data-act="print" data-p="sheet">Imprimir la tarjeta de rescate</button><button class="btn" data-go="opinion">Tu opinión</button></div>';
+ R.box.innerHTML=o; if(R.kind==='en'||R.kind==='ci') R.box.scrollIntoView(); else window.scrollTo(0,0);
 }
+var HK={tr:'trh', at:'ath', oc:'ath', en:'enh', ci:'cih'};
+var BACK={tr:['trset','Volver al entrenador'], at:['atback','Otras láminas'], oc:['ocset','Volver a la oral completa'], en:['enset','Volver a la entrada'], ci:['ciset','Otro cierre']};
+var AGAIN={tr:'tragain', at:'atagain', oc:'ocset', en:'enstart', ci:'cistart'};
 
 /* ---------------- entrenador ---------------- */
 function sel(id, opts, val){ return '<select id="'+id+'">'+opts.map(function(r){ return '<option value="'+r[0]+'"'+(String(val)===String(r[0])?' selected':'')+'>'+r[1]+'</option>'; }).join('')+'</select>'; }
@@ -808,6 +943,7 @@ function srcList(){
 function findSrc(k,id){ var L=srcList()[k]; for(var i=0;i<L.length;i++) if(L[i].id===id) return L[i]; return null; }
 function showAtPick(){
  var L=srcList(), o='<h2>Ahora tú: una tarea entera sin quedarte callado</h2><p class="lead">Elige una lámina del taller oral. Haces la tarea completa con el reloj y, de vez en cuando, te pasa algo: no te sale una palabra, no entiendes al examinador, te quedas en blanco... Tú sigues hablando.</p>';
+ o+='<button type="button" class="oc" data-act="ocpick"><b>Nuevo: la oral completa</b><span>La entrada, las tareas 1, 2 y 3 y la despedida, seguidas, como en el examen. Con los 12 minutos de preparación, si quieres.</span></button>';
  o+=L.found?'<div class="tip">He encontrado tus prácticas del taller oral en este navegador: las láminas que ya has practicado salen primero, en verde, y si tienes notas guardadas, las ves mientras hablas.</div>':
   '<div class="tip">No encuentro tus prácticas de las otras piezas del taller oral en este navegador (el monólogo, la foto y los diálogos). No pasa nada: elige cualquier lámina. Si practicas antes en esas piezas con el mismo navegador, aquí verás tus notas.</div>';
  [['T1','Tarea 1 · El monólogo','Hablas tú solo 2-3 minutos sobre un tema.'],['T2','Tarea 2 · La foto','Describes la foto 2-3 minutos con las seis preguntas.'],['T3','Tarea 3 · El diálogo','Hablas con el examinador 3-4 minutos. Necesitas a alguien que haga de examinador, o imagina sus frases.']].forEach(function(g){
@@ -881,23 +1017,185 @@ function atStart(){
  R.total=dur;
 }
 
+/* ---------------- entrar y terminar: la entrada ---------------- */
+function initAC(){ try{ if(!AC){ var C=window.AudioContext||window.webkitAudioContext; if(C) AC=new C(); } if(AC && AC.resume) AC.resume(); }catch(e){} }
+function contactList(n){
+ var ini=null, nom=null, fin=null, rest=[];
+ D.contacto.forEach(function(c){ if(c.fijo==='ini') ini=c; else if(c.fijo==='nom') nom=c; else if(c.fijo==='fin') fin=c; else rest.push(c); });
+ return [ini,nom].concat(shuffle(rest).slice(0, Math.max(1,n-3))).concat([fin]);
+}
+function modTable(qs){ return '<table class="t mods"><tbody>'+qs.map(function(c){ return '<tr><td>«'+esc(c.q)+'»</td><td><b>'+esc(c.mod)+'</b><br><span class="small"><i>Mejor no:</i> '+esc(c.evita)+'<br>'+esc(c.por)+'</span></td></tr>'; }).join('')+'</tbody></table>'; }
+function micOpts(G, attr){
+ return '<label><input type="checkbox" data-'+attr+'="mic"'+(G.mic?' checked':'')+'><span>Contar mis silencios con el micrófono<small>Solo mide si hay voz o no. El sonido no sale de tu dispositivo.</small></span></label>'+
+  '<label><input type="checkbox" data-'+attr+'="rec"'+(G.rec?' checked':'')+'><span>Grabarme también (opcional)<small>Al final puedes escucharte, guardar el audio o borrarlo.</small></span></label>';
+}
+function vozOpt(G, attr){ return '<label><input type="checkbox" data-'+attr+'="voz"'+(G.voz?' checked':'')+'><span>Leer en voz alta lo que dice el examinador<small>Con la voz de tu navegador, si tiene voz en español. Si no, léelo tú o pide a alguien que haga de examinador.</small></span></label>'; }
+function renderEn(){
+ if(R.active && R.kind==='en') return;
+ var E=S.en, o='<div class="opts">';
+ o+='<label><span style="flex:1">Preguntas '+sel('enn',[[4,'4 preguntas'],[5,'5 preguntas']],E.n)+'<small>Empiezan siempre con el documento y el nombre y terminan con «¿Qué opción ha elegido?».</small></span></label>';
+ o+='<label><span style="flex:1">Tiempo máximo para cada respuesta '+sel('end',[[15,'15 segundos'],[20,'20 segundos']],E.d)+'<small>Cuando terminas de contestar, pulsa el botón y sale la pregunta siguiente.</small></span></label>';
+ o+=vozOpt(E,'e')+micOpts(E,'e')+'</div><div class="row"><button class="btn cta" data-act="enstart">Empezar la entrada</button></div>';
+ if(S.enh.length) o+='<details><summary>Tus prácticas de la entrada</summary><ul class="hist">'+S.enh.slice().reverse().map(function(x){ return '<li>'+fdate(x.d)+' · '+mmss(x.s)+' · '+x.n+' preguntas · '+(x.mic?x.sil+' silencios largos':(x.self?'silencios: '+x.self:'sin micrófono'))+'</li>'; }).join('')+'</ul></details>';
+ $('en').innerHTML=o;
+}
+function enStart(){
+ var qs=contactList(S.en.n);
+ var segs=qs.map(function(c,i){ return {d:S.en.d, head:'PREGUNTA DE CONTACTO', kind:'card', skip:true, skipl:(i===qs.length-1?'He contestado: terminar':'He contestado: siguiente pregunta →'), say:c.q,
+  card:{ty:'El examinador'+(c.h?' · habitual':''), mn:'«'+esc(c.q)+'»', ins:'Una frase completa y un detalle pequeño. Después pulsa el botón.'}}; });
+ startRun({kind:'en', box:$('en'), segs:segs, lim:S.en.lim, mic:S.en.mic||S.en.rec, rec:S.en.rec, beep:!S.en.voz, voz:S.en.voz, label:'LA ENTRADA · PREGUNTAS DE CONTACTO',
+  after:function(){ return '<h4>Compara con las respuestas modelo</h4>'+modTable(qs)+'<div class="tip">La última pregunta te lleva a la tarea 1. <button class="btn sm" data-go="ahora">Seguir con una tarea 1 en «Ahora tú»</button></div>'; },
+  chk:['He contestado con frases completas, no con una palabra sola.','He añadido un detalle pequeño en cada respuesta.','No he contado una historia larga: no es la tarea 1.','He dicho la opción y el tema de la tarea 1.','He hablado de usted con el examinador.']});
+ R.total=segs.reduce(function(a,s){ return a+s.d; },0);
+}
+
+/* ---------------- entrar y terminar: elige el cierre ---------------- */
+var EC=null;
+function newEc(){ EC={items:shuffle(D.ec.map(function(q,i){ return i; })).map(function(i){ return {q:D.ec[i], ord:shuffle([0,1,2])}; }), k:0, ok:0, done:false}; renderEc(); }
+function renderEc(){
+ var q=EC, box=$('ec');
+ if(q.k>=q.items.length){
+  var n=q.items.length, ok=q.ok;
+  if(S.ec.best===null || ok>S.ec.best) S.ec.best=ok; S.ec.last=ok; save(); nav();
+  box.innerHTML='<div class="quiz"><div class="qn">RESULTADO</div><div class="score">'+ok+' / '+n+'</div><p>'+(ok>=8?'¡Muy bien! Sabes cuándo y cómo cerrar.':'Recuerda: cierra solo cuando has hablado de todo, con una fórmula y una frase final.')+'</p><p class="small muted">Tu mejor resultado: '+S.ec.best+' / '+n+'</p><div class="row" style="margin-bottom:0"><button class="btn cta" data-act="ecnew">Otra vez</button></div></div>';
+  return;
+ }
+ var it=q.items[q.k], Q=it.q;
+ var o='<div class="quiz"><div class="qn">MOMENTO '+(q.k+1)+' DE '+q.items.length+'</div><div><span class="ch">'+esc(Q.tarea)+'</span>'+(Q.trato?'<span class="ch tr">USTED</span>':'')+'</div><p class="qs">'+esc(Q.ctx)+'</p>'+(Q.e?'<div class="qe"><b>El examinador</b>«'+esc(Q.e)+'»</div>':'')+'<div role="group" aria-label="Respuestas">';
+ it.ord.forEach(function(i){ o+='<button type="button" class="qop" data-act="ecpick" data-i="'+i+'">'+esc(Q.ops[i])+'</button>'; });
+ o+='</div><div id="ecfb"></div><div class="row" style="margin-bottom:0" id="ecnext" hidden><button class="btn cta" data-act="ecnext">'+(q.k===q.items.length-1?'Ver el resultado':'Siguiente')+'</button></div></div>';
+ box.innerHTML=o;
+}
+function pickEc(b){
+ var q=EC, it=q.items[q.k]; if(q.done) return;
+ var i=+b.getAttribute('data-i'), ok=i===it.q.ok; if(ok) q.ok++; q.done=true;
+ [].forEach.call(document.querySelectorAll('#ec .qop'), function(x){ x.disabled=true; var j=+x.getAttribute('data-i'); if(j===it.q.ok) x.classList.add('ok'); else if(j===i) x.classList.add('bad'); });
+ var k=it.q.tarea==='Tarea 1'?'T1':(it.q.tarea==='Tarea 2'?'T2':null);
+ $('ecfb').innerHTML='<div class="fb '+(ok?'ok':'bad')+'"><b>'+(ok?'¡Muy bien!':'Mejor la otra.')+'</b> '+esc(it.q.por)+'</div>'+(it.q.tipo==='cierre'&&k?formsBox(D.cierres[k],'Para cerrar'):(it.q.tipo==='final'?formsBox(D.desp.c,'Para despedirte'):''));
+ $('ecnext').hidden=false;
+}
+
+/* ---------------- entrar y terminar: te quedan 20 segundos ---------------- */
+function c20src(c){ return findSrc(c.k, c.id); }
+function dichoHTML(c){ return '<ul class="dch">'+c.dicho.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+function renderCi(){
+ if(R.active && R.kind==='ci') return;
+ var i=S.ci; if(i===null || i===undefined || !D.c20[i]){ i=S.ci=Math.floor(Math.random()*D.c20.length); save(); }
+ var c=D.c20[i], src=c20src(c);
+ var o='<div class="chips" role="group" aria-label="Elige un tema o una foto">'+D.c20.map(function(x,j){ return '<label><input type="radio" name="cisel" value="'+j+'"'+(j===i?' checked':'')+'>'+(x.k==='T1'?'Tarea 1':'Foto')+' · '+esc(c20src(x).t)+'</label>'; }).join('')+'</div>';
+ o+='<div class="run"><div>'+lamHTML(src, c.k==='T1'?4:5)+'</div><div><h4>Lo que ya has dicho</h4>'+dichoHTML(c)+
+  '<p class="small">Al pulsar «Empezar», tienes <b>20 segundos</b> para cerrar '+(c.k==='T1'?'tu monólogo':'tu descripción de la foto')+' en voz alta: una fórmula y una frase final.</p>'+
+  '<div class="opts">'+micOpts(S.en,'e')+'</div><div class="row"><button class="btn cta" data-act="cistart">Empezar: 20 segundos</button><button class="btn" data-act="cirand">Otro al azar</button></div></div></div>';
+ if(S.cih.length) o+='<details><summary>Tus cierres</summary><ul class="hist">'+S.cih.slice().reverse().map(function(x){ return '<li>'+fdate(x.d)+' · '+esc(x.t||'')+' · '+(x.mic?x.sil+' silencios largos':(x.self?'silencios: '+x.self:'sin micrófono'))+'</li>'; }).join('')+'</ul></details>';
+ $('ci').innerHTML=o;
+}
+function ciStart(){
+ var c=D.c20[S.ci], src=c20src(c), last=c.k==='T1'?4:5;
+ var segs=[{d:20, head:'CIERRE', kind:'card', cur:last, card:{ty:'Te quedan 20 segundos: cierra', mn:dichoHTML(c), ins:'Cierra ahora en voz alta: una fórmula y una frase final.', ph:D.cierres[c.k], phl:'Para cerrar'}}];
+ startRun({kind:'ci', box:$('ci'), segs:segs, lim:5, mic:S.en.mic||S.en.rec, rec:S.en.rec, beep:true, src:{k:c.k, id:c.id, t:src.t}, label:'TE QUEDAN 20 SEGUNDOS · '+src.t,
+  side:function(cur){ return lamHTML(src,cur); },
+  after:function(){ return '<h4>Dos cierres modelo</h4><ul class="okl">'+c.mod.map(function(m){ return '<li>'+esc(m)+'</li>'; }).join('')+'</ul>'; },
+  chk:['He usado una fórmula para cerrar.','He dicho una frase final: mi opinión, un resumen o lo que van a hacer después.','No he cortado de golpe («Ya está», «Fin»).','No me he quedado callado al final.']});
+ R.total=20;
+}
+
+/* ---------------- ahora tu: la oral completa ---------------- */
+var OCD={c:[120,120,180], n:[150,150,210], l:[180,180,240]};
+var PREP={t:null, end:0};
+function prepStop(){ if(PREP.t) clearInterval(PREP.t); PREP.t=null; }
+function ocFill(){ var O=S.oc; if(!findSrc('T1',O.t1)) O.t1=pick(D.t1).id; if(!findSrc('T2',O.t2)) O.t2=pick(D.t2).id; if(!findSrc('T3',O.t3)) O.t3=pick(D.t3.filter(function(x){ return x.tr==='tu'; })).id; }
+function ocSrc(){ return {T1:findSrc('T1',S.oc.t1), T2:findSrc('T2',S.oc.t2), T3:findSrc('T3',S.oc.t3)}; }
+function showOcSetup(){
+ prepStop(); ocFill(); save();
+ var O=S.oc, o='<div class="row noprint" style="margin-top:0"><button class="btn sm" data-act="atback">← Otras láminas</button></div><h2>La oral completa</h2>';
+ o+='<p class="lead">Como el día del examen: la preparación, la entrada con las preguntas de contacto, las tres tareas seguidas y la despedida. Con bloqueos de vez en cuando, como en «Ahora tú».</p><div class="opts">';
+ o+='<label><span style="flex:1">Tarea 1 · tema '+sel('oct1', D.t1.map(function(x){ return [x.id, x.id+'. '+x.t]; }), O.t1)+'</span></label>';
+ o+='<label><span style="flex:1">Tarea 2 · foto '+sel('oct2', D.t2.map(function(x){ return [x.id, x.id+'. '+x.t]; }), O.t2)+'</span></label>';
+ o+='<label><span style="flex:1">Tarea 3 · situación '+sel('oct3', D.t3.map(function(x){ return [x.id, x.id+'. '+x.t+(x.tr==='tu'?' (tú)':' (usted)')]; }), O.t3)+'<small>En el examen, la tarea 3 sale de la foto de la tarea 2 y suele ser de tú. Aquí la foto y la situación son de dos piezas distintas del taller.</small></span></label>';
+ o+='<label><span style="flex:1"><button type="button" class="btn sm" data-act="ocrand">Otra combinación al azar</button></span></label>';
+ o+='<label><span style="flex:1">Duración '+sel('ocdur',[['c','Corta: 2 + 2 + 3 minutos'],['n','Normal: 2 y medio + 2 y medio + 3 y medio'],['l','Larga: 3 + 3 + 4 minutos']],O.dur)+'</span></label>';
+ o+='<label><span style="flex:1">Bloqueos '+sel('ocn',[[0,'Sin bloqueos'],[3,'Pocos (3)'],[5,'Normal (5)'],[7,'Muchos (7)']],O.n)+'</span></label>';
+ o+='<label><span style="flex:1">Silencio máximo '+sel('oclim',[[3,'3 segundos'],[5,'5 segundos'],[7,'7 segundos']],O.lim)+'</span></label>';
+ o+='<label><input type="checkbox" data-c="prep"'+(O.prep?' checked':'')+'><span>Empezar con los 12 minutos de preparación<small>Ves las tres láminas y escribes tus notas. Puedes entrar en la sala antes de tiempo.</small></span></label>';
+ o+=vozOpt(O,'c')+micOpts(O,'c');
+ o+='<label><input type="checkbox" data-c="beep"'+(O.beep?' checked':'')+'><span>Sonido al cambiar de pauta y con cada bloqueo</span></label>';
+ o+='</div><div class="row"><button class="btn cta" data-act="ocgo">'+(O.prep?'Ir a la sala de preparación':'Entrar en la sala')+'</button></div>';
+ var h=S.ath.filter(function(x){ return x.src==='OC'; });
+ if(h.length) o+='<details><summary>Tus orales completas</summary><ul class="hist">'+h.slice().reverse().map(function(x){ return '<li>'+fdate(x.d)+' · '+mmss(x.s)+' · '+esc(x.t)+' · '+(x.mic?x.sil+' silencios largos (máx. '+sec1(x.lg)+' s)':(x.self?'silencios: '+x.self:'sin micrófono'))+'</li>'; }).join('')+'</ul></details>';
+ $('at').innerHTML=o;
+}
+function ocPrep(){
+ initAC();
+ var X=ocSrc(), O=S.oc, nm={T1:'tarea 1',T2:'tarea 2',T3:'tarea 3'};
+ var o='<div class="row noprint" style="margin-top:0"><button class="btn sm" data-act="ocset">← Volver</button></div><h2>Sala de preparación</h2>'+
+  '<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div class="prep" id="prepclk">12:00</div><p class="small muted" style="margin:0;flex:1">Prepara las tres tareas. Escribe palabras clave, no frases: en la sala puedes mirar tus notas, pero no leerlas.</p></div><div id="prepend"></div>';
+ o+='<div class="g3">'+['T1','T2','T3'].map(function(k){ return '<div>'+lamHTML(X[k],null)+'<label class="small"><b>Mis notas · '+nm[k]+'</b><textarea data-ocn="'+k+'">'+esc(O.notes[k]||'')+'</textarea></label></div>'; }).join('')+'</div>';
+ o+='<div class="row"><button class="btn cta" data-act="ocstart">Entrar en la sala</button><button class="btn" data-act="occlear">Borrar mis notas</button></div>';
+ $('at').innerHTML=o; window.scrollTo(0,0);
+ prepStop(); PREP.end=now()+720000;
+ PREP.t=setInterval(function(){ var r=(PREP.end-now())/1000, c=$('prepclk'); if(!c){ prepStop(); return; }
+  c.textContent=mmss(Math.ceil(r)); c.className='prep'+(r<=60?' red':'');
+  if(r<=0){ prepStop(); c.textContent='0:00'; beep(880); var pe=$('prepend'); if(pe) pe.innerHTML='<div class="alarm">Se ha terminado el tiempo de preparación. Entra en la sala.</div>'; } }, 250);
+}
+function ocStart(){
+ prepStop();
+ var X=ocSrc(), O=S.oc, dd=OCD[O.dur]||OCD.n, segs=[], cand=[];
+ var qs=contactList(4);
+ function entLam(){ return '<div class="lam"><div class="lh"><span>La entrada</span><span>No se evalúa</span></div><h3>Preguntas de contacto</h3><p>Una frase completa y un detalle pequeño. Con el examinador hablas de usted.</p></div>'; }
+ qs.forEach(function(c,i){ segs.push({d:15, head:'ENTRADA', kind:'card', skip:true, skipl:'He contestado: siguiente →', say:c.q, lam:entLam,
+  card:{ty:'El examinador'+(c.h?' · habitual':''), mn:'«'+esc(c.q)+'»', ins:(i===qs.length-1?'Di la opción y el tema: «He elegido la opción 1: '+X.T1.t.toLowerCase()+'».':'Una frase completa y un detalle pequeño.')}}); });
+ function addTask(k, src, dur){
+  var pa=k==='T2'?D.pf:src.x.pa, n=pa.length, each=Math.round(dur/n), mine=(O.notes[k]||'').trim(), tr=k==='T3'?src.x.tr:'usted';
+  for(var j=0;j<n;j++){
+   var last=j===n-1, ins;
+   if(k==='T3') ins=j===0?'Saluda y empieza con esta pauta. Responde, añade y pregunta.':(last?'Termina con el plan claro.':'El examinador te pregunta por esta pauta. Responde, añade y pregunta.');
+   else ins=(k==='T2'?'Lo que ves, un detalle y tu opinión.':'Responde con el tiempo que pide y añade detalles.')+(last?' Y al terminar, cierra sin cortar de golpe.':'');
+   var nota=mine || ((S.ao.notas && src.notes)?noteAt(src,j):'');
+   var sg={d:(last?dur-each*(n-1):each), head:'TAREA '+k.charAt(1)+' · '+(k==='T2'?'PREGUNTA':'PAUTA'), kind:'pauta', cur:j, lam:(function(s){ return function(cur){ return lamHTML(s,cur); }; })(src),
+    card:{ty:(k==='T2'?'Pregunta ':'Pauta ')+(j+1)+(k==='T3'?' · '+(tr==='tu'?'tú':'usted'):''), mn:esc(pa[j]), ins:ins, ph:(last&&k!=='T3'?D.cierres[k]:[]), phl:'Para cerrar'}, nota:nota, ev:null};
+   segs.push(sg); if(k==='T3' || j>0) cand.push({i:segs.length-1, k:k, s:src});
+  }
+ }
+ addTask('T1', X.T1, dd[0]);
+ segs.push({d:6, quiet:true, skip:true, skipl:'Siguiente →', head:'PASO A LA TAREA 2', say:'Muy bien. Pasamos a la foto.', lam:function(){ return lamHTML(X.T2,null); },
+  card:{ty:'El examinador · habitual', mn:'«Muy bien. Pasamos a la foto.»', ins:'Mira la foto un segundo y empieza por lo general: dónde están y quiénes son.'}});
+ addTask('T2', X.T2, dd[1]);
+ segs.push({d:10, quiet:true, skip:true, skipl:'Siguiente →', head:'PASO A LA TAREA 3', say:'Muy bien. Ahora vamos a imaginar una situación. '+X.T3.x.sit, lam:function(){ return lamHTML(X.T3,null); },
+  card:{ty:'El examinador', mn:'«Muy bien. Ahora vamos a imaginar una situación.»', ins:'Lee la situación en la lámina. El examinador es '+X.T3.x.rol+': hablas de '+(X.T3.x.tr==='tu'?'tú':'usted')+'.'}});
+ addTask('T3', X.T3, dd[2]);
+ segs.push({d:12, skip:true, skipl:'Terminar', head:'FINAL', say:D.desp.e, lam:function(){ return '<div class="lam"><div class="lh"><span>El final</span><span>Habitual</span></div><h3>La despedida</h3><p>Despídete con educación y deja en la mesa las láminas y tus notas.</p></div>'; },
+  card:{ty:'El examinador · habitual', mn:'«'+esc(D.desp.e)+'»', ins:'Despídete y deja las notas en la mesa.', ph:D.desp.c, phl:'Para despedirte'}});
+ var used={T1:[],T2:[],T3:[]};
+ shuffle(cand).slice(0, Math.min(O.n, cand.length)).forEach(function(c){ segs[c.i].ev=evFor(c.s, c.k, used[c.k]); });
+ startRun({kind:'oc', box:$('at'), segs:segs, lim:O.lim, mic:O.mic||O.rec, rec:O.rec, beep:O.beep, voz:O.voz, label:'ORAL COMPLETA',
+  src:{k:'OC', id:0, t:'Oral completa: tema '+X.T1.id+' · foto '+X.T2.id+' · situación '+X.T3.id},
+  side:function(cur, s){ return s.lam(cur); },
+  chk:['En la entrada he contestado con frases completas y un detalle.','He cerrado la tarea 1 con una fórmula, sin cortar de golpe.','He cerrado la foto con un resumen o con lo que van a hacer después.','En la tarea 3 he respondido, he añadido algo y he preguntado.','No me he quedado callado más de cinco segundos.','Me he despedido y he dejado las notas en la mesa.']});
+ R.total=segs.reduce(function(a,s){ return a+s.d; },0);
+}
+
 /* ---------------- opinion y copiar ---------------- */
 function renderScale(){
  var o=''; for(var i=1;i<=10;i++){ o+='<label><input type="radio" name="o4" value="'+i+'"'+(String(S.o4)===String(i)?' checked':'')+'><span>'+i+'</span></label>'; }
  $('o4').innerHTML=o;
- ['o1','o3'].forEach(function(k){ var r=document.querySelectorAll('input[name='+k+']'); for(var i=0;i<r.length;i++) r[i].checked=r[i].value===S[k]; });
+ ['o1','o3','o6'].forEach(function(k){ var r=document.querySelectorAll('input[name='+k+']'); for(var i=0;i<r.length;i++) r[i].checked=r[i].value===S[k]; });
  $('o2').value=S.o2; $('o5').value=S.o5; $('sname').value=S.name;
 }
 function histLine(x){ return fdate(x.d)+' - '+mmss(x.s)+(x.t?' - '+x.src+' '+x.t:'')+' - '+(x.mic?x.sil+' silencios de mas de 5 s aprox. (max. '+sec1(x.lg)+' s)':(x.self?'silencios (segun yo): '+x.self:'sin microfono')); }
 function pack(){
  var L=['CURSO DELE A2 - ORAL: QUE HACER SI ME BLOQUEO', 'Nombre: '+(S.name||'-'), ''];
+ L.push('Entrar y terminar:');
+ L.push('  Simulador de la entrada:'); if(S.enh.length) S.enh.forEach(function(x){ L.push('    '+histLine(x)+' - '+x.n+' preguntas'); }); else L.push('    (todavia no)');
+ L.push('  Ejercicio "Elige el cierre": '+(S.ec.best===null?'sin hacer':'mejor '+S.ec.best+'/'+D.ec.length+', ultimo '+S.ec.last+'/'+D.ec.length));
+ L.push('  Te quedan 20 segundos: cierra:'); if(S.cih.length) S.cih.forEach(function(x){ L.push('    '+histLine(x)); }); else L.push('    (todavia no)');
+ L.push('');
  L.push('Ejercicio "Que dices": '+(S.qz.best===null?'sin hacer':'mejor '+S.qz.best+'/8, ultimo '+S.qz.last+'/8'));
  L.push('Ejercicio "Describe la palabra": '+(S.pw.best===null?'sin hacer':'mejor '+S.pw.best+'/8, ultimo '+S.pw.last+'/8'));
  var mine=Object.keys(S.pw.mine).filter(function(w){ return String(S.pw.mine[w]).trim(); });
  if(mine.length){ L.push('Mis descripciones:'); mine.forEach(function(w){ L.push('  '+w+': '+String(S.pw.mine[w]).trim()); }); }
  L.push('', 'Entrenador:'); if(S.trh.length) S.trh.forEach(function(x){ L.push('  '+histLine(x)+' - '+x.n+' tarjetas'); }); else L.push('  (todavia no)');
- L.push('', 'Ahora tu:'); if(S.ath.length) S.ath.forEach(function(x){ L.push('  '+histLine(x)+' - '+x.ev+' bloqueos'); }); else L.push('  (todavia no)');
- L.push('', '1. Lo que me pasa mas: '+(S.o1||'-'), '2. El entrenador me ha ayudado: '+(S.o3||'-'), '3. La frase que voy a usar primero: '+(S.o5||'-'), '4. Falta / no he entendido: '+(S.o2||'-'), '5. Sensacion de control (1-10): '+(S.o4||'-'));
+ L.push('', 'Ahora tu (y oral completa):'); if(S.ath.length) S.ath.forEach(function(x){ L.push('  '+histLine(x)+' - '+x.ev+' bloqueos'); }); else L.push('  (todavia no)');
+ L.push('', '1. Lo que me pasa mas: '+(S.o1||'-'), '2. El entrenador me ha ayudado: '+(S.o3||'-'), '3. La frase que voy a usar primero: '+(S.o5||'-'), '4. Falta / no he entendido: '+(S.o2||'-'), '5. Sensacion de control (1-10): '+(S.o4||'-'), '6. Me ha ayudado saber como es el dia de la oral: '+(S.o6||'-'));
  return L.join('\n');
 }
 
@@ -907,7 +1205,16 @@ var ACTS={
  pwnew:function(){ newPw(); }, pwpick:function(b){ pickPw(b); }, pwnext:function(){ if(MREC.mr) try{ MREC.mr.stop(); }catch(e){} PW.k++; PW.done=false; renderPw(); window.scrollTo(0,$('pw').offsetTop-90); }, pwrec:function(b){ pwRec(b); },
  trstart:function(){ trStart(); window.scrollTo(0,0); }, trset:function(){ showTrSetup(); }, tragain:function(){ showTrSetup(); window.scrollTo(0,0); },
  atpick:function(b){ S.sel={k:b.getAttribute('data-k'), id:+b.getAttribute('data-id')}; save(); showAtSetup(); window.scrollTo(0,0); },
- atback:function(){ if(R.active) stopRun(true); showAtPick(); window.scrollTo(0,0); }, atstart:function(){ atStart(); window.scrollTo(0,0); }, atagain:function(){ showAtSetup(); window.scrollTo(0,0); },
+ atback:function(){ if(R.active) stopRun(true); prepStop(); showAtPick(); window.scrollTo(0,0); }, atstart:function(){ atStart(); window.scrollTo(0,0); }, atagain:function(){ showAtSetup(); window.scrollTo(0,0); },
+ enstart:function(){ enStart(); $('en').scrollIntoView(); }, enset:function(){ renderEn(); $('p-entrada').scrollIntoView(); },
+ ecnew:function(){ newEc(); $('ec').scrollIntoView(); }, ecpick:function(b){ pickEc(b); }, ecnext:function(){ EC.k++; EC.done=false; renderEc(); },
+ cistart:function(){ ciStart(); $('ci').scrollIntoView(); }, ciset:function(){ renderCi(); $('ci').scrollIntoView(); },
+ cirand:function(){ var j=S.ci; if(D.c20.length>1) while(j===S.ci) j=Math.floor(Math.random()*D.c20.length); S.ci=j; save(); renderCi(); },
+ ocpick:function(){ showOcSetup(); window.scrollTo(0,0); }, ocset:function(){ showOcSetup(); window.scrollTo(0,0); },
+ ocrand:function(){ S.oc.t1=S.oc.t2=S.oc.t3=null; showOcSetup(); },
+ ocgo:function(){ if(S.oc.prep) ocPrep(); else { ocStart(); window.scrollTo(0,0); } }, ocstart:function(){ ocStart(); window.scrollTo(0,0); },
+ occlear:function(){ S.oc.notes={T1:'',T2:'',T3:''}; save(); [].forEach.call(document.querySelectorAll('textarea[data-ocn]'), function(t){ t.value=''; }); },
+ next:function(){ if(!R.active||R.calib||R.paused) return; hush(); R.done+=elapsed(); if(R.i<R.segs.length-1) enterSeg(R.i+1); else finishRun(); },
  pause:function(){ togglePause(); }, stop:function(){ stopRun(false); },
  delrec:function(){ micClear(); var a=$('recout'); if(a) a.innerHTML=''; },
  print:function(b){ var p=b.getAttribute('data-p'); if(p==='sheet'){ document.body.classList.add('ps'); window.print(); setTimeout(function(){ document.body.classList.remove('ps'); },500); return; }
@@ -927,22 +1234,29 @@ document.addEventListener('click', function(e){
 document.addEventListener('change', function(e){
  var t=e.target, id=t.id;
  if(id==='tmode'){ S.o.mode=t.value; } else if(id==='ttrato'){ S.o.trato=t.value; } else if(id==='tdur'){ S.o.dur=+t.value; } else if(id==='tevery'){ S.o.every=+t.value; } else if(id==='tlim'){ S.o.lim=+t.value; }
+ else if(id==='enn'){ S.en.n=+t.value; } else if(id==='end'){ S.en.d=+t.value; }
+ else if(id==='oct1'){ S.oc.t1=+t.value; } else if(id==='oct2'){ S.oc.t2=+t.value; } else if(id==='oct3'){ S.oc.t3=+t.value; }
+ else if(id==='ocdur'){ S.oc.dur=t.value; } else if(id==='ocn'){ S.oc.n=+t.value; } else if(id==='oclim'){ S.oc.lim=+t.value; }
+ else if(t.name==='cisel'){ S.ci=+t.value; save(); renderCi(); return; }
+ else if(t.getAttribute && t.getAttribute('data-e')){ S.en[t.getAttribute('data-e')]=t.checked; }
+ else if(t.getAttribute && t.getAttribute('data-c')){ S.oc[t.getAttribute('data-c')]=t.checked; if(t.getAttribute('data-c')==='prep'){ save(); showOcSetup(); return; } }
  else if(id==='adur'){ S.ao.dur[S.sel.k]=+t.value; } else if(id==='an'){ S.ao.n=+t.value; } else if(id==='alim'){ S.ao.lim=+t.value; }
  else if(t.getAttribute && t.getAttribute('data-o')){ S.o[t.getAttribute('data-o')]=t.checked; }
  else if(t.getAttribute && t.getAttribute('data-a')){ S.ao[t.getAttribute('data-a')]=t.checked; }
- else if(t.name==='selfsil'){ var h=R.kind==='tr'?S.trh:S.ath; if(h.length) h[h.length-1].self=t.value; }
- else if(t.name==='o1'||t.name==='o3'||t.name==='o4'){ S[t.name]=t.value; save(); nav(); return; }
+ else if(t.name==='selfsil'){ var h=S[HK[R.kind]]; if(h.length) h[h.length-1].self=t.value; }
+ else if(t.name==='o1'||t.name==='o3'||t.name==='o4'||t.name==='o6'){ S[t.name]=t.value; save(); nav(); return; }
  else return;
  save();
 });
 document.addEventListener('input', function(e){ var t=e.target;
+ if(t.getAttribute && t.getAttribute('data-ocn')){ S.oc.notes[t.getAttribute('data-ocn')]=t.value; save(); return; }
  if(t.id==='pwtxt'){ var w=t.getAttribute('data-w'); S.pw.mine[w]=t.value; save(); var p=null; D.pw.forEach(function(x){ if(x.w===w) p=x; }); var wr=$('pwwarn'); if(wr && p) wr.hidden=!saysWord(p,t.value); return; }
  if(t.id==='o2'||t.id==='o5'){ S[t.id]=t.value; save(); nav(); } if(t.id==='sname'){ S.name=t.value; save(); } });
 document.addEventListener('keydown', function(e){ if(R.active && e.code==='Space' && e.target===document.body){ e.preventDefault(); togglePause(); } });
 document.addEventListener('visibilitychange', function(){ if(document.hidden && R.active && !R.paused && !R.calib) togglePause(); });
 window.addEventListener('afterprint', function(){ [].forEach.call(document.querySelectorAll('.printme'), function(v){ v.classList.remove('printme'); }); document.body.classList.remove('ps'); });
 
-renderScale(); newQuiz(); newPw();
+renderScale(); newQuiz(); newPw(); newEc();
 go(S.cur||'importa');
 })();
 """

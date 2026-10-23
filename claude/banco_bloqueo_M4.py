@@ -452,3 +452,171 @@ SUCESOS_T3 = {
  "dialogo": {"tu": "El examinador te pregunta: «¿Y tú qué opinas?» y no tienes opinión.",
              "usted": "El examinador pregunta: «¿Y usted qué prefiere?» y no lo sabes."},
 }
+
+# ============================================================ ENTRAR Y TERMINAR (NUEVO, 23/10/2026)
+# Pestaña 1. Lo OFICIAL (Guía del examen DELE A2, «Administración» de la prueba oral; Modelo 0) va en "o";
+# lo HABITUAL (lo que suele pasar y dicen los examinadores, pero no está escrito en la Guía) va en "h".
+# "tu": lo que haces tú en ese momento (consejo nuestro).
+DIA_ORAL = [
+ {"t": "La sala de preparación", "ico": "1",
+  "o": ["Tienes <b>12 minutos</b> para preparar las tres tareas.",
+        "En la tarea 1 eliges uno de los dos temas.",
+        "Puedes tomar notas y hacer un esquema. Después, en el examen, puedes mirarlos, pero no leerlos."],
+  "h": ["Te dan las láminas y papel para las notas.", "Alguien te avisa cuando se termina el tiempo y te acompaña a la sala del examen."],
+  "tu": "Reparte el tiempo: unos 5 minutos para la tarea 1, 4 para la foto y 3 para la tarea 3. Escribe palabras clave, no frases enteras."},
+ {"t": "La sala del examen", "ico": "2",
+  "o": ["Hay <b>dos examinadores</b>. El entrevistador habla contigo y hace un papel en la tarea 3. El calificador solo escucha y pone la nota: no habla."],
+  "h": ["Te saludan y te dicen: «Siéntese, por favor».", "El calificador está un poco más lejos y escribe todo el tiempo. Es su trabajo: no es una mala señal."],
+  "tu": "Saluda («Buenos días» o «Buenas tardes»), siéntate y pon las notas delante. Cuando hablas, mira al entrevistador."},
+ {"t": "Las preguntas de contacto", "ico": "3",
+  "o": ["Primero hay unas preguntas para romper el hielo y para que estés más tranquilo. <b>No se evalúan.</b>"],
+  "h": ["Te piden el documento de identidad.", "Te preguntan cómo te llamas, de dónde eres, a qué te dedicas, desde cuándo estudias español...",
+        "Al final te preguntan: «¿Qué opción ha elegido?»."],
+  "tu": "Contesta con una frase completa y un detalle pequeño. Es tu calentamiento: ni una palabra sola ni un discurso."},
+ {"t": "La tarea 1: el monólogo", "ico": "4",
+  "o": ["Hablas tú solo <b>de 2 a 3 minutos</b> sobre el tema que has elegido."],
+  "h": ["«Muy bien. Ya puede empezar.»", "Si te pasas mucho de tiempo, el examinador te para con un gesto o con una frase."],
+  "tu": "Di el tema, sigue tus notas pauta por pauta y cierra con una frase: «Y eso es todo sobre...»."},
+ {"t": "El paso a la foto (tarea 2)", "ico": "5",
+  "o": ["Describes la foto <b>de 2 a 3 minutos</b>. La lámina tiene unas preguntas para ayudarte."],
+  "h": ["«Muy bien. Pasamos a la foto.»"],
+  "tu": "Respira, mira la foto un segundo y empieza por lo general: dónde están y quiénes son. Cierra con «En resumen, en la foto veo...»."},
+ {"t": "La tarea 3: el diálogo", "ico": "6",
+  "o": ["Hablas con el entrevistador <b>de 3 a 4 minutos</b> en una situación imaginaria relacionada con la foto. Él hace un papel."],
+  "h": ["El examinador te recuerda la situación y su papel antes de empezar.",
+        "En los exámenes publicados, el diálogo es de tú: con un amigo, un hermano o un compañero de piso."],
+  "tu": "Responde, añade un detalle y pregunta. Cuando el plan está claro, el examinador termina."},
+ {"t": "El final", "ico": "7",
+  "o": [],
+  "h": ["«Muy bien, hemos terminado. Muchas gracias.»", "Dejas en la mesa las láminas y tus notas: no te las llevas.",
+        "No te dicen la nota en la sala: los resultados llegan después."],
+  "tu": "«Gracias a ustedes. Hasta luego.» Y sales tranquilo: lo difícil ya está hecho."},
+]
+
+# Preguntas de contacto (de usted). h = habitual (no está en la Guía). fijo: "ini" sale siempre la primera,
+# "nom" la segunda, "fin" la última; el resto, al azar. mod = respuesta modelo de Anna, una candidata;
+# evita = una respuesta que no conviene (con el porqué).
+CONTACTO = [
+ {"q": "Buenos días. ¿Me deja su documento de identidad, por favor?", "h": True, "fijo": "ini",
+  "mod": "Sí, claro. Aquí tiene.", "evita": "(Lo das sin decir nada.)", "por": "Una frase educada y corta: es el primer contacto."},
+ {"q": "¿Cómo se llama?", "h": False, "fijo": "nom",
+  "mod": "Me llamo Anna Kowalska, pero todos me llaman Ania.", "evita": "Anna.", "por": "Una frase completa y un detalle. Una palabra sola suena a nervios."},
+ {"q": "¿De dónde es? ¿Y dónde vive ahora?", "h": False,
+  "mod": "Soy de Cracovia, en Polonia, pero ahora vivo en Alicante, cerca del mar.", "evita": "Polonia. Alicante.", "por": "Contestas las dos preguntas con frases y un detalle."},
+ {"q": "¿A qué se dedica?", "h": False,
+  "mod": "Soy enfermera. Trabajo en un hospital, casi siempre por la mañana.", "evita": "Enfermera.", "por": "La profesión y un detalle: dónde o cuándo trabajas."},
+ {"q": "¿Desde cuándo estudia español?", "h": False,
+  "mod": "Desde hace dos años. Voy a clase dos tardes a la semana.",
+  "evita": "Empecé en 2019 con una aplicación, después lo dejé, en 2022 volví a empezar con una profesora que era de Sevilla y...",
+  "por": "Una respuesta corta y clara. Esto no es la tarea 1: no hace falta contar toda la historia."},
+ {"q": "¿Por qué estudia español?", "h": False,
+  "mod": "Porque vivo aquí y quiero hablar mejor con mis compañeros del hospital.", "evita": "Porque sí.", "por": "Un motivo de verdad, con «porque»."},
+ {"q": "¿Qué tal ha venido? ¿Ha encontrado bien el sitio?", "h": False,
+  "mod": "Sí, muy bien. He venido en autobús y no ha sido difícil.", "evita": "Sí.", "por": "Contestas y añades cómo has venido."},
+ {"q": "¿Qué tal está? ¿Muchos nervios?", "h": False,
+  "mod": "Un poco, la verdad, pero estoy bien. Gracias.", "evita": "¡Muchísimos! No he dormido nada y no sé si voy a poder hablar...",
+  "por": "Es normal estar nervioso y puedes decirlo, pero con calma y en una frase."},
+ {"q": "Muy bien. ¿Qué opción ha elegido para la tarea 1?", "h": True, "fijo": "fin",
+  "mod": "He elegido la opción 1: mi plato favorito.", "evita": "La uno.", "por": "Dices la opción y el tema: así empiezas la tarea 1 con seguridad."},
+]
+
+# Formulas para CERRAR la tarea 1 y la tarea 2 (A2, sin subjuntivo). Sin tú ni usted (el build lo comprueba).
+CIERRES = {
+ "T1": ["Y eso es todo sobre [el tema].", "Para terminar, creo que...", "Por eso [es / fue] tan importante para mí.", "Bueno, pues eso es lo más importante."],
+ "T2": ["En resumen, en la foto veo a...", "Creo que es un día especial y que después van a...", "Para terminar, me parece una foto alegre / tranquila porque...", "Y eso es lo que veo en la foto."],
+}
+# Cierres que NO: (lo que dices, por que no)
+CIERRES_MAL = [
+ ("«Ya está.» / «Fin.»", "Corta de golpe: el examinador no sabe si has terminado o si te has bloqueado."),
+ ("«No sé más.»", "Suena a bloqueo, no a final. Si te quedas en blanco, vuelve a la lámina."),
+ ("Te callas y miras al examinador.", "Un silencio largo al final también cuenta como silencio."),
+ ("«Eso es todo» a los 40 segundos", "Cerrar demasiado pronto: faltan pautas y tiempo. Cierra solo cuando has hablado de todo."),
+]
+# Despedida (final de la oral): examinador (habitual) y candidato
+DESPEDIDA = {"e": "Muy bien, hemos terminado. Muchas gracias.", "c": ["Gracias a ustedes. Hasta luego.", "Muchas gracias. Adiós, buenos días."]}
+
+# EJERCICIO «ELIGE EL CIERRE». tarea · ctx (lo que pasa) · e (lo que dice el examinador, opcional) · trato de la
+# respuesta buena (None = monólogo) · ops · ok · por. tipo: "cierre" (hay que cerrar bien) o "pronto" (todavía no
+# hay que cerrar) o "final" (despedida).
+ELIGE_CIERRE = [
+ {"tarea": "Tarea 1", "tipo": "cierre", "trato": None,
+  "ctx": "«Mi plato favorito». Llevas 2 minutos y 40 segundos y has hablado de las cinco pautas.",
+  "ops": ["Ya está.", "Y eso es todo sobre mi plato favorito. Para terminar, creo que la comida es una forma de estar con la familia.", "(Te callas y miras al examinador.)"],
+  "ok": 1, "por": "Una fórmula para cerrar y una frase con tu opinión. «Ya está» corta de golpe y el silencio no dice nada."},
+ {"tarea": "Tarea 1", "tipo": "cierre", "trato": None,
+  "ctx": "«Mis mejores vacaciones». Has terminado la última pauta: tus próximas vacaciones.",
+  "ops": ["...y el año que viene vamos a ir a Portugal. Por eso esas vacaciones fueron tan importantes para mí: fueron las primeras con mis hijos.",
+          "...y el año que viene vamos a ir a Portugal. Fin.", "...y el año que viene vamos a ir a Portugal. ¿Y usted adónde va de vacaciones?"],
+  "ok": 0, "por": "Una frase que une el final con el principio del monólogo. «Fin» corta de golpe, y en el monólogo no le haces preguntas al examinador."},
+ {"tarea": "Tarea 1", "tipo": "pronto", "trato": None,
+  "ctx": "«Una persona importante en mi vida». Llevas 50 segundos, has hablado de dos pautas y te quedas en blanco.",
+  "ops": ["Y eso es todo sobre mi amiga Lucía.", "Bueno, ahora voy a hablar de cuándo la conocí: fue en un curso de fotografía, hace seis años...", "Perdón, no sé más."],
+  "ok": 1, "por": "Todavía no es el momento de cerrar: faltan pautas y tiempo. Vuelve a la lámina y pasa a la pauta siguiente."},
+ {"tarea": "Tarea 1", "tipo": "cierre", "trato": None,
+  "ctx": "«Un regalo que he recibido». El examinador te hace un gesto: se termina el tiempo. Estás en la pauta 4 y te falta la 5.",
+  "ops": ["(Sigues hablando de la pauta 4 un minuto más.)", "...y de pequeño recibía muchos juguetes. Y para terminar: mi próximo regalo es para mi madre, un viaje a Italia.", "Perdón, perdón, no he terminado..."],
+  "ok": 1, "por": "Si se acaba el tiempo, di una frase rápida sobre la última pauta y cierra. Así no queda ninguna pauta sin tocar."},
+ {"tarea": "Tarea 1", "tipo": "cierre", "trato": None,
+  "ctx": "«Mi casa». Has hablado de las cinco pautas.",
+  "ops": ["En resumen, en la foto veo una casa bonita.", "Bueno, pues eso es lo más importante de mi casa. Para terminar, creo que es pequeña, pero es mi sitio favorito.", "Y eso. Nada más."],
+  "ok": 1, "por": "«En la foto veo...» es el cierre de la tarea 2, no del monólogo. «Y eso. Nada más» corta de golpe."},
+ {"tarea": "Tarea 2", "tipo": "cierre", "trato": None,
+  "ctx": "Foto «En la lavandería». Has contestado las seis preguntas de la lámina.",
+  "ops": ["En resumen, en la foto veo a un chico con un problema con la lavadora y a un señor que se ríe. Creo que después van a limpiar todo juntos.",
+          "Y la lavadora es blanca. Ya está.", "En mi casa la lavadora también es blanca y es muy vieja."],
+  "ok": 0, "por": "Un resumen de la escena y lo que van a hacer después. Hablar de tu casa no es describir la foto."},
+ {"tarea": "Tarea 2", "tipo": "cierre", "trato": None,
+  "ctx": "Foto «Regalos». Te quedan unos segundos.",
+  "ops": ["Para terminar, me parece una foto alegre porque las dos amigas están contentas y hay una tarta con una vela.", "Bueno, no sé qué más decir.", "Y para terminar, una pregunta: ¿le gustan las bufandas?"],
+  "ok": 0, "por": "Una opinión sobre la foto con un porqué. En la tarea 2 no le haces preguntas al examinador."},
+ {"tarea": "Tarea 2", "tipo": "pronto", "trato": None,
+  "ctx": "Foto «Hacer deporte». Llevas un minuto. Has hablado de las personas y del lugar.",
+  "ops": ["Y eso es lo que veo en la foto.", "A ver, ¿qué están haciendo? Pues se dan la mano porque ha terminado el partido...", "En resumen, son cuatro amigos."],
+  "ok": 1, "por": "Todavía faltan preguntas de la lámina: qué hacen, qué relación tienen, cómo se sienten, qué han hecho antes. No cierres todavía."},
+ {"tarea": "Tarea 2", "tipo": "cierre", "trato": None,
+  "ctx": "Foto «Una comida en el campo». Has hablado de lo que ves, de la relación entre las personas y de cómo se sienten.",
+  "ops": ["Creo que es un día especial: es el cumpleaños de la abuela. Después van a comer la tarta y a hacer fotos. Y eso es lo que veo en la foto.",
+          "Es un olivo. Fin.", "(Miras la foto en silencio hasta que el examinador habla.)"],
+  "ok": 0, "por": "Cierras con el antes y el después (la última pregunta de la lámina) y una fórmula. Así el examinador sabe que has terminado."},
+ {"tarea": "Final", "tipo": "final", "trato": "usted",
+  "ctx": "Termina la tarea 3. El examinador te dice:", "e": "Muy bien, hemos terminado. Muchas gracias.",
+  "ops": ["Gracias a ustedes. Hasta luego.", "¿Ya está? ¿He aprobado?", "(Te levantas y te llevas las notas.)"],
+  "ok": 0, "por": "Una despedida educada y sencilla. La nota no te la dicen en la sala, y las notas y las láminas se quedan en la mesa."},
+]
+
+# PRACTICA «TE QUEDAN 20 SEGUNDOS: CIERRA». k: tarea (T1 = id de FUENTES_T1; T2 = id de FUENTES_T2, sale su foto) ·
+# dicho: lo que ya has dicho (una línea por pauta o pregunta) · mod: dos cierres modelo (sin tú ni usted).
+CIERRA_20 = [
+ {"k": "T1", "id": 3, "dicho": ["La paella de mi suegra: arroz, pollo y judías verdes.", "La última vez: el domingo pasado, en su casa, con toda la familia.",
+   "De niña comía mucha sopa y mucho pescado.", "En casa cocina mi pareja; yo pongo la mesa.", "Próxima comida especial: el cumpleaños de mi hijo."],
+  "mod": ["Y eso es todo sobre mi plato favorito. Para terminar, creo que la paella es especial porque siempre la comemos todos juntos.",
+          "Bueno, pues eso es lo más importante. Por eso la paella es mi plato favorito: me recuerda los domingos en familia."]},
+ {"k": "T1", "id": 8, "dicho": ["Tenerife, en 2019, en avión, con mi hermana.", "Un apartamento cerca de la playa, diez días; subimos al volcán.",
+   "Fueron las mejores porque estuvimos juntas después de mucho tiempo.", "De pequeño iba siempre al pueblo de mis abuelos.", "Próximas vacaciones: Escocia, con unos amigos."],
+  "mod": ["Y eso es todo sobre mis mejores vacaciones. Para terminar, creo que lo mejor fue estar con mi hermana, porque ahora vivimos lejos.",
+          "Bueno, pues eso es lo más importante. Por eso fueron unas vacaciones tan especiales para mí."]},
+ {"k": "T1", "id": 6, "dicho": ["Un curso de cocina japonesa, en 2023, en Valencia: quería aprender a hacer sushi.", "El profesor era muy simpático; los compañeros, de muchos países.",
+   "Me gustó cocinar en grupo; no me gustó el horario, muy tarde.", "En el colegio me gustaba mucho la música.", "En el futuro: un curso de fotografía."],
+  "mod": ["Y eso es todo sobre mi curso de cocina. Para terminar, creo que aprender cosas nuevas es muy bueno a cualquier edad.",
+          "Bueno, pues eso es lo más importante. Por eso fue un curso tan especial para mí: ahora hago sushi para mis amigos."]},
+ {"k": "T1", "id": 15, "dicho": ["Leo, camino por la playa y quedo con amigos.", "El fin de semana pasado fui a un concierto al aire libre.",
+   "De adolescente jugaba al baloncesto todos los días.", "Es importante para descansar y no pensar en el trabajo.", "El próximo fin de semana voy a ir a la montaña."],
+  "mod": ["Y eso es todo sobre mi tiempo libre. Para terminar, creo que tener tiempo para mí es tan importante como trabajar.",
+          "Bueno, pues eso es lo más importante. Por eso los domingos no miro el móvil del trabajo: es mi día para descansar."]},
+ {"k": "T2", "id": 3, "dicho": ["Una lavandería, de noche: lavadoras y secadoras.", "Un chico joven, pelirrojo, y un señor mayor con zapatillas de casa.",
+   "Sale mucha espuma de la lavadora; el chico está preocupado.", "El señor se ríe: creo que no se conocen.", "Antes, el chico ha puesto mucho detergente."],
+  "mod": ["En resumen, en la foto veo a un chico con un pequeño problema y a un señor muy simpático. Creo que después van a limpiar la espuma juntos.",
+          "Para terminar, me parece una foto divertida, porque el problema no es grave y el señor se lo pasa muy bien. Y eso es lo que veo en la foto."]},
+ {"k": "T2", "id": 7, "dicho": ["El recibidor de un piso, por la mañana: un perchero, un espejo, mochilas.", "Una madre y un niño pequeño.",
+   "La madre mira la hora; el niño busca un zapato.", "Creo que son madre e hijo y que llegan tarde al colegio.", "La madre está nerviosa; el niño, tranquilo."],
+  "mod": ["En resumen, en la foto veo una mañana normal en una familia con prisa. Creo que después van a encontrar el zapato y van a salir corriendo.",
+          "Para terminar, me parece una foto muy real, porque todas las familias tienen mañanas así. Y eso es lo que veo en la foto."]},
+ {"k": "T2", "id": 9, "dicho": ["La caja de un supermercado: la cinta, bolsas, un carro.", "Un señor mayor y una cajera joven.",
+   "El señor busca la cartera en los bolsillos; la cajera espera.", "No se conocen, pero creo que él compra allí todos los días.", "La cajera sonríe: está tranquila."],
+  "mod": ["En resumen, en la foto veo a un señor que no encuentra la cartera y a una cajera muy paciente. Creo que después él va a pagar con el móvil.",
+          "Para terminar, me parece una foto tranquila, porque nadie está enfadado. Y eso es lo que veo en la foto."]},
+ {"k": "T2", "id": 11, "dicho": ["Un salón: un sofá, cojines, palomitas en la mesa.", "Tres amigos jóvenes, en ropa de casa.",
+   "Ven un partido de fútbol en la tele; dos saltan de alegría.", "El tercero se tapa la cara: creo que es de otro equipo.", "Antes han preparado las palomitas."],
+  "mod": ["En resumen, en la foto veo a tres amigos que ven un partido y un gol muy importante. Creo que después van a cenar juntos y a hablar del partido.",
+          "Para terminar, me parece una foto alegre, pero uno de los amigos está triste porque su equipo pierde. Y eso es lo que veo en la foto."]},
+]
