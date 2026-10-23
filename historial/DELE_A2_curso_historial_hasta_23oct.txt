@@ -1928,3 +1928,35 @@ DECIDIDO CON MARÍA (23/10)
 * El kit M3-1 (y M0, M3-2..5, M4, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
   HTML subidos con un script pequeño que meta NAV_CSS + NAV_JS de curso_comun.py (hace falta que María adjunte los HTML), o al
   regenerar cada pieza.
+
+
+===========================================================================
+AÑADIDO 23/10/2026 (noche) · M4 «QUÉ HACER SI ME BLOQUEO» REESTRUCTURADO
+===========================================================================
+* «QUÉ HACER SI ME BLOQUEO» (M4) REESTRUCTURADO (HECHO, 23/10 noche). Mismo build, banco y storageKey
+  (dele-a2-curso-M4-bloqueo: el historial antiguo se conserva; las claves nuevas se añaden solas). 8 pestañas, con flechas:
+  1 ENTRAR Y TERMINAR (NUEVA): (a) el día de la oral en 7 pasos (DIA_ORAL) con etiquetas OFICIAL (Guía: 12 min de
+    preparación con notas que se miran pero no se leen, dos examinadores, contacto que no se evalúa, tiempos de las tareas)
+    y HABITUAL (documento, «Siéntese», «¿Qué opción ha elegido?», «Ya puede empezar», «Pasamos a la foto», «Hemos terminado»,
+    dejar las notas, la nota no se dice en la sala, T3 de tú en los exámenes publicados) + «Tú:» con el consejo;
+    (b) SIMULADOR DE LA ENTRADA: 4 o 5 preguntas de contacto de usted (CONTACTO: documento y nombre siempre al principio,
+    «¿Qué opción ha elegido para la tarea 1?» siempre al final, el resto al azar), 15 o 20 s por respuesta con botón
+    «He contestado: siguiente», silencios con micrófono, grabación, opción de leer las preguntas con la voz del navegador
+    (speechSynthesis, es-ES); al final, respuestas modelo de Anna (enfermera polaca en Alicante) con «Mejor no» y porqué, y
+    enlace a «Ahora tú»; tabla completa plegada; (c) TERMINAR BIEN: fórmulas T1/T2 (CIERRES), «Así no» (CIERRES_MAL),
+    despedida (DESPEDIDA), ejercicio «Elige el cierre» (10 momentos, 2 de «todavía no hay que cerrar» y la despedida) y
+    práctica «Te quedan 20 segundos: cierra» (CIERRA_20: 4 temas T1 y 4 fotos T2 con su lámina o foto al lado, lo ya dicho,
+    20 s con reloj y micrófono, y dos cierres modelo).
+  2-6 como antes · 7 AHORA TÚ + ORAL COMPLETA (botón arriba): eliges tema T1, foto T2 y situación T3 (o al azar; T3 de tú por
+    defecto), duración corta/normal/larga, 0-7 bloqueos repartidos, silencio máximo; SALA DE PREPARACIÓN opcional de 12 min
+    con las tres láminas y notas por tarea (se ven luego en cada pauta); después entrada (4 preguntas) -> T1 -> «Pasamos a
+    la foto» -> T2 -> paso a la T3 -> T3 -> despedida, con fórmulas de cierre en la última pauta de T1 y T2. Se guarda en
+    el historial de «Ahora tú» (src «OC»). · 8 Tu opinión (+ pregunta 6 sobre el día de la oral).
+  COPIAR: añade la entrada, «Elige el cierre», los cierres de 20 s, las orales completas y la pregunta 6. La tarjeta de rescate
+  imprimible lleva también las fórmulas de cierre. El build comprueba tú/usted en lo nuevo, que no haya formas de B1 (aunque,
+  subjuntivo, condicional) en lo que dice el candidato, la estructura de CONTACTO y que las láminas de CIERRA_20 existen.
+  Probado en Chromium (todas las fases de la oral completa con el reloj acelerado, móvil 390 px sin scroll lateral,
+  historial antiguo conservado), sin errores. Código en el repo (commit 9e3713f).
+  ENTREGADO: DELEA2_curso_M4_bloqueo.html -> SUBIR a recursos/A2/dele-curso/ (sustituye al anterior).
+  NOTA: claude/DELE_A2_curso_estado_23oct.txt no existía (ni en el proyecto ni en el repo): las pestañas aprobadas ya
+  estaban en este archivo, así que no había nada que pasar.

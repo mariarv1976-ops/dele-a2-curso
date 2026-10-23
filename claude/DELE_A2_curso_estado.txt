@@ -28,6 +28,7 @@ PIEZAS HECHAS (build -> HTML · clave de localStorage). Todas usan claude/curso_
        (fotos M4T2_foto1-12: 1-6 entrenamiento, 7-12 como en el examen)
   M4-3 build_M4_T3_dialogos.py + banco_dialogos_T3.py -> DELEA2_curso_M4_T3_dialogos.html · dele-a2-curso-M4-T3
   M4-4 build_M4_bloqueo.py + banco_bloqueo_M4.py -> DELEA2_curso_M4_bloqueo.html · dele-a2-curso-M4-bloqueo
+       (reestructurado el 23/10: 8 pestañas, «Entrar y terminar» y oral completa; con flechas)
   M4-5 build_M4_dosier.py + banco_dosier_M4.py -> DELEA2_curso_M4_dosier_oral.html (+ PDF)
 * M5 Fichas de remedio (build_Rxx + banco_Rxx -> DELEA2_curso_Rxx_....html · dele-a2-curso-Rxx):
   R01 pasados · R02 hay/está/es · R04 concordancia y posesivos · R05 muy/mucho · R06 preposiciones (tiempo_R06.py)
@@ -82,22 +83,34 @@ DECIDIDO CON MARÍA (23/10)
   datos: añadir a libreta_vivo.py una función vivo_b2 (T1 propuestas: solo la opción elegida y sus preguntas «ent» paso a paso;
   T2 foto grande + preguntas de esa foto; T3 encuesta elegida + preguntas) y la rama B2 en el patch; copiar allí libreta_vivo.py,
   patch_libreta_vivo.py y actualizar_libreta_html.py (este último solo lee A2: adaptarlo). Otros niveles: misma pieza.
-* «QUÉ HACER SI ME BLOQUEO» (M4) SE REESTRUCTURA (SIGUIENTE PIEZA). Pestañas APROBADAS por María (23/10, 12:15; «Entrar» y
-  «Cerrar bien» JUNTAS en una sola pestaña):
-  1 Entrar y terminar (NUEVA): el día de la oral paso a paso (sala de preparación, 12 minutos con notas, la sala del examen,
-    los dos examinadores, las preguntas de contacto, el paso de una tarea a otra, el final y dejar las notas); simulador de la
-    entrada (4-5 preguntas de contacto de usted, con reloj y grabación, respuestas modelo, y enlace con «¿Qué opción ha
-    elegido?»); cómo CERRAR la T1 y la T2 sin cortar de golpe (fórmulas A2: «Y eso es todo sobre...», «Para terminar, creo
-    que...», «En resumen, en la foto veo...»), ejercicio «elige el cierre» y práctica «te quedan 20 segundos: cierra».
-  2 Por qué importa · 3 Las frases · 4 ¿Qué dices? · 5 Describe la palabra · 6 Entrenador (las de ahora) · 7 Ahora tú (+ modo
-  ORAL COMPLETA: entrada + T1 + T2 + T3 + despedida) · 8 Tu opinión.
-  Oficial (Guía del examen A2, «Administración»): preguntas de contacto para romper el hielo y que el candidato se tranquilice
-  (no se evalúan); dos examinadores, uno es entrevistador e interlocutor y el otro solo califica; 12 minutos de preparación para
-  las tres tareas con notas y borrador que se pueden consultar. Habitual (marcarlo así, no como oficial): documento de
-  identidad, «¿Qué opción ha elegido?», «Muy bien, pasamos a la foto», «Hemos terminado, muchas gracias», dejar las notas.
-  Se construye con build_M4_bloqueo.py + banco_bloqueo_M4.py + curso_comun.py del proyecto (sale con las flechas de la barra).
-  Mismo storageKey (dele-a2-curso-M4-bloqueo) para no perder el historial; el Copiar incluye lo nuevo.
-* BANCO DE REFUERZO DE LA ESCRITURA (como el banco de temas M4-1), después del bloqueo:
+* «QUÉ HACER SI ME BLOQUEO» (M4) REESTRUCTURADO (HECHO, 23/10 noche). Mismo build, banco y storageKey
+  (dele-a2-curso-M4-bloqueo: el historial antiguo se conserva; las claves nuevas se añaden solas). 8 pestañas, con flechas:
+  1 ENTRAR Y TERMINAR (NUEVA): (a) el día de la oral en 7 pasos (DIA_ORAL) con etiquetas OFICIAL (Guía: 12 min de
+    preparación con notas que se miran pero no se leen, dos examinadores, contacto que no se evalúa, tiempos de las tareas)
+    y HABITUAL (documento, «Siéntese», «¿Qué opción ha elegido?», «Ya puede empezar», «Pasamos a la foto», «Hemos terminado»,
+    dejar las notas, la nota no se dice en la sala, T3 de tú en los exámenes publicados) + «Tú:» con el consejo;
+    (b) SIMULADOR DE LA ENTRADA: 4 o 5 preguntas de contacto de usted (CONTACTO: documento y nombre siempre al principio,
+    «¿Qué opción ha elegido para la tarea 1?» siempre al final, el resto al azar), 15 o 20 s por respuesta con botón
+    «He contestado: siguiente», silencios con micrófono, grabación, opción de leer las preguntas con la voz del navegador
+    (speechSynthesis, es-ES); al final, respuestas modelo de Anna (enfermera polaca en Alicante) con «Mejor no» y porqué, y
+    enlace a «Ahora tú»; tabla completa plegada; (c) TERMINAR BIEN: fórmulas T1/T2 (CIERRES), «Así no» (CIERRES_MAL),
+    despedida (DESPEDIDA), ejercicio «Elige el cierre» (10 momentos, 2 de «todavía no hay que cerrar» y la despedida) y
+    práctica «Te quedan 20 segundos: cierra» (CIERRA_20: 4 temas T1 y 4 fotos T2 con su lámina o foto al lado, lo ya dicho,
+    20 s con reloj y micrófono, y dos cierres modelo).
+  2-6 como antes · 7 AHORA TÚ + ORAL COMPLETA (botón arriba): eliges tema T1, foto T2 y situación T3 (o al azar; T3 de tú por
+    defecto), duración corta/normal/larga, 0-7 bloqueos repartidos, silencio máximo; SALA DE PREPARACIÓN opcional de 12 min
+    con las tres láminas y notas por tarea (se ven luego en cada pauta); después entrada (4 preguntas) -> T1 -> «Pasamos a
+    la foto» -> T2 -> paso a la T3 -> T3 -> despedida, con fórmulas de cierre en la última pauta de T1 y T2. Se guarda en
+    el historial de «Ahora tú» (src «OC»). · 8 Tu opinión (+ pregunta 6 sobre el día de la oral).
+  COPIAR: añade la entrada, «Elige el cierre», los cierres de 20 s, las orales completas y la pregunta 6. La tarjeta de rescate
+  imprimible lleva también las fórmulas de cierre. El build comprueba tú/usted en lo nuevo, que no haya formas de B1 (aunque,
+  subjuntivo, condicional) en lo que dice el candidato, la estructura de CONTACTO y que las láminas de CIERRA_20 existen.
+  Probado en Chromium (todas las fases de la oral completa con el reloj acelerado, móvil 390 px sin scroll lateral,
+  historial antiguo conservado), sin errores. Código en el repo (commit 9e3713f).
+  ENTREGADO: DELEA2_curso_M4_bloqueo.html -> SUBIR a recursos/A2/dele-curso/ (sustituye al anterior).
+  NOTA: claude/DELE_A2_curso_estado_23oct.txt no existía (ni en el proyecto ni en el repo): las pestañas aprobadas ya
+  estaban en este archivo, así que no había nada que pasar.
+* BANCO DE REFUERZO DE LA ESCRITURA (como el banco de temas M4-1): SIGUIENTE PIEZA (prompt preparado abajo):
   - Los cinco tipos del kit, pero el CORREO DE USTED con menos peso (María: «es una versión no habitual»; la T1 real es de tú):
     pocas láminas, marcadas «por si acaso», no en el modo «como en el examen».
   - NUEVO TIPO pedido por María: DESCRIBIR UNA FOTO POR ESCRITO, con las estructuras de la oral T2 (hay / está, estar +
@@ -105,7 +118,7 @@ DECIDIDO CON MARÍA (23/10)
   - Unas 20 láminas; trípticos nuevos para biografía y «un día con fotos» (unos 8): dar prompts y nombres.txt al construir.
 * ÍNDICE: regenerarlo UNA vez al terminar la R14b (R14 -> R14a «listo» + R14b), con todo lo pendiente de «listo» (M3-x, M4,
   R01-R14b, M1/M6/M7) y las piezas nuevas (banco de escritura, bloqueo reestructurado si ya están).
-* El kit M3-1 (y M0, M3-2..5, M4, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
+* El kit M3-1 (y M0, M3-2..5, M4-1..3, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
   HTML subidos con un script pequeño que meta NAV_CSS + NAV_JS de curso_comun.py (hace falta que María adjunte los HTML), o al
   regenerar cada pieza.
 
@@ -120,7 +133,7 @@ SIGUIENTE
      M3-3 De la banda 1 a la banda 2 (DELEA2_curso_M3_banda1_a_banda2.html).
      M3-4 Revisión final de 5 minutos (DELEA2_curso_M3_revision_final.html).
      M3-5 Textos modelo aprobado / excelente (DELEA2_curso_M3_textos_modelo.html).
-  4) HECHO (12/10): Qué hacer si me bloqueo (DELEA2_curso_M4_bloqueo.html).
+  4) HECHO (12/10; reestructurado el 23/10): Qué hacer si me bloqueo (DELEA2_curso_M4_bloqueo.html).
 * FICHAS DE REMEDIO ANTES DE LOS SIMULACROS (María, 14/10; 21/10: AHORA R08, R10, R13 y R14, ver MODELOS): HECHAS R05 (14/10), R06 (14/10; ampliada el 14/10
   con hace / desde hace / durante / en), R07 (14/10), R08 (22/10), R10 (22/10 noche), R13 (22/10 noche) y R14a (23/10).
   Fichas hechas: R01, R02, R04, R05, R06, R07, R08, R10, R13, R14a.
@@ -143,6 +156,21 @@ SIGUIENTE
   ANADIR de anadir_fichas_modelos.py (p. ej. «tiempo» y «normas»).
   DESPUÉS, el M2 (María ya tiene escrito su prompt del M2, 22/10; abajo hay otro actualizado).
   PROMPTS PREPARADOS (23/10), para pegar en un chat nuevo cada uno:
+  - BANCO DE ESCRITURA (siguiente, 23/10 noche): «Vamos con el banco de refuerzo de la escritura del curso DELE A2. Antes
+    de empezar, lee claude/DELE_A2_instrucciones_proyecto.txt y claude/DELE_A2_curso_estado.txt (el punto «BANCO DE
+    REFUERZO DE LA ESCRITURA» de las decisiones del 23/10) y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo
+    lo demás. Clona el repo y abre solo lo que necesita la pieza: como base de motor y formato, build_M4_T1_temas.py y
+    banco_temas_T1.py (el banco de temas de la oral); para los tipos de texto y las frases, banco_frases_M3.py (kit M3-1),
+    banco_pautas_M3.py y fotos_M3.py (estilo de las fotos); para el nuevo tipo «describir una foto», banco_fotos_T2.py
+    (fotos M4T2_foto1-12 de WordPress, carpeta 2026/10). Unas 20 láminas: los cinco tipos del kit (el correo de usted con
+    pocas láminas, marcadas «por si acaso» y fuera del modo «como en el examen») y el tipo nuevo DESCRIBIR UNA FOTO POR
+    ESCRITO con las estructuras de la oral T2 (hay / está, estar + gerundio, lleva, parece que, creo que van a...). T1 de tú
+    como en el examen real, 60-70 palabras; T2 70-80. Pautas que mezclan tiempos, ejemplos propios que no repitan el kit,
+    las pautas ni los modelos M1, M6 y M7, y nada de B1. Con contador de palabras, lista de control de las pautas y Copiar
+    para el corrector de María. Trípticos nuevos para biografía y «un día con fotos» (unos 8): dame los prompts (estilo
+    natural, 3:1) y el nombres.txt. Antes de construir, propónme en pocas líneas los tipos, el reparto de las 20 láminas y
+    los temas. Al terminar: archivos y dónde subirlos, build y banco en el repo (push), las láminas en curso_tareas.py del
+    corrector si hace falta, el estado actualizado y el prompt siguiente (la R14b).»
   - R14b: «Vamos con la ficha de remedio R14b «Vocabulario en escenas (2): fuera de casa» del curso DELE A2. Antes de
     empezar, lee claude/DELE_A2_curso_estado.txt (sobre todo el bloque de la R14a y la nota «ANTES DEL M2»), el plan
     (apartado 3: las 12 áreas) y en el Plan curricular el apartado 5 (léxico LX). Es la segunda mitad de la R14, con el
