@@ -151,8 +151,13 @@ DECIDIDO CON MARÍA (23/10)
   NOTA: claude/DELE_A2_curso_estado_23oct.txt no existía (ni en el proyecto ni en el repo): las pestañas aprobadas ya
   estaban en este archivo, así que no había nada que pasar.
 * BANCO DE REFUERZO DE LA ESCRITURA: HECHO (24/10, ver arriba); «describir una foto por escrito» descartado.
-* ÍNDICE: regenerarlo UNA vez (la R14b ya está hecha, 23/10 noche): R14 -> R14a «listo» + R14b «listo», con todo lo pendiente
-  de «listo» (M3-x, M4, R01-R14b, M1/M6/M7) y las piezas nuevas (banco de escritura M3-6 y bloqueo reestructurado).
+* ÍNDICE: HECHO (24/10, 00:30). María: «no sale en el índice». Causa: el índice solo busca en la web los archivos de SU
+  lista, y la lista no tenía M3-6 ni R14a/R14b, y la R10 iba con otro nombre (pronombres en vez de lo_la_le); el M1 sí estaba
+  bien en el build (corregido el 22/10), así que si no salía es que el índice subido era anterior al 22/10. build_indice.py
+  ahora lleva M3-6, R08, R10 (DELEA2_curso_R10_lo_la_le.html), R13, R14a y R14b con sus descripciones, y una COMPROBACIÓN
+  nueva: se para si algún build_*.py escribe un archivo (FILE = ...) que el índice no conoce. 61 piezas.
+  ENTREGADO: DELEA2_curso_indice.html -> SUBIR a biblioteca/profesora/ (sustituye al anterior). Una pieza sale en verde
+  solo si su HTML está subido en biblioteca/recursos/A2/dele-curso/ (las libretas, en biblioteca/profesora/).
 * El kit M3-1 (y M0, M3-2..5, M4-1..3, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
   HTML subidos con un script pequeño que meta NAV_CSS + NAV_JS de curso_comun.py (hace falta que María adjunte los HTML), o al
   regenerar cada pieza.
@@ -187,7 +192,7 @@ SIGUIENTE
   proponer a María el enfoque en pocas líneas.
   YA HECHO PARA LAS CUATRO (23/10): FICHAS_LISTAS y láminas en curso_tareas.py del corrector (aplicado al
   corrector de María el 23/10); el script anadir_fichas_modelos.py para los contenidos de los modelos (falta pasarlo a las
-  fuentes M01, M06 y M07 y regenerarlas: en el chat del M2). FALTA marcarlas en el índice (build_indice.py). La R14b ya
+  fuentes M01, M06 y M07 y regenerarlas: en el chat del M2). Índice: HECHO (24/10). La R14b ya
   está en curso_tareas.py (FICHAS, FICHAS_LISTAS, FICHAS_AT) y en anadir_fichas_modelos.py (23/10 noche).
   DESPUÉS, el M2 (María ya tiene escrito su prompt del M2, 22/10; abajo hay otro actualizado).
   PROMPTS PREPARADOS (23/10), para pegar en un chat nuevo cada uno:

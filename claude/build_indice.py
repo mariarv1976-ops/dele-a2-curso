@@ -80,6 +80,7 @@ add("M3", "M3-2", "Las pautas como lista de control", "Cada pauta, al menos una 
 add("M3", "M3-3", "De la banda 1 a la banda 2", "La operación rescate en 5 pasos: textos con los fallos típicos para diagnosticar, corregir y llevar a la banda 2.", "DELEA2_curso_M3_banda1_a_banda2.html", "listo", paso=4)
 add("M3", "M3-4", "Revisión final de 5 minutos", "La lista fija de 8 pasadas (pautas, tú/usted, pasados, hay/está/es, concordancias, muy/mucho, conectores, líneas a ojo), caza por pasadas, a contrarreloj y «Ahora tú» con cronómetro.", "DELEA2_curso_M3_revision_final.html", "listo", paso=4)
 add("M3", "M3-5", "Textos modelo: aprobado y excelente", "Las bandas en sencillo, textos aprobado y excelente lado a lado para 5 tipos, las 6 mejoras, ¿aprueba? con 6 textos de estudiantes y «Ahora tú».", "DELEA2_curso_M3_textos_modelo.html", "listo", paso=4)
+add("M3", "M3-6", "Banco de escritura: practica y examen", "20 láminas originales (correos a un amigo, blog o revista, biografías y días con fotos, y dos correos de usted): qué tiempo pide cada pauta, frases, contador, detectores, lista de control, textos modelo y un modo «como en el examen» con reloj de 45 minutos.", "DELEA2_curso_M3_banco_escritura.html", "listo", paso=4)
 
 add("M4", "M4-1", "Tarea 1: banco de temas", "20 temas (9 de las láminas oficiales y 11 frecuentes) con lámina original, notas modelo en palabras clave y monólogo modelo con los verbos marcados por tiempo. Los cuatro tiempos y el ejercicio «¿Qué tiempo pide?», preparación de 4 minutos con el esquema de cinco casillas, modo guiado pauta a pauta, modo examen con reloj, dos temas al azar como en el examen y grabación opcional (banco_temas_T1.py).", "DELEA2_curso_M4_T1_temas.html", "listo", paso=3)
 add("M4", "M4-2", "Tarea 2: plantilla universal de la foto", "Las 6 preguntas + frases comodín y la regla de las tres frases. Modo guiado con ritmo (cada pregunta con su tiempo), modo examen con reloj, grabación opcional en el navegador, preparación de 4 minutos con el esquema de las seis casillas y descripción y notas modelo. 12 fotos: 6 como en el examen y 6 de entrenamiento (banco_fotos_T2.py).", "DELEA2_curso_M4_T2_foto.html", "listo", pil=True, paso=3)
@@ -102,13 +103,19 @@ FICHAS = [
   "El mapa del viaje: a, en, de... a, desde... hasta, por y para; hace / desde hace / durante; errores típicos, textos con huecos, detector en la escritura y práctica oral con reloj."),
  ("R07", "Tú y usted: registro coherente", True, "DELEA2_curso_R07_tu_usted.html",
   "La distancia y el carril: usted habla como él/ella, del saludo a la despedida en el mismo carril; textos con huecos, detector de mezcla en la escritura y la misma petición dos veces en la oral."),
- ("R08", "Conectores para enlazar", False, None, None),
+ ("R08", "Conectores: las flechas entre frases", False, "DELEA2_curso_R08_conectores.html",
+  "Cinco flechas (ordenar, añadir, contrastar, causa, consecuencia) con su dibujo, errores típicos, textos con huecos, detector en la escritura y práctica oral."),
  ("R09", "Verbos como gustar", False, None, None),
- ("R10", "Pronombres lo / la / le", False, None, None),
+ ("R10", "Lo, la, le: el paquete y el destinatario", False, "DELEA2_curso_R10_lo_la_le.html",
+  "El paquete (lo / la / los / las, con la camiseta de su nombre) y el destinatario (le / les), dónde se ponen, errores típicos, textos con huecos, detector en la escritura y práctica oral."),
  ("R11", "Planes y futuro", False, None, None),
  ("R12", "Traer / llevar · ir / venir · pedir / preguntar", False, None, None),
- ("R13", "Fórmulas de los correos", False, None, None),
- ("R14", "Vocabulario por áreas", False, None, None),
+ ("R13", "Las funciones de los correos", False, "DELEA2_curso_R13_formulas_correo.html",
+  "Agradecer, disculparse, invitar, aceptar, rechazar, proponer, felicitar y despedirse en los correos de tú y de usted, textos con huecos y detector en la escritura."),
+ ("R14a", "Vocabulario en escenas (1): la casa y el día a día", False, "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html",
+  "Las áreas de frecuencia alta de casa y del día a día en escenas, «Escucha y elige» con audio, ejercicios y detector en la escritura."),
+ ("R14b", "Vocabulario en escenas (2): fuera de casa", False, "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html",
+  "Viajes, ocio, estudios, trabajo, el tiempo y un rincón de servicios, móvil y fiestas, en escenas, con audio, ejercicios y detector en la escritura."),
 ]
 SLUG = {"R03": "ser_estar", "R08": "conectores", "R09": "gustar", "R10": "pronombres",
         "R11": "futuro", "R12": "traer_llevar", "R13": "formulas_correo", "R14": "vocabulario"}
@@ -243,6 +250,17 @@ function check(){
 stats(); filters(); list(); check();
 })();
 """
+
+# COMPROBACION (24/10): cada build del curso (build_*.py con FILE = ...) tiene que tener su pieza en el indice con
+# EXACTAMENTE ese nombre de archivo; si no, el indice no la encuentra en la web aunque este subida. Se para si falta alguna.
+import glob, re, os
+_falta = []
+for _b in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_*.py")):
+    _m = re.search(r'^FILE\s*=\s*"([^"]+)"', open(_b, encoding="utf-8").read(), re.M)
+    if _m and _m.group(1) != FILE and _m.group(1) not in {p["f"] for p in P}:
+        _falta.append("%s -> %s" % (os.path.basename(_b), _m.group(1)))
+if _falta:
+    raise SystemExit("PARADO: piezas que el indice no conoce (o con otro nombre de archivo):\n  " + "\n  ".join(sorted(_falta)))
 
 DATA = {"base": BASE_URL, "prof": PROF_URL, "mods": MODULOS, "p": P}
 js = JS.replace("__DATA__", json.dumps(DATA, ensure_ascii=False))
