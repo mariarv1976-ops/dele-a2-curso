@@ -7,6 +7,7 @@
 # 23/10/2026 (chat de la R14a): FICHAS con los nombres de archivo reales de R10 y R14a y los titulos de R08, R10 y R13;
 # FICHAS_LISTAS con R08, R10, R13 y R14; laminas de "Ahora tu" de R08, R10, R13 y R14a en FICHAS_AT.
 # 23/10/2026 noche (chat de la R14b): ficha R14b (vocabulario de fuera de casa) en FICHAS y FICHAS_LISTAS, y sus dos laminas.
+# 24/10/2026: BANCO con las 20 laminas del banco de escritura (M3-6).
 
 def t1(instr, inp, lead, pautas):
     return {"instr": instr, "input": inp, "lead": lead, "pautas": pautas, "min": 60, "max": 70}
@@ -205,6 +206,113 @@ FICHAS_AT = [
     ["dónde trabaja o estudia y cómo es su horario;", "qué hacía en su tiempo libre cuando era niño o niña;", "qué hace ahora los fines de semana y con quién;", "para qué usa el móvil y las redes sociales;", "qué estación del año prefiere para salir y por qué."]),
 ]
 
+# ------------------------------------------------------------------ BANCO DE ESCRITURA (M3-6, 24/10/2026)
+# 20 laminas de banco_escritura_M3.py (build_M3_banco.py). La pieza copia «== Banco de escritura · <titulo> (tarea n) ==»;
+# las de «Como en el examen» llevan el mismo nombre, asi que se reconocen igual. Se corrigen como una sola tarea (sobre 25).
+BAN = "Banco de escritura · "
+BANCO = [
+ solo("A2-B-a1", BAN + 'Lola empieza la universidad', "Taller de escritura", [BAN + 'Lola empieza la universidad'], 1,
+      t1('Su amiga Lola le ha escrito este correo.',
+         ['¡Hola! ¿Cómo va todo? Te cuento una noticia: con cincuenta años, ¡he empezado a estudiar Historia en la universidad! Tengo clase tres tardes a la semana y estoy muy contenta, pero un poco nerviosa. ¿Y tú? ¿Qué tal estás?', 'Un beso, Lola'],
+         'Conteste a Lola. En el correo tiene que:',
+         ['saludar y felicitarla por la noticia;', 'contarle si usted ha estudiado algo en los últimos años y qué tal fue;', 'explicarle qué asignatura le gustaba más en el colegio y por qué;', 'proponerle una cena para celebrarlo: el día y el lugar;', 'hacerle dos preguntas sobre sus clases y despedirse.'])),
+ solo("A2-B-a2", BAN + 'Hugo y su perro Rufo', "Taller de escritura", [BAN + 'Hugo y su perro Rufo'], 1,
+      t1('Su amigo Hugo le ha escrito este correo.',
+         ['¡Hola! ¿Qué tal? Te escribo para pedirte un favor. El próximo fin de semana voy a una boda en Sevilla y no puedo llevar a Rufo. ¿Puedes cuidarlo en tu casa? Es muy bueno y solo come dos veces al día.', 'Un abrazo, Hugo'],
+         'Conteste a Hugo. En el correo tiene que:',
+         ['saludar y decirle si puede cuidar a Rufo y por qué;', 'contarle qué hizo usted el último fin de semana;', 'explicarle si tenía animales cuando era pequeño o pequeña y cómo eran;', 'decirle qué va a hacer con Rufo o, si no puede cuidarlo, proponerle otra solución;', 'hacerle dos preguntas sobre la boda y despedirse.'])),
+ solo("A2-B-a3", BAN + 'Iván no fue a la clase de inglés', "Taller de escritura", [BAN + 'Iván no fue a la clase de inglés'], 1,
+      t1('Iván, un compañero de su clase de inglés, le ha escrito este correo.',
+         ['¡Hola! ¿Qué tal? El martes no fui a clase porque estaba enfermo. ¿Qué hicisteis? ¿Hay deberes para el jueves? Ah, y el sábado quiero estudiar un poco para el examen de diciembre. ¿Te apetece estudiar conmigo?', 'Hasta pronto, Iván'],
+         'Conteste a Iván. En el correo tiene que:',
+         ['saludar y preguntarle cómo está;', 'contarle qué hicieron en la clase del martes;', 'explicarle qué deberes tienen para el jueves;', 'contestar si quiere estudiar con él y proponerle la hora y el lugar;', 'contarle cómo preparaba usted antes los exámenes y despedirse.'])),
+ solo("A2-B-a4", BAN + 'Una invitación del tío Paco', "Taller de escritura", [BAN + 'Una invitación del tío Paco'], 1,
+      t1('Su tío Paco le ha escrito este correo.',
+         ['¡Hola! ¿Cómo estás? Este verano vamos a pasar todo agosto en la casa del pueblo. ¿Por qué no vienes unos días? Hay sitio para ti y en el pueblo hace menos calor que en la ciudad. Tus primos también van a venir.', 'Un beso muy fuerte, tío Paco'],
+         'Conteste a su tío. En el correo tiene que:',
+         ['saludar y agradecerle la invitación;', 'contarle qué ha hecho usted este verano;', 'decirle qué días puede ir y cómo va a viajar;', 'recordar algo que hacía en el pueblo cuando era pequeño o pequeña;', 'preguntarle qué tiene que llevar y despedirse.'])),
+ solo("A2-B-a5", BAN + 'Álex quiere salir a correr', "Taller de escritura", [BAN + 'Álex quiere salir a correr'], 1,
+      t1('Su amigo Álex le ha escrito este correo.',
+         ['¡Hola! ¿Qué tal todo? Tengo una idea: quiero empezar a correr los domingos por la mañana en el parque del río. Solo un poco, ¡no soy deportista! ¿Quieres venir conmigo? Así es más divertido. ¿Tú haces algún deporte?', 'Un abrazo, Álex'],
+         'Conteste a Álex. En el correo tiene que:',
+         ['saludar y decirle qué le parece su idea;', 'contestar a su pregunta: qué deporte hace usted ahora y cuándo;', 'contarle qué deporte hacía antes y por qué lo dejó;', 'decirle si va a ir con él el domingo y a qué hora quedan;', 'hacerle una pregunta y despedirse.'])),
+ solo("A2-B-a6", BAN + 'Carla y el mercadillo del barrio', "Taller de escritura", [BAN + 'Carla y el mercadillo del barrio'], 1,
+      t1('Su amiga Carla le ha escrito este correo.',
+         ['¡Hola! ¿Qué tal? El domingo organizo con la asociación de vecinos un mercadillo de ropa y libros usados para ayudar al comedor del barrio. ¿Puedes ayudarnos? Necesitamos gente de diez a dos. ¿Tienes cosas que ya no usas?', 'Un beso, Carla'],
+         'Conteste a Carla. En el correo tiene que:',
+         ['saludar y decirle qué le parece el mercadillo;', 'decirle si puede ayudar el domingo y, si no puede, explicar por qué;', 'contarle qué cosas le va a llevar y cuándo;', 'explicarle qué hacía usted antes con la ropa vieja y qué hace ahora;', 'hacerle una pregunta sobre el mercadillo y despedirse.'])),
+ solo("A2-B-b1", BAN + 'Revista: «Mi primer trabajo»', "Taller de escritura", [BAN + 'Revista: «Mi primer trabajo»'], 2,
+      t2('Una revista en español busca textos de sus lectores sobre «Mi primer trabajo». Escriba su texto. Hable de:',
+         ['cuál fue su primer trabajo, cuándo y dónde;', 'cómo era un día normal en ese trabajo y cómo eran sus compañeros;', 'algo que pasó un día y que usted recuerda bien;', 'a qué se dedica ahora y qué le gusta de su trabajo o de sus estudios;', 'qué trabajo le gustaría tener en el futuro y por qué.'])),
+ solo("A2-B-b2", BAN + 'Diario: un día en que todo salió mal', "Taller de escritura", [BAN + 'Diario: un día en que todo salió mal'], 2,
+      t2('Escriba una entrada en su diario sobre un día reciente en que todo salió mal. Hable de:',
+         ['qué día fue y qué tenía que hacer ese día;', 'qué problemas tuvo por la mañana y por la tarde;', 'cómo se sentía y qué hizo para solucionarlos;', 'qué hace normalmente cuando tiene un mal día;', 'qué va a hacer de otra manera la próxima vez.'])),
+ solo("A2-B-b3", BAN + 'Blog: mi barrio antes y ahora', "Taller de escritura", [BAN + 'Blog: mi barrio antes y ahora'], 2,
+      t2('Escriba una entrada en su blog sobre el barrio donde vive. Hable de:',
+         ['cómo se llama su barrio, dónde está y desde cuándo vive allí;', 'cómo era el barrio cuando usted llegó;', 'qué ha cambiado en los últimos años;', 'qué es lo que más le gusta y lo que menos;', 'qué cosas nuevas va a haber en el barrio o le gustaría tener.'])),
+ solo("A2-B-b4", BAN + 'Revista: «Una costumbre de mi familia»', "Taller de escritura", [BAN + 'Revista: «Una costumbre de mi familia»'], 2,
+      t2('Una revista busca textos de sus lectores sobre «Una costumbre de mi familia». Escriba su texto. Hable de:',
+         ['qué costumbre es y cuándo la hacen;', 'quién empezó esta costumbre y cómo era cuando usted era pequeño o pequeña;', 'la última vez que la hicieron: cuándo fue y quién estaba;', 'qué es lo que más le gusta de esta costumbre;', 'si quiere seguir con ella en el futuro y por qué.'])),
+ solo("A2-B-c1", BAN + 'Julián Prieto, del fútbol al huerto', "Taller de escritura", [BAN + 'Julián Prieto, del fútbol al huerto'], 2,
+      t2('Julián Prieto vive en un pueblo de Teruel. Aquí tiene algunas fotos y datos sobre su vida.',
+         ['dónde y cuándo nació y cómo era de joven;', 'a qué se dedicó y qué hacía los fines de semana;', 'qué hace ahora y por qué cree usted que dejó el fútbol en 1980.'],
+         photos=['1975. Un chico de unos dieciséis años, con la camiseta de un equipo, juega al fútbol en un campo de tierra.', '1995. Un hombre de unos treinta y cinco años, con un silbato, entrena a un grupo de niños.', 'Hoy. El mismo hombre, mayor y con gorra, recoge tomates en su huerto con su nieta.'],
+         ficha=['Nació en Teruel en 1959.', 'De joven: muy deportista; juega en el equipo de su pueblo.', '1980: deja el fútbol; empieza a trabajar en una fábrica de muebles.', '1990-2020: entrena a los niños del pueblo los fines de semana.', '2021: se jubila.', 'Hoy: tiene un huerto; su nieta lo ayuda los sábados.'],
+         intro2='Escriba un texto sobre Julián. Hable de:')),
+ solo("A2-B-c2", BAN + 'Nuria Vidal, enfermera', "Taller de escritura", [BAN + 'Nuria Vidal, enfermera'], 2,
+      t2('Nuria Vidal es enfermera. Aquí tiene algunas fotos y datos sobre su vida.',
+         ['dónde y cuándo nació y qué le gustaba de niña;', 'dónde trabajó después de sus estudios y cómo era su vida allí;', 'qué hace ahora y por qué cree usted que todavía viaja a Perú.'],
+         photos=['Una niña de unos ocho años juega a ser enfermera: le pone una venda a su muñeca.', 'Una mujer joven, con ropa de enfermera, vacuna a un niño en un centro de salud pequeño de un pueblo de Perú.', 'La misma mujer, hoy, con el pelo corto y gris, da una clase a estudiantes de Enfermería.'],
+         ficha=['Nació en Lleida en 1970.', 'De niña: le encanta cuidar a la gente; quiere ser enfermera.', '1992: termina sus estudios de Enfermería.', '1994-2001: trabaja en un centro de salud de Perú; aprende quechua.', '2002: vuelve a España.', 'Hoy: es profesora en la universidad; viaja a Perú todos los veranos.'],
+         intro2='Escriba un texto sobre Nuria. Hable de:')),
+ solo("A2-B-c3", BAN + 'Pilar y Ramón, una vida bailando', "Taller de escritura", [BAN + 'Pilar y Ramón, una vida bailando'], 2,
+      t2('Pilar y Ramón están juntos desde hace casi cincuenta años. Aquí tiene algunas fotos y datos sobre su vida.',
+         ['cómo y cuándo se conocieron y a qué se dedicaban entonces;', 'qué hicieron después y cómo era su escuela;', 'cómo es su vida ahora y por qué cree usted que cerraron la escuela.'],
+         photos=['1976. Una chica y un chico de unos veinte años bailan de noche en las fiestas de un pueblo, con luces de colores.', '1990. Los dos, de unos treinta y cinco años, enseñan a bailar a varias parejas en una sala con espejos.', 'Hoy. Los dos, ya mayores, bailan en el salón de su casa con su nieto pequeño.'],
+         ficha=['1976: se conocen en las fiestas de Benicàssim.', 'Entonces: ella es peluquera; él, conductor de autobús.', '1979: se casan.', '1988: abren una escuela de baile en Castellón.', '2018: cierran la escuela.', 'Hoy: bailan todos los domingos con sus nietos.'],
+         intro2='Escriba un texto sobre Pilar y Ramón. Hable de:')),
+ solo("A2-B-c4", BAN + 'Karim Haddad y su taller de bicis', "Taller de escritura", [BAN + 'Karim Haddad y su taller de bicis'], 2,
+      t2('Karim Haddad tiene un taller de bicicletas en Valencia. Aquí tiene algunas fotos y datos sobre su vida.',
+         ['dónde nació y qué le gustaba hacer de niño;', 'cómo fue su vida cuando llegó a Valencia;', 'qué hace ahora y por qué cree usted que da clases a jóvenes.'],
+         photos=['Un niño de unos doce años arregla una bicicleta vieja delante de su casa, en un pueblo de Marruecos.', 'Un hombre joven trabaja en un campo de naranjos; lleva una caja llena de naranjas.', 'El mismo hombre, hoy, con barba gris, arregla una bici en su taller y habla con una clienta.'],
+         ficha=['Nació cerca de Fez (Marruecos) en 1981.', 'De niño: le encantan las bicis; arregla las de sus amigos.', '2001: llega a Valencia; trabaja en el campo, en la recogida de la naranja.', '2001-2008: estudia español por las noches.', '2009: abre un taller de bicicletas.', 'Hoy: tiene dos empleados; da clases de mecánica a jóvenes.'],
+         intro2='Escriba un texto sobre Karim. Hable de:')),
+ solo("A2-B-d1", BAN + 'La fiesta sorpresa de mamá', "Taller de escritura", [BAN + 'La fiesta sorpresa de mamá'], 2,
+      t2('El mes pasado usted organizó con sus hermanos una fiesta sorpresa por la jubilación de su madre. Aquí tiene tres fotos de ese día.',
+         ['por qué organizaron la fiesta, dónde y qué hicieron por la mañana;', 'qué pasó cuando llegó su madre y cómo estaba ella;', 'qué le regalaron y qué cree usted que va a hacer su madre ahora.'],
+         photos=['Por la mañana. Usted y su hermano ponen globos y una guirnalda en el salón de su hermana.', 'Por la tarde. Su madre abre la puerta y ve a toda la familia; se pone las manos en la cara.', 'Por la noche. Su madre abre su regalo: es una bicicleta con un lazo rojo.'],
+         ficha=[],
+         intro2='Escriba un texto sobre ese día. Hable de:')),
+ solo("A2-B-d2", BAN + 'El sábado que pintamos el piso', "Taller de escritura", [BAN + 'El sábado que pintamos el piso'], 2,
+      t2('El sábado pasado usted pintó el salón de su piso con dos amigos. Aquí tiene tres fotos de ese día.',
+         ['por qué pintaron el salón, con quién y qué hicieron primero;', 'qué pasó a mediodía y qué hicieron todos;', 'cómo era el salón antes, cómo es ahora y qué más va a cambiar en su casa.'],
+         photos=['Por la mañana. Usted y sus amigos tapan los muebles con plásticos; hay botes de pintura en el suelo.', 'A mediodía. A un amigo se le cae un bote de pintura azul en los pies; todos se ríen.', 'Por la noche. El salón ya está azul; ustedes brindan con limonada en el balcón.'],
+         ficha=[],
+         intro2='Escriba un texto sobre ese día. Hable de:')),
+ solo("A2-B-d3", BAN + 'Voluntaria en la carrera popular', "Taller de escritura", [BAN + 'Voluntaria en la carrera popular'], 2,
+      t2('El domingo pasado usted fue voluntario o voluntaria en una carrera popular de su ciudad. Aquí tiene tres fotos de ese día.',
+         ['por qué fue voluntario o voluntaria, a qué hora empezó y qué tenía que hacer;', 'qué pasó cuando llegaron los corredores;', 'cómo terminó el día, cómo se sentía y si quiere repetir el año que viene.'],
+         photos=['Muy temprano. Usted, con la camiseta amarilla de los voluntarios, pone botellas de agua y plátanos en unas mesas.', 'A mediodía. Pasan los corredores y usted les da agua. Una corredora mayor le choca la mano.', 'Por la tarde. Los voluntarios, cansados, comen bocadillos sentados en el césped y se ríen.'],
+         ficha=[],
+         intro2='Escriba un texto sobre ese día. Hable de:')),
+ solo("A2-B-d4", BAN + 'La excursión en bici y el tractor', "Taller de escritura", [BAN + 'La excursión en bici y el tractor'], 2,
+      t2('El verano pasado usted hizo una excursión en bici con su familia. Aquí tiene tres fotos de ese día.',
+         ['adónde fueron, qué tiempo hacía y cómo era el camino;', 'qué problema tuvieron a mediodía y qué hicieron;', 'cómo volvieron a casa, qué le pareció el día y qué excursión quiere hacer la próxima vez.'],
+         photos=['Por la mañana. Usted, su pareja y sus dos hijos van en bici por un camino entre campos de girasoles.', 'A mediodía. La bici de su hijo tiene una rueda pinchada; ustedes la miran sentados en el suelo.', 'Por la tarde. Un agricultor lleva a la familia y las bicis en el remolque de su tractor.'],
+         ficha=[],
+         intro2='Escriba un texto sobre ese día. Hable de:')),
+ solo("A2-B-u1", BAN + 'La profesora de pilates cambia el horario' + " (por si acaso)", "Taller de escritura", [BAN + 'La profesora de pilates cambia el horario'], 1,
+      t1('Usted va a clases de pilates en el centro cultural de su barrio. Su profesora, Isabel Gómez, le ha escrito este correo.',
+         ['Estimados alumnos: a partir de noviembre las clases de los lunes y los miércoles van a ser a las siete de la tarde, no a las seis. Si alguien no puede venir a esa hora, escríbame. Hay plazas en el grupo de los sábados.', 'Un saludo, Isabel Gómez'],
+         'Conteste a Isabel Gómez. En el correo tiene que:',
+         ['saludar;', 'decirle si va a poder ir a la nueva hora y por qué;', 'contarle cuándo empezó sus clases y qué le parecen;', 'preguntarle por el grupo de los sábados: la hora y el número de alumnos;', 'agradecerle la información y despedirse.'])),
+ solo("A2-B-u2", BAN + 'Una reserva en la casa rural' + " (por si acaso)", "Taller de escritura", [BAN + 'Una reserva en la casa rural'], 1,
+      t1('Usted ha reservado dos noches en una casa rural y ha recibido este correo.',
+         ['Estimado cliente: muchas gracias por su reserva en Casa Las Encinas para las noches del 14 y el 15 de marzo. ¿A qué hora piensa llegar? La cena no está incluida, pero podemos prepararla por quince euros por persona. ¿Necesita algo más?', 'Atentamente, Pilar Rubio'],
+         'Conteste a Pilar Rubio. En el correo tiene que:',
+         ['saludar y confirmar la reserva;', 'decir a qué hora va a llegar y con quién va a ir;', 'contestar si quiere la cena y explicar por qué;', 'contar cómo conoció la casa rural;', 'hacer una pregunta sobre la zona, agradecer y despedirse.'])),
+]
+
 # Fichas de remedio publicadas (el informe enlaza la ficha cuando hay errores de ese contenido)
 # R14 = vocabulario de la casa y del día a día (R14a); R14b = vocabulario de fuera de casa (viajes, ocio, estudios, trabajo,
 # tiempo, servicios). patch_corrector.py pone los dos códigos en la petición para Claude.
@@ -227,4 +335,4 @@ FICHAS = {
 }
 FICHAS_LISTAS = ["R01", "R02", "R04", "R05", "R06", "R07", "R08", "R10", "R13", "R14", "R14b"]
 
-NUEVOS = MODELOS + TALLERES + FICHAS_AT
+NUEVOS = MODELOS + TALLERES + BANCO + FICHAS_AT
