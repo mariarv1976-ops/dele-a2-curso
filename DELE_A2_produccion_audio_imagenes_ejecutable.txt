@@ -1,0 +1,238 @@
+PRODUCCIÓN DE LOS SIMULACROS DELE A2: AUDIOS, IMÁGENES Y EJECUTABLE
+===========================================================================
+Documento base del proyecto (actualizado tras las unidades 1 a 4, octubre 2026).
+NO se usa ElevenLabs Studio, ni ZIP, ni renombrado, ni Audacity.
+María trabaja paso a paso y de uno en uno: explicaciones cortas y sencillas.
+Cada unidad se trabaja en su propio chat (no mezclar unidades en un chat).
+
+---------------------------------------------------------------------------
+1. CÓMO SE PRODUCE UNA UNIDAD: build_unidad.py
+---------------------------------------------------------------------------
+El contenido de la unidad se escribe UNA sola vez en fuente_Uxx.py (modelos:
+fuente_U05.py, la más completa, y fuente_U04.py). Después:
+  python3 build_unidad.py fuente_Uxx <carpeta>
+genera de una vez, sin contradicciones entre archivos:
+  - DELEA2_F1_Uxx_estudiante.txt y DELEA2_F1_Uxx_profesora.txt
+  - DELEA2_F1_Uxx_datos.py  -> python3 DELE_A2_motor_simulacro.py
+    DELEA2_F1_Uxx_datos  -> DELEA2_F1_Uxx_simulacro.html
+  - Uxx_guion.txt (audio)
+  - nombres.txt (lista de imágenes para la acción rápida de María)
+  - Uxx_prompts_imagenes.txt (prompts en inglés, sale de IMG_PROMPTS y de
+    los prompts de las viñetas)
+Tipos de tarea en la fuente: lectura mail (T1), ads (T2), people (T3), long
+(T4); auditiva pics (T1), radio (T2), friends (T3), msgs (T4). El generador
+de guion cubre las cuatro tareas de auditiva.
+En la fuente: MES_WP = "2026/10" (carpeta del mes de WordPress en que se
+suben audios e imágenes; ver apartado 3), PERFIL_FOTOS y
+SITUACIONES_USADAS (apartado 3). build_unidad.py comprueba que el perfil
+está completo, que las dos fotos de la oral son muy distintas y que la
+situación no se ha usado antes; si algo falla, se para y lo dice.
+Unidades 6-10 (examen completo): en la fuente TIEMPOS = {"lectura": 60,
+"auditiva": 40} y las cuatro tareas en LECTURA y AUDITIVA.
+Antes de entregar: probar el HTML en navegador (contestar, entregar,
+resultados) y el guion en modo prueba (DELE_PRUEBA=1).
+Orden de entrega a María: cuadernillos para revisar -> HTML del simulacro
+y libreta oral de la profesora -> guion de audio (con el comando de
+Terminal) -> prompts de imágenes + nombres.txt -> código de la oral.
+Qué sube María al knowledge de cada unidad: solo fuente_Uxx.py (los datos,
+el guion y los cuadernillos se regeneran). Excepción: U01 y U02 no tienen
+fuente y se guardan sus DELEA2_F1_U01_datos.py y _U02_datos.py (el U02,
+además, lo usa build_unidad.py para las estrategias y el correo).
+
+---------------------------------------------------------------------------
+2. AUDIOS: generar_audios.py (en el Mac de María)
+---------------------------------------------------------------------------
+Carpeta: Documentos/DELE_AUDIO con generar_audios.py, clave.txt (API key de
+ElevenLabs), voces.txt (80 voces con código corto, acento, sexo, edad y uso)
+y los guiones Uxx_guion.txt. Plan de ElevenLabs: Creator. La misma carpeta
+sirve también para los audios de otros proyectos (curso B1...).
+Comando: python3 generar_audios.py Uxx_guion.txt
+Otros: --contar (caracteres sin gastar) · --rehacer "trozo" (regenera una
+frase, conversación o efecto) · --voces (lista las voces de la cuenta en
+voces_disponibles.txt, para actualizar voces.txt cuando María añade voces).
+Salida: carpeta "salida" con DELEA2_F1_Uxx_CA_Tn.m4a (AAC 64 kbps), formato
+definitivo (compatible con Safari/iPhone).
+
+Caché: cada frase, conversación y efecto se guarda en "cache"; lo repetido
+no gasta créditos. No borrarla mientras se trabaja una unidad. Con la unidad
+ya subida se puede borrar todo MENOS los archivos que empiezan por 0_
+(narrador, común a todas las unidades).
+
+Modelos: las líneas seguidas de personajes se generan como UNA conversación
+con eleven_v3 (text-to-dialogue); narrador y monólogos, frase a frase con
+eleven_multilingual_v2. Narrador stability 0,80 / similarity 0,90 / style 0 /
+speed 0,95; personajes 0,45 / 0,80 / 0,25 / 1,0. Pausa entre frases 0,25 s.
+
+Formato del guion (texto plano):
+  # ARCHIVO DELEA2_F1_Uxx_CA_T1      -> empieza un archivo de salida
+  0: texto                           -> narrador (Javier Rojas, siempre el 0)
+  ESTELA: texto                      -> personaje con su código de voces.txt
+  [5]                                -> silencio de 5 segundos
+  SONIDO 2: descripción en inglés    -> efecto de 2 s (API de efectos, con
+                                        caché, volumen por debajo de la voz)
+  # comentario                       -> se ignora
+Efectos (siempre ANTES de hablar, nunca debajo de la voz): din-don de
+megafonía y pitido de contestador (CA-T4, desde U02); sintonía breve de
+radio (CA-T2, desde U04). U01 sin efectos. Un aviso en persona (reunión,
+presentación) va sin efecto. Se reutiliza siempre la misma descripción
+para que salga de la caché:
+  SONIDO 2: Two-tone ding-dong chime of a public address announcement
+  system, clean and clear, no voices, no background noise
+  SONIDO 1: Single short electronic answering machine beep, clean, no
+  background noise
+  SONIDO 2: Short bright radio station jingle, three cheerful synth notes,
+  clean, no voices, no background noise
+Ritmo: conversaciones y mensajes con ritmo natural, como hablan los
+españoles (v3 y perfil /RADIO); nada de voces de robot ni demasiado lentas.
+La claridad la da la articulación, no la lentitud.
+Mecánica oficial: instrucción de la tarea, "A continuación va a oír un
+ejemplo", ejemplo SOLO UNA VEZ con su solución; desde el ítem 1 cada
+conversación/audio DOS VECES. Pausas: T1 [5] tras la pregunta y tras la
+repetición; T2 [10] tras el audio, [3] "Conteste a la pregunta número n",
+[10]; T3 "Ahora tiene treinta segundos…" [30], conversación [10] repetición
+[10]; T4 "Ahora tiene cuarenta y cinco segundos…" [45] y en cada mensaje
+[15] repetición [3] "Elija la opción correcta." [10].
+Números, horas y precios siempre con letras. "a, be o ce" en instrucciones.
+
+Reparto de voces: 0 = Javier Rojas (narrador fijo). Conversaciones: sobre
+todo voces españolas conversacionales y alguna latinoamericana en cada
+unidad; radio y megafonía: voces de uso publicidad/informativa. Rotar: no
+repetir en una unidad las voces protagonistas de la anterior. Reparto en la
+cabecera del guion.
+Usadas: U01 ESTELA, DANIEL_ES, ANA_MARIA, VOLU, SUSANA, MILO, LINA,
+SANTIAGO_ES, AITANA, ALEJANDRO, MARINA, JUAN_RESTREPO, FIONA, DIEGO; radio
+SERGIO, SARA, EVA, JUAN_CARLOS, LUCIA, MIA, EMILIO.
+U02 SARA_JOVEN, DANI; mensajes SOFIA, MARINA_ES, LUIS_VEGA, ANTONIO,
+MARTIN_2, CRISTINA, DAVID_M1, MARTIN_3.
+U03 AITANA, GABI, LYDIA, SANTIAGO_ES, OSCAR, LUCIA, SARA_2, MARTIN_1,
+CRISTINA_LAT, ENRIQUE, SUSANA, MARIO, GABRIEL_ES, EVA; T3 FIONA, DAVID_M2.
+U04 radio BOBBY, CLARA, TAMARA, JAVIER, MIA, LUIS_GUILLERMO, CRISTINA;
+mensajes DIANA, SARA, MILO, EMILIO, AGUSTIN, ESTELA, NINOSKA, TOMAS.
+U05 VOLU, SARA_JOVEN, SOFIA, DANI, GABRIEL_ES, EVA, FIONA, OSCAR, SARA_2,
+MARIO, AITANA, DAVID_CO, NIEVE, ANTONIO; mensajes VALENTINA, MARINA_ES,
+LUIS_VEGA, DANIEL_ES, LYDIA, JANET, SERGIO, MARTIN_3.
+Sin acento indicado (escuchar antes de usar): CRISTIAN_M, KANIKA.
+
+---------------------------------------------------------------------------
+3. IMÁGENES
+---------------------------------------------------------------------------
+Imágenes y audios se suben a la biblioteca de medios de WordPress, que los
+guarda en la carpeta del mes (wp-content/uploads/2026/10/...). Ese mes se
+indica en la fuente: MES_WP = "2026/10". Si al final se suben otro mes,
+se cambia esa línea y se vuelve a ejecutar build_unidad.py y el motor.
+Si falta una imagen, el ejecutable muestra el texto en su lugar y no se
+rompe.
+Nombres por unidad (siempre estos, sin sufijos):
+- Uxx_portada.jpg · Uxx_oral.jpg · Uxx_escrita.jpg (opción 2 de EIE-T2, varias
+  fotos en una sola imagen) · Uxx_oral_foto1.jpg · Uxx_oral_foto2.jpg: 1600 px.
+- Uxx_CA1_0.jpg … Uxx_CA1_6.jpg (auditiva T1): una imagen de tres viñetas
+  (A, B, C de izquierda a derecha), 3:1, 1200 px.
+- Todas a 90 KB como máximo (alguna puede pasar un poco: se acepta).
+Conversión en el Mac: acción rápida de Automator "Imagen DELE" (clic
+derecho en la imagen > Acciones rápidas). Lee Documentos/IMAGENES_2ST/
+nombres.txt: María elige el nombre en una lista (con descripción y vista
+previa), y guarda el JPG en IMAGENES_2ST/<CARPETA>. "Otro nombre…" = nombre
+libre, JPG junto al original (para imágenes de otros proyectos).
+Por eso, con cada tanda de prompts se entrega su nombres.txt:
+  CARPETA: DELE_A2_Uxx
+  Uxx_portada | 1600 | 90 | descripción corta para reconocerla
+  (nombre | ancho px | KB máximo | descripción; sin comillas ni apóstrofos)
+Prompts en inglés (build_unidad.py los junta en Uxx_prompts_imagenes.txt).
+Viñetas (auditiva T1, pueden seguir como hasta ahora): "Simple flat vector illustration in the style
+of an exam booklet, thin dark outlines, limited palette of soft coral, teal
+and warm grey, plain white background, three separate panels side by side
+of equal size with white space between them, one subject per panel,
+centred, no text, no letters, no labels, 3:1." + descripción de cada panel.
+Fotos: "photorealistic, candid, no readable text" + el perfil (abajo).
+
+FOTOS CON VARIEDAD REAL (oral y escritura, desde la U05)
+Las fotos de U01-U04 salieron todas parecidas (mismos colores, mismas
+personas, muy neutras) y no dan para describir mucho. Desde la U05 cada
+foto tiene un PERFIL en la fuente (PERFIL_FOTOS) que cambia de una unidad
+a otra:
+- situacion: dónde pasa (nunca una ya usada).
+- personas y edades: una, dos o un grupo; niños, adolescentes, adultos,
+  mayores.
+- aspecto: ropa y rasgos distintos (gafas, barba, canas, tatuaje, ropa de
+  trabajo, de deporte, de invierno, uniforme...).
+- espacio y lugar: interior o exterior; ciudad o campo.
+- momento, estacion, tiempo y gente: día o noche, estación, tiempo
+  atmosférico, lleno o vacío.
+- accion: la acción principal; fondo: algo diferente que pasa detrás.
+- objetos: muchos y fáciles de nombrar.
+- problema: una emoción o un pequeño problema que dé pie a la tarea 3.
+Las dos fotos de la oral de cada unidad, muy distintas entre sí (el build
+exige al menos cuatro diferencias entre personas, espacio, momento,
+estación, tiempo y gente). El prompt se escribe a partir del perfil, con
+todos esos detalles. La foto de la escritura (opción 2) sigue el mismo
+perfil. En el cuadernillo de la profesora sale el perfil completo.
+SITUACIONES_USADAS en cada fuente: la lista de todas las unidades
+anteriores más la nueva. Hasta hoy: U01 secretaría, librería · U02
+taquilla de cine, museo · U03 tienda de ropa, aeropuerto · U04 tienda de
+muebles, piso vacío en alquiler · U05 parada de autobús de noche, taller
+de bicicletas en un pueblo.
+
+---------------------------------------------------------------------------
+4. EJECUTABLE (DELE_A2_motor_simulacro.py + datos de la unidad)
+---------------------------------------------------------------------------
+Comando: python3 DELE_A2_motor_simulacro.py DELEA2_F1_Uxx_datos
+El motor soporta las 8 tareas de comprensión (datos con "tasks"; la U01
+usa el formato antiguo t1/t2 y sigue funcionando), escritura y oral
+completas. Número de tareas, preguntas y minutos salen de los datos
+("tiempos" opcional; por defecto 30 y 20).
+Decisiones fijadas con María:
+- Pestañas: Inicio · 1 Lectura · 2 Auditiva · 3 Escritura (45 min) ·
+  4 Resultados · 5 Vocabulario · 6 Oral. "Escritura", no "Escrita".
+  El cuadernillo del estudiante sigue el mismo orden (vocabulario después
+  de la escritura).
+- Resultados y Vocabulario se abren al entregar lectura, auditiva y
+  escritura. Vocabulario al final, con textos y transcripciones.
+- Resultados: nota, semáforo, qué repasar con mini reto, consejo de
+  estrategia, errores uno a uno con explicación y transcripción, PDF.
+- Informe que el estudiante copia y envía a María: incluye las
+  sugerencias (contenidos en rojo/ámbar con su repaso, mini reto y
+  preguntas falladas), todas las estrategias que fallan y cada error con
+  enunciado, respuesta marcada, correcta, contenido y estrategia. Sirve
+  para que María cree ejecutables de refuerzo a medida.
+- Escritura: consejo "cuenta tus palabras con los ojos" (unas 10 palabras
+  por línea: T1 = 6-7 líneas, T2 = 7-8) y caja con renglones de unas 10
+  palabras. El contador de palabras se mantiene por ahora; PENDIENTE
+  quitarlo más adelante (en el examen real no existe).
+- Envío con botón "Copiar" (franja verde de confirmación + correo de la
+  profesora) en escritura, resultados y vocabulario.
+- La escritura nunca se bloquea. Confirmaciones dentro de la página.
+- "Repetir el simulacro desde cero" en Inicio y Resultados.
+- Oral bloqueada con un código de 5 caracteres DISTINTO en cada examen,
+  sin relación entre ellos. Lo calcula el motor con su palabra secreta y
+  el nombre del examen ("A2-U" + unidad: A2-U05). María lo consulta en su
+  panel (biblioteca/profesora/panel.html, carpeta protegida). La pantalla
+  de bloqueo muestra "Examen A2-Uxx" y el enlace "Acceso profesora". El
+  motor lo escribe al terminar ("codigo de la oral: ...").
+- Cronómetros en la oral del estudiante: 12 minutos de preparación y uno
+  por tarea al lado del título (T1 2-3 min, T2 2-3 min, T3 3-4 min); se
+  pone verde al llegar al mínimo y rojo al pasar del máximo.
+- Libreta oral de la profesora: el motor genera también
+  DELEA2_F1_Uxx_oral_profesora.html (módulo DELE_oral_profesora.py, común
+  A2/B2, en la misma carpeta). Escalas por tarea y holística, apuntes al
+  vuelo, recuento rápido, cronómetros, nota orientativa /25, informe con
+  consejos, PDF e historial por estudiante. Lleva el GUION_ENTREVISTADOR y
+  los ERRORES de la fuente (no van en el archivo del estudiante). Se sube
+  SOLO a biblioteca/profesora/, nunca a la parte pública.
+- Oral A2: en las tareas 1 y 2 el entrevistador no interviene; el guion
+  solo trae ayudas por si el estudiante se bloquea o termina antes de
+  tiempo. La interacción es la tarea 3.
+- Estudiantes de iTalki: NO mencionar 2spanishteachers en lo que ve el
+  estudiante. Aviso legal: "Material de preparación original. No es un
+  examen oficial y es independiente del Instituto Cervantes."
+- storageKey propia por unidad (dele_a2_f1_uxx_v1).
+- Probar en Safari, descargado o desde la web (la vista previa del chat
+  bloquea los audios externos).
+
+---------------------------------------------------------------------------
+5. ESTADO (04/10/2026)
+---------------------------------------------------------------------------
+U01-U04: publicadas (HTML, libreta oral, audios, imágenes).
+U05 (T1 + T4, mitad de tiempo): generada con fotos de perfil variado;
+pendiente de revisión, audios e imágenes. Código de la oral: en el panel.
+Siguiente: U06-U10, con las cuatro tareas y tiempo completo (60 y 40).
+===========================================================================

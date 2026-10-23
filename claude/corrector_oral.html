@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Corrector del oral</title>
+<style>
+:root{--paper:#FBF9F6;--ink:#14161C;--coral:#E8603C;--coral-soft:#FCE9E1;--cta:#FF6B45;
+--line:#E6DFD6;--muted:#5E5A55;--ok:#2F7D4F;--ok-soft:#E3F1E8;--amb:#B7791F;--amb-soft:#FBF0DA;
+--bad:#B3261E;--bad-soft:#F8E1DE;--card:#FFFFFF}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.25;margin:0 0 .5em}
+h2{font-size:1.45rem}h3{font-size:1.15rem}h4{font-size:1.02rem}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+header.top{border-bottom:3px solid var(--coral);background:var(--card);position:sticky;top:0;z-index:10}
+.top-in{max-width:820px;margin:0 auto;padding:14px 20px 0}
+.brand small{display:block;color:var(--muted);font-size:.85rem}
+nav.steps{display:flex;overflow-x:auto;margin-top:12px}
+nav.steps button{flex:0 0 auto;border:0;background:none;padding:8px 9px 10px;font:inherit;font-size:.92rem;color:var(--muted);cursor:pointer;border-bottom:4px solid transparent;display:flex;align-items:center;gap:6px}
+nav.steps button .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;font-size:.75rem;font-weight:700}
+nav.steps button.on{color:var(--ink);border-bottom-color:var(--coral);font-weight:600}
+nav.steps button.done .n{background:var(--ok);border-color:var(--ok);color:#fff}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--cta);outline-offset:2px}
+section.view{display:none;padding-top:28px}
+section.view.on{display:block}
+.lead{font-size:1.05rem;color:var(--muted);max-width:62ch}
+.tip{background:var(--coral-soft);border-radius:8px;padding:10px 14px;font-size:.95rem;margin:12px 0}
+.note{background:var(--card);border-left:5px solid var(--ink);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+.btn{font:inherit;font-weight:600;border-radius:999px;padding:10px 22px;cursor:pointer;border:2px solid var(--ink);background:#fff;color:var(--ink);text-decoration:none;display:inline-block}
+.btn.cta{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn.sm{padding:5px 14px;font-size:.88rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}
+.muted{color:var(--muted)}.small{font-size:.88rem}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+details[open] summary{margin-bottom:8px}
+table.t{width:100%;border-collapse:collapse;background:#fff;margin:8px 0 14px}
+table.t th{text-align:left;font-size:.85rem;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:2px solid var(--line)}
+table.t td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.mono{font-family:'SF Mono',Consolas,monospace;font-size:.9em}
+.copied-box{background:var(--ok-soft);color:var(--ok);border-radius:10px;padding:12px 16px;margin:4px 0 10px;font-weight:500}
+.copied-box.bad{background:var(--amb-soft);color:#7A4E0E}
+.copied-box[hidden]{display:none}
+footer.legal{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:40px}
+@media (max-width:600px){body{font-size:16px}table.t td,table.t th{padding:7px 6px}}
+
+.wrap{max-width:900px}.top-in{max-width:900px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:14px 0}
+.card h3{margin-top:0}
+label.f{display:block;font-weight:600;margin:12px 0 4px}
+input[type=text],input[type=number],select,textarea{font:inherit;border:1.5px solid #CFC6BB;border-radius:8px;padding:8px 12px;background:#fff;color:var(--ink);width:100%}
+input[type=number]{width:7em}
+textarea{min-height:120px;line-height:1.5;resize:vertical}
+textarea.big{min-height:220px}
+textarea.mono{font-family:'SF Mono',Consolas,monospace;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wc{font-size:.85rem;color:var(--muted);margin-top:2px}.wc.ok{color:var(--ok)}.wc.no{color:var(--amb)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.chips label{border:2px solid var(--line);border-radius:999px;padding:4px 14px;cursor:pointer;background:#fff;font-weight:500}
+.chips label:has(input:checked){border-color:var(--ink);background:var(--ink);color:#fff}
+.chips input{position:absolute;opacity:0}
+.msg{border-radius:8px;padding:10px 14px;margin:10px 0}
+.msg.ok{background:var(--ok-soft);color:var(--ok)}.msg.bad{background:var(--bad-soft);color:var(--bad)}.msg.amb{background:var(--amb-soft);color:#7A4E0E}
+.msg[hidden]{display:none}
+.task-ref{font-size:.93rem}.task-ref ol,.task-ref ul{margin:4px 0 8px;padding-left:1.3em}
+.task-ref .in{background:var(--paper);border-radius:8px;padding:8px 12px;margin:6px 0;font-family:Georgia,serif}
+.bands{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+.bands select{font-weight:700}
+.bands .d{font-size:.82rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.just{font-size:.9rem;background:#EEF0F7;color:#2B3270;border-radius:8px;padding:8px 12px;margin:8px 0}
+table.t td select{width:auto;padding:4px 8px}
+table.t td input[type=text]{padding:4px 8px;font-size:.9rem}
+.err-off td{opacity:.45;text-decoration:line-through}
+.score-box{display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;margin:12px 0}
+.score-box div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px}
+.score-box b{font-family:Georgia,serif;font-size:1.6rem;display:block;line-height:1.1}
+.score-box span{font-size:.85rem;color:var(--muted)}
+.hist td{font-size:.9rem}
+.hist .btn{padding:3px 12px;font-size:.82rem}
+/* informe */
+#rep{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px}
+#rep h2{margin-top:0}
+#rep .sub{color:var(--muted);font-size:.92rem;margin-top:-6px}
+#rep .tk{border-top:3px solid var(--coral);margin-top:26px;padding-top:12px}
+#rep .pl{list-style:none;padding:0;margin:6px 0}
+#rep .pl li{padding:5px 0 5px 30px;position:relative;border-bottom:1px dashed var(--line);line-height:1.45}
+#rep .pl li:before{position:absolute;left:2px;top:5px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;font-weight:700;color:#fff}
+#rep .pl li.si:before{content:"\2713";background:var(--ok)}
+#rep .pl li.parcial:before{content:"\00BD";background:var(--amb)}
+#rep .pl li.no:before{content:"\2715";background:var(--bad)}
+#rep .pl small{color:var(--muted);display:block}
+#rep .txt{font-family:Georgia,serif;line-height:1.9;background:var(--paper);border-radius:8px;padding:12px 16px;white-space:pre-wrap}
+#rep mark{background:var(--bad-soft);color:inherit;border-bottom:2px solid var(--bad);padding:0 1px;border-radius:2px}
+#rep mark sup{color:var(--bad);font-weight:700;font-family:system-ui,sans-serif;font-size:.7em;margin-left:1px}
+#rep .el{margin:6px 0;padding-left:0;list-style:none}
+#rep .el li{margin:6px 0;line-height:1.45}
+#rep .el .n{display:inline-block;min-width:1.8em;color:var(--bad);font-weight:700}
+#rep .el .o{text-decoration:line-through;color:var(--bad)}
+#rep .el .c{color:var(--ok);font-weight:600}
+#rep .el .tg{font-size:.72rem;font-weight:700;border-radius:4px;padding:1px 6px;background:#EFEAE4;color:var(--muted);margin-left:4px}
+#rep .imp{background:var(--coral-soft);border-radius:10px;padding:10px 14px;margin:10px 0}
+#rep .imp li{margin:6px 0}
+#rep .good{background:var(--ok-soft);border-radius:10px;padding:10px 14px;margin:10px 0}
+#rep .model{font-family:Georgia,serif;line-height:1.7;border-left:4px solid var(--ok);padding:6px 14px;white-space:pre-wrap}
+#rep .sem{width:100%;border-collapse:collapse;margin:8px 0}
+#rep .sem td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.dot{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:8px;vertical-align:-1px}
+.dot.a{background:var(--amb)}.dot.r{background:var(--bad)}.dot.g{background:var(--ok)}
+#rep .big{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+#rep .big div{border:2px solid var(--ink);border-radius:10px;padding:10px 16px}
+#rep .big b{font-family:Georgia,serif;font-size:1.7rem;display:block;line-height:1.1}
+#rep .big span{font-size:.85rem;color:var(--muted)}
+#rep .foot{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:10px}
+@media (max-width:700px){.grid2,.bands{grid-template-columns:1fr}#rep{padding:16px}}
+@media print{header.top,.noprint,footer.legal{display:none!important}body{background:#fff}section.view{display:none!important}#v-informe{display:block!important;padding:0}#rep{border:0;padding:0}.tk{break-inside:auto}#rep .imp,#rep .good{break-inside:avoid}}
+#rep .pl li.nu:before{content:"\2013";background:#9A948D}
+.row input[type=number]{width:6em}
+.steps .nueva{margin-left:auto;font-weight:700;border:1px solid currentColor;border-radius:999px;padding:4px 12px;background:transparent;cursor:pointer}
+.vsel{margin-bottom:8px}
+.fitem{border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0;background:#fff}
+.fitem.on{border-color:var(--ok);background:var(--ok-soft)}
+optgroup{font-style:normal;font-weight:700}
+.tcard{border-left:6px solid var(--line)}
+.tcard.k1,.tr.k1 td:first-child{border-left-color:#E8603C}
+.tcard.k2,.tr.k2 td:first-child{border-left-color:#3D6FB6}
+.tcard.k3,.tr.k3 td:first-child{border-left-color:#2F7D4F}
+.tcard.k4,.tr.k4 td:first-child{border-left-color:#B7791F}
+.tcard textarea{min-height:90px}
+table.turns td:first-child{border-left:6px solid #D9D2C9;white-space:nowrap}
+table.turns td.tx{font-size:.93rem;line-height:1.5;width:100%}
+table.turns td.tx summary{font-weight:400;cursor:pointer}
+table.turns tr.other td{opacity:.45}
+table.turns tr.cut td{border-top:3px solid var(--ink)}
+table.turns select{font-size:.85rem;padding:4px 6px;width:auto}
+.role{font:inherit;font-weight:700;width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid var(--ink)}
+.role.P{background:var(--ink);color:#fff}.role.E{background:#fff;color:var(--ink)}
+.ed{border:0;background:none;cursor:pointer;color:var(--muted);font-size:1rem;padding:0 4px}
+.tagf{font-size:.72rem;font-weight:700;border-radius:4px;padding:1px 6px;background:var(--ok-soft);color:var(--ok)}
+.tagd{font-size:.72rem;font-weight:700;border-radius:4px;padding:1px 6px;background:var(--amb-soft);color:#7A4E0E}
+tr.dud td{background:#FFFBF2}
+textarea.edit{min-height:90px;margin-bottom:6px}
+.bands .just{font-size:.86rem}
+@media print{#rep .tk{break-inside:auto}}
+.cmd{display:flex;gap:10px;align-items:center;background:#14161C;color:#F3EFE9;border-radius:8px;padding:10px 12px;margin:8px 0;flex-wrap:wrap}
+.cmd code{font-family:'SF Mono',Consolas,monospace;font-size:.88rem;flex:1;min-width:0;word-break:break-all}
+.cmd .btn{background:#fff}
+#rep .nivt{font-weight:600;border-radius:8px;padding:6px 12px;display:inline-block;margin:2px 0 8px}
+#rep .nivt.g{background:var(--ok-soft);color:var(--ok)}#rep .nivt.a{background:var(--amb-soft);color:#7A4E0E}#rep .nivt.r{background:var(--bad-soft);color:var(--bad)}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+<div class="brand"><h1 style="font-size:1.35rem;margin:0">Corrector del oral</h1><small>Solo para la profesora &#xB7; DELE A2, B1 y B2 &#xB7; desde la transcripci&#xF3;n de la grabaci&#xF3;n &#xB7; el informe sale en el paso 5</small></div>
+<nav class="steps" id="steps" aria-label="Pasos"></nav>
+</div></header>
+<main class="wrap">
+<section class="view" id="v-trans"></section>
+<section class="view" id="v-tareas"></section>
+<section class="view" id="v-claude"></section>
+<section class="view" id="v-revisar"></section>
+<section class="view" id="v-informe"></section>
+<footer class="legal">Correcci&#xF3;n orientativa con las escalas oficiales del DELE: hol&#xED;stica del entrevistador (40 %) y anal&#xED;tica del calificador (60 %), todas las categor&#xED;as con el mismo peso. A2: uso de la lengua y cumplimiento de la tarea. B1 y B2: coherencia, fluidez, correcci&#xF3;n y alcance. La pronunciaci&#xF3;n no se valora desde la transcripci&#xF3;n. Lo que guardas aqu&#xED; se queda en este navegador.</footer>
+</main>
+<script>(function(){
+/* ------------ escalas oficiales por nivel (cursos de examinadores DELE / gu\u00EDas del examen) ------------ */
+var ESC_A2_T12 = [
+'ESCALA DEL CALIFICADOR \u00B7 TAREAS 1 Y 2',
+'USO DE LA LENGUA',
+'3 = Su repertorio ling\u00FC\u00EDstico le permite desenvolverse con claridad y cierta seguridad, desarrollar argumentos y expresar preferencia, inter\u00E9s, opini\u00F3n, probabilidad o deseo (prefiero\u2026, me interesa\u2026, me parece\u2026, quiz\u00E1s\u2026) en un discurso bastante continuo y cohesionado, compuesto por enunciados breves, enlazados por conectores habituales (es que, por eso, adem\u00E1s). Controla razonablemente estructuras relativamente sencillas (futuro, per\u00EDfrasis frecuentes), aunque puede cometer errores y/o alguna pausa que no dificultan la comprensi\u00F3n. Su pronunciaci\u00F3n es claramente inteligible, pero puede mostrar acento extranjero y cometer alg\u00FAn fallo de articulaci\u00F3n espor\u00E1dico.',
+'2 = Dispone de un repertorio ling\u00FC\u00EDstico suficiente para desenvolverse con cierta eficacia y dejar claro lo que quiere decir, y es capaz de expresar hechos, deseos, preferencias, estados an\u00EDmicos o valoraciones (me gusta\u2026, quiero\u2026, creo que\u2026). Su discurso, razonablemente continuo, est\u00E1 enlazado de forma elemental (porque, adverbios y demostrativos). Muestra control de las reglas gramaticales b\u00E1sicas (presente y pasados de indicativo, concordancias, art\u00EDculos, posesivos, per\u00EDfrasis b\u00E1sicas), aunque puede cometer errores y/o alguna pausa. La comprensi\u00F3n resulta sencilla, si bien puede tener un evidente acento extranjero y fallos de articulaci\u00F3n espor\u00E1dicos.',
+'1 = Se expresa mediante enunciados breves que le permiten proporcionar informaci\u00F3n limitada en un discurso discontinuo y/o enlazado de forma m\u00EDnima (y, tambi\u00E9n, pero). Utiliza unas pocas construcciones gramaticales sencillas (presente de indicativo, verbos copulativos para identificar y atribuir cualidades, concordancias b\u00E1sicas) pero realiza pausas o comete errores, y puede mostrar influencia de otras lenguas. La comprensi\u00F3n puede requerir cierto esfuerzo.',
+'0 = Se expresa mediante unas pocas palabras sueltas o enunciados inconexos (formas verbales en infinitivo o en presente, falta de concordancia), con pausas o silencios prolongados y frecuentes, errores abundantes y/o un alto porcentaje de palabras de otras lenguas. Se comprenden solo algunos fragmentos.',
+'CUMPLIMIENTO DE LA TAREA',
+'3 = Habla de todos los puntos que debe tratar e incluye en su respuesta alg\u00FAn detalle, comentario, valoraci\u00F3n, opini\u00F3n o motivo relevantes.',
+'2 = Aporta la mayor parte de la informaci\u00F3n requerida, dejando \u00FAnicamente sin responder uno de los puntos o contestando de forma incompleta e insuficiente a dos de ellos.',
+'1 = Aporta parte de la informaci\u00F3n requerida, dejando sin responder dos de los puntos de la tarea o contestando m\u00E1s de la mitad de ellos de forma incompleta.',
+'0 = Solo cumple satisfactoriamente uno de los puntos que debe tratar.'].join('\n');
+var ESC_A2_T3 = [
+'ESCALA DEL CALIFICADOR \u00B7 TAREA 3',
+'USO DE LA LENGUA',
+'3 = Emplea un repertorio ling\u00FC\u00EDstico que le permite desenvolverse con claridad y cierta seguridad en la situaci\u00F3n planteada. Controla razonablemente estructuras relativamente sencillas, aunque puede, sobre todo en asuntos menos habituales, cometer errores y/o hacer alguna pausa que no dificultan la comprensi\u00F3n.',
+'2 = Utiliza un repertorio ling\u00FC\u00EDstico sencillo, suficiente para expresarse sobre temas cotidianos y desenvolverse con cierta eficacia en la situaci\u00F3n planteada, aunque puede necesitar ayuda del interlocutor. Muestra control de las reglas gramaticales b\u00E1sicas para construir oraciones sencillas, aunque comete errores y/o hace pausas que no dificultan la comprensi\u00F3n.',
+'1 = Intercambia informaci\u00F3n personal o del entorno inmediato, muy limitada. Muestra dificultades de comprensi\u00F3n y precisa ayuda del interlocutor, reformulaciones o repeticiones. Se expresa mediante palabras, grupos de palabras y enunciados breves, con errores o pausas sistem\u00E1ticos, por lo que la comprensi\u00F3n puede requerir cierto esfuerzo.',
+'0 = Muestra dificultades de comprensi\u00F3n y precisa ayudas del interlocutor, reformulaciones o repeticiones constantes. Se expresa mediante unas pocas palabras sueltas o enunciados inconexos, con pausas o silencios prolongados y frecuentes, errores abundantes y/o un alto porcentaje de palabras de otras lenguas, por lo que no siempre se le comprende.',
+'CUMPLIMIENTO DE LA TAREA',
+'3 = Proporciona la informaci\u00F3n requerida por el interlocutor con alg\u00FAn detalle, comentario, valoraci\u00F3n, opini\u00F3n o motivo.',
+'2 = Responde a las preguntas del interlocutor con la informaci\u00F3n requerida y de forma comprensible.',
+'1 = Responde brevemente, e incluso parcialmente en ocasiones, a algunas de las preguntas de su interlocutor.',
+'0 = No responde a la mayor\u00EDa de las preguntas de su interlocutor.'].join('\n');
+var ESC_A2_HOL = [
+'ESCALA DEL ENTREVISTADOR (TODA LA PRUEBA)',
+'USO DE LA LENGUA',
+'3 = Emplea un repertorio ling\u00FC\u00EDstico que le permite expresarse con claridad y cierta seguridad sobre temas cotidianos y desenvolverse bien en situaciones habituales. Controla razonablemente estructuras relativamente sencillas, aunque puede cometer, sobre todo cuando asume riesgos, errores y/o alguna pausa que no dificultan la comprensi\u00F3n.',
+'2 = Utiliza un repertorio ling\u00FC\u00EDstico suficiente para expresarse sobre temas cotidianos y desenvolverse con cierta eficacia en situaciones de comunicaci\u00F3n sencillas, si bien puede necesitar alguna ayuda del interlocutor en la interacci\u00F3n. Muestra control de las reglas gramaticales b\u00E1sicas para construir oraciones sencillas, aunque comete errores.',
+'1 = Se expresa mediante palabras, grupos de palabras y enunciados breves, que le permiten proporcionar informaci\u00F3n limitada. Comete bastantes errores y/o pausas que hacen que la comprensi\u00F3n pueda requerir cierto esfuerzo. En la interacci\u00F3n necesita ayuda del interlocutor.',
+'0 = Se expresa mediante unas pocas palabras sueltas o enunciados inconexos, con pausas o silencios prolongados y frecuentes, con errores abundantes y/o un alto porcentaje de palabras de otras lenguas, por lo que no siempre se le comprende. En la interacci\u00F3n muestra dificultades de comprensi\u00F3n y precisa ayudas del interlocutor, reformulaciones o repeticiones constantes.',
+'CUMPLIMIENTO DE LA TAREA',
+'3 = Resuelve las tres tareas, aportando en toda la informaci\u00F3n requerida e incluyendo en alguna de ellas detalles, comentarios, valoraciones, opiniones o motivos.',
+'2 = Resuelve las tres tareas y logra transmitir los mensajes, si bien en alguna de las tareas puede hacerlo de forma parcial.',
+'1 = Resuelve, de forma completa o parcial, dos de las tareas, o solo una de ellas de forma completa.',
+'0 = Resuelve solo una tarea de forma parcial, o no resuelve ninguna.'].join('\n');
+
+var ESC_B1_HOL = [
+'ESCALA HOL\u00CDSTICA B1 (ENTREVISTADOR, TAREAS 1 A 4)',
+'3 = A\u00F1ade a la informaci\u00F3n requerida explicaciones, argumentos o ejemplos relevantes. Tiene un repertorio ling\u00FC\u00EDstico suficiente para desenvolverse sin dificultad en las situaciones planteadas, aunque comete algunos errores. Mantiene conversaciones e intercambia informaci\u00F3n de forma adecuada, interviene para confirmar la comprensi\u00F3n de informaci\u00F3n detallada y colabora con su interlocutor.',
+'2 = Aporta la informaci\u00F3n requerida para cumplir con el objetivo comunicativo de las tareas. Tiene un repertorio ling\u00FC\u00EDstico sencillo que le permite enfrentarse a las situaciones planteadas, con errores que no interfieren en la transmisi\u00F3n de sus ideas. Mantiene conversaciones e intercambia informaci\u00F3n, aunque puede necesitar alguna aclaraci\u00F3n y repetir parte de lo que su interlocutor ha dicho para confirmar la comprensi\u00F3n mutua.',
+'1 = Aunque hace descripciones y presentaciones sencillas, no aporta la informaci\u00F3n suficiente para cumplir con el objetivo comunicativo de las tareas. Aunque su repertorio ling\u00FC\u00EDstico limitado le permite transmitir informaci\u00F3n sobre temas personales y del entorno m\u00E1s cercano en situaciones sencillas y cotidianas, tiene que adaptar el mensaje y buscar las palabras y comete repetidamente errores b\u00E1sicos. Participa en conversaciones e intercambia informaci\u00F3n siempre que el interlocutor le ayude.',
+'0 = Apenas proporciona informaci\u00F3n, por lo que no cumple con el objetivo comunicativo de las tareas. Las limitaciones ling\u00FC\u00EDsticas provocan dificultades en la formulaci\u00F3n de lo que quiere decir. Requiere que el interlocutor repita lo que ha dicho o lo diga con otras palabras y a una velocidad lenta y que le ayude a formular lo que intenta decir.'].join('\n');
+var ESC_B1_AN = [
+'ESCALA ANAL\u00CDTICA B1 (CALIFICADOR; una calificaci\u00F3n para las tareas 1-2 y otra para las tareas 3-4)',
+'COHERENCIA',
+'3 = Elabora un discurso claro y coherente, con un uso adecuado, aunque limitado, de mecanismos de cohesi\u00F3n. Si su intervenci\u00F3n se alarga puede mostrar cierta p\u00E9rdida de control sobre su discurso. Mantiene la conversaci\u00F3n de forma adecuada, colaborando con su interlocutor.',
+'2 = Elabora secuencias lineales de ideas relacionadas en forma de enunciados breves y sencillos y enlazados por conectores habituales (ej.: \u00ABes que\u00BB, \u00ABpor eso\u00BB, \u00ABadem\u00E1s\u00BB). Mantiene conversaciones sencillas sobre temas cotidianos, aunque en ocasiones necesita alguna aclaraci\u00F3n o repetir parte de lo que dice su interlocutor para confirmar la comprensi\u00F3n.',
+'1 = Presenta un discurso limitado, compuesto por grupos de palabras y conectores sencillos (ej.: \u00ABy\u00BB, \u00ABpero\u00BB, \u00ABporque\u00BB). Necesita la colaboraci\u00F3n del interlocutor para confirmar su comprensi\u00F3n y poder responder a preguntas y afirmaciones sencillas.',
+'0 = Presenta un discurso confuso, compuesto por enunciados aislados, sin apenas elementos de enlace. Precisa que el interlocutor repita o reformule con frecuencia sus intervenciones y sus respuestas no siempre se ajustan a las preguntas que se le formulan.',
+'FLUIDEZ',
+'3 = Se expresa con relativa facilidad. A pesar de algunos problemas al formular su discurso, que dan como resultado pausas y \u00ABcallejones sin salida\u00BB, es capaz de seguir adelante con eficacia. Su pronunciaci\u00F3n es claramente inteligible, pero puede que resulte evidente su acento extranjero y que cometa errores espor\u00E1dicos.',
+'2 = Habla de forma continuada y comprensible, aunque son evidentes las pausas para planificar su discurso y pensar en la gram\u00E1tica y el l\u00E9xico adecuados. Su pronunciaci\u00F3n es claramente inteligible, pero puede que resulte evidente su acento extranjero y que cometa errores espor\u00E1dicos.',
+'1 = Se hace entender con expresiones muy breves, y resultan evidentes las pausas, las dudas iniciales y la reformulaci\u00F3n. Su pronunciaci\u00F3n y articulaci\u00F3n son generalmente bastante claras y comprensibles, aunque su acento y sus errores ocasionales pueden provocar que la comprensi\u00F3n requiera cierto esfuerzo.',
+'0 = Solo maneja expresiones muy breves, aisladas y preparadas de antemano, utilizando muchas pausas para buscar expresiones, articular palabras menos habituales y corregir la comunicaci\u00F3n. Su pronunciaci\u00F3n y articulaci\u00F3n solo son correctas en palabras y frases memorizadas. La comprensi\u00F3n requiere cierto esfuerzo.',
+'CORRECCI\u00D3N',
+'3 = Muestra un control gramatical relativamente alto. Comete errores que no provocan la incomprensi\u00F3n y en ocasiones los corrige.',
+'2 = Muestra un control razonable de un repertorio de estructuras sencillas (ej.: tiempos de indicativo, posesivos, verbo \u00ABgustar\u00BB, per\u00EDfrasis b\u00E1sicas). Comete errores que no provocan la incomprensi\u00F3n.',
+'1 = Utiliza algunas estructuras sencillas correctamente, pero comete errores b\u00E1sicos de forma sistem\u00E1tica, como por ejemplo confusi\u00F3n de tiempos verbales y faltas de concordancia.',
+'0 = Muestra un control insuficiente de las estructuras sencillas y de modelos de oraciones breves y b\u00E1sicas: por ejemplo, errores en el uso del presente y en la concordancia sujeto-verbo, y uso de infinitivos en lugar de verbos flexionados. Los numerosos errores hacen que la comunicaci\u00F3n sea muy dif\u00EDcil.',
+'ALCANCE',
+'3 = Su repertorio ling\u00FC\u00EDstico le permite describir situaciones, explicar los puntos principales de una idea o un problema con razonable precisi\u00F3n y expresar lo que piensa sobre temas generales, de car\u00E1cter abstracto o cultural, como la m\u00FAsica y las pel\u00EDculas.',
+'2 = Su repertorio ling\u00FC\u00EDstico es lo bastante amplio como para desenvolverse en situaciones cotidianas y expresarse, aunque un tanto dubitativamente y con circunloquios, sobre temas tales como su familia, sus aficiones e intereses, su trabajo, sus viajes y acontecimientos actuales. Comete incorrecciones e imprecisiones l\u00E9xicas cuando asume riesgos.',
+'1 = Su repertorio ling\u00FC\u00EDstico limitado le permite transmitir informaci\u00F3n sobre temas personales y del entorno m\u00E1s cercano en situaciones sencillas y cotidianas (necesidades b\u00E1sicas, transacciones comunes), pero tiene que adaptar el mensaje y buscar las palabras. Comete incorrecciones e imprecisiones l\u00E9xicas.',
+'0 = Su repertorio ling\u00FC\u00EDstico se limita a un grupo reducido de palabras o exponentes memorizados. Comete incorrecciones e imprecisiones l\u00E9xicas o hay interferencias de otras lenguas que dificultan el entendimiento.'].join('\n');
+
+var ESC_B2_HOL = [
+'ESCALA HOL\u00CDSTICA B2 (ENTREVISTADOR, TAREAS 1 A 3)',
+'3 = Expresa sus opiniones, describe las situaciones planteadas con claridad y desarrolla sus ideas aportando detalles relevantes y resaltando los aspectos significativos. Tiene un repertorio ling\u00FC\u00EDstico que le permite expresarse con claridad y formular lo que quiere decir. Demuestra un alto control gramatical y l\u00E9xico. Comete escasos errores e imprecisiones y en ocasiones los corrige. Conversa con facilidad y destreza, utilizando sin esfuerzo aparente los recursos ling\u00FC\u00EDsticos apropiados. Hace alusiones a lo dicho por su interlocutor de forma natural.',
+'2 = Expresa sus opiniones y describe las situaciones planteadas con claridad. Cumple con el objetivo comunicativo de las tareas. Tiene un repertorio ling\u00FC\u00EDstico que le permite expresarse con claridad, dando pocas muestras de restringir lo que dice. Demuestra un control gramatical y l\u00E9xico relativamente alto, aunque comete errores e imprecisiones que en ocasiones corrige. Mantiene la conversaci\u00F3n de forma adecuada, confirmando su comprensi\u00F3n y colaborando con su interlocutor.',
+'1 = Aunque aporta algunas ideas o impresiones, son poco claras o incompletas, por lo que no cumple con el objetivo comunicativo de las tareas. Se expresa con esfuerzo y son evidentes sus limitaciones ling\u00FC\u00EDsticas: errores gramaticales, incorrecciones e imprecisiones l\u00E9xicas. Mantiene conversaciones sencillas sobre temas cotidianos. Puede necesitar alguna aclaraci\u00F3n y repetir parte de lo que su interlocutor ha dicho para confirmar la comprensi\u00F3n mutua.',
+'0 = Apenas es capaz de expresar sus opiniones o describir situaciones, por lo que no cumple con el objetivo comunicativo de las tareas. Las limitaciones ling\u00FC\u00EDsticas provocan dificultades en la formulaci\u00F3n de lo que quiere decir. Contesta a preguntas y responde a afirmaciones sencillas e indica cu\u00E1ndo comprende. Necesita la colaboraci\u00F3n de su interlocutor porque no comprende lo suficiente.'].join('\n');
+var ESC_B2_AN = [
+'ESCALA ANAL\u00CDTICA B2 (CALIFICADOR; una calificaci\u00F3n por tarea)',
+'COHERENCIA',
+'3 = Muestra un discurso coherente y cohesionado, con un uso apropiado y variado de estructuras organizativas, conectores y otros mecanismos de cohesi\u00F3n. Conversa con facilidad y destreza, utilizando sin esfuerzo aparente los recursos ling\u00FC\u00EDsticos apropiados y siguiendo con naturalidad los turnos de palabra.',
+'2 = Elabora un discurso claro y coherente, con un uso adecuado, aunque limitado, de mecanismos de cohesi\u00F3n. Si su intervenci\u00F3n se alarga puede mostrar cierta p\u00E9rdida de control sobre su discurso. Mantiene la conversaci\u00F3n de forma adecuada, colaborando con su interlocutor.',
+'1 = Elabora secuencias lineales de ideas relacionadas en forma de enunciados breves y sencillos enlazados por conectores habituales (ej.: \u00ABes que\u00BB, \u00ABpor eso\u00BB, \u00ABadem\u00E1s\u00BB). Mantiene conversaciones sencillas sobre temas cotidianos, aunque en ocasiones necesita alguna aclaraci\u00F3n o repetir parte de lo que dice su interlocutor para confirmar la comprensi\u00F3n.',
+'0 = Presenta un discurso limitado, compuesto por grupos de palabras y conectores sencillos (ej.: \u00ABy\u00BB, \u00ABpero\u00BB, \u00ABporque\u00BB). Necesita la colaboraci\u00F3n del interlocutor para confirmar su comprensi\u00F3n y poder responder a preguntas y afirmaciones sencillas.',
+'FLUIDEZ',
+'3 = Se comunica espont\u00E1neamente, a menudo mostrando una fluidez y una capacidad de expresi\u00F3n notables, incluso en per\u00EDodos m\u00E1s largos y complejos. Utiliza circunloquios y par\u00E1frasis para suplir carencias de vocabulario y estructura. Su pronunciaci\u00F3n es claramente inteligible, aunque puede que su acento extranjero resulte evidente, y utiliza variaciones de entonaci\u00F3n para expresar matices de significado o su actitud hacia lo que dice.',
+'2 = Su discurso tiene un ritmo bastante uniforme, aunque puede dudar mientras busca estructuras o expresiones. Se observan pocas pausas largas. Su pronunciaci\u00F3n es claramente inteligible, pero puede que su acento extranjero resulte evidente y que cometa errores espor\u00E1dicos.',
+'1 = Habla de forma continuada y comprensible, aunque son evidentes las pausas para planificar su discurso y pensar en la gram\u00E1tica y el l\u00E9xico adecuados. Su pronunciaci\u00F3n es claramente inteligible, pero puede que su acento extranjero resulte evidente y que cometa errores espor\u00E1dicos.',
+'0 = Se hace entender con expresiones muy breves, y resultan evidentes las pausas, las dudas iniciales y la reformulaci\u00F3n. Su pronunciaci\u00F3n y articulaci\u00F3n son generalmente bastante claras e inteligibles, aunque su acento y sus errores ocasionales pueden provocar que la comprensi\u00F3n requiera cierto esfuerzo.',
+'CORRECCI\u00D3N',
+'3 = Muestra un alto control gramatical; comete escasos errores sistem\u00E1ticos y peque\u00F1os fallos en la estructura de la frase que en ocasiones corrige y que no provocan la incomprensi\u00F3n.',
+'2 = Muestra un control gramatical relativamente alto. Comete errores que no provocan la incomprensi\u00F3n y en ocasiones los corrige.',
+'1 = Muestra un control razonable de un repertorio de estructuras de uso habitual asociadas a situaciones predecibles. Comete errores, pero no provocan la incomprensi\u00F3n.',
+'0 = Utiliza algunas estructuras sencillas correctamente, pero comete errores b\u00E1sicos de forma sistem\u00E1tica, como por ejemplo confusi\u00F3n de tiempos verbales y faltas de concordancia.',
+'ALCANCE',
+'3 = Tiene un buen dominio de un amplio repertorio ling\u00FC\u00EDstico que le permite elegir una formulaci\u00F3n para expresarse con claridad sobre cualquier tema sin necesidad de restringir lo que quiere decir, aunque a veces cometa alguna imprecisi\u00F3n.',
+'2 = Su amplio repertorio ling\u00FC\u00EDstico le permite hacer descripciones claras y expresar puntos de vista sobre temas generales sin evidenciar la b\u00FAsqueda de palabras y utilizando oraciones complejas para conseguirlo. Puede cometer alguna imprecisi\u00F3n o incorrecci\u00F3n al seleccionar las palabras.',
+'1 = Aunque transmite con razonable precisi\u00F3n la informaci\u00F3n sencilla, su repertorio ling\u00FC\u00EDstico no le permite hacer descripciones ni expresar su punto de vista de forma clara. Utiliza principalmente oraciones sencillas, necesita buscar las palabras y comete incorrecciones e imprecisiones l\u00E9xicas.',
+'0 = Su repertorio ling\u00FC\u00EDstico limitado le permite transmitir informaci\u00F3n sobre temas personales y del entorno m\u00E1s cercano en situaciones sencillas y cotidianas (necesidades b\u00E1sicas, transacciones comunes), pero tiene que adaptar el mensaje y buscar las palabras. Comete incorrecciones e imprecisiones l\u00E9xicas.'].join('\n');
+
+var CR_A2=[['uso','Uso de la lengua','lengua'],['cumplimiento','Cumplimiento de la tarea','tarea']];
+var CR_4=[['coherencia','Coherencia','coherencia'],['fluidez','Fluidez','fluidez'],['correccion','Correcci\u00F3n','correcci\u00F3n'],['alcance','Alcance','alcance']];
+
+var NIV={
+ A2:{
+  tareas:{1:['Presentaci\u00F3n (mon\u00F3logo)',2,3,true],2:['Descripci\u00F3n de una fotograf\u00EDa',2,3,true],3:['Conversaci\u00F3n en una situaci\u00F3n simulada',3,4,false]},
+  hol:CR_A2, holEsc:ESC_A2_HOL,
+  bloques:[{id:'T1',t:[1],crit:CR_A2,esc:ESC_A2_T12},{id:'T2',t:[2],crit:CR_A2,esc:ESC_A2_T12},{id:'T3',t:[3],crit:CR_A2,esc:ESC_A2_T3}],
+  aud:{label:'Aciertos de la comprensi\u00F3n auditiva del mismo examen (25 preguntas = 25 puntos)', ud:'aciertos'},
+  leng:'espa\u00F1ol sencillo de nivel A2, de t\u00FA, sin tecnicismos',
+  notaHol:'el entrevistador da dos notas a toda la prueba (uso de la lengua y cumplimiento de la tarea)'
+ },
+ B1:{
+  tareas:{1:['Presentaci\u00F3n de un tema (mon\u00F3logo)',2,3,true],2:['Conversaci\u00F3n sobre la presentaci\u00F3n',3,4,false],3:['Descripci\u00F3n de una fotograf\u00EDa',2,3,true],4:['Situaci\u00F3n simulada',2,3,false]},
+  hol:[['global','Escala hol\u00EDstica','hol\u00EDstica']], holEsc:ESC_B1_HOL,
+  bloques:[{id:'T1-T2',t:[1,2],crit:CR_4,esc:ESC_B1_AN},{id:'T3-T4',t:[3,4],crit:CR_4,esc:ESC_B1_AN}],
+  aud:{label:'Puntos de la comprensi\u00F3n auditiva sobre 25 (la auditiva de B1 tiene 30 preguntas: pon los puntos, no los aciertos)', ud:'puntos'},
+  leng:'espa\u00F1ol claro de nivel B1, de t\u00FA, con los t\u00E9rminos gramaticales justos',
+  notaHol:'el entrevistador da una nota hol\u00EDstica a toda la prueba'
+ },
+ B2:{
+  tareas:{1:['Valorar propuestas y conversar',6,7,false],2:['Describir una situaci\u00F3n (fotograf\u00EDa) y conversar',5,6,false],3:['Conversaci\u00F3n a partir de una encuesta o unos datos',3,4,false]},
+  hol:[['global','Escala hol\u00EDstica','hol\u00EDstica']], holEsc:ESC_B2_HOL,
+  bloques:[{id:'T1',t:[1],crit:CR_4,esc:ESC_B2_AN},{id:'T2',t:[2],crit:CR_4,esc:ESC_B2_AN},{id:'T3',t:[3],crit:CR_4,esc:ESC_B2_AN}],
+  aud:{label:'Puntos de la comprensi\u00F3n auditiva sobre 25 (la auditiva de B2 tiene 30 preguntas: pon los puntos, no los aciertos)', ud:'puntos'},
+  leng:'espa\u00F1ol claro, de t\u00FA; puedes usar t\u00E9rminos gramaticales b\u00E1sicos (subjuntivo, conector, registro)',
+  notaHol:'el entrevistador da una nota hol\u00EDstica a toda la prueba'
+ }
+};
+var NIVELES=['A2','B1','B2'];
+
+var KEY='corrector-oral-actual', HKEY='corrector-oral-hist';
+var STEPS=[['trans','Transcripci\u00F3n'],['tareas','Tareas'],['claude','Claude'],['revisar','Revisar'],['informe','Informe']];
+var TIPOS={GR:'gram\u00E1tica',LEX:'vocabulario',COH:'conectores y orden',ADE:'registro (t\u00FA/usted)',INT:'interacci\u00F3n'};
+var EST={si:'Hecho',parcial:'A medias',no:'Falta'};
+var MUL=['eh','ehm','em','emm','mm','mmm','hmm','pues','bueno','o sea','a ver','vale'];
+var NUMW={uno:1,dos:2,tres:3,cuatro:4,'1':1,'2':2,'3':3,'4':4,primera:1,segunda:2,tercera:3,cuarta:4};
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmt(n){ return (Math.round(n*100)/100).toFixed(2).replace('.',','); }
+function num(v){ return parseFloat(String(v==null?'':v).replace(',','.')); }
+function cap(s){ s=String(s||''); return s.charAt(0).toUpperCase()+s.slice(1); }
+function mm(s){ s=Math.max(0,Math.round(s||0)); return (s<600?'0':'')+Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60); }
+function nrm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036F]/g,'').replace(/[^\w\s]/g,' ').replace(/\s+/g,' ').trim(); }
+function wcount(t){ var m=String(t||'').replace(/\[[^\]]*\]|\([^)]*\)/g,' ').match(/[A-Za-z\u00C0-\u00FF0-9]+/g); return m?m.length:0; }
+function blank(){ return {editing:-1, step:'trans', nivel:'A2', name:'', examen:'', raw:'', turns:[], cuts:{}, inferred:'', ronda:1, lam:{}, detMsg:'', aud:'', resp:'', C:null, hid:null, vista:'est', priv:''}; }
+function load(k,d){ try{ var r=localStorage.getItem(k); if(r) return JSON.parse(r); }catch(e){} return d; }
+function normS(s){ var b=blank(), k; for(k in b) if(!(k in s)) s[k]=b[k]; if(!NIV[s.nivel]) s.nivel='A2'; return s; }
+var S=normS(load(KEY,null)||blank());
+var H=load(HKEY,[]);
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function saveH(){ try{ localStorage.setItem(HKEY, JSON.stringify(H)); }catch(e){ alert('No se ha podido guardar el historial (el navegador no tiene espacio). Borra correcciones antiguas.'); } }
+function N(){ return NIV[S.nivel]; }
+function maxT(){ return Object.keys(N().tareas).length; }
+function BL(b){ var n=S.nivel; return {0:'Muy lejos del '+n,1:'No llega al '+n,2:n+': apto',3:'Supera el '+n}[b]; }
+
+/* ------------ navegaci\u00F3n ------------ */
+function can(id){ return {trans:true, tareas:S.turns.length>0, claude:S.turns.length>0, revisar:!!S.C, informe:!!S.C}[id]; }
+function nav(){
+ var o='';
+ STEPS.forEach(function(st,i){ o+='<button type="button" class="'+(S.step===st[0]?'on':'')+'" data-go="'+st[0]+'"'+(can(st[0])?'':' disabled')+(S.step===st[0]?' aria-current="step"':'')+'><span class="n">'+(i+1)+'</span>'+st[1]+'</button>'; });
+ o+='<button type="button" class="nueva" data-act="nueva">+ Nueva correcci\u00F3n</button>';
+ $('steps').innerHTML=o;
+}
+function go(id){ S.step=id; save(); render(); window.scrollTo(0,0); }
+function render(){
+ nav();
+ var V={trans:vTrans, tareas:vTareas, claude:vClaude, revisar:vRevisar, informe:vInforme};
+ for(var k in V){ var el=$('v-'+k); el.classList.toggle('on', k===S.step); el.innerHTML = k===S.step ? V[k]() : ''; }
+}
+function chips(name, opts, cur){ return '<div class="chips">'+opts.map(function(x){ return '<label><input type="radio" name="'+name+'" value="'+x[0]+'"'+(String(cur)===String(x[0])?' checked':'')+'>'+x[1]+'</label>'; }).join('')+'</div>'; }
+function msg(id, cls, txt){ var m=$(id); if(!m) return; m.hidden=false; m.className='msg '+cls; m.textContent=txt; }
+
+/* ------------ leer la transcripci\u00F3n ------------ */
+function parseRaw(raw){
+ var lines=String(raw||'').split(/\r?\n/), turns=[], hdr={}, name='', lastT=0, pend=null, off=0, seg=0, rawLast=0, inHead=false;
+ var reT=/^\s*\[(?:(\d+):)?(\d{1,3}):(\d{2})\]\s*([^:\]]{1,24}?)\s*:\s?(.*)$/;
+ var reS=/^\s*(P|E|PROFESORA|PROFESOR|ESTUDIANTE|ENTREVISTADORA?|CANDIDATOA?|CANDIDATA)\s*:\s?(.*)$/i;
+ lines.forEach(function(l){
+  var m;
+  if(/^\s*TRANSCRIPCI/i.test(l)){ inHead=true; return; }
+  if(inHead && !/^\s*\[\d/.test(l)){ if(!name && (m=l.match(/^\s*Estudiante:\s*([^\u00B7\n]+)/i))){ name=m[1].trim(); if(name==='-') name=''; } if((m=l.match(/^\s*-{2,}\s*(.+?)\s*-{2,}\s*$/))) pend=m[1]; return; }
+  inHead=false;
+  if((m=l.match(/^\s*-{2,}\s*(.+?)\s*-{2,}\s*$/))){ pend=m[1]; return; }
+  var role=null, t=null, x='';
+  if((m=l.match(reT))){ role=m[4]; var rt=(parseInt(m[1]||'0',10)*3600)+parseInt(m[2],10)*60+parseInt(m[3],10); x=m[5];
+   if(turns.length && rt+5<rawLast){ seg++; off=lastT+3; } rawLast=rt; t=rt+off; }
+  else if((m=l.match(reS))){ role=m[1]; t=lastT; x=m[2]; }
+  if(role){
+   var rr=role.trim().toUpperCase(), r=null;
+   if(rr==='P'||/^PROF|^ENTREV/.test(rr)) r='P'; else if(rr==='E'||/^ESTUD|^CANDID/.test(rr)) r='E';
+   if(!r){ if(turns.length) turns[turns.length-1].x+=' '+l.trim(); return; }
+   if(pend){ hdr[turns.length]=pend; pend=null; }
+   turns.push({t:t, r:r, x:x.trim(), seg:seg}); lastT=t; return;
+  }
+  if(l.trim() && turns.length && !/^={3,}/.test(l) && !/^(Duraci|TRANSCRIPCION)/i.test(l.trim())) turns[turns.length-1].x+=' '+l.trim();
+ });
+ return {turns:turns, hdr:hdr, name:name, segs:seg+1};
+}
+function annNum(text){
+ var s=nrm(text), re=/tarea (?:(?:eh|ehm|em|mm|mmm|el|la|numero|n|o)\s+){0,3}(uno|dos|tres|cuatro|1|2|3|4)\b|(primera|segunda|tercera|cuarta) tarea/g, m, k=0;
+ while((m=re.exec(s))) k=NUMW[m[1]||m[2]];
+ return k;
+}
+function detect(hdr){
+ var T=S.turns, mx=maxT(), cnt={P:0,E:0}, swapped=false, notes=[];
+ var sc={}; T.forEach(function(t){ var g=t.seg||0; sc[g]=sc[g]||{P:0,E:0}; if(annNum(t.x)) sc[g][t.r]++; });
+ Object.keys(sc).forEach(function(g){ if(sc[g].E>sc[g].P){ T.forEach(function(t){ if(String(t.seg||0)===g) t.r=t.r==='P'?'E':'P'; }); swapped=true; } });
+ var cuts={}, cur=0, round=1, first=null;
+ T.forEach(function(t,i){
+  if(t.r!=='P') return; var k=annNum(t.x); if(!k||k>mx) return;
+  if(cur && k===cur) return;
+  if(cur && k<cur) round++;
+  cuts[i]=round+'|'+k; cur=k; if(first===null) first={i:i,k:k};
+ });
+ S.inferred='';
+ if(first===null && hdr){
+  Object.keys(hdr).forEach(function(i){ var h=nrm(hdr[i]), m=h.match(/ronda (\d+) tarea (\d)/)||h.match(/()tarea (\d)/);
+   if(m){ cuts[i]=(m[1]||'1')+'|'+m[2]; } else if(/antes|empezar/.test(h)) cuts[i]='n'; });
+  if(Object.keys(cuts).length) notes.push('Nadie anuncia las tareas en la grabaci\u00F3n: he usado la divisi\u00F3n del archivo. Rev\u00EDsala.');
+ }
+ if(first!==null && first.i>0){
+  if(first.k>1){ cuts[0]='1|'+(first.k-1);
+   var dicha=false; for(var q=0;q<first.i;q++) if(annNum(T[q].x)===first.k-1) dicha=true;
+   if(dicha) notes.push('He puesto en la tarea '+(first.k-1)+' todo lo que va antes del anuncio de la tarea '+first.k+'.');
+   else { S.inferred='1|'+(first.k-1); notes.push('La grabaci\u00F3n parece empezar con la tarea '+(first.k-1)+' ya empezada (nadie la anuncia y luego se anuncia la tarea '+first.k+').'); } }
+  else cuts[0]='n';
+ }
+ if(!Object.keys(cuts).length){ cuts[0]='1|1'; notes.push('No he encontrado en la grabaci\u00F3n \u00ABtarea uno, dos, tres\u00BB: est\u00E1 todo en la tarea 1. Marca abajo d\u00F3nde empieza cada tarea.'); }
+ if(!cuts[0]) cuts[0]='n';
+ S.cuts=cuts;
+ var R=rounds();
+ var head=[];
+ var ns=0; T.forEach(function(t){ ns=Math.max(ns,(t.seg||0)+1); });
+ if(ns>1) head.push('He unido '+ns+' transcripciones seguidas (el tiempo contin\u00FAa de una a otra).');
+ if(swapped) head.push('Profesora y estudiante estaban al rev\u00E9s en el archivo: ya est\u00E1n cambiados (P es quien anuncia las tareas).');
+ if(R>1) head.push('La grabaci\u00F3n tiene '+R+' rondas de tareas seguidas (varios orales): elige abajo cu\u00E1l corriges.');
+ S.detMsg=head.concat(notes).join(' ');
+ if(S.ronda>R) S.ronda=1;
+}
+function cutKeys(){ return Object.keys(S.cuts).map(Number).sort(function(a,b){return a-b;}); }
+function block(i){ var v='n'; cutKeys().forEach(function(k){ if(k<=i) v=S.cuts[k]; }); return v; }
+function rounds(){ var R=1; cutKeys().forEach(function(k){ var v=S.cuts[k]; if(v!=='n') R=Math.max(R, parseInt(v,10)); }); return R; }
+function tidyCuts(){ var prev=null; cutKeys().forEach(function(k){ if(k>0 && S.cuts[k]===prev) delete S.cuts[k]; else prev=S.cuts[k]; }); if(!('0' in S.cuts)) S.cuts[0]='n'; }
+
+/* ------------ datos por tarea ------------ */
+function stats(code){
+ var T=S.turns, idx=[], i;
+ for(i=0;i<T.length;i++) if(block(i)===code) idx.push(i);
+ if(!idx.length) return null;
+ var eI=idx.filter(function(j){ return T[j].r==='E'; }), a=eI.length?eI[0]:idx[0], b=eI.length?eI[eI.length-1]:idx[idx.length-1];
+ var endT = b+1<T.length ? T[b+1].t : T[b].t+Math.max(3, wcount(T[b].x)/2.2);
+ var w=0, sec=0, pz=[], mul={};
+ idx.forEach(function(j){
+  var t=T[j]; if(t.r!=='E') return;
+  var nx = j+1<T.length ? T[j+1].t : t.t+wcount(t.x)/2.2;
+  w+=wcount(t.x); sec+=Math.max(0, nx-t.t);
+  var m, re=/\[pausa (\d+) ?s\]/g; while((m=re.exec(t.x))) pz.push(+m[1]);
+  var s=' '+nrm(t.x)+' '; MUL.forEach(function(k){ var c=s.split(' '+k+' ').length-1; if(c) mul[k]=(mul[k]||0)+c; });
+ });
+ return {ini:T[a].t, fin:endT, dur:endT-T[a].t, w:w, sec:sec, ppm: sec>8 ? Math.round(w/(sec/60)) : null, pz:pz, mul:mul, n:idx.length};
+}
+function taskList(){ var o=[]; for(var k=1;k<=maxT();k++) o.push(k); return o; }
+function code(k){ return S.ronda+'|'+k; }
+function present(){ return taskList().filter(function(k){ return !!stats(code(k)); }); }
+function tName(k){ var t=N().tareas[k]; return 'Tarea '+k+' \u00B7 '+t[0]; }
+function objTxt(k){ var t=N().tareas[k]; return t[1]+'-'+t[2]+' min'; }
+function mulTxt(m){ var a=Object.keys(m).sort(function(x,y){return m[y]-m[x];}); return a.length ? a.map(function(k){ return k+' \u00D7'+m[k]; }).join(', ') : 'ninguna'; }
+function statLine(st, k){
+ if(!st) return 'No hay nada de esta tarea en la transcripci\u00F3n.';
+ var t=N().tareas[k], durMin=st.dur/60, lab = durMin<t[1]-0.25 ? ' \u00B7 corta' : (durMin>t[2]+0.5 && t[3] ? ' \u00B7 larga' : ' \u00B7 bien');
+ return 'Duraci\u00F3n '+mm(st.dur)+' (objetivo '+objTxt(k)+lab+') \u00B7 habla el estudiante unos '+mm(st.sec)+' \u00B7 '+st.w+' palabras'+(st.ppm?' \u00B7 ~'+st.ppm+' palabras/min':'')+' \u00B7 silencios largos: '+st.pz.length+' \u00B7 muletillas: '+mulTxt(st.mul);
+}
+
+/* ------------ paso 1: transcripci\u00F3n ------------ */
+function vTrans(){
+ var o='<h2>1. La transcripci\u00F3n</h2><div class="msg" id="nmsg" hidden></div>';
+ o+='<div class="card"><h3>Qu\u00E9 corriges</h3><div class="grid2"><div><label class="f">Nivel del examen</label>'+chips('nivel', NIVELES.map(function(n){ return [n,n]; }), S.nivel)+'</div>';
+ o+='<div><label class="f" for="fname">Nombre del estudiante</label><input type="text" id="fname" value="'+esc(S.name)+'"></div></div>';
+ o+='<label class="f" for="fexam">Examen (opcional: sale en el informe)</label><input type="text" id="fexam" placeholder="Simulacro unidad 5 \u00B7 Modelo M6..." value="'+esc(S.examen)+'"></div>';
+ o+='<div class="card"><h3>Antes: transcribir la grabaci\u00F3n en el Mac</h3><p class="small">Abre <b>Terminal</b>, pega el comando y pulsa Enter. Se abre una ventana para elegir la grabaci\u00F3n (m4a, mp3, wav o el v\u00EDdeo de Zoom). Si el oral qued\u00F3 en <b>varios audios</b>, selecci\u00F3nalos todos a la vez con la tecla Cmd: se unen en un solo .txt por orden de nombre (ponles nombres como parte1, parte2). Al terminar se abre el .txt: lo traes aqu\u00ED abajo.</p>';
+ o+='<div class="cmd"><code id="cmd1">'+esc(cmdTxt('trans'))+'</code><button class="btn sm" data-act="copyCmd" data-k="trans">Copiar</button></div>';
+ o+='<details><summary>Otros comandos</summary><p class="small">Si has descargado una versi\u00F3n nueva del programa (queda en Descargas), para ponerla en su carpeta:</p><div class="cmd"><code>'+esc(cmdTxt('update'))+'</code><button class="btn sm" data-act="copyCmd" data-k="update">Copiar</button></div><p class="small">Para abrir la carpeta de las transcripciones en el Finder:</p><div class="cmd"><code>'+esc(cmdTxt('open'))+'</code><button class="btn sm" data-act="copyCmd" data-k="open">Copiar</button></div><p class="small muted">No hace falta dividir las tareas ni cambiar P y E en Terminal: eso se hace aqu\u00ED, en el paso 2. Mientras grabas, ayuda decir en voz alta \u00ABtarea uno\u00BB, \u00ABtarea dos\u00BB, \u00ABtarea tres\u00BB.</p></details><span class="small" id="cmdmsg" role="status"></span></div>';
+ o+='<div class="card"><h3>Pega la transcripci\u00F3n</h3><p class="muted small">El .txt que sale de <span class="mono">transcribir_oral.py</span> (carpeta DELE_ORAL). Puedes abrir el archivo o pegar su contenido. Si tienes dos o m\u00E1s .txt del mismo oral, \u00E1brelos a la vez o p\u00E9galos uno detr\u00E1s de otro, en orden: el corrector los une. Da igual si las tareas o los papeles salen mal: en el paso 2 lo revisas.</p>';
+ o+='<div class="row" style="margin:6px 0"><label class="btn sm" for="ffile">Abrir el .txt (o varios)</label><input type="file" id="ffile" accept=".txt,text/plain" multiple style="position:absolute;opacity:0;width:1px"><span class="small muted" id="fmsg"></span></div>';
+ o+='<textarea id="raw" class="mono big" placeholder="[00:05] P: Bueno, empezamos. Tarea uno...&#10;[00:12] E: Pues yo voy a hablar de...">'+esc(S.raw)+'</textarea>';
+ o+='<div class="msg" id="pmsg" hidden></div><div class="row"><button class="btn cta" data-act="leer">Leer y dividir en tareas</button></div></div>';
+ o+=histHtml();
+ return o;
+}
+function histHtml(){
+ if(!H.length) return '';
+ var o='<div class="card"><h3>Correcciones guardadas</h3><table class="t hist"><thead><tr><th>Fecha</th><th>Estudiante</th><th>Nivel</th><th>Examen</th><th>Nota</th><th></th></tr></thead><tbody>';
+ H.forEach(function(h){ o+='<tr><td>'+esc(h.fecha)+'</td><td>'+esc(h.name||'-')+'</td><td>'+esc(h.nivel)+'</td><td>'+esc(h.examen||'-')+'</td><td>'+esc(h.nota)+'</td><td style="white-space:nowrap"><button class="btn" data-act="hopen" data-id="'+h.id+'">Abrir</button> <button class="btn" data-act="hdel" data-id="'+h.id+'">Borrar</button></td></tr>'; });
+ return o+'</tbody></table><p class="muted small">Se guardan en este navegador (las 60 \u00FAltimas).</p></div>';
+}
+
+function cmdTxt(k){
+ var n=String(S.name||'').replace(/["\\$`]/g,'').trim();
+ if(k==='trans') return 'cd ~/Documents/DELE_ORAL && python3 transcribir_oral.py'+(n?' --nombre "'+n+'"':'');
+ if(k==='update') return 'mkdir -p ~/Documents/DELE_ORAL && mv -f ~/Downloads/transcribir_oral.py ~/Documents/DELE_ORAL/';
+ return 'open ~/Documents/DELE_ORAL/transcripciones';
+}
+/* ------------ paso 2: tareas ------------ */
+function blkOpts(cur){
+ var R=rounds(), o='<option value="n"'+(cur==='n'?' selected':'')+'>No se eval\u00FAa</option>';
+ for(var r=1;r<=R+1;r++) taskList().forEach(function(k){ var v=r+'|'+k; o+='<option value="'+v+'"'+(cur===v?' selected':'')+'>'+(R===1&&r===1?'Tarea '+k:'Ronda '+r+' \u00B7 Tarea '+k)+'</option>'; });
+ return o;
+}
+function vTareas(){
+ var R=rounds(), o='<h2>2. Revisa las tareas</h2><p class="lead">Comprueba qui\u00E9n es qui\u00E9n (P profesora, E estudiante) y d\u00F3nde empieza cada tarea. Para mover un corte, en la fila donde empieza la tarea elige la tarea en el desplegable: las filas siguientes la heredan.</p>';
+ if(S.detMsg) o+='<div class="msg amb">'+esc(S.detMsg)+'</div>';
+ o+='<p class="small muted">Si al escuchar el audio una palabra est\u00E1 mal transcrita (por ejemplo, \u00ABvacunos\u00BB cuando dijo \u00ABvaqueros\u00BB mal pronunciado), pulsa \u270E en esa fila y corr\u00EDgela antes de pedir la correcci\u00F3n. Lo que no hayas escuchado, Claude lo marcar\u00E1 como dudoso con el minuto.</p>';
+ o+='<div class="row"><button class="btn sm" data-act="swap">Cambiar P y E en todo</button><button class="btn sm" data-act="redetect">Volver a detectar las tareas</button></div>';
+ if(R>1) o+='<div class="card"><label class="f">\u00BFQu\u00E9 ronda corriges?</label>'+chips('ronda', Array.apply(null,{length:R}).map(function(_,i){ return [i+1,'Ronda '+(i+1)]; }), S.ronda)+'<p class="muted small" style="margin:4px 0 0">Cada ronda es un oral completo. Corrige una y, al terminar, pulsa \u00ABCorregir otra ronda\u00BB en el informe.</p></div>';
+ taskList().forEach(function(k){
+  var c=code(k), st=stats(c);
+  o+='<div class="card tcard k'+k+'"><h3>'+esc(tName(k))+'</h3><p class="small'+(st?'':' muted')+'">'+esc(statLine(st,k))+(S.inferred===c?' <b>\u00B7 La grabaci\u00F3n empieza con la tarea ya empezada.</b>':'')+'</p>';
+  o+='<details'+(S.lam[c]?' open':'')+'><summary>Lo que ped\u00EDa la l\u00E1mina '+(S.lam[c]?'\u2713':'(opcional, mejora la correcci\u00F3n del cumplimiento)')+'</summary><textarea data-lam="'+c+'" placeholder="Copia las pautas de la libreta oral o de la l\u00E1mina: el tema elegido y los puntos, la foto y sus preguntas, la situaci\u00F3n de la tarea 3...">'+esc(S.lam[c]||'')+'</textarea></details></div>';
+ });
+ o+='<div class="row"><button class="btn cta" data-act="toClaude">Preparar la petici\u00F3n para Claude</button></div>';
+ o+='<h3>La transcripci\u00F3n</h3><table class="t turns"><tbody>';
+ S.turns.forEach(function(t,i){
+  var b=block(i), k=b==='n'?0:+b.split('|')[1], r=b==='n'?0:+b.split('|')[0], isCut=(i in S.cuts);
+  var long=t.x.length>260;
+  var cell = S.editing===i ? '<textarea data-tx="'+i+'" class="edit">'+esc(t.x)+'</textarea><button class="btn sm" data-act="endEdit">Hecho</button>'
+   : (long?'<details><summary>'+esc(t.x.slice(0,240))+'\u2026</summary>'+esc(t.x.slice(240))+'</details>':esc(t.x))+' <button class="ed" data-edit="'+i+'" title="Corregir lo que dice (despu\u00E9s de escucharlo)">\u270E</button>'+(t.fix?' <span class="tagf">corregido</span>':'');
+  o+='<tr class="tr k'+k+(r&&r!==S.ronda?' other':'')+(isCut?' cut':'')+'"><td class="mono small">'+mm(t.t)+'</td><td><button class="role '+t.r+'" data-role="'+i+'" title="Cambiar">'+t.r+'</button></td><td class="tx">'+cell+'</td><td><select data-blk="'+i+'" aria-label="Tarea de esta fila">'+blkOpts(b)+'</select></td></tr>';
+ });
+ o+='</tbody></table><div class="row"><button class="btn cta" data-act="toClaude">Preparar la petici\u00F3n para Claude</button></div>';
+ return o;
+}
+
+/* ------------ paso 3: Claude ------------ */
+function trBlock(k){
+ var c=code(k), L=[];
+ S.turns.forEach(function(t,i){ if(block(i)===c) L.push('['+mm(t.t)+'] '+(t.r==='P'?'ENTREVISTADORA':'CANDIDATO')+': '+t.x); });
+ return L.join('\n');
+}
+function bloquesOn(){ var p=present(); return N().bloques.filter(function(b){ return b.t.some(function(k){ return p.indexOf(k)>-1; }); }); }
+function schema(){
+ var hol={}, hj={}; N().hol.forEach(function(c){ hol[c[0]]=2; hj[c[0]]='Para la profesora: por qu\u00E9 esta banda, citando al candidato y comparando con las bandas vecinas.'; });
+ var bl=bloquesOn().map(function(b){ var x={id:b.id, bandas:{}, justificacion:{}}; b.crit.forEach(function(c){ x.bandas[c[0]]=2; x.justificacion[c[0]]='...'; }); return x; });
+ var ta=present().map(function(k){ var x={tarea:k, pautas:[{pauta:'...', estado:'si', comentario:'...'}], tiempo:'...', bien:['\u00AB...\u00BB','\u00AB...\u00BB'], prioridad:'...'}; if(N().tareas[k][3]) x.modelo='...'; else x.modelo_dialogo='...'; return x; });
+ return JSON.stringify({holistica:hol, holistica_justificacion:hj, bloques:bl, tareas:ta,
+  errores:[{tarea:present()[0]||1, minuto:'03:23', original:'son contentos', correccion:'est\u00E1n contentos', tipo:'GR', contenido:'ser y estar', explicacion:'Para hablar de c\u00F3mo se sienten usamos estar.', importante:true, dudoso:false}],
+  fluidez:'...', estrategias:['...','...'], comentario_global:'...'}, null, 2);
+}
+function prompt(){
+ var n=S.nivel, P=present(), L=[];
+ L.push('Eres examinador/a acreditado/a del DELE '+n+' del Instituto Cervantes (has hecho de entrevistador y de calificador) y profesor/a de espa\u00F1ol para extranjeros. Vas a calificar la prueba de Expresi\u00F3n e interacci\u00F3n orales de un candidato adulto a partir de la transcripci\u00F3n autom\u00E1tica de su grabaci\u00F3n, con las escalas oficiales del DELE '+n+'. Tu respuesta la lee un programa: responde SOLO con el bloque JSON del apartado 7, sin texto antes ni despu\u00E9s.');
+ L.push(''); L.push('## 1. La prueba');
+ taskList().forEach(function(k){ L.push('- '+tName(k)+' ('+objTxt(k)+')'+(P.indexOf(k)<0?': NO est\u00E1 en la grabaci\u00F3n, no la califiques.':'')); });
+ L.push(''); L.push('## 2. Lo que ped\u00EDa cada tarea');
+ P.forEach(function(k){ var l=(S.lam[code(k)]||'').trim(); L.push(''); L.push('TAREA '+k+':'); if(S.inferred===code(k)) L.push('(La grabaci\u00F3n empieza con esta tarea ya empezada: falta el principio. No penalices los puntos que pudo tratar antes.)'); L.push(l||'(No tengo la l\u00E1mina. Deduce por lo que dice la entrevistadora qu\u00E9 tema, foto o situaci\u00F3n ten\u00EDa y qu\u00E9 puntos deb\u00EDa tratar, y sep\u00E1ralos en puntos concretos como los de una l\u00E1mina del DELE '+n+'.)'); });
+ L.push(''); L.push('## 3. Tiempos (calculados con las marcas de tiempo; aproximados)');
+ P.forEach(function(k){ L.push('- Tarea '+k+': '+statLine(stats(code(k)),k)); });
+ L.push(''); L.push('## 4. La transcripci\u00F3n');
+ L.push('- Es autom\u00E1tica: conserva los errores del candidato tal como los dijo, pero puede equivocarse con alguna palabra (nombres, palabras mal pronunciadas, palabras raras). Si un fragmento parece m\u00E1s un fallo de la transcripci\u00F3n que del candidato, m\u00E1rcalo con "dudoso": true; no lo uses para bajar la nota.');
+ L.push('- [pausa N s] es un silencio del candidato. Las vacilaciones (eh, mmm), repeticiones y reformulaciones est\u00E1n transcritas: \u00FAsalas para valorar la fluidez y la coherencia.');
+ L.push('- La pronunciaci\u00F3n y la entonaci\u00F3n no se pueden valorar con un texto: no subas ni bajes la nota por ellas; la profesora lo ajusta escuchando el audio.');
+ L.push('- Puede ser una pr\u00E1ctica de clase: si la entrevistadora hace comentarios, correcciones o explicaciones fuera del examen, no los califiques. S\u00ED cuenta si el candidato necesita su ayuda (preguntas facilitadoras, reformulaciones, palabras que le da) y si responde a lo que le pregunta.');
+ L.push('- Si el candidato se corrige solo, no es un error (puedes citarlo en "bien").');
+ P.forEach(function(k){ L.push(''); L.push('TAREA '+k+':'); L.push('<<<'); L.push(trBlock(k)); L.push('>>>'); });
+ L.push(''); L.push('## 5. C\u00F3mo calificar');
+ L.push('Calificaci\u00F3n hol\u00EDstica ('+N().notaHol+'), con esta escala:'); L.push(N().holEsc);
+ var seen={}; N().bloques.forEach(function(b){ if(seen[b.esc]) return; seen[b.esc]=1; L.push(''); L.push(b.esc); });
+ L.push('');
+ L.push('Calificaci\u00F3n anal\u00EDtica: '+bloquesOn().map(function(b){ return b.id+' ('+b.crit.map(function(c){ return '"'+c[0]+'" '+c[1].toLowerCase(); }).join(', ')+')'; }).join(' \u00B7 ')+'. Bandas de 0 a 3 (n\u00FAmeros enteros).');
+ L.push('Reglas: la banda 2 equivale al nivel '+n+' (apto); la 3, a superarlo con holgura; la 1, a no alcanzarlo. Decide la banda como lo hacen los examinadores en sus informes de calificaci\u00F3n: compara la actuaci\u00F3n con el descriptor de la banda elegida y con los de las bandas vecinas (por qu\u00E9 no llega a la de arriba y por qu\u00E9 no es la de abajo), citando entre comillas frases del candidato, con un asterisco delante de cada palabra o forma err\u00F3nea (por ejemplo: \u00AB*son contentos\u00BB). No penalices que no use estructuras de un nivel superior al '+n+'. Los bloques sin muestra en la grabaci\u00F3n no se incluyen.');
+ if(n==='A2') L.push('En el cumplimiento de la tarea de las tareas 1 y 2 cuenta los puntos de la l\u00E1mina: ninguno sin tratar y alg\u00FAn detalle u opini\u00F3n = 3; uno sin responder o dos incompletos = 2; dos sin responder o m\u00E1s de la mitad incompletos = 1; solo uno bien = 0. Si un mon\u00F3logo es mucho m\u00E1s corto que el m\u00EDnimo, normalmente es porque no desarrolla los puntos: refl\u00E9jalo en el cumplimiento. En la tarea 3, el cumplimiento depende de si responde a las preguntas de la entrevistadora con la informaci\u00F3n pedida.');
+ if(n==='B1') L.push('En B1 hay una calificaci\u00F3n anal\u00EDtica para las tareas 1 y 2 juntas (bloque T1-T2) y otra para las tareas 3 y 4 juntas (bloque T3-T4).');
+ L.push(''); L.push('## 6. C\u00F3mo marcar los errores');
+ L.push('- Solo errores reales en lo que dice el CANDIDATO (nunca la entrevistadora), en estructuras de nivel '+n+' o inferior. El DELE acepta todas las variedades del espa\u00F1ol: un uso correcto en Am\u00E9rica (ac\u00E1, estar parado por estar de pie, ustedes por vosotros...) no es un error; si quieres, com\u00E9ntalo en la explicaci\u00F3n de otro error, pero no lo marques. Si algo es correcto aunque t\u00FA lo dir\u00EDas de otra forma, no es un error. Las vacilaciones y repeticiones no son errores.');
+ L.push('- "original": copia EXACTA del fragmento del candidato en la transcripci\u00F3n (mismas letras), lo m\u00E1s corto posible para que se entienda (de 1 a 6 palabras). "minuto": la marca [mm:ss] de la l\u00EDnea donde aparece. "tarea": el n\u00FAmero de la tarea.');
+ L.push('- "correccion": c\u00F3mo se dice bien. "tipo": GR (gram\u00E1tica), LEX (vocabulario, palabras de otra lengua o inventadas), COH (conectores y orden de las ideas), ADE (registro t\u00FA/usted) o INT (interacci\u00F3n: no responde a lo que se le pregunta, no sabe pedir algo...).');
+ L.push('- "contenido": el contenido gramatical o l\u00E9xico en pocas palabras (por ejemplo \u00ABser y estar\u00BB, \u00ABconcordancia de g\u00E9nero\u00BB, \u00ABpret\u00E9rito indefinido\u00BB). Usa siempre el mismo nombre para el mismo contenido.');
+ L.push('- "explicacion": una frase muy sencilla para el estudiante ('+N().leng+') con la regla, no solo la correcci\u00F3n.');
+ L.push('- "importante": true solo en los 4 o 5 errores que m\u00E1s le conviene trabajar en toda la prueba (los m\u00E1s b\u00E1sicos o repetidos). "dudoso": true si puede ser un fallo de la transcripci\u00F3n.');
+ L.push('- Si un error se repite mucho, m\u00E1rcalo como mucho tres veces (las m\u00E1s claras).');
+ L.push(''); L.push('## 7. Qu\u00E9 devuelves');
+ L.push('- "holistica" y "holistica_justificacion": bandas y justificaci\u00F3n (para la profesora, en estilo de informe de calificaci\u00F3n, con citas).');
+ L.push('- "bloques": las bandas de la calificaci\u00F3n anal\u00EDtica de cada bloque, con "justificacion" por criterio (para la profesora, con citas y comparando con las bandas vecinas).');
+ L.push('- "tareas": para cada tarea grabada: "pautas" (los puntos de la l\u00E1mina, en orden, con "estado" "si", "parcial" o "no" y un "comentario" breve para el estudiante); "tiempo" (una frase para el estudiante sobre la duraci\u00F3n comparada con el objetivo); "bien" (dos cosas concretas que hace bien, citando lo que dijo); "prioridad" (la UNA cosa m\u00E1s importante que tiene que mejorar en esa tarea); en los mon\u00F3logos, "modelo": su mon\u00F3logo como lo dir\u00EDa un buen candidato de '+n+' (banda 3 sin salir del nivel), con sus mismas ideas, todos los puntos y unas 150-200 palabras; en las conversaciones, "modelo_dialogo": 4 o 5 intervenciones modelo del candidato para las preguntas que le hicieron.');
+ L.push('- "fluidez": dos o tres frases para el estudiante sobre su ritmo, pausas, muletillas y reformulaciones.');
+ L.push('- "estrategias": dos o tres consejos concretos de examen para su pr\u00F3xima prueba oral.');
+ L.push('- "comentario_global": dos o tres frases positivas y concretas, de t\u00FA.');
+ L.push('Todo lo que lee el estudiante (comentarios, explicaciones, tiempo, bien, prioridad, modelos, fluidez, estrategias y comentario_global) va en '+N().leng+'. Las justificaciones son para la profesora.');
+ L.push(''); L.push('Formato: solo un bloque de c\u00F3digo json con esta estructura (en "bloques" y "tareas", solo lo que est\u00E1 en la grabaci\u00F3n):');
+ L.push('```json'); L.push(schema()); L.push('```');
+ return L.join('\n');
+}
+function vClaude(){
+ var P=present(), o='<h2>3. Corregir con Claude</h2>';
+ if(!P.length) return o+'<div class="msg bad">No hay ninguna tarea de la ronda '+S.ronda+' en la transcripci\u00F3n. Vuelve al paso 2.</div>';
+ o+='<div class="card"><h3>Copia la petici\u00F3n</h3><p>Lleva las escalas oficiales del DELE '+S.nivel+', '+(P.length===1?'la tarea '+P[0]:'las tareas '+P.join(', '))+' de '+esc(S.name||'el estudiante')+(S.ronda>1?' (ronda '+S.ronda+')':'')+' y los tiempos. P\u00E9gala en un chat nuevo de Claude.</p>';
+ if(P.length<maxT()) o+='<div class="msg amb">Falta '+(maxT()-P.length===1?'una tarea':'alguna tarea')+' en la grabaci\u00F3n: la nota ser\u00E1 orientativa.</div>';
+ o+='<div class="row"><button class="btn cta" data-act="copyPrompt">Copiar la petici\u00F3n</button><span class="small" id="cpmsg" role="status"></span></div><details><summary>Ver la petici\u00F3n</summary><textarea class="mono big" readonly>'+esc(prompt())+'</textarea></details></div>';
+ o+='<div class="card"><h3>Pega la respuesta de Claude</h3><p class="muted small">Copia la respuesta entera. Si Claude a\u00F1ade algo de texto, no pasa nada: el corrector busca el bloque de datos.</p><textarea id="resp" class="mono big">'+esc(S.resp)+'</textarea><div class="msg" id="rmsg" hidden></div><div class="row"><button class="btn cta" data-act="readResp">Leer la correcci\u00F3n</button></div></div>';
+ return o;
+}
+function clamp(v){ v=parseInt(v,10); return isNaN(v)?2:Math.max(0,Math.min(3,v)); }
+function parseResp(t){
+ var s=String(t||''), m=s.match(/```(?:json)?\s*([\s\S]*?)```/); if(m) s=m[1];
+ var a=s.indexOf('{'), b=s.lastIndexOf('}');
+ if(a<0||b<a) throw new Error('No encuentro el bloque de datos. Copia la respuesta entera de Claude.');
+ s=s.slice(a,b+1).replace(/[\u201C\u201D]/g,'"').replace(/,\s*([}\]])/g,'$1');
+ var C; try{ C=JSON.parse(s); }catch(e){ throw new Error('La respuesta est\u00E1 incompleta o mal formada ('+e.message+'). Pide a Claude: \u00ABRepite solo el bloque JSON completo\u00BB.'); }
+ var hb=C.holistica||{}, hj=C.holistica_justificacion||{};
+ C.holistica={}; C.holistica_justificacion={};
+ N().hol.forEach(function(c){ C.holistica[c[0]]=clamp(hb[c[0]]); C.holistica_justificacion[c[0]]=hj[c[0]]||(typeof hj==='string'?hj:''); });
+ var got={}; (C.bloques||[]).forEach(function(x){ got[String(x.id||'').toUpperCase().replace(/\s/g,'')]=x; });
+ C.bloques=bloquesOn().map(function(bl){ var x=got[bl.id]||{}, bb=x.bandas||{}, jj=x.justificacion||{}, o={id:bl.id, bandas:{}, justificacion:{}};
+  bl.crit.forEach(function(c){ o.bandas[c[0]]=clamp(bb[c[0]]); o.justificacion[c[0]]=(typeof jj==='string'?jj:jj[c[0]])||''; }); return o; });
+ var P=present();
+ C.tareas=(C.tareas||[]).map(function(k){ return {tarea:parseInt(k.tarea,10)||1,
+   pautas:(k.pautas||[]).map(function(p){ var st=String(p.estado||'').toLowerCase(); if(st==='s\u00ED') st='si'; if(!EST[st]) st='parcial'; return {pauta:p.pauta||'', estado:st, comentario:p.comentario||''}; }),
+   tiempo:k.tiempo||'', bien:k.bien||[], prioridad:k.prioridad||'', modelo:k.modelo||'', modelo_dialogo:k.modelo_dialogo||''}; })
+  .filter(function(k){ return P.indexOf(k.tarea)>-1; }).sort(function(x,y){ return x.tarea-y.tarea; });
+ C.errores=(C.errores||[]).map(function(x){ var tp=String(x.tipo||'GR').toUpperCase(); return {tarea:parseInt(x.tarea,10)||0, minuto:x.minuto||'', original:x.original||'', correccion:x.correccion||'', tipo:TIPOS[tp]?tp:'GR', contenido:x.contenido||'', explicacion:x.explicacion||'', importante:!!x.importante, dudoso:!!x.dudoso, on:!x.dudoso}; });
+ C.fluidez=C.fluidez||''; C.estrategias=C.estrategias||[]; C.comentario_global=C.comentario_global||'';
+ return C;
+}
+
+/* ------------ paso 4: revisar ------------ */
+function avg(a){ return a.length ? a.reduce(function(x,y){return x+y;},0)/a.length : 0; }
+function score(){
+ var C=S.C, h=avg(N().hol.map(function(c){ return C.holistica[c[0]]; }));
+ var an=avg(C.bloques.map(function(b){ return avg(Object.keys(b.bandas).map(function(k){ return b.bandas[k]; })); }));
+ return {hol:h, an:an, puntos:25*(0.4*h/3+0.6*an/3), parcial:present().length<maxT()};
+}
+function bandSel(attr, v){ var o='<select '+attr+'>'; [3,2,1,0].forEach(function(b){ o+='<option value="'+b+'"'+(v===b?' selected':'')+'>'+b+' \u00B7 '+BL(b)+'</option>'; }); return o+'</select>'; }
+function needA(p){ var n=Math.ceil(30-p-1e-9); return n<=0?0:n; }
+function scoreBox(sc){
+ var o='<div class="score-box" id="scorebox"><div><b>'+fmt(sc.puntos)+' / 25</b><span>Oral'+(sc.parcial?' (faltan tareas: orientativo)':'')+'</span></div><div><b>'+fmt(sc.hol)+'</b><span>Hol\u00EDstica (40 %)</span></div><div><b>'+fmt(sc.an)+'</b><span>Anal\u00EDtica (60 %)</span></div>';
+ var A=num(S.aud), au=N().aud;
+ if(!isNaN(A)){ var g=A+sc.puntos; o+='<div><b>'+fmt(g)+' / 50</b><span>Grupo 2 \u00B7 '+(g>=30?'apto':'no apto')+'</span></div>'; }
+ else { var n=needA(sc.puntos); o+='<div><b>'+(n>25?'\u2014':n+'/25')+'</b><span>'+(n>25?'No llega a 30 ni con la auditiva perfecta':cap(au.ud)+' de auditiva que necesita para el 30/50')+'</span></div>'; }
+ return o+'</div>';
+}
+function refreshScore(){ var b=$('scorebox'); if(b) b.outerHTML=scoreBox(score()); }
+function blkTitle(id){ return id.indexOf('-')>0 ? 'Tareas '+id.replace('T','').replace('-T',' y ') : 'Tarea '+id.replace('T',''); }
+function vRevisar(){
+ var C=S.C, o='<h2>4. Revisa la correcci\u00F3n</h2><p class="lead">Escucha en el audio los errores marcados como dudosos y cambia lo que no te convenza: bandas, puntos de la l\u00E1mina, errores y comentarios. La pronunciaci\u00F3n no est\u00E1 en la transcripci\u00F3n: ajusta t\u00FA la fluidez si hace falta.</p>';
+ o+=scoreBox(score());
+ o+='<div class="card"><h3>Calificaci\u00F3n hol\u00EDstica <span class="muted small">(entrevistador \u00B7 toda la prueba \u00B7 40 %)</span></h3><div class="bands">'+N().hol.map(function(c){ return '<div><label class="f">'+c[1]+'</label>'+bandSel('data-hol="'+c[0]+'"', C.holistica[c[0]])+(C.holistica_justificacion[c[0]]?'<div class="just">'+esc(C.holistica_justificacion[c[0]])+'</div>':'')+'</div>'; }).join('')+'</div></div>';
+ C.bloques.forEach(function(b,i){
+  var cr=N().bloques.filter(function(x){ return x.id===b.id; })[0].crit;
+  o+='<div class="card"><h3>'+blkTitle(b.id)+' <span class="muted small">(calificador \u00B7 anal\u00EDtica)</span></h3><div class="bands">'+cr.map(function(c){ return '<div><label class="f">'+c[1]+'</label>'+bandSel('data-band="'+i+'|'+c[0]+'"', b.bandas[c[0]])+(b.justificacion[c[0]]?'<div class="just">'+esc(b.justificacion[c[0]])+'</div>':'')+'</div>'; }).join('')+'</div></div>';
+ });
+ C.tareas.forEach(function(k,i){
+  o+='<div class="card"><h3>'+esc(tName(k.tarea))+'</h3><p class="small muted">'+esc(statLine(stats(code(k.tarea)),k.tarea))+'</p>';
+  if(k.pautas.length) o+='<label class="f">Lo que ped\u00EDa la tarea</label><table class="t"><tbody>'+k.pautas.map(function(p,j){ return '<tr><td>'+esc(p.pauta)+'</td><td><select data-pst="'+i+'|'+j+'">'+['si','parcial','no'].map(function(s){ return '<option value="'+s+'"'+(p.estado===s?' selected':'')+'>'+EST[s]+'</option>'; }).join('')+'</select></td><td><input type="text" data-pco="'+i+'|'+j+'" value="'+esc(p.comentario)+'" aria-label="Comentario"></td></tr>'; }).join('')+'</tbody></table>';
+  o+='<label class="f" for="prio'+i+'">Lo m\u00E1s importante para mejorar</label><input type="text" id="prio'+i+'" data-prio="'+i+'" value="'+esc(k.prioridad)+'"></div>';
+ });
+ var nd=C.errores.filter(function(x){ return x.dudoso; }).length;
+ o+='<div class="card"><h3>Errores ('+C.errores.length+')</h3><p class="muted small">Marca los importantes y quita los que no quieras en el informe.'+(nd?' Los <b>dudosos</b> (pueden ser fallos de la transcripci\u00F3n) salen desmarcados: esc\u00FAchalos en el minuto indicado.':'')+'</p><table class="t"><thead><tr><th>Sale</th><th>Imp.</th><th>Min.</th><th>Error \u2192 correcci\u00F3n</th><th>Tipo</th><th>Contenido</th></tr></thead><tbody>';
+ C.errores.forEach(function(x,j){ o+='<tr class="'+(x.on?'':'err-off')+(x.dudoso?' dud':'')+'"><td><input type="checkbox" data-eon="'+j+'"'+(x.on?' checked':'')+' aria-label="Incluir"></td><td><input type="checkbox" data-eimp="'+j+'"'+(x.importante?' checked':'')+' aria-label="Importante"></td><td class="mono small">T'+x.tarea+'<br>'+esc(x.minuto)+'</td><td>'+(x.dudoso?'<span class="tagd">\u00BFtranscripci\u00F3n?</span> ':'')+'<s>'+esc(x.original)+'</s> \u2192 <b>'+esc(x.correccion)+'</b><br><span class="muted small">'+esc(x.explicacion)+'</span>'+(x.dudoso?'<div class="row" style="margin:6px 0 0"><button class="btn sm" data-act="dudErr" data-j="'+j+'">Lo he escuchado: es su error</button><button class="btn sm" data-act="dudTr" data-j="'+j+'">Fallo de la transcripci\u00F3n</button></div>':'')+'</td><td class="mono">'+x.tipo+'</td><td class="small">'+esc(x.contenido||'-')+'</td></tr>'; });
+ if(!C.errores.length) o+='<tr><td colspan="6" class="muted">Sin errores marcados.</td></tr>';
+ o+='</tbody></table></div>';
+ o+='<div class="card"><label class="f" for="cglob">Comentario general para el estudiante</label><textarea id="cglob">'+esc(C.comentario_global)+'</textarea><label class="f" for="cflu">Fluidez (para el estudiante)</label><textarea id="cflu">'+esc(C.fluidez)+'</textarea>';
+ o+='<label class="f" for="priv">Notas privadas (solo en tu informe de calificaci\u00F3n)</label><textarea id="priv">'+esc(S.priv)+'</textarea>';
+ o+='<label class="f" for="aud">'+N().aud.label+' (opcional: calcula el grupo 2)</label><input type="text" inputmode="decimal" style="width:7em" id="aud" value="'+esc(S.aud)+'"></div>';
+ o+='<div class="row"><button class="btn cta" data-go="informe">Ver el informe</button><button class="btn" data-go="claude">Volver a la respuesta de Claude</button></div>';
+ return o;
+}
+
+/* ------------ paso 5: informe ------------ */
+function onErrs(k){ return S.C.errores.filter(function(x){ return x.on && x.tarea===k; }); }
+function sem(){
+ var c={}, lab={}, pend=false;
+ S.C.errores.forEach(function(x){ if(!x.on) return; var key=x.contenido?'C:'+x.contenido.trim().toLowerCase():'T:'+x.tipo; if(!lab[key]) lab[key]=x.contenido?cap(x.contenido.trim()):cap(TIPOS[x.tipo]); c[key]=(c[key]||0)+1; });
+ S.C.tareas.forEach(function(k){ k.pautas.forEach(function(p){ if(p.estado!=='si') pend=true; }); });
+ return {rows:Object.keys(c).map(function(k){ return {l:lab[k], n:c[k]}; }).sort(function(a,b){ return b.n-a.n; }), pend:pend};
+}
+function examName(prof){ return 'DELE '+S.nivel+' \u00B7 Prueba oral'+(S.examen?' \u00B7 '+S.examen:'')+(prof&&rounds()>1?' (ronda '+S.ronda+')':''); }
+function hoy(){ return new Date().toLocaleDateString('es-ES'); }
+function bandBoxes(){
+ var C=S.C, o='';
+ o+='<div><b>'+N().hol.map(function(c){ return C.holistica[c[0]]; }).join(' \u00B7 ')+'</b><span>Hol\u00EDstica: '+N().hol.map(function(c){ return c[2]; }).join(' \u00B7 ')+'</span></div>';
+ C.bloques.forEach(function(b){ var cr=N().bloques.filter(function(x){ return x.id===b.id; })[0].crit; o+='<div><b>'+cr.map(function(c){ return b.bandas[c[0]]; }).join(' \u00B7 ')+'</b><span>'+blkTitle(b.id)+': '+cr.map(function(c){ return c[2]; }).join(' \u00B7 ')+'</span></div>'; });
+ return o;
+}
+function vInforme(){
+ var o='<div class="noprint vsel"><label class="f">Versi\u00F3n del informe</label>'+chips('vista', [['est','Para el estudiante'],['breve','Para el estudiante (breve)'],['prof','T\u00E9cnico (para ti)']], S.vista)+'</div>';
+ o+='<div class="row noprint"><button class="btn cta" data-act="pdf">Guardar en PDF</button><button class="btn" data-act="copyRep">Copiar este informe</button><button class="btn" data-act="saveH">Guardar en el historial</button><button class="btn" data-act="otraRonda">'+(rounds()>1?'Corregir otra ronda':'Corregir otro oral')+'</button><button class="btn" data-go="revisar">Volver a revisar</button><span class="small" id="repmsg" role="status"></span></div>';
+ if(S.vista==='prof') return o+repProf();
+ if(S.vista==='breve') return o+repBreve();
+ return o+repEst();
+}
+function grupoTxt(sc){
+ var A=num(S.aud), au=N().aud, n=needA(sc.puntos);
+ if(!isNaN(A)) return 'Con tu comprensi\u00F3n auditiva ('+fmt(A).replace(',00','')+' '+au.ud+'), en el grupo 2 (auditiva + oral) tienes '+fmt(A+sc.puntos)+' de 50. Necesitas 30: '+(A+sc.puntos>=30?'\u00A1apto!':'todav\u00EDa no llegas.');
+ if(sc.parcial) return '';
+ return 'Con esta prueba oral, en la comprensi\u00F3n auditiva necesitas '+(n>25?'m\u00E1s de 25 puntos: el oral tiene que mejorar':(au.ud==='aciertos'?n+' aciertos de 25':'unos '+n+' puntos de 25'))+' para llegar a 30 en el grupo 2.';
+}
+function repEst(){
+ var C=S.C, sc=score(), sm=sem();
+ var o='<div id="rep"><h2>Tu prueba oral</h2><p class="sub">'+esc(S.name||'')+(S.name?' \u00B7 ':'')+esc(examName())+' \u00B7 '+hoy()+'</p>';
+ o+='<div class="big"><div><b>'+fmt(sc.puntos)+' / 25</b><span>Tu nota del oral'+(sc.parcial?' (faltan tareas)':'')+'</span></div><div><b>'+nivNota(sc.puntos)+'</b><span>Tu oral comparado con el nivel '+S.nivel+'</span></div></div>';
+ var g=grupoTxt(sc); if(g) o+='<p>'+esc(g)+'</p>';
+ if(C.comentario_global) o+='<p>'+esc(C.comentario_global)+'</p>';
+ if(C.fluidez) o+='<div class="tk"><h3>C\u00F3mo hablas</h3><p>'+esc(C.fluidez)+'</p></div>';
+ C.tareas.forEach(function(k){
+  var errs=onErrs(k.tarea), imp=errs.filter(function(x){ return x.importante; });
+  o+='<div class="tk"><h3>'+esc(tName(k.tarea))+'</h3>';
+  var nv=nivTarea(k.tarea); if(nv) o+='<p class="nivt '+nv[0]+'">'+nv[1]+'</p>';
+  var st=stats(code(k.tarea)); if(st) o+='<p class="small">Duraci\u00F3n: <b>'+mm(st.dur)+'</b> (objetivo '+objTxt(k.tarea)+')'+(k.tiempo?' \u00B7 '+esc(k.tiempo):'')+'</p>';
+  if(k.pautas.length) o+='<h4>Lo que ped\u00EDa la tarea</h4><ul class="pl">'+k.pautas.map(function(p){ return '<li class="'+p.estado+'">'+esc(p.pauta)+' <b>\u00B7 '+EST[p.estado]+'</b>'+(p.comentario?'<small>'+esc(p.comentario)+'</small>':'')+'</li>'; }).join('')+'</ul>';
+  if(k.bien.length) o+='<div class="good"><b>Lo que haces bien</b><ul>'+k.bien.map(function(b){ return '<li>'+esc(b)+'</li>'; }).join('')+'</ul></div>';
+  if(errs.length) o+='<h4>Tus errores</h4><ul class="el">'+errs.map(function(x,i){ return '<li><span class="n">'+(i+1)+'</span>Dijiste <span class="o">'+esc(x.original)+'</span> \u2192 se dice <span class="c">'+esc(x.correccion)+'</span><span class="tg">'+TIPOS[x.tipo]+'</span><br><span class="small">'+esc(x.explicacion)+'</span></li>'; }).join('')+'</ul>';
+  if(imp.length) o+='<div class="imp"><b>'+(imp.length===1?'El error m\u00E1s importante':'Los errores m\u00E1s importantes')+'</b><ul>'+imp.map(function(x){ return '<li><b>'+esc(x.original)+' \u2192 '+esc(x.correccion)+'.</b> '+esc(x.explicacion)+'</li>'; }).join('')+'</ul></div>';
+  if(k.prioridad) o+='<p><b>Para la pr\u00F3xima vez:</b> '+esc(k.prioridad)+'</p>';
+  if(k.modelo) o+='<h4>As\u00ED podr\u00EDas decirlo (modelo para comparar, no para memorizar)</h4><div class="model">'+esc(k.modelo)+'</div>';
+  if(k.modelo_dialogo) o+='<h4>Respuestas modelo</h4><div class="model">'+esc(k.modelo_dialogo)+'</div>';
+  o+='</div>';
+ });
+ o+='<div class="tk"><h3>Qu\u00E9 repasar</h3>';
+ if(!sm.rows.length && !sm.pend) o+='<p>\u00A1Muy bien! No hay ning\u00FAn contenido que repasar ahora.</p>';
+ else { o+='<table class="sem"><tbody>';
+  if(sm.pend) o+='<tr><td><span class="dot r"></span><b>Hablar de todos los puntos de la tarea</b></td><td>En la preparaci\u00F3n, apunta una palabra clave por punto y t\u00E1cha cada punto cuando lo digas.</td></tr>';
+  sm.rows.forEach(function(x){ o+='<tr><td><span class="dot '+(x.n>=2?'r':'a')+'"></span>'+esc(x.l)+'</td><td>'+x.n+(x.n>1?' errores':' error')+' \u00B7 '+(x.n>=2?'Prioridad: rep\u00E1salo antes del pr\u00F3ximo oral.':'Casi: rep\u00E1salo con un ejercicio corto.')+'</td></tr>'; });
+  o+='</tbody></table>'; }
+ if(C.estrategias.length) o+='<h4>Para tu pr\u00F3ximo oral</h4><ul>'+C.estrategias.map(function(e){ return '<li>'+esc(e)+'</li>'; }).join('')+'</ul>';
+ o+='</div><p class="foot">Correcci\u00F3n orientativa con las escalas del DELE '+S.nivel+', a partir de la grabaci\u00F3n de tu prueba. Material de preparaci\u00F3n independiente del Instituto Cervantes.</p></div>';
+ return o;
+}
+function nivNota(p){ return p>=50/3-0.01 ? 'Tienes el nivel '+S.nivel : (p>=12.5 ? 'Casi tienes el nivel '+S.nivel : 'Todav\u00EDa no tienes el nivel '+S.nivel); }
+function nivTarea(k){
+ var b=S.C.bloques.filter(function(x){ var d=N().bloques.filter(function(y){ return y.id===x.id; })[0]; return d && d.t.indexOf(k)>-1; })[0];
+ if(!b) return null; var m=avg(Object.keys(b.bandas).map(function(c){ return b.bandas[c]; }));
+ if(m>=2.5) return ['g','Esta tarea: por encima del nivel '+S.nivel+'. \u00A1Muy bien!'];
+ if(m>=2) return ['g','Esta tarea: tiene el nivel '+S.nivel+'.'];
+ if(m>=1.5) return ['a','Esta tarea: casi tiene el nivel '+S.nivel+'. Te falta poco.'];
+ return ['r','Esta tarea: todav\u00EDa no tiene el nivel '+S.nivel+'.'];
+}
+function repBreve(){
+ var C=S.C, sc=score();
+ var o='<div id="rep"><h2>Tu prueba oral</h2><p class="sub">'+esc(S.name||'')+(S.name?' \u00B7 ':'')+esc(examName())+' \u00B7 '+hoy()+'</p><div class="big"><div><b>'+fmt(sc.puntos)+' / 25</b><span>Tu nota del oral'+(sc.parcial?' (faltan tareas)':'')+'</span></div><div><b>'+nivNota(sc.puntos)+'</b><span>Tu oral comparado con el nivel '+S.nivel+'</span></div></div>';
+ C.tareas.forEach(function(k){ var errs=onErrs(k.tarea), nv=nivTarea(k.tarea);
+  o+='<div class="tk"><h3>'+esc(tName(k.tarea))+'</h3>'+(nv?'<p class="nivt '+nv[0]+'">'+nv[1]+'</p>':'');
+  if(k.bien.length) o+='<div class="good"><b>Lo que haces bien</b><ul>'+k.bien.map(function(b){ return '<li>'+esc(b)+'</li>'; }).join('')+'</ul></div>';
+  o+= errs.length ? '<h4>Errores</h4><ul class="el">'+errs.map(function(x){ return '<li><span class="o">'+esc(x.original)+'</span> \u2192 <span class="c">'+esc(x.correccion)+'</span></li>'; }).join('')+'</ul>' : '<p>No hay errores. \u00A1Muy bien!</p>';
+  o+='</div>'; });
+ return o+'</div>';
+}
+function repProf(){
+ var C=S.C, sc=score();
+ var o='<div id="rep"><h2>Informe t\u00E9cnico</h2><p class="sub">'+esc(S.name||'')+(S.name?' \u00B7 ':'')+esc(examName(true))+' \u00B7 '+hoy()+'</p>';
+ o+='<div class="big"><div><b>'+fmt(sc.puntos)+' / 25</b><span>Nota orientativa \u00B7 hol\u00EDstica '+fmt(sc.hol)+' (40 %) \u00B7 anal\u00EDtica '+fmt(sc.an)+' (60 %)</span></div>'+bandBoxes()+'</div>';
+ o+='<div class="tk"><h3>Hol\u00EDstica (entrevistador \u00B7 toda la prueba)</h3>'+N().hol.map(function(c){ return '<p><b>'+c[1]+': banda '+C.holistica[c[0]]+'.</b> '+esc(C.holistica_justificacion[c[0]])+'</p>'; }).join('')+'</div>';
+ C.bloques.forEach(function(b){ var cr=N().bloques.filter(function(x){ return x.id===b.id; })[0].crit;
+  o+='<div class="tk"><h3>'+blkTitle(b.id)+' (calificador \u00B7 anal\u00EDtica)</h3>'+cr.map(function(c){ return '<p><b>'+c[1]+': banda '+b.bandas[c[0]]+'.</b> '+esc(b.justificacion[c[0]])+'</p>'; }).join('')+'</div>'; });
+ o+='<div class="tk"><h3>Tiempos</h3><ul>'+present().map(function(k){ return '<li>'+esc(tName(k))+': '+esc(statLine(stats(code(k)),k))+'</li>'; }).join('')+'</ul></div>';
+ var d=C.errores.filter(function(x){ return x.dudoso; });
+ if(d.length) o+='<div class="tk"><h3>Para escuchar en el audio</h3><ul>'+d.map(function(x){ return '<li>Tarea '+x.tarea+', '+esc(x.minuto)+': \u00AB'+esc(x.original)+'\u00BB '+(x.on?'(incluido)':'(no incluido)')+'</li>'; }).join('')+'</ul></div>';
+ var E=C.errores.filter(function(x){ return x.on; });
+ if(E.length){ var cnt={}; E.forEach(function(x){ cnt[x.tipo]=(cnt[x.tipo]||0)+1; });
+  o+='<div class="tk"><h3>Errores ('+E.length+')</h3><p class="small">'+Object.keys(cnt).map(function(t){ return t+' '+cnt[t]; }).join(' \u00B7 ')+' \u00B7 \u2605 = importante</p><table class="sem"><tbody>'+E.map(function(x){ return '<tr><td class="small" style="white-space:nowrap">T'+x.tarea+' \u00B7 '+esc(x.minuto)+'</td><td><s>'+esc(x.original)+'</s> \u2192 <b>'+esc(x.correccion)+'</b>'+(x.importante?' \u2605':'')+'</td><td class="small">'+x.tipo+' \u00B7 '+esc(x.contenido)+'</td></tr>'; }).join('')+'</tbody></table></div>'; }
+ if(S.priv) o+='<div class="tk"><h3>Notas privadas</h3><p style="white-space:pre-wrap">'+esc(S.priv)+'</p></div>';
+ return o+'<p class="foot">Calificaci\u00F3n orientativa con las escalas oficiales del DELE '+S.nivel+' sobre la transcripci\u00F3n autom\u00E1tica (sin pronunciaci\u00F3n).</p></div>';
+}
+function repText(){
+ var C=S.C, sc=score(), L=[], sm=sem();
+ if(S.vista==='prof'){
+  L.push('INFORME DE CALIFICACI\u00D3N \u00B7 '+(S.name?S.name+' \u00B7 ':'')+examName()); L.push('Nota orientativa: '+fmt(sc.puntos)+' / 25 (hol\u00EDstica '+fmt(sc.hol)+', anal\u00EDtica '+fmt(sc.an)+')');
+  N().hol.forEach(function(c){ L.push(''); L.push(c[1]+' (hol\u00EDstica): banda '+C.holistica[c[0]]); L.push(C.holistica_justificacion[c[0]]); });
+  C.bloques.forEach(function(b){ var cr=N().bloques.filter(function(x){ return x.id===b.id; })[0].crit; cr.forEach(function(c){ L.push(''); L.push(blkTitle(b.id)+' \u00B7 '+c[1]+': banda '+b.bandas[c[0]]); L.push(b.justificacion[c[0]]); }); });
+  if(S.priv){ L.push(''); L.push('Notas: '+S.priv); }
+  return L.join('\n');
+ }
+ L.push('TU PRUEBA ORAL'); L.push((S.name?S.name+' \u00B7 ':'')+examName());
+ L.push('Nota del oral: '+fmt(sc.puntos)+' / 25'+(sc.parcial?' (faltan tareas)':'')+' \u00B7 '+nivNota(sc.puntos));
+ if(S.vista==='breve'){ C.tareas.forEach(function(k){ var e=onErrs(k.tarea); L.push(''); L.push('\u2014 TAREA '+k.tarea+' \u2014'); if(k.bien.length){ L.push('Lo que haces bien:'); k.bien.forEach(function(b){ L.push('- '+b); }); } if(e.length){ L.push('Errores:'); e.forEach(function(x){ L.push('- '+x.original+' \u2192 '+x.correccion); }); } }); return L.join('\n'); }
+ var g=grupoTxt(sc); if(g) L.push(g);
+ if(C.comentario_global){ L.push(''); L.push(C.comentario_global); }
+ if(C.fluidez){ L.push(''); L.push('C\u00F3mo hablas: '+C.fluidez); }
+ C.tareas.forEach(function(k){ var e=onErrs(k.tarea), st=stats(code(k.tarea));
+  L.push(''); L.push('\u2014 '+tName(k.tarea).toUpperCase()+' \u2014'); var nv=nivTarea(k.tarea); if(nv) L.push(nv[1]); if(st) L.push('Duraci\u00F3n: '+mm(st.dur)+' (objetivo '+objTxt(k.tarea)+')'+(k.tiempo?' \u00B7 '+k.tiempo:''));
+  k.pautas.forEach(function(p){ L.push('['+EST[p.estado]+'] '+p.pauta+(p.comentario?' \u00B7 '+p.comentario:'')); });
+  if(k.bien.length){ L.push('Lo que haces bien:'); k.bien.forEach(function(b){ L.push('- '+b); }); }
+  if(e.length){ L.push('Tus errores:'); e.forEach(function(x,i){ L.push((i+1)+'. Dijiste \u00AB'+x.original+'\u00BB \u2192 se dice \u00AB'+x.correccion+'\u00BB'+(x.importante?' (importante)':'')+' \u00B7 '+x.explicacion); }); }
+  if(k.prioridad) L.push('Para la pr\u00F3xima vez: '+k.prioridad);
+  if(k.modelo){ L.push('As\u00ED podr\u00EDas decirlo:'); L.push(k.modelo); }
+  if(k.modelo_dialogo){ L.push('Respuestas modelo:'); L.push(k.modelo_dialogo); }
+ });
+ if(sm.rows.length||sm.pend){ L.push(''); L.push('QU\u00C9 REPASAR'); if(sm.pend) L.push('- Hablar de todos los puntos de la tarea'); sm.rows.forEach(function(x){ L.push('- '+x.l+' ('+x.n+(x.n>1?' errores':' error')+')'); }); }
+ if(C.estrategias.length){ L.push(''); L.push('PARA TU PR\u00D3XIMO ORAL'); C.estrategias.forEach(function(e){ L.push('- '+e); }); }
+ return L.join('\n');
+}
+
+/* ------------ acciones ------------ */
+function copy(t, ok, bad){
+ function fb(){ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); var d=false; try{ d=document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); if(d) ok(); else bad(); }
+ if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, fb); else fb();
+}
+function histSave(){
+ var id=S.hid||String(Date.now());
+ var e={id:id, fecha:hoy(), name:S.name, nivel:S.nivel, examen:(S.examen||'')+(rounds()>1?' (ronda '+S.ronda+')':''), nota:fmt(score().puntos)+'/25', S:JSON.parse(JSON.stringify(S))};
+ e.S.hid=id; S.hid=id; save();
+ H=H.filter(function(h){ return h.id!==id; }); H.unshift(e); if(H.length>60) H=H.slice(0,60); saveH();
+}
+var ACTS={
+ leer:function(){
+  S.raw=$('raw').value; if(!S.raw.trim()){ msg('pmsg','bad','Pega primero la transcripci\u00F3n.'); return; }
+  var r=parseRaw(S.raw); if(!r.turns.length){ msg('pmsg','bad','No reconozco el formato: cada intervenci\u00F3n tiene que empezar por [mm:ss] P: o [mm:ss] E:'); return; }
+  S.turns=r.turns; if(r.name && !S.name) S.name=r.name; S.ronda=1; S.lam={}; S.C=null; S.resp=''; S.hid=null;
+  detect(r.hdr); save(); go('tareas');
+ },
+ copyCmd:function(b){ var m=$('cmdmsg'); copy(cmdTxt(b.getAttribute('data-k')), function(){ m.textContent='\u2713 Copiado. P\u00E9galo en Terminal y pulsa Enter.'; }, function(){ m.textContent='No se ha podido copiar: selecci\u00F3nalo con el rat\u00F3n.'; }); },
+ endEdit:function(){ S.editing=-1; var y=window.scrollY; save(); render(); window.scrollTo(0,y); },
+ dudErr:function(b){ var x=S.C.errores[+b.getAttribute('data-j')]; x.dudoso=false; x.on=true; save(); var y=window.scrollY; render(); window.scrollTo(0,y); },
+ dudTr:function(b){ S.C.errores.splice(+b.getAttribute('data-j'),1); save(); var y=window.scrollY; render(); window.scrollTo(0,y); },
+ swap:function(){ S.turns.forEach(function(t){ t.r=t.r==='P'?'E':'P'; }); S.C=null; save(); render(); },
+ redetect:function(){ if(!confirm('Se pierden los cortes que hayas movido a mano. \u00BFSeguir?')) return; detect(parseRaw(S.raw).hdr); S.C=null; save(); render(); },
+ toClaude:function(){ if(!present().length){ alert('No hay ninguna tarea de la ronda '+S.ronda+'. Marca en la transcripci\u00F3n d\u00F3nde empieza cada tarea.'); return; } go('claude'); },
+ copyPrompt:function(){ var s=$('cpmsg'); copy(prompt(), function(){ s.textContent='\u2713 Copiada. P\u00E9gala en un chat nuevo de Claude.'; }, function(){ s.textContent='No se ha podido copiar: \u00E1brela en \u00ABVer la petici\u00F3n\u00BB y c\u00F3piala a mano.'; }); },
+ readResp:function(){ S.resp=$('resp').value; try{ S.C=parseResp(S.resp); save(); go('revisar'); }catch(e){ msg('rmsg','bad',e.message); } },
+ pdf:function(){ histSave(); window.print(); },
+ copyRep:function(){ var s=$('repmsg'); copy(repText(), function(){ s.textContent='\u2713 Copiado.'; }, function(){ s.textContent='No se ha podido copiar.'; }); },
+ saveH:function(){ histSave(); $('repmsg').textContent='\u2713 Guardado en el historial.'; },
+ otraRonda:function(){
+  histSave(); var R=rounds();
+  if(R<2){ var nv=S.nivel; S=blank(); S.nivel=nv; go('trans'); return; }
+  var keep={nivel:S.nivel, name:S.name, examen:S.examen, raw:S.raw, turns:S.turns, cuts:S.cuts, inferred:S.inferred, detMsg:S.detMsg, lam:S.lam, aud:S.aud}, nx=S.ronda%R+1;
+  S=blank(); for(var k in keep) S[k]=keep[k]; S.ronda=nx; go('tareas');
+ },
+ nueva:function(){ if(S.C) histSave(); var nv=S.nivel; S=blank(); S.nivel=nv; go('trans'); msg('nmsg','ok','Correcci\u00F3n nueva.'+(H.length?' La anterior est\u00E1 en el historial.':'')); },
+ hopen:function(b){ var h=H.filter(function(x){ return x.id===b.getAttribute('data-id'); })[0]; if(h){ S=normS(JSON.parse(JSON.stringify(h.S))); S.step=S.C?'informe':'tareas'; save(); render(); window.scrollTo(0,0); } },
+ hdel:function(b){ if(!confirm('\u00BFBorrar esta correcci\u00F3n del historial?')) return; H=H.filter(function(x){ return x.id!==b.getAttribute('data-id'); }); saveH(); render(); }
+};
+document.addEventListener('click', function(e){
+ var g=e.target.closest('[data-go]'); if(g && !g.disabled){ go(g.getAttribute('data-go')); return; }
+ var ed=e.target.closest('[data-edit]'); if(ed){ S.editing=+ed.getAttribute('data-edit'); var y0=window.scrollY; render(); window.scrollTo(0,y0); var ta=document.querySelector('[data-tx]'); if(ta) ta.focus(); return; }
+ var r=e.target.closest('[data-role]'); if(r){ var t=S.turns[+r.getAttribute('data-role')]; t.r=t.r==='P'?'E':'P'; S.C=null; save(); render(); return; }
+ var a=e.target.closest('[data-act]'); if(a && ACTS[a.getAttribute('data-act')]) ACTS[a.getAttribute('data-act')](a);
+});
+document.addEventListener('change', function(e){
+ var t=e.target, v;
+ if(t.id==='ffile' && t.files && t.files.length){
+  var fs=Array.prototype.slice.call(t.files).sort(function(a,b){ return a.name.localeCompare(b.name,'es',{numeric:true}); }), out=[], n=0;
+  fs.forEach(function(f,i){ var fr=new FileReader(); fr.onload=function(){ out[i]=fr.result; if(++n===fs.length){ var all=out.join('\n\n'); $('raw').value=all; S.raw=all; save(); $('fmsg').textContent='\u2713 '+fs.map(function(f){ return f.name; }).join(' + '); } }; fr.readAsText(f,'utf-8'); });
+  return; }
+ if(t.matches('[data-blk]')){ var i=+t.getAttribute('data-blk'); S.cuts[i]=t.value; if(i>0 && block(i-1)===t.value) delete S.cuts[i]; if(!('0' in S.cuts)) S.cuts[0]='n'; S.C=null; save(); var y=window.scrollY; render(); window.scrollTo(0,y); return; }
+ if(t.matches('[data-hol]')){ S.C.holistica[t.getAttribute('data-hol')]=parseInt(t.value,10); save(); refreshScore(); return; }
+ if(t.matches('[data-band]')){ v=t.getAttribute('data-band').split('|'); S.C.bloques[+v[0]].bandas[v[1]]=parseInt(t.value,10); save(); refreshScore(); return; }
+ if(t.matches('[data-pst]')){ v=t.getAttribute('data-pst').split('|'); S.C.tareas[+v[0]].pautas[+v[1]].estado=t.value; save(); return; }
+ if(t.matches('[data-eon]')){ var x=S.C.errores[+t.getAttribute('data-eon')]; x.on=t.checked; t.closest('tr').classList.toggle('err-off',!t.checked); save(); return; }
+ if(t.matches('[data-eimp]')){ S.C.errores[+t.getAttribute('data-eimp')].importante=t.checked; save(); return; }
+ if(t.name==='nivel'){ if(S.C && !confirm('Si cambias el nivel, se borra la correcci\u00F3n de Claude cargada. \u00BFSeguir?')){ render(); return; } S.nivel=t.value; S.C=null; S.resp=''; if(S.turns.length) detect(parseRaw(S.raw).hdr); save(); render(); return; }
+ if(t.name==='ronda'){ S.ronda=+t.value; S.C=null; S.resp=''; S.hid=null; save(); render(); return; }
+ if(t.name==='vista'){ S.vista=t.value; save(); render(); return; }
+});
+document.addEventListener('input', function(e){
+ var t=e.target, v;
+ if(t.id==='fname'){ S.name=t.value; save(); if($('cmd1')) $('cmd1').textContent=cmdTxt('trans'); }
+ else if(t.id==='fexam'){ S.examen=t.value; save(); }
+ else if(t.id==='raw'){ S.raw=t.value; save(); }
+ else if(t.id==='resp'){ S.resp=t.value; save(); }
+ else if(t.matches('[data-tx]')){ var q=S.turns[+t.getAttribute('data-tx')]; q.x=t.value; q.fix=true; S.C=null; save(); }
+ else if(t.matches('[data-lam]')){ S.lam[t.getAttribute('data-lam')]=t.value; save(); }
+ else if(t.matches('[data-pco]')){ v=t.getAttribute('data-pco').split('|'); S.C.tareas[+v[0]].pautas[+v[1]].comentario=t.value; save(); }
+ else if(t.matches('[data-prio]')){ S.C.tareas[+t.getAttribute('data-prio')].prioridad=t.value; save(); }
+ else if(t.id==='cglob'){ S.C.comentario_global=t.value; save(); }
+ else if(t.id==='cflu'){ S.C.fluidez=t.value; save(); }
+ else if(t.id==='priv'){ S.priv=t.value; save(); }
+ else if(t.id==='aud'){ S.aud=t.value; save(); refreshScore(); }
+});
+if(!can(S.step)) S.step='trans';
+render();
+
+})();</script>
+</body>
+</html>

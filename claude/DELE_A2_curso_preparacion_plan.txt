@@ -1,0 +1,435 @@
+PLAN DEL CURSO DE PREPARACIÓN DELE A2
+===========================================================================
+Documento base del proyecto "DELE A2". Borrador para que María lo revise
+(10/10/2026). Define QUÉ lleva el curso, DE DÓNDE sale cada cosa y EN QUÉ
+ORDEN se produce. El formato de cada tarea sigue mandando la
+"Especificación del formato" y el nivel, el "Plan curricular A2 del
+proyecto".
+
+---------------------------------------------------------------------------
+0. LA IDEA EN UNA FRASE
+---------------------------------------------------------------------------
+Un curso que el estudiante pueda hacer solo y que también se use en clase:
+conoce el examen -> entrena cada tarea con su estrategia -> hace modelos
+completos con temas MEZCLADOS como en el examen real -> recibe un informe
+de lo que falla -> lo arregla con fichas de remedio -> ve ejemplos de cómo
+sería una escritura y una oral "de aprobado" y "de sobresaliente".
+
+---------------------------------------------------------------------------
+1. LO QUE HEMOS APRENDIDO REVISANDO LAS FUENTES
+---------------------------------------------------------------------------
+1.1 Cómo se aprueba (Guía oficial del examen)
+* APTO = 30 de 50 puntos en CADA grupo:
+  - Grupo 1: Comprensión de lectura + Expresión escrita.
+  - Grupo 2: Comprensión auditiva + Expresión oral.
+  Un grupo muy bueno NO compensa el otro. Para nuestros estudiantes el
+  grupo peligroso suele ser el 2 (auditiva + oral).
+* Lectura y auditiva: 1 punto por acierto y 0 por error: no se resta.
+  -> Regla de oro: NUNCA dejar una pregunta en blanco.
+* Escritura y oral: dos categorías, "Uso de la lengua" y "Cumplimiento de
+  la tarea", con bandas de 0 a 3. La banda 2 = A2 = aprobado. En la oral,
+  el entrevistador da una nota global (40 %) y el calificador, que no
+  habla, puntúa cada tarea (60 %).
+  -> Consecuencia práctica: un texto sencillo y correcto que cumple TODAS
+  las pautas aprueba; a un texto ambicioso al que le falta una pauta el
+  cumplimiento se le queda en el límite (banda 2 justa), y si le falla
+  otra o la tiene a medias, baja a 1 (12/10: matizado según la escala
+  oficial, como en M3-3 y M3-5).
+
+1.2 Material oficial real (láminas de la oral de 2022 y Modelo 0)
+* Tarea 1 (monólogo), temas reales: una persona importante en mi vida, una
+  persona de mi familia, mi plato favorito, mi red social favorita, un
+  regalo que he recibido, un curso que hice, una fiesta especial, mis
+  mejores vacaciones; Modelo 0: un viaje que he hecho.
+  PATRÓN: las 5 pautas mezclan SIEMPRE presente + pasado (indefinido o
+  perfecto) + "antes y ahora" (imperfecto) + futuro (ir a). Es un examen de
+  tiempos verbales disfrazado de tema personal.
+* Tarea 2 (foto): las 6 preguntas de la lámina son SIEMPRE las mismas
+  (cómo son las personas y qué ropa llevan; dónde están y qué objetos hay;
+  qué hacen; qué relación hay entre ellas; qué piensan o sienten y por qué;
+  qué han hecho antes y qué van a hacer después). Fotos reales: antes de
+  salir de casa, cambiar de casa, hacer deporte, de compras, clases para
+  adultos, regalos, ver la televisión, comer fuera; Modelo 0: una fiesta
+  familiar.
+  -> Esto permite una PLANTILLA UNIVERSAL de descripción que sirve para
+  cualquier foto.
+* Tarea 3 (diálogo): en las láminas reales de 2022 casi todas las
+  situaciones son con un AMIGO, un HERMANO o un COMPAÑERO DE PISO para
+  PLANIFICAR algo juntos (organizar horarios y tareas de casa, alquilar una
+  casa, empezar un deporte, comprar para un viaje, elegir un curso, elegir
+  un regalo de boda, decidir qué ver en la tele, elegir restaurante).
+  En nuestros simulacros de unidad casi todas eran de SERVICIO (tienda,
+  oficina de objetos perdidos...). El curso tiene que entrenar los dos
+  tipos: proponer, aceptar, rechazar, negociar, quedar.
+
+1.3 Manuales de preparación (índices)
+* Nuevo DELE A2 (libro de referencia): 4 bloques temáticos (Turismo,
+  Compras, Estudios y trabajo, Tiempo libre); cada bloque = vocabulario del
+  ámbito + un modelo completo. Formato actual. Consejos muy breves y una
+  lista de "cosas importantes para el examen" (comparativos, ir a/en,
+  estar en, traer/llevar, ir/venir, marcadores de pasado, hay que, acabar
+  de / volver a, por/para...). Sus audios están en YouTube y no trae
+  transcripciones.
+* CRONO A2: 7 modelos. Lo valioso es el enfoque: "gestión del examen"
+  (preguntas de verdadero/falso sobre el formato antes de cada prueba),
+  claves que explican por qué las OTRAS opciones no son correctas, tablas
+  de "control de progreso" (tiempo por tarea, qué me ha costado) y la
+  "sensación de control" del 1 al 10. Lo adoptamos.
+* ¡Dale al DELE! A2: estrategias por tarea + 2 ejercicios por tarea + 6
+  exámenes. OJO: es de 2013, formato ANTIGUO (5 tareas por prueba). Solo
+  sirve como idea de estructura ("aprende la tarea, practícala, examínate"),
+  no como referencia de formato.
+
+1.4 Lo que dicen profesores y candidatos (webs especializadas)
+Fallos más repetidos:
+* No conocer el formato ni gestionar el tiempo (la causa número 1 de
+  suspensos, según preparadores).
+* Escritura: dejarse pautas; no llegar o pasarse de palabras; mezclar
+  pasados; hay/está/es; tú y usted mezclados (saludo informal y despedida
+  formal); solo "y" y "porque" como conectores; concordancia; muy/mucho;
+  posesivos ("mis amigo").
+* Oral: monólogo aprendido de memoria que se rompe a la primera pregunta;
+  en la tarea 2 hablar de su vida en vez de describir la foto; en la tarea
+  3 contestar solo "sí" o "no"; quedarse callado en vez de describir la
+  palabra o pedir que repitan; leer las notas; hablar demasiado rápido
+  por los nervios.
+Límite honesto: el Instituto Cervantes no publica exámenes pasados (solo
+modelos y láminas), y en foros hay muy poca información fiable de
+convocatorias concretas. Lo más seguro es el material oficial que ya
+tenemos en el proyecto. Nadie puede garantizar el aprobado al cien por
+cien, pero sí que el estudiante llegue sin sorpresas: formato conocido,
+tiempo controlado y los errores típicos trabajados.
+
+---------------------------------------------------------------------------
+2. ESTRUCTURA DEL CURSO
+---------------------------------------------------------------------------
+MÓDULO 0. CONOCE EL EXAMEN
+  - Las 4 pruebas, tiempos, número de preguntas y la regla del 30/50.
+  - La hoja de respuestas y el día del examen.
+  - "Gestión del examen" estilo CRONO: test de verdadero/falso sobre el
+    formato (ejecutable corto) antes de empezar.
+  - Las 10 reglas de oro (apartado 6).
+
+MÓDULO 1. ENTRENADOR POR TAREAS (las 13 tareas del examen)
+  Para cada tarea, un ejecutable con:
+  1) Así es la tarea (qué leo o escucho, cuántas preguntas, cuánto tiempo).
+  2) La estrategia paso a paso (qué leer primero, cómo repartir el tiempo).
+  3) Las trampas típicas con un ejemplo real de cada una (distractor
+     literal, cambio de plan, otra persona u otro día, negación o
+     condición, cifras parecidas): son las etiquetas ES-01 a ES-11.
+  4) Práctica: series cortas SOLO de esa tarea, con corrección comentada
+     (por qué la buena y por qué NO las otras dos).
+  FUENTE de la práctica de lectura y auditiva: los 10 simulacros de unidad
+  ya hechos (unos 350-400 ítems etiquetados). Se reempaquetan por tarea (todas
+  las tareas 2 de lectura juntas, todas las tareas 3 de auditiva...) y se
+  quitan las referencias al manual. Así se aprovecha todo lo hecho.
+
+MÓDULO 2. MODELOS COMPLETOS (nuevos, originales, con temas mezclados)
+  8 modelos de examen completo (ver matriz en el apartado 3). Diferencia
+  clave con los simulacros de unidad: en el examen real CADA TAREA ES DE UN
+  TEMA DISTINTO. Cada modelo trae:
+  - Lectura, auditiva, escritura y oral, a tiempo real.
+  - Autocorrección + informe de repaso (el sistema que ya tenemos).
+  - Control de progreso: tiempo por tarea, qué me ha costado y sensación
+    de control del 1 al 10 (se compara de un modelo a otro).
+  - Escritura y oral con sus MODELOS DE RESPUESTA (apartado 4).
+  Dificultad: modelos 1-2 de entrada, 3-6 como el examen, 7-8 algo por
+  encima (sin salir de A2: ver "cómo sube la dificultad" en el Plan
+  curricular).
+
+MÓDULO 3. TALLER DE ESCRITURA
+  - Kit de frases por tipo de texto: correo informal (saludar, agradecer,
+    disculparse, invitar, aceptar, rechazar, proponer, despedirse), correo
+    formal de usted, entrada de blog o diario, biografía, descripción de
+    fotos.
+  - Las pautas como lista de control: cada pauta = al menos una frase.
+  - "De la banda 1 a la banda 2": textos con fallos típicos para corregir.
+  - Revisión final de 5 minutos (lista: pautas, tú/usted, pasados,
+    concordancias, conectores, palabras contadas a ojo: unas 10 por línea).
+  - Textos modelo de cada tarea (apartado 4).
+
+MÓDULO 4. TALLER DE ORAL
+  - Tarea 1: banco de unos 20 temas generales (los reales y los
+    frecuentes), cada uno con lámina, esquema de notas en palabras clave
+    (no frases) y monólogo modelo. Práctica de "los tres tiempos" (cada
+    lámina pide presente, pasado y futuro).
+  - Tarea 2: PLANTILLA UNIVERSAL (las 6 preguntas en orden + frases
+    comodín: en la foto hay..., a la derecha / al fondo..., lleva...,
+    está + gerundio, creo que / parece que... porque..., seguramente han...
+    y después van a...) y un BANCO DE FOTOS amplio: todo tipo de personas
+    (niños, jóvenes, mayores, familias, compañeros, desconocidos), lugares
+    (casa, calle, tienda, mercado, estación, consulta, gimnasio, clase,
+    restaurante, parque, playa, montaña, fiesta), estaciones, tiempo y
+    emociones. Entrenador de fotos: foto al azar + cronómetro de 2-3
+    minutos + lista de las 6 preguntas para marcar + descripción modelo.
+  - Tarea 3: los dos tipos de diálogo, con frases para interactuar y
+    diálogos modelo completos (entrevistador y candidato):
+      a) Planificar con un amigo, familiar o compañero (como las láminas
+         reales): proponer, aceptar, rechazar con excusa, negociar, quedar.
+      b) Servicio (tienda, restaurante, hotel, consulta, oficina):
+         pedir, preguntar precio y horario, reclamar, cambiar algo.
+  - Qué hacer si me bloqueo: pedir que repitan, describir la palabra que
+    no sé, ganar tiempo (pues..., a ver..., bueno...).
+  - Dosier oral A2 de estructuras (pendiente), en español sencillo.
+  - La oral la sigue corrigiendo María (libreta de la profesora). No se
+    corrige con IA.
+
+MÓDULO 5. FICHAS DE REMEDIO ("lo que falla")
+  Ejecutables cortos de teoría + práctica sobre los errores que más
+  aparecen. El informe de repaso enlaza aquí (sustituye a "En el libro:
+  unidad X"). Primera lista, por orden de prioridad:
+  R01 Pasados: perfecto / indefinido / imperfecto con sus marcadores.
+  R02 Hay / está / es (existencia, lugar, identidad).
+  R03 Ser y estar (con el enfoque de Rafa Muriel que usa María).
+  R04 Concordancia de género y número; posesivos (mis amigos, nuestra casa).
+  R05 Muy / mucho; también / tampoco.
+  R06 Preposiciones frecuentes: ir a, ir en, estar en, de... a, desde...
+      hasta, por / para básico.
+  R07 Tú y usted: registro coherente del saludo a la despedida.
+  R08 Conectores para enlazar (primero, después, además, por eso, pero,
+      al final).
+  R09 Verbos como gustar (me gusta / me gustan, a mí también / tampoco).
+  R10 Pronombres lo / la / le (lo compro, le escribo).
+  R11 Planes y futuro: ir a, pensar, querer, presente con valor de futuro.
+  R12 Traer / llevar, ir / venir, pedir / preguntar.
+  R13 Fórmulas de los correos (para la tarea 1 de escritura).
+  R14 Vocabulario por áreas (las del apartado 3), con los campos de
+      frecuencia ALTA primero.
+  Y fichas de estrategia ligadas a las etiquetas ES (la trampa literal, el
+  cambio de plan, quién dice qué, condiciones y negaciones).
+
+---------------------------------------------------------------------------
+3. TEMAS: DE DÓNDE SALEN Y CÓMO SE REPARTEN
+---------------------------------------------------------------------------
+Fuentes que se cruzan: los temas trabajados en los 10 simulacros de unidad
+(identidad y lenguas, biografías, personas y carácter, vivienda, ciudad y
+transporte, ocio, comida, salud, antes y ahora, momentos especiales), los
+4 bloques del Nuevo DELE A2 (turismo, compras, estudios y trabajo, tiempo
+libre), los campos de frecuencia ALTA del Plan curricular y los temas de
+las láminas oficiales.
+
+12 ÁREAS DEL CURSO
+  A1 Personas y relaciones (familia, amigos, descripción, carácter)
+  A2 Vivienda y barrio
+  A3 Rutina y vida diaria (antes y ahora)
+  A4 Comida y restaurantes
+  A5 Compras, ropa y regalos
+  A6 Viajes, transporte y alojamiento
+  A7 Ocio, deporte y espectáculos
+  A8 Salud y bienestar
+  A9 Estudios y cursos
+  A10 Trabajo
+  A11 Fiestas y celebraciones
+  A12 Tecnología, redes y medios
+  Transversales: tiempo atmosférico, servicios (correos, banco, farmacia,
+  ayuntamiento), naturaleza.
+
+MATRIZ DE LOS 8 MODELOS (tema principal de cada tarea; la tarea 2 de
+lectura y las tareas 2 y 4 de auditiva son siempre de temas variados)
+Regla: cada área aparece en al menos 3 modelos y en tareas distintas; en
+la oral, cada modelo trae una tarea 3 de PLANIFICAR y otra de SERVICIO.
+
+M1 (entrada)
+  CL1 correo: un amigo cuenta su nuevo trabajo y su piso (A10, A2)
+  CL3 tres personas y sus vacaciones (A6) · CL4 biografía de una deportista (A7)
+  CA1 compras en tiendas y mercado (A5) · CA3 amigos: planes del fin de semana (A7)
+  EIE1 responder a una invitación de cumpleaños (A11)
+  EIE2 A: mi barrio (A2) / B: biografía a partir de fotos (A1)
+  EIO1 A: una persona importante en mi vida / B: mis mejores vacaciones
+  EIO2-3 A: en el mercado (servicio) / B: compañeros de piso organizan la
+  casa (planificar)
+M2 (entrada)
+  CL1 correo de un estudiante de intercambio (A9, A2)
+  CL3 tres restaurantes (A4) · CL4 blog de un viaje (A6)
+  CA1 restaurante y estación (A4, A6) · CA3 amigos: apuntarse a un curso (A9)
+  EIE1 correo a un amigo que viene de visita (A6)
+  EIE2 A: una comida especial (A4) / B: diario de un día de viaje con fotos (A6)
+  EIO1 A: mi plato favorito / B: un curso que hice
+  EIO2-3 A: clases para adultos, elegir curso con un amigo (planificar) /
+  B: en el restaurante, con el camarero (servicio)
+M3
+  CL1 correo: cambiar de hábitos después de un problema de salud (A8, A3)
+  CL3 tres ofertas de trabajo (A10) · CL4 un pueblo antes y ahora (A3)
+  CA1 farmacia y tienda de deporte (A8, A5) · CA3 amigos: vida sana (A8)
+  EIE1 disculparse por no ir a una cita (A1)
+  EIE2 A: mis hábitos antes y ahora (A3) / B: la vida de una persona mayor con fotos (A1)
+  EIO1 A: mi deporte o actividad favorita / B: cómo era mi vida de niño
+  EIO2-3 A: hacer deporte, empezar con un amigo (planificar) / B: pedir
+  cita en un centro de salud (servicio)
+M4
+  CL1 correo: cómo fue una boda (A11)
+  CL3 tres tiendas o mercadillos (A5) · CL4 noticia: una fiesta tradicional (A11)
+  CA1 regalos (A5) · CA3 amigos: organizar una fiesta sorpresa (A11)
+  EIE1 agradecer un regalo (A5)
+  EIE2 A: una fiesta de mi país (A11) / B: la historia de un regalo con fotos (A5)
+  EIO1 A: un regalo que he recibido / B: una fiesta especial para mí
+  EIO2-3 A: elegir un regalo de boda con un amigo (planificar) / B: cambiar
+  una prenda en una tienda de ropa (servicio)
+M5
+  CL1 correo: el primer mes en un trabajo nuevo (A10)
+  CL3 tres personas y cómo usan el móvil (A12) · CL4 biografía de una emprendedora (A10)
+  CA1 objetos de oficina y tecnología (A12) · CA3 compañeros: trabajar desde casa (A10)
+  EIE1 responder a un compañero que pide ayuda (A10)
+  EIE2 A: mi trabajo o mis estudios (A10, A9) / B: un día de trabajo de alguien con fotos (A10)
+  EIO1 A: mi red social favorita / B: mi trabajo o mis estudios
+  EIO2-3 A: ver la televisión, decidir con un amigo (planificar) / B: llevar
+  un móvil a reparar (servicio)
+M6
+  CL1 correo desde un viaje con problemas (A6)
+  CL3 tres alojamientos (A6) · CL4 guía de una ciudad (A6, A7)
+  CA1 aeropuerto y hotel (A6) · CA3 amigos: preparar un viaje (A6)
+  EIE1 pedir información a un hotel (formal, de usted) (A6)
+  EIE2 A: un viaje que hice (A6) / B: postal o diario con fotos (A6)
+  EIO1 A: un viaje que he hecho / B: la ciudad donde vivo
+  EIO2-3 A: compras para un viaje a la montaña con un hermano
+  (planificar) / B: en la recepción de un hotel (servicio)
+M7 (algo por encima)
+  CL1 carta de una abuela a su nieto (A1, A3)
+  CL3 tres barrios (A2) · CL4 una familia que cambia de ciudad (A2, A1)
+  CA1 muebles y casa (A2) · CA3 vecinos (A2)
+  EIE1 responder a un vecino (A2)
+  EIE2 A: mi casa ideal (A2) / B: biografía con fotos (A1)
+  EIO1 A: una persona de mi familia / B: mi casa
+  EIO2-3 A: alquilar un piso con un amigo (planificar) / B: en una agencia
+  de alquiler (servicio)
+M8 (algo por encima)
+  CL1 correo: un plan para ir a un concierto (A7)
+  CL3 tres planes de fin de semana (A7) · CL4 biografía de un artista (A7)
+  CA1 cine y teatro (A7) · CA3 amigos: una película o una serie (A7, A12)
+  EIE1 aceptar o rechazar una invitación (A7)
+  EIE2 A: mi tiempo libre (A7) / B: un día en el campo con fotos (naturaleza)
+  EIO1 A: mi tiempo libre / B: un libro, una película o una serie
+  EIO2-3 A: comer fuera, elegir restaurante con un amigo (planificar) /
+  B: en la taquilla de un museo o un cine (servicio)
+Esta matriz es una propuesta: se ajusta al escribir cada modelo para que
+los temas no se repitan dentro del mismo examen y para no reproducir
+textos de ningún manual (todo el contenido es original).
+
+---------------------------------------------------------------------------
+4. MODELOS DE RESPUESTA: "ASÍ SERÍA PERFECTO PARA EL EXAMEN"
+---------------------------------------------------------------------------
+ESCRITURA (en cada modelo completo y en el taller)
+  Para cada tarea, dos textos:
+  - Texto APROBADO (banda 2): sencillo, correcto, todas las pautas.
+  - Texto EXCELENTE (banda 3): más variedad de tiempos, conectores y
+    vocabulario, siempre dentro de A2.
+  Cada texto, anotado: qué frase cubre cada pauta (con colores), los
+  conectores marcados, el número de palabras y "por qué aprueba". Es la
+  forma más clara de que vean que no hace falta escribir difícil.
+ORAL
+  - Tarea 1: esquema de notas (palabras clave) + monólogo modelo de unos
+    2 minutos y medio, con los tres tiempos marcados.
+  - Tarea 2: descripción modelo siguiendo las 6 preguntas, con las frases
+    comodín marcadas.
+  - Tarea 3: diálogo modelo completo, con lo que dice el entrevistador y
+    lo que responde un buen candidato (y el pequeño problema que provoca
+    el entrevistador).
+  - Opcional: los modelos de la oral en audio (ElevenLabs), para que oigan
+    el ritmo y la naturalidad de un candidato que aprueba.
+
+---------------------------------------------------------------------------
+5. CORRECCIÓN E INFORME (desarrollo del sistema que ya existe)
+---------------------------------------------------------------------------
+Base: DELE_A2_sistema_correccion_informe.txt (etiquetas, autocorrección,
+semáforo, qué repasar, estrategia, seguimiento entre simulacros).
+Cambios para el curso:
+  1) "Dónde repasarlo" apunta a las fichas de remedio (R01-R14) y a las
+     fichas de estrategia, no al manual.
+  2) Control de progreso estilo CRONO al final de cada prueba: tiempo por
+     tarea, qué me ha costado (vocabulario, tema, tiempo, entender quién
+     habla...) y sensación de control del 1 al 10.
+  3) Simulador del 30/50: el informe calcula la nota de cada grupo
+     (lectura + escritura; auditiva + oral) cuando María añade la nota de
+     la escritura y de la oral, y dice qué grupo está en riesgo.
+  4) Seguimiento acumulado entre modelos (qué contenidos siguen en rojo).
+     Hay que decidir dónde se guarda (ver preguntas abiertas).
+  5) Escritura:
+     - Ya: María corrige con la rúbrica del sistema (bandas 0-3, errores
+       marcados GR/LEX/ORT/COH/ADE, los 3 errores importantes, texto
+       modelo). Se puede preparar una plantilla de corrección para pegar
+       en Claude y que salga siempre con el mismo formato.
+     - Más adelante: corrector automático dentro del curso (el texto se
+       envía a la IA desde la web con la misma rúbrica y vuelve corregido).
+       Necesita una pequeña pieza en el servidor y tiene un coste por
+       corrección; se decide cuando el curso tenga compradores.
+  6) Oral: solo María (libreta de la profesora); sin IA.
+
+---------------------------------------------------------------------------
+6. LAS 10 REGLAS DE ORO (primer borrador para el Módulo 0)
+---------------------------------------------------------------------------
+1. Necesitas 30 de 50 en cada grupo: lectura + escritura y auditiva +
+   oral. Entrena tu grupo más débil.
+2. No dejes ninguna pregunta en blanco: un error no resta.
+3. Lee siempre las preguntas ANTES que el texto o el audio.
+4. La opción que repite palabras exactas del texto suele ser la trampa;
+   la correcta dice lo mismo con otras palabras.
+5. Cuidado con los cambios de plan ("iba a ir, pero al final...") y con
+   quién hace cada cosa.
+6. Controla el reloj: en la lectura, unos 12-15 minutos por tarea y 18
+   para la última. Si una pregunta te bloquea, marca una opción y sigue.
+7. Escritura: cada pauta, al menos una frase. Un texto sencillo que
+   cumple todo aprueba. Si falta una pauta, te quedas en el límite,
+   aunque tus frases sean difíciles; si faltan dos (o falta una y otra
+   está a medias), ya no es un A2. (12/10: matizada según la escala
+   oficial; el Módulo 0 dice lo mismo.)
+8. Escritura: mismo trato del saludo a la despedida (tú o usted) y
+   revisa pasados, concordancias y conectores en los últimos 5 minutos.
+9. Oral: prepara palabras clave, no un texto de memoria. En la foto,
+   describe lo que ves y responde a las 6 preguntas en orden.
+10. Oral: si no sabes una palabra, descríbela; si no entiendes, pide que
+    te repitan. Nunca te quedes callado.
+
+---------------------------------------------------------------------------
+7. ORDEN DE PRODUCCIÓN PROPUESTO
+---------------------------------------------------------------------------
+1) María revisa y aprueba este plan y la matriz de temas.
+2) Índice del curso (de la profesora) + Módulo 0 (conoce el examen, reglas
+   de oro, test de formato). Después, el corrector de la profesora.
+3) Taller de oral: plantilla universal de la foto + primeras 12 fotos con
+   descripción modelo + temas de la tarea 1 + diálogos de la tarea 3.
+4) Taller de escritura: kit de frases + textos modelo + revisión final.
+5) Fichas de remedio, empezando por R01, R02, R04, R07 y R08.
+6) Modelos completos M1 a M8, uno por chat (como las unidades).
+7) Entrenador por tareas con los ítems de los 10 simulacros de unidad.
+8) Corrector automático de la escritura (cuando haya ventas).
+
+---------------------------------------------------------------------------
+8. DECISIONES DE FORMATO Y ACCESO (11/10/2026)
+---------------------------------------------------------------------------
+* El curso se hace con EJECUTABLES SUELTOS (no como los cursos de nivel por
+  unidades con pestañas): cada pieza es un HTML independiente. Los modelos
+  completos usan el motor de los simulacros; talleres y fichas de remedio
+  son ejecutables cortos.
+* Carpeta en la web: recursos/A2/dele-curso/ (con un .htaccess
+  "Options -Indexes" para que no se vea la lista de archivos y la etiqueta
+  noindex en cada ejecutable).
+* El ÍNDICE del curso es solo para María (como el catálogo de la
+  biblioteca, o dentro de biblioteca/profesora/). A cada estudiante se le
+  manda el ENLACE DIRECTO de cada parte.
+* Los informes de repaso SÍ llevan enlaces a las fichas de remedio y de
+  estrategia (decidido por María).
+* Prueba piloto con algunos estudiantes antes de vender. Versión piloto:
+  índice, Módulo 0, plantilla de la foto con 6 fotos, 2 modelos completos
+  y 3 fichas de remedio (pasados, hay/está/es, tú/usted). Cada ejecutable
+  lleva al final 3-4 preguntas de opinión con botón de copiar.
+* Corrección de la escritura en dos etapas:
+  1) Piloto: el estudiante envía su texto con el botón Copiar. María usa
+     el CORRECTOR DE LA PROFESORA (ejecutable en biblioteca/profesora/):
+     pega el texto, elige modelo y tarea, el corrector prepara la petición
+     completa para Claude con la rúbrica y las pautas de esa tarea, María
+     la pega en su Claude Pro, pega la respuesta en el corrector y este
+     genera el informe para el estudiante (PDF, con etiquetas conectadas
+     al semáforo y a las fichas). Sin coste extra.
+  2) Al vender: botón "Corregir mi texto" en el ejecutable del estudiante,
+     con la misma rúbrica y el mismo formato, a través de una pieza en el
+     servidor de Bluehost; coste por corrección, con límite por modelo.
+* El progreso se guarda en el navegador del estudiante (cada ejecutable
+  con su storageKey). Cuenta de estudiante: solo si más adelante hace falta.
+
+---------------------------------------------------------------------------
+9. PREGUNTAS ABIERTAS PARA MARÍA
+---------------------------------------------------------------------------
+* ¿8 modelos completos le parece bien (otros manuales traen 4, 6 o 7)?
+* ¿Los modelos de la oral también en audio, o solo en texto?
+===========================================================================
+Documento base para subir al proyecto "DELE A2".

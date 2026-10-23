@@ -1,0 +1,351 @@
+# -*- coding: utf-8 -*-
+# BANCO DEL KIT DE FRASES (MODULO 3 · TALLER DE ESCRITURA) DEL CURSO DE PREPARACION DELE A2
+# Lo usa build_M3_kit_frases.py. Para cambiar frases, ejemplos o ejercicios, solo se toca este archivo.
+#
+# MARCAS en los textos de ejemplo:  {k:texto}
+#   k = clave de una funcion del tipo de texto (se pinta con su color)
+#   c = conector (se subraya; vale en todos los tipos)
+# Cada ejemplo es una lista de parrafos; cada parrafo, una lista de (pauta, texto). pauta 0 = sin pauta (firma).
+# El build comprueba: palabras dentro del limite de la tarea, todas las pautas cubiertas, tu/usted coherente
+# en los correos, funciones y conectores minimos.
+# FOTOS (12/10/2026): las laminas con fotos llevan "photos" (descripcion = texto alternativo), "img" (nombre fijo
+# de las imagenes), "persona" y "escenas" (para los prompts). Ver fotos_M3.py.
+
+# ------------------------------------------------------------------ LAS DOS TAREAS
+REPARTO = [(5, "Leer y elegir", "Lee las dos tareas y elige la opción de la tarea 2."),
+           (15, "Tarea 1", "El correo: 60-70 palabras."),
+           (20, "Tarea 2", "El texto de la opción elegida: 70-80 palabras."),
+           (5, "Revisar", "Pautas, tú o usted, pasados, conectores y las líneas contadas a ojo.")]
+
+MAPA = [  # tipo de texto, donde sale, palabras, pestana
+ ("Correo a un amigo o a un familiar", "Tarea 1 (casi siempre)", "60-70", "inf"),
+ ("Correo de usted (una academia, un hotel, una tienda, un vecino)", "Tarea 1 (a veces)", "60-70", "for"),
+ ("Entrada de blog, diario o texto para una revista", "Tarea 2 · opción 1", "70-80", "blog"),
+ ("Biografía con datos (la vida de una persona)", "Tarea 2 · opción 2", "70-80", "bio"),
+ ("Texto a partir de fotos (la historia de un día)", "Tarea 2 · opción 2", "70-80", "fotos"),
+]
+
+# ------------------------------------------------------------------ TIPOS DE TEXTO
+TIPOS = [
+# ============================================================ CORREO INFORMAL
+{"id": "inf", "tab": "Correo a un amigo", "titulo": "El correo a un amigo", "trato": "tu",
+ "donde": "Tarea 1 · 60-70 palabras", "min": 60, "max": 70,
+ "intro": "Es la tarea 1 casi siempre: un amigo o una amiga te escribe y tú contestas. El correo es corto (6-7 líneas), así que cada pauta es una o dos frases. Todo el correo va de <b>tú</b>: del saludo a la despedida.",
+ "funciones": [
+  ("s", "Saludar", "Siempre empiezas así.", ["¡Hola, Marta! ¿Qué tal?", "¡Hola! ¿Cómo estás?", "¡Qué alegría recibir tu correo!", "¿Qué tal todo por ahí?"]),
+  ("g", "Agradecer", "Por el correo, la invitación, un regalo, la ayuda.", ["Muchas gracias por tu correo.", "Gracias por invitarme.", "¡Muchas gracias por el regalo! Me encanta.", "Muchas gracias por tu ayuda."]),
+  ("d", "Disculparse", "Por no escribir, por no poder ir, por llegar tarde.", ["Perdona por no escribir antes.", "Lo siento mucho, de verdad.", "Siento no poder ir.", "Perdona, es que he tenido mucho trabajo."]),
+  ("i", "Invitar", "Una pregunta con «quieres» o «te vienes».", ["¿Quieres venir a cenar el sábado?", "¿Te vienes al cine conmigo?", "Te invito a mi fiesta de cumpleaños.", "Me gustaría invitarte a mi casa."]),
+  ("a", "Aceptar", "Di que sí con alegría.", ["¡Claro que sí!", "¡Qué buena idea! Me apunto.", "Vale, perfecto.", "¡Me encantaría ir!"]),
+  ("r", "Rechazar", "Di que no, siempre con una razón.", ["Lo siento, pero no puedo porque...", "¡Qué pena! Ese día tengo que trabajar.", "Me encantaría, pero...", "Esta vez no puedo, es que..."]),
+  ("p", "Proponer", "Una idea, otro día, otro plan.", ["¿Qué te parece si...?", "¿Por qué no quedamos el domingo?", "Si quieres, podemos...", "¿Y si vamos a la playa?"]),
+  ("f", "Despedirse", "Una frase final y la fórmula.", ["Escríbeme pronto.", "Nos vemos el sábado.", "Un beso / Un abrazo", "Hasta pronto"]),
+ ],
+ "lamina": {"tarea": 1, "instr": "Una amiga le escribe para invitarle a su cumpleaños.",
+   "input": ["¡Hola! ¿Qué tal? El sábado celebro mi cumpleaños con una cena en mi casa. Vienen Luis, Sara y otros amigos. ¿Puedes venir? Empezamos a las nueve. Ah, y otra cosa: ¿me ayudas a preparar la comida por la tarde?", "Un beso, Marta"],
+   "lead": "Conteste a su amiga. En el correo tiene que:",
+   "pautas": ["saludar y agradecer la invitación;", "aceptar la invitación;", "decir si puede ayudarla por la tarde y por qué;", "invitarla a hacer algo juntos otro día;", "despedirse."]},
+ "ejemplo": [
+  [(1, "{s:¡Hola, Marta! ¿Qué tal?} {g:Muchas gracias por la invitación.}")],
+  [(2, "{a:¡Claro que voy a tu cena!} {c:Además}, puedo llevar el postre."),
+   (3, "{r:Lo siento, pero por la tarde no puedo ayudarte}: trabajo hasta las ocho y, {c:por eso}, voy a llegar un poco tarde. {d:Perdona, de verdad.}")],
+  [(4, "{i:¿Quieres venir a la playa conmigo el domingo?} {p:Si quieres, podemos comer allí.}")],
+  [(5, "{f:Un beso muy fuerte,}"), (0, "Ana")],
+ ],
+ "porque": ["Hay una frase (o dos) para cada una de las cinco pautas: nada se queda fuera.",
+            "Todo es de tú: «tu cena», «ayudarte», «perdona», «¿quieres...?», «un beso».",
+            "Cuando dice que no, da la razón (trabaja hasta las ocho) y pide perdón.",
+            "Frases sencillas y correctas: no hace falta escribir difícil para aprobar."],
+ "trampa": "<b>Ojo con la despedida.</b> Con un amigo, «Un beso» o «Un abrazo». «Atentamente» o «Un saludo cordial» son para correos de usted. Mezclarlos es uno de los fallos más típicos: mira la pestaña <b>Dos trampas</b>.",
+ "ej": ["inf_h", "inf_q"],
+ "ahora": {"tarea": 1, "instr": "Un amigo le escribe para invitarle a una excursión.",
+   "input": ["¡Hola! ¿Qué tal todo? El domingo vamos a hacer una ruta en bici por el río con unos amigos y después comemos en el campo. ¿Te vienes? Salimos a las nueve de la plaza. ¡Va a ser genial!", "Un abrazo, Dani"],
+   "lead": "Conteste a su amigo. En el correo tiene que:",
+   "pautas": ["saludar y agradecer la invitación;", "decir que no puede ir y explicar por qué;", "disculparse;", "proponer otro plan para otro día;", "despedirse."]},
+},
+# ============================================================ CORREO FORMAL
+{"id": "for", "tab": "Correo de usted", "titulo": "El correo de usted", "trato": "usted",
+ "donde": "Tarea 1 · 60-70 palabras", "min": 60, "max": 70,
+ "intro": "A veces la tarea 1 es un correo a alguien que no conoces: una escuela, un hotel, una tienda, un vecino nuevo. Entonces todo va de <b>usted</b>, del saludo a la despedida. No tiene que ser un correo complicado: con estas frases basta.",
+ "funciones": [
+  ("s", "Saludar", "Sin «¡Hola, guapa!»: más neutro.", ["Estimada señora Ruiz:", "Estimado señor López:", "Buenos días:", "Hola, buenos días:"]),
+  ("m", "Decir por qué escribe", "Quién es usted y por qué escribe.", ["Me llamo Paul Weber y le escribo porque...", "Le escribo porque he visto su anuncio en internet.", "Le escribo para pedirle información sobre...", "Soy su vecino del tercero y le escribo para..."]),
+  ("q", "Pedir información", "Preguntas educadas, con «podría» y «me gustaría».", ["Me gustaría saber...", "¿Podría decirme...?", "¿Cuánto cuesta...?", "Quería preguntarle si..."]),
+  ("x", "Disculparse o reclamar", "Con calma y con educación.", ["Siento mucho las molestias.", "Disculpe, pero...", "Siento no poder ir a la reunión.", "Le escribo porque tengo un problema con..."]),
+  ("g", "Agradecer", "Siempre antes de la despedida.", ["Muchas gracias por su atención.", "Le agradezco mucho su ayuda.", "Muchas gracias por su respuesta.", "Gracias por todo."]),
+  ("f", "Despedirse", "Sin besos ni abrazos.", ["Espero su respuesta.", "Un saludo,", "Saludos cordiales,", "Atentamente,"]),
+ ],
+ "lamina": {"tarea": 1, "instr": "Usted ha visto este anuncio de una escuela de cocina y quiere más información.",
+   "anuncio": ["ESCUELA DE COCINA SABORES", "Cursos de cocina española para adultos: tapas, paella y postres.", "Grupos de ocho personas como máximo. Cursos de mañana y de tarde.", "Más información: Carmen Ruiz (carmen@cocinasabores.es)"],
+   "lead": "Escriba un correo a Carmen Ruiz. En el correo tiene que:",
+   "pautas": ["saludar;", "presentarse y explicar por qué escribe;", "preguntar por los horarios y el precio de los cursos;", "hacer otra pregunta sobre el curso;", "agradecer y despedirse."]},
+ "ejemplo": [
+  [(1, "{s:Estimada señora Ruiz:}")],
+  [(2, "{m:Me llamo Paul Weber y le escribo porque he visto su anuncio en internet.} Vivo en Valencia desde enero y me encanta la cocina española."),
+   (3, "{q:Me gustaría saber qué horarios tienen los cursos de tapas} y {q:cuánto cuestan}. Trabajo por las mañanas, {c:así que} prefiero un curso de tarde."),
+   (4, "{c:Además}, {q:¿hay que llevar algo a las clases?}")],
+  [(5, "{g:Muchas gracias por su atención.}")],
+  [(5, "{f:Un saludo,}"), (0, "Paul Weber")],
+ ],
+ "porque": ["Todo es de usted: «le escribo», «su anuncio», «su atención», «un saludo». Nada de tú.",
+            "Pregunta con frases educadas («Me gustaría saber...») y no con órdenes («Dime...»).",
+            "Cada pauta tiene su frase; la pauta 3 incluso da una razón («Trabajo por las mañanas»).",
+            "Termina con agradecimiento y despedida, sin «un beso»."],
+ "trampa": "<b>El fallo más típico:</b> empezar con «Estimada señora Ruiz» y, a mitad del correo, escribir «¿Puedes decirme...?» o terminar con «Un beso». Si empiezas de usted, todo el correo es de usted. Practícalo en la pestaña <b>Dos trampas</b>.",
+ "ej": ["for_q"],
+ "ahora": {"tarea": 1, "instr": "Usted quiere apuntarse a un gimnasio y ha visto este anuncio.",
+   "anuncio": ["GIMNASIO AQUAFORMA", "Piscina, sala de máquinas y clases de yoga y pilates.", "Abierto de lunes a sábado.", "¡Este mes, la primera semana es gratis!", "Información: Sr. Navarro (info@aquaforma.es)"],
+   "lead": "Escriba un correo al señor Navarro. En el correo tiene que:",
+   "pautas": ["saludar;", "presentarse y decir por qué escribe;", "preguntar por los horarios de las clases y el precio;", "preguntar por otra cosa (la piscina, qué hay que llevar...);", "agradecer y despedirse."]},
+},
+# ============================================================ BLOG O DIARIO
+{"id": "blog", "tab": "Blog o diario", "titulo": "La entrada de blog o de diario", "trato": None,
+ "donde": "Tarea 2 · opción 1 · 70-80 palabras", "min": 70, "max": 80,
+ "intro": "En la opción 1 de la tarea 2 escribes sobre tu vida: unas vacaciones, una fiesta, un fin de semana, tus costumbres. A veces dicen que es para un blog, un diario o una revista. En un blog hablas a tus lectores (<b>vosotros</b>: «os cuento»); en un diario, a ti mismo («Querido diario:»). Casi siempre cuentas algo del pasado, así que cuida los pasados y los conectores.",
+ "funciones": [
+  ("e", "Empezar la entrada", "Saluda a los lectores y di de qué hablas.", ["¡Hola a todos!", "Hoy os cuento mi fin de semana en...", "Querido diario: hoy ha sido un día...", "El sábado pasado fui a..."]),
+  ("h", "Contar qué pasó", "Las acciones, en indefinido (o en perfecto si es «hoy»).", ["Fuimos en tren / en coche.", "Visitamos el castillo.", "Comimos en un restaurante típico.", "Hoy he ido a... y he visto..."]),
+  ("d", "Describir", "Cómo era el lugar, qué tiempo hacía, cómo estabas: imperfecto.", ["Es un pueblo pequeño en la montaña.", "Hacía sol y no había mucha gente.", "El hotel estaba en el centro.", "Estaba muy cansado."]),
+  ("v", "Valorar", "Qué te gustó y qué no.", ["Lo pasamos genial.", "Lo mejor fue...", "Lo único malo fue...", "Me encantó / No me gustó nada."]),
+  ("t", "Terminar", "Una recomendación, un plan o una pregunta a los lectores.", ["Os lo recomiendo.", "La próxima vez quiero...", "¿Y vosotros? ¿Habéis estado en...?", "¡Hasta la próxima!"]),
+ ],
+ "lamina": {"tarea": 2, "op": 1, "intro": "Escriba una entrada en su blog sobre una excursión que ha hecho. Hable de:",
+   "pautas": ["adónde fue, cuándo y con quién;", "cómo era el lugar y qué tiempo hacía;", "qué hizo allí;", "qué le gustó más y qué no le gustó;", "si lo recomienda."]},
+ "ejemplo": [
+  [(1, "{e:¡Hola a todos! Hoy os cuento} mi excursión del sábado pasado a Guadalest con mi amiga Elena."),
+   (2, "{d:Es un pueblo pequeño en la montaña.} {d:Hacía sol y no había mucha gente.}")],
+  [(3, "{c:Primero} {h:subimos al castillo} y {c:después} {h:vimos el pantano}. {c:Luego} {h:comimos en un restaurante típico}."),
+   (4, "{v:Lo mejor fueron las vistas}: ¡qué azul el agua! {v:Lo único malo:} la comida tardó mucho.")],
+  [(5, "{c:Al final}, {v:lo pasamos genial} y {t:os lo recomiendo}. {t:¿Y vosotros? ¿Conocéis algún pueblo bonito?}")],
+ ],
+ "porque": ["Sigue el orden de las pautas: así es fácil comprobar que no falta ninguna.",
+            "Pasados bien usados: indefinido para lo que hicieron (subimos, vimos, comimos) e imperfecto para describir (hacía, había).",
+            "Conectores variados para ordenar la historia: primero, después, luego, al final.",
+            "Habla a sus lectores de vosotros («os cuento», «¿conocéis...?»), como en un blog de verdad."],
+ "trampa": "<b>Ojo:</b> si en el texto escribes solo «y... y... porque...», la historia queda plana y el texto baja de nota. Ordena con <i>primero, después, luego, al final</i> y explica con <i>por eso, así que, además</i>. Hay más en <b>Dos trampas</b>.",
+ "ej": ["blog_h"],
+ "ahora": {"tarea": 2, "op": 1, "intro": "Escriba una entrada en su blog sobre una comida o una cena especial. Hable de:",
+   "pautas": ["cuándo fue, dónde y con quién;", "qué celebraban o por qué era especial;", "qué comieron y qué hicieron;", "qué le gustó más y qué no le gustó;", "si quiere repetir y por qué."]},
+},
+# ============================================================ BIOGRAFIA
+{"id": "bio", "tab": "Biografía", "titulo": "La biografía", "trato": None,
+ "donde": "Tarea 2 · opción 2 · 70-80 palabras", "min": 70, "max": 80,
+ "intro": "En la opción 2 te pueden dar fotos y datos de la vida de una persona (fechas, trabajos, cambios). Tú escribes su historia. No tienes que inventar mucho: <b>convierte cada dato en una frase</b> con el tiempo correcto y únelas con marcadores de tiempo.",
+ "funciones": [
+  ("n", "Origen", "Dónde y cuándo nació.", ["Nació en Cuenca en 1958.", "Es de Lima, pero vive en Madrid.", "Nació en un pueblo pequeño.", "Sus padres eran..."]),
+  ("t", "Fechas y edades", "Para situar cada momento.", ["En 1985 / En los años noventa", "A los dieciocho años...", "Durante veinticinco años...", "Desde 2016 / Desde entonces"]),
+  ("h", "Hechos de su vida", "Lo que pasó: indefinido.", ["Empezó a trabajar en...", "Se casó y se fue a vivir a...", "Estudió Medicina.", "Abrió un restaurante."]),
+  ("d", "Cómo era", "Descripción en el pasado: imperfecto.", ["De niña era muy tímida.", "Le encantaba cocinar.", "Tenía muchos amigos.", "Vivía con sus abuelos."]),
+  ("a", "Ahora", "La vida de hoy: presente, «todavía» y «ya no».", ["Hoy tiene dos hijos.", "Ahora vive en...", "Todavía cocina todos los días.", "Ya no trabaja en el hospital."]),
+ ],
+ "lamina": {"tarea": 2, "op": 2, "intro": "Rosa Llorente es cocinera. Aquí tiene algunas fotos y datos sobre su vida.",
+   "photos": ["Una chica de unos dieciocho años, con delantal, saca pan del horno en una panadería pequeña.", "Una mujer de unos cuarenta años da una clase de cocina a un grupo de estudiantes.", "La misma mujer, hoy, con el pelo blanco, cocina delante de una cámara en su casa."],
+   "img": "M3_01_bio_rosa_cocinera",
+   "rotulo": "Biografia Rosa cocinera: 1 chica saca pan del horno, 2 da clase de cocina, 3 mayor cocina ante una camara",
+   "persona": "These three photos show the same Spanish woman, Rosa, at three ages, and she must be clearly recognisable in all of them: a round face, warm brown eyes, a small mole above the left corner of her mouth, a wide mouth with laughter lines and thick curly hair (dark brown when she is young, white in the last photo).",
+   "escenas": ["Late 1970s look, warm slightly faded colours: Rosa at 18, with a flour-covered apron and her dark curly hair tied back, takes a tray of fresh round loaves out of the oven of a small family bakery.",
+               "1990s look: Rosa at about 40, in a white cook's jacket, gives a cooking class to a group of young students around a steel counter in a school kitchen, showing them how to stir a pot.",
+               "Today: Rosa at about 68, with short curly white hair and a colourful apron, cooks at the stove of her home kitchen, stirring a pan and talking, while a phone on a small tripod records her; she is busy with the food, not posing."],
+   "ficha": ["Nació en Cuenca en 1958.", "De joven: muy trabajadora; le encanta cocinar.", "1976: empieza a trabajar en la panadería de sus padres.", "1985: se casa y se va a vivir a Barcelona.", "1990-2015: profesora en una escuela de cocina.", "2016: abre un canal de recetas en internet.", "Hoy: más de 200 000 seguidores; cocina todos los días."],
+   "intro2": "Escriba un texto sobre Rosa. Hable de:",
+   "pautas": ["dónde y cuándo nació y qué hizo de joven;", "qué cambió en su vida en los años ochenta y a qué se dedicó;", "qué hace ahora."]},
+ "ejemplo": [
+  [(1, "Rosa Llorente {n:nació en Cuenca en 1958}. {t:A los dieciocho años} {h:empezó a trabajar} en la panadería de sus padres. {d:Era una chica muy trabajadora y le encantaba cocinar.}")],
+  [(2, "{t:En 1985} {h:se casó} y {h:se fue a vivir a Barcelona}. {c:Después}, {t:durante veinticinco años}, {h:fue profesora de cocina} en una escuela.")],
+  [(3, "{t:En 2016} {h:abrió un canal de recetas} en internet y, {c:desde entonces}, tiene mucho éxito. {a:Hoy tiene más de doscientos mil seguidores} y {a:todavía cocina todos los días}.")],
+ ],
+ "porque": ["Cada dato de la ficha se convierte en una frase: 1976 → «A los dieciocho años empezó a trabajar...».",
+            "Tres pautas, tres párrafos: el orden de la vida (joven → cambios → ahora).",
+            "Indefinido para los hechos (nació, se casó, abrió), imperfecto para describir (era, le encantaba), presente para hoy.",
+            "Marcadores de tiempo variados: no repite «en 19...» en cada frase."],
+ "trampa": "<b>Ojo con la lista de datos:</b> no copies la ficha tal cual («1976: empieza a trabajar»). Escribe frases completas en pasado y únelas con <i>después, desde entonces, al final, hoy</i>.",
+ "ej": ["bio_q"],
+ "ahora": {"tarea": 2, "op": 2, "intro": "Tomás Ferrer es biólogo. Aquí tiene algunas fotos y datos sobre su vida.",
+   "photos": ["Un niño de unos diez años, con gafas de bucear, en una playa con rocas.", "Un hombre joven con barba trabaja en un barco grande, en medio del mar.", "El mismo hombre, hoy, con el pelo gris, enseña a bucear a un grupo de niños en una piscina."],
+   "img": "M3_02_bio_tomas_biologo",
+   "rotulo": "Biografia Tomas biologo: 1 nino con gafas de bucear en la playa, 2 joven con barba en un barco, 3 mayor ensena a bucear en piscina",
+   "persona": "These three photos show the same Spanish man, Tomás, at three ages, and he must be clearly recognisable in all of them: tall and thin, a long narrow face, light blue-grey eyes, a straight prominent nose, freckles on his cheeks and a small scar on his chin.",
+   "escenas": ["1980s look: Tomás at about 10, in swimming trunks, with diving goggles pushed up on his forehead, stands on the rocks of a Mediterranean beach holding up a small crab and smiling.",
+               "Late 1990s look: Tomás at about 28, with a short brown beard and a red waterproof jacket, works on the deck of a large white research ship in the open sea, writing notes next to scientific equipment.",
+               "Today: Tomás at about 53, with grey hair, a grey beard and a black wetsuit, stands in a swimming pool teaching a group of children with masks and snorkels how to dive."],
+   "ficha": ["Nació en Palma en 1972.", "De niño: muy deportista; le encanta el mar.", "1990: empieza a estudiar Biología en Barcelona.", "1996-2010: trabaja en un barco de investigación; viaja por todo el mundo.", "2011: vuelve a Palma y abre una escuela de buceo.", "Hoy: enseña a bucear a niños y adultos; ya no viaja tanto."],
+   "intro2": "Escriba un texto sobre Tomás. Hable de:",
+   "pautas": ["dónde y cuándo nació y cómo era de niño;", "qué estudió y a qué se dedicó;", "qué hace ahora y qué ha cambiado en su vida."]},
+},
+# ============================================================ TEXTO CON FOTOS
+{"id": "fotos", "tab": "Con fotos", "titulo": "El texto a partir de fotos", "trato": None,
+ "donde": "Tarea 2 · opción 2 · 70-80 palabras", "min": 70, "max": 80,
+ "intro": "Otras veces la opción 2 son tres fotos de un día (una excursión, una boda, una mudanza...) y las pautas. Las fotos te dan la historia, pero <b>no describes las fotos: cuentas lo que pasó</b>, en pasado y en orden, porque tú estabas allí.",
+ "funciones": [
+  ("w", "Situar", "Cuándo, dónde y con quién.", ["El domingo pasado...", "El mes pasado fui a... con...", "Por la mañana / A mediodía / Por la tarde", "Estábamos en..."]),
+  ("h", "Contar qué pasó", "Las acciones: indefinido.", ["Cargamos las cajas.", "Comimos pizza.", "De repente, empezó a llover.", "Mi hermano colgó un cuadro."]),
+  ("d", "Describir la escena", "Lo que había, el tiempo, lo que pasaba alrededor: imperfecto.", ["Llovía un poco.", "Había cajas por todas partes.", "El gato dormía en una caja.", "Todos llevaban..."]),
+  ("s", "Decir cómo se sintió", "Emociones y valoración.", ["Estábamos muy cansados, pero contentos.", "Me sentí un poco nervioso.", "Fue un día muy divertido.", "Me reí muchísimo."]),
+ ],
+ "lamina": {"tarea": 2, "op": 2, "intro": "El domingo pasado usted ayudó a su hermano a cambiarse de casa. Aquí tiene tres fotos de ese día.",
+   "photos": ["Por la mañana. Llueve un poco. Usted y su hermano suben un sofá a una furgoneta llena de cajas.", "A mediodía. En el piso nuevo hay cajas por todas partes. Ustedes comen pizza sentados en el suelo; el gato duerme dentro de una caja.", "Por la tarde. El salón ya está ordenado. Su hermano cuelga un cuadro y después brindan con dos copas."],
+   "img": "M3_03_dia_mudanza_hermano",
+   "rotulo": "Dia de mudanza: 1 suben un sofa a la furgoneta con lluvia, 2 pizza en el suelo entre cajas y gato, 3 cuelgan un cuadro y brindan",
+   "persona": "The same two people appear in all three photos and must look identical in each one: a Black Spanish woman of about 32 with long box braids tied back, a grey sweatshirt and jeans, and her brother, a Black man of about 35 with short hair, a short beard, a green hoodie and jeans.",
+   "escenas": ["Morning, light rain in a city street: she, with a yellow raincoat over her sweatshirt, and her brother lift a grey sofa into the back of a white van that is already full of cardboard boxes; wet pavement.",
+               "Midday in an empty new flat with cardboard boxes everywhere: the two of them sit on the floor eating pizza from the box and laughing; a ginger cat sleeps inside an open cardboard box next to them.",
+               "Evening in the same flat, now a tidy living room with the grey sofa and a framed picture he has just hung on the wall, a hammer on the sofa: the brother and sister toast with two glasses of sparkling wine, smiling."],
+   "intro2": "Escriba un texto sobre ese día. Hable de:",
+   "pautas": ["qué hicieron por la mañana y qué tiempo hacía;", "qué pasó a mediodía;", "cómo terminó el día y cómo se sintieron."]},
+ "ejemplo": [
+  [(1, "{w:El domingo pasado} {h:ayudé a mi hermano Luis a cambiarse de casa}. {w:Por la mañana} {d:llovía un poco}, {c:pero} {h:cargamos todas las cajas y el sofá} en una furgoneta.")],
+  [(2, "{w:A mediodía}, en el piso nuevo, {d:había cajas por todas partes}, {c:así que} {h:comimos pizza en el suelo}. ¡{d:El gato dormía en una caja}!")],
+  [(3, "{w:Por la tarde} {h:ordenamos el salón} y Luis {h:colgó un cuadro}. {c:Al final} {s:estábamos muy cansados, pero muy contentos}, y {h:brindamos por la casa nueva}.")],
+ ],
+ "porque": ["Cuenta la historia en pasado y en primera persona, no «En la foto 1 hay...».",
+            "Una foto, un párrafo, una pauta: el orden del día (mañana → mediodía → tarde).",
+            "Indefinido para lo que hicieron (cargamos, comimos, colgó) e imperfecto para la escena (llovía, había, dormía).",
+            "No describe todos los detalles de las fotos: solo los que necesita para las pautas."],
+ "trampa": "<b>El error más típico con fotos:</b> describirlas en presente («En la primera foto hay un sofá y llueve»). Eso es la tarea 2 de la oral, no la escritura. Aquí cuentas una historia: <i>Llovía un poco, pero cargamos el sofá...</i>",
+ "ej": ["fotos_q"],
+ "ahora": {"tarea": 2, "op": 2, "intro": "El mes pasado usted hizo un curso de cocina con unos compañeros de trabajo. Aquí tiene tres fotos de ese día.",
+   "photos": ["Por la mañana. Usted y cinco compañeros, con delantal, escuchan a un cocinero con gorro blanco en una cocina grande.", "A mediodía. A usted se le quema la tortilla: hay humo en la cocina y sus compañeros se ríen.", "Por la tarde. Todos comen en una mesa larga lo que han cocinado; el cocinero les da un diploma."],
+   "img": "M3_04_dia_curso_cocina",
+   "rotulo": "Curso de cocina con companeros: 1 escuchan al cocinero, 2 se quema la tortilla, 3 comen en mesa larga y diploma",
+   "persona": "The same main person appears in all three photos and must look identical: a South Asian woman of about 45 with dark hair in a low bun, red-framed glasses, a blue blouse and a white apron. Her five co-workers (men and women aged 25 to 60, of varied origins) also wear white aprons; the chef is a bald man of about 55 with a white chef's hat.",
+   "escenas": ["Morning in a large bright cooking-school kitchen: she and her five co-workers stand around a steel counter listening to the chef, who shows them how to crack an egg into a bowl; she is in the front, attentive.",
+               "Midday in the same kitchen: grey smoke rises from her frying pan with a burnt Spanish omelette; she waves the smoke away with a tea towel, embarrassed, while two co-workers behind her laugh.",
+               "Evening: she, her co-workers and the chef sit at a long wooden table eating the dishes they have cooked; the chef hands her a blank certificate with no readable text and everyone claps."],
+   "intro2": "Escriba un texto sobre ese día. Hable de:",
+   "pautas": ["dónde estaba, con quién y qué hicieron por la mañana;", "qué pasó a mediodía;", "cómo terminó el día y qué le pareció el curso."]},
+},
+]
+
+# ------------------------------------------------------------------ DOS TRAMPAS
+TU_USTED = [  # con un amigo (tu) | de usted
+ ("¡Hola, Marta! ¿Qué tal?", "Estimada señora Ruiz: / Buenos días:"),
+ ("Te escribo porque...", "Le escribo porque..."),
+ ("¿Puedes decirme...?", "¿Puede decirme...? / ¿Podría decirme...?"),
+ ("¿Tienes habitaciones libres?", "¿Tiene habitaciones libres?"),
+ ("tu correo, tus fotos", "su correo, sus fotos"),
+ ("Gracias por tu ayuda.", "Gracias por su ayuda."),
+ ("Perdona.", "Perdone. / Disculpe."),
+ ("Dime algo. / Escríbeme pronto.", "Espero su respuesta."),
+ ("Un beso / Un abrazo", "Un saludo / Saludos cordiales / Atentamente"),
+]
+
+CONECTORES = [  # para que sirve, conectores, ejemplo
+ ("Ordenar", ["primero", "después", "luego", "más tarde", "al final"], "Primero fuimos al museo y después comimos en el puerto."),
+ ("Añadir", ["además", "también"], "La comida estaba buena y, además, era barata."),
+ ("Contrastar", ["pero", "aunque"], "Estaba cansada, aunque lo pasé muy bien."),
+ ("Dar la causa", ["porque", "como (al principio)", "es que (con amigos)"], "Como llovía, nos quedamos en casa."),
+ ("Decir la consecuencia", ["por eso", "así que"], "Perdí el autobús, así que llegué tarde."),
+ ("Situar en el tiempo", ["cuando", "antes de + infinitivo", "después de + infinitivo"], "Después de comer, dimos un paseo."),
+]
+
+ANTES = "El sábado fui a la playa con Ana y comimos paella y nadamos y tomamos el sol. Me gustó mucho porque hacía calor y el agua estaba buena. Volvimos tarde porque había mucho tráfico y llegamos muy cansados porque nadamos mucho."
+DESPUES = "El sábado fui a la playa con Ana. {c:Primero} comimos paella y {c:después} nadamos y tomamos el sol. Me gustó mucho {c:porque} hacía calor y, {c:además}, el agua estaba buena. {c:Al final} volvimos tarde {c:porque} había mucho tráfico, {c:así que} llegamos muy cansados."
+
+# ------------------------------------------------------------------ EJERCICIOS
+# q = elige la mejor opcion (una a una) · h = huecos con desplegables · c = caza los errores
+EJ = {
+ "inf_h": {"tipo": "h", "titulo": "Completa el correo de Lucas",
+  "intro": "Irene ha invitado a Lucas a una excursión el sábado, pero él no puede ir. Elige la frase que va en cada hueco.",
+  "texto": "[[0]] ¿Qué tal todo?\n[[1]] por tu mensaje y por la invitación. [[2]], pero el sábado no puedo ir: es el cumpleaños de mi abuela. Y [[3]] no contestar antes: he tenido una semana horrible.\n[[4]] quedamos el domingo y tomamos algo?\n[[5]]\nLucas",
+  "huecos": [
+   {"ops": ["¡Hola, Irene!", "Estimada Irene:", "Un abrazo,"], "ok": 0, "por": "Con una amiga se empieza con «¡Hola!». «Estimada» es para correos de usted."},
+   {"ops": ["Muchas gracias", "Lo siento mucho", "Le agradezco"], "ok": 0, "por": "Agradecer: «Muchas gracias por...». «Le agradezco» es de usted."},
+   {"ops": ["Me encantaría", "¡Claro que sí!", "Me apunto"], "ok": 0, "por": "«Me encantaría, pero...» es la forma amable de decir que no. «¡Claro que sí!» y «Me apunto» dicen que sí."},
+   {"ops": ["perdona por", "perdone por", "gracias por"], "ok": 0, "por": "Disculparse con un amigo: «perdona». «Perdone» es de usted."},
+   {"ops": ["¿Qué te parece si", "¿Qué le parece si", "¿Por qué"], "ok": 0, "por": "Proponer: «¿Qué te parece si...?». «¿Por qué...?» pregunta la razón (para proponer: «¿Por qué no...?»)."},
+   {"ops": ["Un abrazo,", "Atentamente,", "¡Hola!"], "ok": 0, "por": "Despedida con un amigo: «Un abrazo» o «Un beso». «Atentamente» es para un correo de usted."},
+  ]},
+ "inf_q": {"tipo": "q", "titulo": "¿Qué escribes?",
+  "intro": "Seis situaciones de un correo a un amigo. Elige la mejor frase.",
+  "items": [
+   {"ctx": "Tu amiga te invita al cine el viernes, pero tienes que trabajar.", "p": "Rechazas la invitación:", "ops": ["¡Qué pena! El viernes no puedo porque trabajo hasta tarde.", "No.", "Vale, el viernes voy contigo."], "ok": 0, "por": "Para rechazar: una frase amable («¡Qué pena!») + la razón («porque trabajo hasta tarde»). Solo «No» es muy seco."},
+   {"ctx": "Quieres invitar a tu amigo Pablo a comer el domingo.", "p": "Le invitas:", "ops": ["¿Quieres venir a comer a casa el domingo?", "¿Quiere usted venir a comer el domingo?", "El domingo comí en casa."], "ok": 0, "por": "Invitar a un amigo: «¿Quieres venir...?», de tú. La tercera está en pasado: no invita a nada."},
+   {"ctx": "Tu amigo propone ir a la playa el sábado y te gusta la idea.", "p": "Aceptas:", "ops": ["¡Qué buena idea! Me apunto.", "Me gustaría saber el precio.", "Lo siento, es que no puedo."], "ok": 0, "por": "«Me apunto» = acepto, voy con vosotros. La segunda frase es para pedir información en un correo formal."},
+   {"ctx": "No has contestado a tu amiga en dos semanas.", "p": "Te disculpas:", "ops": ["Perdona por no escribir antes: he tenido mucho trabajo.", "Disculpe las molestias.", "Gracias por no escribir antes."], "ok": 0, "por": "Disculparse con una amiga: «Perdona por...» + la razón. «Disculpe» es de usted."},
+   {"ctx": "Tu amiga dice que el sábado no puede quedar.", "p": "Propones otra cosa:", "ops": ["¿Y si quedamos el domingo por la mañana?", "Entonces no quedamos nunca.", "¿Por qué quedamos el domingo?"], "ok": 0, "por": "Proponer: «¿Y si...?», «¿Qué te parece si...?», «¿Por qué no...?». Sin «no», «¿Por qué...?» pregunta la razón."},
+   {"ctx": "Terminas un correo a tu mejor amigo.", "p": "Te despides:", "ops": ["Un abrazo muy fuerte y hasta pronto.", "Atentamente,", "Le saluda atentamente,"], "ok": 0, "por": "Con un amigo: «Un abrazo», «Un beso», «Hasta pronto». «Atentamente» es para un correo de usted."},
+  ]},
+ "for_q": {"tipo": "q", "titulo": "¿Cuál es la frase de usted?",
+  "intro": "Seis momentos de un correo formal. Elige la frase correcta.",
+  "items": [
+   {"ctx": "Escribes a una academia de idiomas que no conoces.", "p": "Empiezas el correo:", "ops": ["Buenos días:", "¡Hola, guapa!", "Querido amigo:"], "ok": 0, "por": "A una academia: «Buenos días:» o «Estimado/a señor/a...:». Las otras son para amigos."},
+   {"ctx": "Explicas por qué escribes.", "p": "Escribes:", "ops": ["Le escribo porque he visto su anuncio en el periódico.", "Te escribo porque he visto tu anuncio.", "Le escribí porque veo su anuncio."], "ok": 0, "por": "De usted: «le escribo», «su anuncio». La tercera mezcla los tiempos (escribí... veo)."},
+   {"ctx": "Quieres saber el precio del curso.", "p": "Preguntas:", "ops": ["¿Podría decirme cuánto cuesta el curso?", "¿Cuánto cuesta? Dímelo.", "¿Puedes decirme el precio?"], "ok": 0, "por": "«¿Podría decirme...?» es educado y de usted. «Dímelo» y «¿Puedes...?» son de tú."},
+   {"ctx": "Escribes a un hotel porque la habitación tenía un problema.", "p": "Reclamas:", "ops": ["Le escribo porque tuve un problema con la habitación.", "Oye, la habitación estaba fatal, ¿eh?", "Perdona, pero tu hotel tiene problemas."], "ok": 0, "por": "Reclamar con educación y de usted: «Le escribo porque tuve un problema con...». «Oye» y «perdona» son de tú."},
+   {"ctx": "No puedes ir a una reunión con la directora de la escuela.", "p": "Te disculpas:", "ops": ["Siento mucho no poder ir a la reunión.", "Perdóname, de verdad.", "No voy. Lo siento, tía."], "ok": 0, "por": "«Siento mucho no poder...» sirve para todos. «Perdóname» es de tú y «tía» es muy coloquial."},
+   {"ctx": "Terminas el correo.", "p": "Te despides:", "ops": ["Muchas gracias por su atención. Un saludo,", "Gracias por tu ayuda. ¡Besos!", "Muchas gracias por su atención. Un beso,"], "ok": 0, "por": "Cuidado con la tercera: empieza bien («su atención») y termina con «Un beso». Es el fallo más típico: la despedida también es de usted."},
+  ]},
+ "blog_h": {"tipo": "h", "titulo": "Completa la entrada del blog",
+  "intro": "Nora escribe en su blog sobre un fin de semana en Granada. Elige la frase que va en cada hueco.",
+  "texto": "[[0]] Hoy os cuento mi fin de semana en Granada. Fuimos en tren mi novio y yo.\n[[1]] la Alhambra: ¡es preciosa! Por la noche cenamos tapas en el Albaicín. [[2]] fue el atardecer desde un mirador. [[3]] el hotel: estaba muy lejos del centro.\n[[4]]. ¿Y vosotros? ¿Habéis estado en Granada? [[5]]",
+  "huecos": [
+   {"ops": ["¡Hola a todos!", "Estimados señores:", "Querido diario:"], "ok": 0, "por": "En un blog saludas a tus lectores: «¡Hola a todos!». «Querido diario» no va con «os cuento»: el diario no tiene lectores."},
+   {"ops": ["El sábado por la mañana visitamos", "El sábado por la mañana visitábamos", "El próximo sábado visitamos"], "ok": 0, "por": "Una acción terminada en un momento concreto del pasado: indefinido («visitamos»)."},
+   {"ops": ["Lo mejor", "Lo peor", "Lo siento"], "ok": 0, "por": "Valorar: «Lo mejor fue...». El atardecer desde un mirador es algo bonito."},
+   {"ops": ["Lo único malo fue", "Lo que más me gustó fue", "Me encantó"], "ok": 0, "por": "Algo que no le gustó (el hotel estaba lejos): «Lo único malo fue...»."},
+   {"ops": ["Os lo recomiendo", "Le recomiendo", "Te lo recomiendo"], "ok": 0, "por": "En un blog hablas a muchas personas: «os» (vosotros), como en «os cuento» y «¿habéis estado?»."},
+   {"ops": ["¡Hasta la próxima!", "Atentamente,", "Un saludo cordial a usted,"], "ok": 0, "por": "Para terminar una entrada de blog: «¡Hasta la próxima!». «Atentamente» es para un correo formal."},
+  ]},
+ "bio_q": {"tipo": "q", "titulo": "Del dato a la frase",
+  "intro": "Datos de la ficha de una persona. Elige la mejor frase para tu biografía.",
+  "items": [
+   {"ctx": "Dato: «Nació en Lima en 1990.»", "p": "En tu texto:", "ops": ["Nació en Lima en 1990.", "Ha nacido en Lima en 1990.", "Nacía en Lima en 1990."], "ok": 0, "por": "Un hecho con fecha del pasado: indefinido («nació»). Con una fecha no se usa el perfecto («ha nacido»)."},
+   {"ctx": "Dato: «1998: empieza a jugar al tenis (tiene 8 años).»", "p": "En tu texto:", "ops": ["A los ocho años empezó a jugar al tenis.", "En los ocho años empezó a jugar al tenis.", "A los ocho años empieza a jugar al tenis y ya está."], "ok": 0, "por": "«A los ocho años» = cuando tenía ocho años. Y el hecho va en pasado: «empezó»."},
+   {"ctx": "Dato: «De niña: tímida, muy buena en matemáticas.»", "p": "En tu texto:", "ops": ["De niña era tímida y muy buena en matemáticas.", "De niña fue tímida y muy buena en matemáticas.", "De niña es tímida y muy buena en matemáticas."], "ok": 0, "por": "Describir cómo era una persona en el pasado: imperfecto («era»)."},
+   {"ctx": "Dato: «2010-2015: trabaja en un hospital.»", "p": "En tu texto:", "ops": ["Trabajó en un hospital durante cinco años.", "Trabaja en un hospital durante cinco años.", "Ha trabajado en un hospital en 2010."], "ok": 0, "por": "Un periodo terminado del pasado: indefinido + «durante» («trabajó durante cinco años»)."},
+   {"ctx": "Dato: «Desde 2018: vive en Madrid.»", "p": "En tu texto:", "ops": ["Desde 2018 vive en Madrid.", "Desde 2018 vivió en Madrid.", "Hace 2018 vive en Madrid."], "ok": 0, "por": "Algo que empezó en el pasado y sigue hoy: «desde» + presente («vive»)."},
+   {"ctx": "Dato: «Hoy: tiene dos hijos; ya no trabaja en el hospital.»", "p": "En tu texto:", "ops": ["Ahora tiene dos hijos y ya no trabaja en el hospital.", "Ahora tiene dos hijos y todavía trabaja en el hospital.", "Ahora tenía dos hijos y no trabajaba en el hospital."], "ok": 0, "por": "«Ya no» = antes sí, ahora no. «Todavía» = sigue igual. Y para hoy, presente."},
+  ]},
+ "fotos_q": {"tipo": "q", "titulo": "¿Qué frase va en tu texto?",
+  "intro": "Tienes tres fotos de un día de playa con una amiga. Elige la frase que cuenta mejor la historia.",
+  "items": [
+   {"ctx": "Foto 1: usted y su amiga esperan en una estación; el tren llega con retraso.", "p": "Para empezar el texto:", "ops": ["Por la mañana esperamos el tren más de una hora porque llegó con retraso.", "En la foto 1 hay una estación y dos chicas.", "Me gustan mucho los trenes y viajo mucho en tren."], "ok": 0, "por": "Cuenta lo que pasó, en pasado. «En la foto 1 hay...» describe la foto, y la tercera no habla de ese día."},
+   {"ctx": "Foto 2: en la playa hace mucho viento y la sombrilla sale volando.", "p": "Para contar qué pasó:", "ops": ["Hacía mucho viento y, de repente, la sombrilla salió volando.", "Hizo mucho viento y la sombrilla salía volando.", "Hace mucho viento y la sombrilla sale volando."], "ok": 0, "por": "La escena, en imperfecto («hacía viento»); lo que pasó de repente, en indefinido («salió volando»). En presente describes la foto, no cuentas la historia."},
+   {"ctx": "Pauta: «cómo se sintió».", "p": "Escribes:", "ops": ["Al principio estaba un poco enfadada, pero después nos reímos mucho.", "Estoy enfadada.", "Los enfados son malos para la salud."], "ok": 0, "por": "La pauta pide sentimientos de ese día, en pasado. La tercera frase es una opinión general: no responde a la pauta."},
+   {"ctx": "Foto 3: por la noche cenan en una terraza con amigos y se ríen.", "p": "Para terminar:", "ops": ["Por la noche cenamos en una terraza con unos amigos y lo pasamos genial.", "En la foto 3 cenan y se ríen.", "Por la noche cenábamos en una terraza todos los días."], "ok": 0, "por": "Una cena concreta de ese día: indefinido («cenamos»). «Cenábamos todos los días» es una costumbre, no ese día."},
+   {"ctx": "Tienes tres fotos llenas de detalles y tres pautas.", "p": "¿Qué haces?", "ops": ["Hablo de las tres pautas, aunque no use todos los detalles de las fotos.", "Describo cada foto con muchos detalles: ropa, colores, objetos.", "Hablo solo de la foto que más me gusta."], "ok": 0, "por": "Lo que puntúa son las pautas. Si describes todo, te pasas de palabras; si hablas de una foto, te faltan pautas."},
+  ]},
+ "tu_c1": {"tipo": "c", "titulo": "Caza los errores: un correo de usted",
+  "intro": "Sophie escribe a un hotel. Empieza bien, de usted, pero en algunas frases se le escapa el tú. Toca las frases con error y después pulsa «Comprobar».",
+  "seg": [
+   {"t": "Estimada señora Gómez:"},
+   {"t": "Le escribo porque quiero reservar una habitación para el puente de diciembre."},
+   {"t": "¿Tienes habitaciones libres del 6 al 8?", "fix": "¿Tiene habitaciones libres del 6 al 8?"},
+   {"t": "Viajo con mi marido y mi hijo de seis años."},
+   {"t": "Me gustaría saber si el desayuno está incluido en el precio."},
+   {"t": "¿Puedes decirme también si hay aparcamiento?", "fix": "¿Puede decirme también si hay aparcamiento?"},
+   {"t": "Gracias por tu ayuda.", "fix": "Gracias por su ayuda."},
+   {"t": "Un beso,", "fix": "Un saludo,"},
+   {"t": "Sophie Martin"},
+  ]},
+ "tu_c2": {"tipo": "c", "titulo": "Caza los errores: un correo a un amigo",
+  "intro": "Ahora al revés: Marc contesta a su amigo Pablo, que se casa. Busca las frases que no son de tú.",
+  "seg": [
+   {"t": "¡Hola, Pablo! ¿Qué tal todo?"},
+   {"t": "Muchas gracias por su invitación a la boda.", "fix": "Muchas gracias por tu invitación a la boda."},
+   {"t": "¡Claro que voy! Me hace mucha ilusión."},
+   {"t": "¿Puede decirme qué regalo te gusta más?", "fix": "¿Puedes decirme qué regalo te gusta más?"},
+   {"t": "Y otra cosa: ¿hay hoteles cerca del restaurante?"},
+   {"t": "Saludos cordiales,", "fix": "Un abrazo,"},
+   {"t": "Marc"},
+  ]},
+ "con_h": {"tipo": "h", "titulo": "Elige el conector",
+  "intro": "Clara escribe en su diario. Elige el conector que tiene sentido en cada hueco.",
+  "texto": "Querido diario:\nHoy ha sido un día horrible. [[0]] he perdido el autobús, [[1]] he llegado tarde al trabajo. [[2]] llovía mucho, no he podido ir en bici. [[3]], en la oficina no funcionaba el ordenador.\nPor la tarde he quedado con Carla, [[4]] estaba muy cansada. [[5]], hemos cenado juntas y me he reído mucho.",
+  "huecos": [
+   {"ops": ["Primero", "Al final", "Pero"], "ok": 0, "por": "Es lo primero que pasó: «Primero»."},
+   {"ops": ["así que", "aunque", "porque"], "ok": 0, "por": "Llegar tarde es la consecuencia de perder el autobús: «así que». Con «porque» la causa iría al revés."},
+   {"ops": ["Como", "Por eso", "Además"], "ok": 0, "por": "La causa al principio de la frase: «Como llovía, no he podido...»."},
+   {"ops": ["Además", "Por eso", "Como"], "ok": 0, "por": "Añade otro problema más: «Además»."},
+   {"ops": ["aunque", "así que", "como"], "ok": 0, "por": "Contraste: ha quedado con Carla a pesar del cansancio: «aunque estaba muy cansada»."},
+   {"ops": ["Al final", "Primero", "Porque"], "ok": 0, "por": "Lo último del día, y algo bueno: «Al final»."},
+  ]},
+}
+
+# ejercicios de la pestana Dos trampas
+EJ_TRAMPAS = ["tu_c1", "tu_c2", "con_h"]
+
+# lista de revision de "Ahora tu" (se anaden las de cada tipo)
+CHECK_COMUN = ["He escrito al menos una frase para cada pauta.", "He contado las líneas a ojo (unas 10 palabras por línea)."]
+CHECK_CORREO = ["Saludo y despedida del mismo trato: todo de tú o todo de usted."]
+CHECK_TEXTO = ["He usado al menos tres conectores distintos (no solo «y» y «porque»).", "He revisado los pasados: indefinido para lo que pasó, imperfecto para describir."]

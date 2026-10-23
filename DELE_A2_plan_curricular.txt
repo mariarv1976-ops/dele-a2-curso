@@ -1,0 +1,649 @@
+PLAN CURRICULAR A2 DEL PROYECTO — REFERENCIA DE NIVEL PARA SIMULACROS DELE
+===========================================================================
+Documento base del proyecto "DELE A2" (2spanishteachers.com).
+Sustituye al antiguo "plan_curricular_A2_detallado.txt".
+
+PARA QUÉ SIRVE
+Es la vara de medir del NIVEL. Decide qué gramática, léxico, funciones y
+tipos de texto pueden aparecer en los simulacros y cuáles no. También fija
+los NOMBRES CANÓNICOS de las etiquetas que usa el sistema de corrección, para
+que los informes de repaso sean consistentes entre unidades y fases.
+
+DE DÓNDE SALE
+* La Guía oficial del examen DELE A2 (en el knowledge) establece que el
+  repertorio lingüístico del examen es el de los Niveles de referencia para
+  el español del Instituto Cervantes (Plan curricular, PCIC), inventarios
+  A1-A2: gramática, pronunciación y ortografía, funciones, tácticas y
+  estrategias pragmáticas, géneros discursivos, nociones generales y
+  nociones específicas. Este documento sigue esa estructura.
+* Es una síntesis elaborada para el proyecto, no una copia del PCIC. Los
+  ejemplos son originales.
+* Los puntos marcados con (verificar) son de ubicación dudosa entre A2 y B1:
+  se tratan SIEMPRE con el criterio prudente (solo receptivo) hasta que María
+  los confirme en el CVC.
+
+JERARQUÍA
+1. Formato de tareas: la Guía oficial y el examen modelo del knowledge.
+2. Nivel (qué lengua cabe): ESTE DOCUMENTO.
+3. Contenidos de cada unidad: el índice o temario de la fuente de la fase
+   actual. Si la unidad trae algo que aquí figura como [R] o [NO], ese
+   contenido puede aparecer en los textos, pero no puede ser la clave de un
+   ítem.
+
+===========================================================================
+0. REGLAS DE USO (LEER ANTES DE GENERAR CUALQUIER SIMULACRO)
+===========================================================================
+
+CÓDIGOS DE NIVEL
+[P]  Productivo: el candidato A2 debe dominarlo. Puede ser la clave de un
+     ítem y se puede exigir en la expresión escrita.
+[R]  Solo receptivo: puede aparecer en textos y audios si el contexto lo
+     hace transparente, pero NUNCA es lo que decide la respuesta correcta y
+     no se exige en producción.
+[NO] Fuera del nivel: no se usa ni en textos de entrada ni en ítems.
+
+REGLA DEL TECHO
+* La respuesta correcta de un ítem siempre se puede justificar con
+  contenidos [P] (de A1 o A2).
+* Los contenidos de A1 se dan por sabidos: el examen A2 los incluye.
+* Textos de entrada: como en el examen real, "la mayoría" de estructuras y
+  léxico deben ser accesibles. Orientación práctica: como máximo 1-2
+  elementos [R] por texto breve y 3-4 en un texto largo (CL-T4, CA-T3),
+  siempre con contexto que permita entenderlos o sin que afecten a ningún
+  ítem.
+
+CÓMO SUBE LA DIFICULTAD EN FASE 3 (sin salir de A2)
+Sí: textos en la parte alta de la extensión oficial; más información por
+texto; distractores más finos (la información aparece pero referida a otra
+persona, otro día u otra condición); paráfrasis en lugar de repetición
+literal; cambios de opinión o de plan dentro del texto; léxico A2 menos
+frecuente de los campos temáticos.
+No: gramática B1, léxico abstracto o especializado, dobles sentidos,
+ironía, modismos, variantes no peninsulares en los textos de entrada.
+
+===========================================================================
+1. PERFIL DEL CANDIDATO A2 (QUÉ TIENE QUE DEMOSTRAR)
+===========================================================================
+* Entiende frases y léxico frecuente sobre su entorno inmediato: datos
+  personales y familiares, compras, lugar donde vive, trabajo o estudios.
+* Capta lo esencial de mensajes y avisos breves, claros y sencillos.
+* Encuentra información concreta y previsible en textos cotidianos
+  (anuncios, horarios, menús, folletos, correos personales).
+* Sigue conversaciones cotidianas sencillas articuladas con claridad y
+  con cierta lentitud.
+* Se comunica en intercambios sencillos y habituales; describe su entorno,
+  su rutina, su pasado reciente y lejano, y sus planes con frases enlazadas
+  por conectores básicos.
+* Escribe notas, mensajes y cartas o correos personales breves (dar las
+  gracias, invitar, disculparse, contar algo) y textos cortos que describen
+  o narran.
+
+===========================================================================
+2. GRAMÁTICA (etiqueta: CONTENIDO_GRAMATICAL)
+===========================================================================
+Formato: CÓDIGO — nombre canónico de la etiqueta — contenido.
+
+GR-01 — sustantivo y adjetivo
+  [P] Género y número, incluidos los casos frecuentes de -e/-ista
+      (estudiante, taxista) y -ma masculinos (el problema, el programa).
+  [P] Concordancia sustantivo-adjetivo; apócope buen/mal/gran/primer/tercer.
+  [R] el agua / las aguas y casos similares.
+
+GR-02 — artículos
+  [P] Definido e indefinido; contracciones al y del; ausencia de artículo
+      con sustantivos no contables o genéricos (tengo coche, no bebo café).
+  [P] Artículo con días y horas (el lunes, los sábados, a las tres).
+  [R] lo + adjetivo (lo mejor, lo bueno).
+
+GR-03 — demostrativos y posesivos
+  [P] este/ese/aquel (y formas neutras esto, eso, aquello).
+  [P] Posesivos átonos (mi, tu, su...) y tónicos (mío, tuyo, suyo...):
+      "¿Es tuya esta chaqueta?"
+
+GR-04 — cuantificadores e indefinidos
+  [P] algo/nada, alguien/nadie, alguno/ninguno (algún/ningún), todo,
+      otro, mucho/poco/bastante/demasiado.
+  [P] Doble negación: "No ha venido nadie", "No quiero nada".
+
+GR-05 — comparación
+  [P] más/menos... que, tan... como, tanto/a/os/as... como, igual que.
+  [P] mejor, peor, mayor, menor.
+  [P] Superlativo relativo (el más barato de la tienda) y absoluto en
+      -ísimo (carísimo, buenísimo).
+
+GR-06 — pronombres personales
+  [P] Sujeto; preposicionales (a mí, para ti, conmigo, contigo).
+  [P] Objeto directo lo/la/los/las y objeto indirecto me/te/le/nos/os/les.
+  [P] Posición: antepuestos al verbo conjugado y pospuestos al infinitivo
+      o al gerundio ("Lo voy a comprar" / "Voy a comprarlo").
+  [P] Reflexivos (me levanto, se ducha).
+  [R] Combinación de dos pronombres (me lo, te la, se lo) (verificar).
+  [R] Duplicación del OD antepuesto ("El libro lo tengo yo").
+
+GR-07 — verbos tipo gustar
+  [P] gustar, encantar, interesar, doler, parecer, apetecer, quedar bien/
+      mal, molestar, importar ("¿Te importa...?" como fórmula).
+  [P] Acuerdo y desacuerdo: a mí también / a mí tampoco / a mí sí / a mí no.
+
+GR-08 — ser, estar y haber
+  [P] Ser: identidad, origen, profesión, carácter, material, hora, fecha,
+      precio total ("Son veinte euros").
+  [P] Estar: localización, estados físicos y de ánimo, resultado
+      (está cerrado, está roto), estar + gerundio.
+  [P] Hay (existencia, indefinido) frente a está/están (localización,
+      definido): "Hay una farmacia cerca" / "La farmacia está cerca".
+  [R] Adjetivos que cambian de significado (ser/estar listo, ser/estar
+      bueno).
+
+GR-09 — presente de indicativo
+  [P] Regulares; irregulares vocálicos (e>ie, o>ue, e>i, u>ue en jugar);
+      primera persona irregular (hago, pongo, salgo, traigo, conozco, sé,
+      doy, veo); totalmente irregulares (ser, ir, estar, tener, venir,
+      decir, oír).
+  [P] Usos: habitual, actual, verdades generales, futuro programado
+      ("El tren sale a las ocho"), instrucciones en diálogo ("Coges la
+      línea 3 y bajas en la segunda parada").
+  [R] Presente histórico en biografías.
+
+GR-10 — pretérito perfecto
+  [P] haber + participio; participios irregulares frecuentes (hecho, visto,
+      escrito, puesto, dicho, vuelto, abierto, roto, muerto, descubierto).
+  [P] Usos: pasado en tiempo no terminado (hoy, esta mañana, este año),
+      experiencias (alguna vez, nunca, ya, todavía no, muchas veces).
+
+GR-11 — pretérito indefinido
+  [P] Regulares, con cambios ortográficos (llegué, busqué, empecé, leyó).
+  [P] Irregulares frecuentes: ser/ir, estar, tener, hacer, poder, poner,
+      querer, venir, decir, dar, ver, traer, saber; cambio vocálico en
+      tercera persona (pidió, durmió, prefirió).
+  [P] Usos: acciones terminadas en tiempo terminado (ayer, el año pasado,
+      en 2019, hace dos semanas, el otro día); biografías y relatos.
+
+GR-12 — pretérito imperfecto
+  [P] Regulares e irregulares (ser, ir, ver).
+  [P] Usos: hábitos en el pasado (antes, de pequeño, cuando era joven);
+      descripción de personas, lugares y circunstancias en el pasado.
+  [P] Contraste básico con el indefinido: circunstancia frente a acción
+      ("Hacía mucho calor y fuimos a la piscina").
+  [R] Contrastes finos del imperfecto (acción interrumpida compleja,
+      imperfecto de cortesía fuera de "quería").
+  [R] estaba + gerundio.
+
+GR-13 — contraste perfecto/indefinido
+  [P] Elección según el marcador temporal (tiempo terminado o no).
+  Nota para ítems: en norma peninsular, "hoy he ido" / "ayer fui". Es uno
+  de los contenidos más rentables para ítems de lectura, auditiva y para
+  la corrección de la escrita.
+
+GR-14 — expresión del futuro
+  [P] ir a + infinitivo (planes e intenciones).
+  [P] Presente con valor de futuro (citas, horarios, planes fijados).
+  [P] pensar + infinitivo, querer + infinitivo (intenciones).
+  [P] Futuro simple: regulares e irregulares frecuentes (tendré, haré,
+      podré, saldré, vendré, diré, pondré, querré, sabré); predicción
+      ("Mañana lloverá en el norte") y promesa ("Te llamaré") (verificar
+      en producción; en recepción es seguro: previsiones del tiempo,
+      anuncios, avisos).
+  [NO] Futuro de probabilidad ("Estará en casa").
+
+GR-15 — condicional (solo fórmulas)
+  [P] Como fórmulas fijas de cortesía y deseo: me gustaría, ¿podría...?,
+      ¿le importaría...?
+  [R] Consejo: deberías, yo que tú... (verificar).
+  [NO] Condicional en hipótesis y en cualquier uso productivo fuera de las
+       fórmulas.
+
+GR-16 — imperativo
+  [P] Afirmativo tú, vosotros, usted, ustedes, regulares e irregulares
+      (tú: haz, pon, sal, ven, di, ten, ve, sé; usted: haga, ponga,
+      salga, venga...).
+  [P] Con un pronombre enclítico (siéntate, cógelo, llámame).
+  [P] Usos: instrucciones, indicaciones de camino, recetas, peticiones,
+      ofrecimientos (Pasa, pasa).
+  [R] Negativo (no toques, no deje su equipaje): frecuente en avisos y
+      carteles, por eso aparece en textos; no se pide en producción.
+  [R] Con dos pronombres (dímelo, dáselo).
+
+GR-17 — subjuntivo (solo fórmulas)
+  [P] Fórmulas de buenos deseos: ¡Que aproveche!, ¡Que te mejores!, ¡Que
+      lo pases bien!, ¡Que tengas buen viaje! (muy útiles para cerrar
+      correos en EIE-T1).
+  [NO] Cualquier otro uso del subjuntivo.
+
+GR-18 — perífrasis verbales
+  [P] Obligación y necesidad: tener que, hay que, deber + infinitivo
+      (obligación).
+  [P] poder, querer, preferir, saber + infinitivo.
+  [P] estar + gerundio (acción en desarrollo en el presente).
+  [P] soler + infinitivo (hábito).
+  [P] empezar a, acabar de (pasado inmediato), volver a, dejar de +
+      infinitivo; seguir + gerundio.
+  [R] llevar + gerundio; ir + gerundio.
+
+GR-19 — oraciones compuestas y conectores de frase
+  [P] Coordinación: y (e), o (u), ni, pero.
+  [P] Causa: porque, es que (justificar); ¿por qué? / porque.
+  [P] Finalidad: para + infinitivo.
+  [P] Tiempo: cuando + indicativo (presente o pasado); antes de / después
+      de + infinitivo; mientras.
+  [P] Condición real: si + presente, + presente / imperativo / ir a / futuro
+      ("Si llueve, nos quedamos en casa").
+  [P] Relativas con que y donde + indicativo.
+  [R] como causal al principio de frase; aunque + indicativo; lo que; el
+      que / en el que.
+  [R] Estilo indirecto en presente ("Dice que viene mañana") (verificar).
+  [NO] Estilo indirecto con cambio de tiempos; oraciones con subjuntivo.
+
+GR-20 — preposiciones
+  [P] a, de, en, con, sin, por, para, desde, hasta, entre, sobre, hacia
+      en sus usos básicos (ir a, venir de, en tren, a pie, de... a...,
+      desde... hasta..., para mí, por la mañana, por la calle).
+  [P] Tiempo: desde, desde hace, hace + tiempo, dentro de, durante.
+  [P] Locuciones de lugar: al lado de, enfrente de, detrás de, delante
+      de, encima de, debajo de, cerca de, lejos de, a la derecha/izquierda
+      de, al final de.
+  [R] Contrastes finos por/para.
+
+GR-21 — adverbios y marcadores
+  [P] Frecuencia: siempre, casi siempre, normalmente, a menudo, a veces,
+      casi nunca, nunca, todos los días, una vez a la semana.
+  [P] ya / todavía (no) / aún; también / tampoco.
+  [P] Tiempo, lugar, cantidad y modo frecuentes (bien, mal, despacio,
+      deprisa, muy, bastante, demasiado, más o menos).
+  [P] Adverbios en -mente de alta frecuencia (normalmente,
+      especialmente, rápidamente).
+
+GR-22 — pronunciación y ortografía (sobre todo para la escrita)
+  [P] Acentuación gráfica de palabras frecuentes y de formas verbales del
+      indefinido (habló, comí) y del imperfecto (-ía); tilde diacrítica
+      frecuente (tú/tu, él/el, mí/mi, sí/si, más).
+  [P] Signos de apertura ¿ ¡; mayúsculas; puntuación básica.
+  [P] Cambios ortográficos c/qu, g/gu, z/c en verbos (busqué, llegué).
+
+===========================================================================
+3. FUNCIONES (etiqueta: FUNCION)
+===========================================================================
+Organizadas en los seis bloques del inventario de funciones del PCIC.
+Exponentes A2 de ejemplo (originales). Entre corchetes, las tareas DELE en
+las que más rinde cada función.
+
+FN-1 DAR Y PEDIR INFORMACIÓN
+  FN-1.1 — identificar y describir (personas, objetos, lugares)
+         "Es alta, lleva gafas y tiene el pelo rizado." [CA-T1, EIO-T2]
+  FN-1.2 — pedir y dar información (horarios, precios, lugares, datos)
+         "¿A qué hora abre la biblioteca?" [CL-T2, CA-T4, EIO-T3]
+  FN-1.3 — pedir y dar confirmación
+         "Es en la calle Mayor, ¿verdad?" / "Sí, eso es." [CA-T3]
+  FN-1.4 — narrar hechos pasados y experiencias
+         "El verano pasado estuve en Sevilla con mi hermana." [CL-T4,
+         CA-T3, EIE-T2, EIO-T1]
+  FN-1.5 — describir hábitos presentes y pasados
+         "Antes iba al trabajo en coche; ahora voy en bici." [EIE-T2,
+         EIO-T1]
+
+FN-2 EXPRESAR OPINIONES, ACTITUDES Y CONOCIMIENTOS
+  FN-2.1 — pedir y dar opinión: "¿Qué te parece?", "Creo que...", "Para
+         mí..." [CA-T3]
+  FN-2.2 — valorar: "Es muy interesante", "Está buenísimo", "¡Qué bonito!"
+         [CA-T1, CA-T3]
+  FN-2.3 — expresar acuerdo y desacuerdo: "Sí, claro", "Tienes razón",
+         "Yo no estoy de acuerdo" [CA-T3]
+  FN-2.4 — expresar conocimiento y desconocimiento: "No sé", "¿Sabes
+         si...?"
+  FN-2.5 — expresar habilidad: "Sé nadar", "No sé conducir"
+  FN-2.6 — expresar obligación y necesidad: "Tengo que...", "Hay que...",
+         "Necesito..." [CL-T2, CA-T4]
+  FN-2.7 — expresar posibilidad y prohibición: "Se puede...", "No se
+         puede...", "Está prohibido..." [CL-T2, CA-T4]
+
+FN-3 EXPRESAR GUSTOS, DESEOS Y SENTIMIENTOS
+  FN-3.1 — expresar gustos e intereses: "Me encanta...", "No me interesa
+         nada..." [CA-T1, CA-T3, EIE-T2]
+  FN-3.2 — expresar preferencias: "Prefiero...", "Me gusta más..."
+  FN-3.3 — expresar deseos: "Me gustaría...", "Quiero..."
+  FN-3.4 — expresar planes e intenciones: "Voy a...", "Pienso...", "Este
+         año quiero..." [CL-T1, CA-T3, EIE-T1]
+  FN-3.5 — expresar estados físicos y de ánimo: "Estoy cansado", "Me duele
+         la espalda", "Tengo frío/hambre/sueño", "Estoy muy contento"
+  FN-3.6 — expresar sorpresa, alegría, pena: "¡Qué bien!", "¡Qué pena!",
+         "¡No me digas!" [CA-T3]
+
+FN-4 INFLUIR EN EL INTERLOCUTOR
+  FN-4.1 — dar instrucciones y órdenes: imperativo, "Tienes que..."
+         [CL-T2, CA-T4]
+  FN-4.2 — pedir objetos, favores y ayuda: "¿Me dejas...?", "¿Me puedes
+         ayudar?", "¿Podría...?" [CA-T1, EIE-T1, EIO-T3]
+  FN-4.3 — pedir y dar permiso: "¿Puedo...?", "Sí, claro, pasa"
+  FN-4.4 — proponer y sugerir: "¿Por qué no...?", "¿Quedamos...?",
+         "Podemos..." [CA-T3, EIE-T1]
+  FN-4.5 — invitar, aceptar y rechazar (con excusa): "¿Te apetece...?",
+         "Me encantaría, pero es que..." [CL-T1, CA-T3, EIE-T1]
+  FN-4.6 — ofrecer y ofrecerse: "¿Quieres un café?", "¿Te ayudo?"
+  FN-4.7 — aconsejar: imperativo, "Tienes que...", "Es mejor..." [CA-T4]
+  FN-4.8 — advertir y prohibir: "¡Cuidado!", "No se puede aparcar"
+         [CL-T2, CA-T4]
+  FN-4.9 — prometer y comprometerse: "Te lo mando mañana, de verdad"
+
+FN-5 RELACIONARSE SOCIALMENTE
+  FN-5.1 — saludar y despedirse (formal e informal, también por escrito)
+         [EIE-T1]
+  FN-5.2 — presentar y presentarse
+  FN-5.3 — dar las gracias y responder: "Muchas gracias por...", "De
+         nada" [EIE-T1]
+  FN-5.4 — pedir perdón y disculparse: "Perdona, es que...", "Siento
+         no poder ir" [EIE-T1]
+  FN-5.5 — felicitar y formular buenos deseos: "¡Felicidades!",
+         "¡Enhorabuena!", "¡Que te mejores!" [EIE-T1]
+  FN-5.6 — interesarse por alguien: "¿Qué tal estás?", "¿Cómo está tu
+         madre?"
+
+FN-6 ESTRUCTURAR EL DISCURSO
+  FN-6.1 — iniciar y cerrar un correo o carta (Querida Ana / Hola, Pedro;
+         Un abrazo / Besos / Hasta pronto) [EIE-T1, CL-T1]
+  FN-6.2 — hablar por teléfono y dejar mensajes: "¿Diga?", "¿Está
+         Luis?", "Soy Marta, te llamo para..." [CA-T4]
+  FN-6.3 — ordenar la información: primero, después, luego, al final
+         [EIE-T2, EIO-T1]
+  FN-6.4 — pedir repetición y aclaración: "¿Puede repetir?", "¿Cómo se
+         escribe?", "¿Qué significa...?" [EIO-T3]
+  FN-6.5 — ganar tiempo y reaccionar: "Pues...", "A ver...", "Bueno...",
+         "¿Ah, sí?" [EIO]
+
+===========================================================================
+4. TÁCTICAS PRAGMÁTICAS Y COHESIÓN
+===========================================================================
+Conectores [P]: y, pero, o, porque, es que, también, tampoco, entonces,
+  primero, después, luego, más tarde, al final, por eso, además.
+Conectores [R]: sin embargo, aunque, en cambio, por un lado... por otro,
+  así que.
+Conectores [NO]: no obstante, por consiguiente, de hecho, en cualquier
+  caso y similares.
+Referencia [P]: pronombres, demostrativos y posesivos para no repetir.
+Cortesía [P]: quería + infinitivo o sustantivo (en tiendas), ¿me pone...?,
+  ¿me trae...?, ¿podría...?, por favor, perdone.
+Tú / usted [P]: tú entre amigos, familia, compañeros y gente joven;
+  usted con desconocidos mayores y en situaciones de servicio formales.
+  En los textos de entrada se respeta la coherencia de tratamiento, porque
+  sirve para crear ítems sobre la relación entre las personas.
+
+===========================================================================
+5. LÉXICO: NOCIONES ESPECÍFICAS (etiqueta: CONTENIDO_LEXICO)
+===========================================================================
+Los veinte grupos temáticos del PCIC, con el léxico A2 más útil para
+examen. Frecuencia en DELE A2: ALTA / MEDIA / BAJA. En la fase 3, el
+reparto de temas de un modelo completo debe cubrir sobre todo los de
+frecuencia ALTA, con algún tema MEDIO.
+
+LX-01 — individuo: dimensión física (ALTA)
+  Partes del cuerpo; aspecto: alto, bajo, delgado, gordo, moreno, rubio,
+  pelirrojo, calvo, pelo largo/corto/rizado, ojos claros; llevar gafas,
+  barba, bigote; edad: joven, mayor, de unos cuarenta años.
+
+LX-02 — individuo: dimensión perceptiva y anímica (ALTA)
+  Carácter: simpático, antipático, abierto, tímido, serio, divertido,
+  alegre, trabajador, vago, tranquilo, nervioso, amable, educado.
+  Estados: contento, triste, cansado, aburrido, preocupado, enfadado,
+  nervioso; tener hambre, sed, frío, calor, sueño, miedo.
+
+LX-03 — identidad personal (ALTA)
+  Datos personales, nacionalidades, estado civil, fecha y lugar de
+  nacimiento, dirección, correo electrónico, teléfono; deletreo.
+
+LX-04 — relaciones personales (ALTA)
+  Familia ampliada: abuelo, nieto, tío, primo, sobrino, suegro, cuñado,
+  pareja, marido, mujer; amigo, compañero, vecino, conocido; celebraciones:
+  cumpleaños, boda, fiesta, regalo; conocer a alguien, quedar, casarse,
+  separarse, llevarse bien/mal.
+
+LX-05 — alimentación (ALTA)
+  Alimentos: carne, pescado, marisco, verdura, legumbres, fruta, lácteos,
+  pan, huevos, pasta, arroz; bebidas; platos típicos básicos (tortilla,
+  paella, gazpacho); comidas del día (desayuno, comida, merienda, cena).
+  Restaurante: carta, menú del día, primer y segundo plato, postre,
+  camarero, cuenta, reserva, mesa, propina.
+  Cocina: recetas sencillas (cortar, pelar, freír, hervir, mezclar,
+  añadir); sabores (dulce, salado, picante); envases y cantidades (una
+  botella de, una lata de, un paquete de, una docena de, medio kilo de).
+
+LX-06 — educación (ALTA)
+  Colegio, instituto, universidad, academia, curso, clase, asignatura,
+  profesor, alumno, examen, aprobar, suspender, matricularse, horario,
+  deberes, biblioteca.
+
+LX-07 — trabajo (ALTA)
+  Profesiones frecuentes (enfermero, abogado, peluquero, mecánico,
+  dependiente, cocinero, camarero, recepcionista, funcionario); lugar de
+  trabajo (oficina, fábrica, tienda, empresa); horario, jornada completa
+  / media jornada, reunión, jefe, compañero, sueldo, vacaciones,
+  entrevista, currículum, oferta de trabajo, buscar trabajo.
+
+LX-08 — ocio (ALTA)
+  Deportes (nadar, correr, jugar al tenis/fútbol/baloncesto, montar en
+  bici, hacer senderismo, ir al gimnasio); espectáculos (cine, teatro,
+  concierto, exposición, museo, entrada, taquilla, estreno); aficiones
+  (leer, cocinar, bailar, hacer fotos, tocar la guitarra); salir, quedar
+  con amigos, ir de tapas; fin de semana, vacaciones.
+
+LX-09 — información y medios de comunicación (MEDIA)
+  Periódico, revista, radio, televisión, programa, noticia, anuncio,
+  internet, página web, redes sociales, correo electrónico, mensaje,
+  móvil, llamada, aplicación, contraseña (lo básico).
+
+LX-10 — vivienda (ALTA)
+  Tipos (piso, apartamento, casa, chalé, estudio); partes (salón,
+  dormitorio, cocina, baño, terraza, balcón, garaje); muebles y
+  electrodomésticos (sofá, armario, estantería, cama, mesa, silla,
+  lavadora, nevera, horno, microondas); alquilar, compartir piso,
+  mudarse, vecino, portal, ascensor, planta, exterior/interior,
+  luminoso, amueblado.
+
+LX-11 — servicios (MEDIA)
+  Correos, banco, cajero, ayuntamiento, comisaría, oficina de turismo,
+  centro de salud, farmacia de guardia; hacer un trámite, pedir cita,
+  rellenar un formulario, horario de atención.
+
+LX-12 — compras, tiendas y establecimientos (ALTA)
+  Tiendas (panadería, frutería, carnicería, pescadería, supermercado,
+  mercado, quiosco, estanco, librería, zapatería, centro comercial);
+  ropa y calzado (abrigo, chaqueta, camiseta, camisa, jersey, vaqueros,
+  falda, vestido, zapatos, zapatillas, botas, bufanda, guantes); colores,
+  tallas y números; probador, rebajas, descuento, oferta, precio, pagar
+  en efectivo / con tarjeta, devolver, cambiar, ticket.
+
+LX-13 — salud e higiene (ALTA)
+  Síntomas (dolor, fiebre, tos, gripe, resfriado, estar mareado, alergia);
+  médico, enfermero, farmacia, pastillas, jarabe, receta, cita, urgencias;
+  hábitos saludables (dormir bien, hacer deporte, comer sano); higiene
+  personal (ducharse, lavarse los dientes, peinarse).
+
+LX-14 — viajes, alojamiento y transporte (ALTA)
+  Medios (avión, tren, autobús, metro, tranvía, barco, taxi, a pie, en
+  bici); estación, aeropuerto, andén, vía, parada, billete de ida / de ida
+  y vuelta, puerta de embarque, facturar, maleta, equipaje de mano,
+  retraso, salida, llegada; alojamiento (hotel, hostal, albergue,
+  apartamento, habitación doble/individual, recepción, llave, reserva);
+  turismo (visita guiada, monumento, playa, montaña, excursión, mapa,
+  plano).
+
+LX-15 — economía e industria (BAJA)
+  Solo lo cotidiano: dinero, precio, caro, barato, gastar, ahorrar,
+  pagar, cobrar, euro, céntimo.
+
+LX-16 — ciencia y tecnología (BAJA-MEDIA)
+  Ordenador, portátil, móvil, cargador, batería, pantalla, descargar,
+  enviar, conectarse, wifi, funcionar / no funcionar, estar roto.
+
+LX-17 — gobierno, política y sociedad (BAJA)
+  Solo nivel superficial: ciudad, pueblo, barrio, vecinos, fiesta local,
+  ayuntamiento, normas de convivencia. Sin política.
+
+LX-18 — actividades artísticas (MEDIA)
+  Música, cantante, grupo, canción, película, actor, actriz, director,
+  pintor, cuadro, escritor, novela, exposición, concierto.
+
+LX-19 — religión y filosofía (BAJA)
+  Solo fiestas y tradiciones como hecho cultural (Navidad, Semana Santa,
+  Nochevieja, fiestas patronales).
+
+LX-20 — geografía y naturaleza (ALTA en clima; MEDIA en el resto)
+  Tiempo atmosférico (hace sol/frío/calor/viento/buen tiempo, llueve,
+  nieva, está nublado, hay tormenta, grados, temperatura); estaciones;
+  paisaje (mar, playa, montaña, río, lago, bosque, campo, isla); puntos
+  cardinales; animales y plantas frecuentes; reciclar, contaminación
+  (lo básico).
+
+===========================================================================
+6. NOCIONES GENERALES (léxico transversal, sin etiqueta propia)
+===========================================================================
+[P] Tiempo: horas (formal "a las 17:30" en avisos, coloquial "a las cinco
+    y media"), días, meses, fechas, años, partes del día; duración (dos
+    horas, media hora); frecuencia; anterioridad y posterioridad (antes,
+    después, luego, más tarde, la semana que viene, dentro de...).
+[P] Cantidad: números cardinales incluidos precios, años y cifras de
+    uso cotidiano; ordinales del primero al décimo (planta, piso, curso);
+    porcentajes sencillos en ofertas (un 20 % de descuento).
+[P] Espacio: localización, distancia, dirección (recto, girar, cruzar).
+[P] Cualidades: tamaño, forma, color, material (de algodón, de madera),
+    estado (nuevo, viejo, limpio, sucio, abierto, cerrado).
+[P] Valoración: bueno/malo, bonito/feo, fácil/difícil, caro/barato,
+    interesante/aburrido, cómodo/incómodo.
+Nota para guiones de audio: todas las cifras se escriben con letras
+(regla de TTS del proyecto), y en CA-T2 y CA-T4 las horas, fechas y
+precios son el foco natural de ítems.
+
+===========================================================================
+7. GÉNEROS DISCURSIVOS Y TIPOS DE TEXTO POR TAREA
+===========================================================================
+Según la Guía oficial del examen (formato actual). Si el documento de
+especificación del proyecto dice otra cosa, prevalece esta sección.
+
+COMPRENSIÓN DE LECTURA (60 min, 25 ítems)
+CL-T1 (5 ítems, 3 opciones): una carta, correo o mensaje personal de
+  250-300 palabras. Ámbito personal. Contenidos que más rinden: FN-1.4,
+  FN-3.4, FN-4.5, FN-5.x; contraste de pasados; planes.
+CL-T2 (8 ítems, 3 opciones): ocho textos de 50-80 palabras (anuncios,
+  carteles, folletos, avisos, notas breves de prensa, foros, blogs).
+  Ámbito público. Contenidos que más rinden: horarios, precios,
+  condiciones, prohibiciones y obligaciones (FN-2.6, FN-2.7, FN-4.8),
+  imperativo de instrucciones.
+CL-T3 (6 ítems, relacionar): tres textos de 100-120 palabras
+  (descripciones de lugares, servicios, ofertas de trabajo, cursos,
+  recetas, programaciones) y seis enunciados que hay que asignar al texto
+  correspondiente. Ámbito público. Contenidos que más rinden: información
+  específica y comparación entre textos parecidos (GR-05, GR-04).
+CL-T4 (6 ítems, 3 opciones): un texto narrativo de 375-425 palabras
+  (biografía, entrada de blog, diario, cuento, noticia, texto de guía de
+  viaje). Ámbitos personal y público. Contenidos que más rinden:
+  indefinido e imperfecto, secuencia temporal, cambios de tema.
+
+COMPRENSIÓN AUDITIVA (40 min, 25 ítems, cada audio dos veces)
+CA-T1 (6 ítems, 3 opciones con imágenes): seis conversaciones breves de
+  50-80 palabras, informales o transaccionales (tiendas, restaurantes,
+  estaciones, aeropuertos). Contenidos que más rinden: objetos, lugares,
+  ropa, comida, descripciones físicas, actividades; el distractor típico
+  es el objeto que se menciona pero se descarta.
+CA-T2 (6 ítems, 3 opciones): seis fragmentos radiofónicos de 40-60
+  palabras (noticias breves, anuncios, eventos, ofertas). Ámbito público.
+  Contenidos que más rinden: idea general, fechas, lugares, destinatarios.
+CA-T3 (6 ítems, relacionar con Hombre / Mujer / Ninguno de los dos): una
+  conversación informal de 225-275 palabras entre dos personas (noticias
+  personales, vida cotidiana, planes, citas). Contenidos que más rinden:
+  experiencias, planes, gustos, acuerdo y desacuerdo; hay que atribuir
+  bien quién dice o hace cada cosa y reservar enunciados para "ninguno".
+CA-T4 (7 ítems, relacionar 7 mensajes con 7 de 10 enunciados): mensajes
+  de 30-50 palabras (megafonía, contestador, avisos, publicidad breve).
+  Ámbitos personal y público. Contenidos que más rinden: propósito del
+  mensaje, cambios de horario, citas, instrucciones, precauciones.
+
+EXPRESIÓN E INTERACCIÓN ESCRITAS (45 min)
+EIE-T1 (60-70 palabras): responder a un texto breve con una nota, postal,
+  mensaje, correo o carta. Ámbito personal. Funciones clave: FN-5.x,
+  FN-4.5, FN-3.4, FN-6.1.
+EIE-T2 (70-80 palabras, elegir entre dos opciones): opción A, texto sobre
+  un tema cotidiano de la vida personal; opción B, texto biográfico o
+  narrativo a partir de fotos o datos. Contenidos clave: pasados, rutina,
+  descripción, conectores de secuencia.
+
+EXPRESIÓN E INTERACCIÓN ORALES (12 min + 12 de preparación)
+EIO-T1 (2-3 min): monólogo sobre un tema de la vida cotidiana, a elegir
+  entre dos. EIO-T2 (2-3 min): descripción de una fotografía de una
+  situación práctica. EIO-T3 (3-4 min): conversación simulada con el
+  examinador a partir de la situación de la fotografía (comprar, pedir,
+  informarse).
+
+===========================================================================
+8. CONTENIDOS SOCIOCULTURALES (para contextualizar textos y audios)
+===========================================================================
+* Horarios españoles: comida entre las dos y las tres, cena entre las
+  nueve y las diez; horario comercial partido en comercios pequeños;
+  tiendas que cierran el domingo; la sobremesa.
+* Saludos: dos besos en situaciones informales, dar la mano en las
+  formales; "¡Buenas!" coloquial frente a "Buenos días" formal.
+* Comer fuera: menú del día, tapas, la propina no es obligatoria, pedir
+  la cuenta.
+* Vivienda: compartir piso, comunidad de vecinos, portero automático.
+* Salud: centro de salud, pedir cita, farmacia de guardia.
+* Transporte: abono transporte, bono de diez viajes, horarios de fin de
+  semana.
+* Fiestas y celebraciones: cumpleaños, Navidad, Nochevieja, Reyes, fiestas
+  del pueblo o del barrio, puentes.
+* Tú/usted: ver sección 4.
+Los nombres de personas, empresas y lugares siguen siendo inventados o
+genéricos, según las reglas del proyecto.
+
+===========================================================================
+9. ESTRATEGIAS DE EXAMEN (etiqueta: ESTRATEGIA)
+===========================================================================
+Nombres canónicos para el campo ESTRATEGIA del etiquetado de ítems y
+para el apartado de estrategia del informe de repaso.
+
+ES-01 — localizar información específica (dato concreto: hora, precio,
+        lugar, persona)
+ES-02 — captar la idea principal o el propósito del texto o mensaje
+ES-03 — reconocer paráfrasis (la opción correcta dice lo mismo con otras
+        palabras)
+ES-04 — descartar el distractor literal (repite palabras del texto pero
+        con otro sentido)
+ES-05 — detectar cambios de opinión o de plan ("Iba a ir, pero al final...")
+ES-06 — atender a la negación y a las excepciones (todos los días excepto
+        el lunes; no incluye...)
+ES-07 — situar la información en el tiempo correcto (antes / ahora /
+        después; pasado / plan)
+ES-08 — atribuir información a la persona correcta (CA-T3, CL-T3)
+ES-09 — relacionar textos parecidos por un rasgo diferenciador (CL-T3,
+        CA-T4)
+ES-10 — identificar el tipo de texto, el emisor o la situación (CA-T2,
+        CA-T4)
+ES-11 — seguir la secuencia de un relato y sus cambios de tema (CL-T4)
+
+CÓMO DISEÑAR DISTRACTORES EFICACES (los que se usan en el examen real)
+* Información mencionada en el texto pero referida a otra persona, otro
+  día, otro lugar u otra condición.
+* Plan inicial que luego cambia (la opción descartada es el distractor).
+* Palabra literal del texto en una opción falsa; paráfrasis en la
+  correcta.
+* Cantidades y horas cercanas (a las cinco / a las cinco y media).
+* Negación u obligación invertida (hay que / no hace falta).
+* Nunca: opciones absurdas, información no mencionada en ninguna parte
+  (salvo en CA-T3 y en los enunciados sobrantes de CA-T4, donde forma
+  parte del diseño), ni opciones que solo se descartan por gramática
+  de nivel superior.
+
+===========================================================================
+10. LISTA DE CONTROL DEL TECHO A2
+===========================================================================
+Antes de entregar un simulacro, revisar que NINGÚN ítem depende de:
+[ ] subjuntivo (salvo fórmulas de GR-17)
+[ ] pluscuamperfecto
+[ ] condicional (salvo fórmulas de GR-15)
+[ ] futuro de probabilidad
+[ ] estilo indirecto con cambio de tiempos
+[ ] pasiva con ser; construcciones impersonales complejas
+[ ] combinación de dos pronombres
+[ ] conectores [R] o [NO] de la sección 4
+[ ] léxico abstracto, especializado o de campos de frecuencia BAJA
+[ ] modismos, frases hechas, ironía, dobles sentidos
+[ ] variantes léxicas no peninsulares
+Y que la expresión escrita no exige ningún contenido [R].
+===========================================================================
+Documento base para subir al proyecto "DELE A2".

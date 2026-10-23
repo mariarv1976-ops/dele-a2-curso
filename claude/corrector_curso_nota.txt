@@ -1,0 +1,24 @@
+CORRECTOR DE LA ESCRITURA + CURSO DELE A2 (15/10/2026)
+Completa lo que dice DELE_A2_curso_estado.txt sobre el corrector (allí sigue la versión antigua solo A2).
+
+* La versión buena del corrector es corrector_escritura.html (todos los niveles A2-C1, modo «Simulacro DELE» y
+  «Tarea de una unidad»), no la que sale de build_corrector.py. Sobre ella se aplica:
+    python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html
+  (datos en claude/curso_tareas.py; si el corrector ya lleva el parche, solo actualiza los datos).
+* Qué añade (decidido por María: los textos del curso se corrigen CON NOTA DELE, bandas y nota sobre 25):
+  - Modelo 6 (A2-M06: T1 correo de tú a Pablo; T2 op. 1 «El mejor consejo...», op. 2 Bruno en la heladería).
+    El botón Leer reconoce «MODELO 6» (clave A2-M06, dos cifras).
+  - 25 láminas sueltas de «Ahora tú»: kit (5), pautas (4), textos modelo nuevas (4), fichas R01, R02, R04, R05,
+    R06 y R07 (2 cada una). Se corrigen como una sola tarea: nota de esa tarea sobre 25, sin grupo 1.
+  - Leer lo que copian el kit, las pautas, la revisión final, los textos modelo, la banda 1 y las fichas R:
+    lista de textos encontrados, reconoce la lámina (por el nombre o por las pautas) y deja elegir versión
+    final o primera (revisión, banda 1) / excelente o aprobado (textos modelo). «Mi texto · ...» sin lámina:
+    pide pegar las instrucciones.
+  - Desplegable agrupado: simulacros por unidad · modelos · taller de escritura · fichas de remedio.
+  - FICHAS_LISTAS = R01, R02, R04, R05, R06, R07 con los nombres de archivo reales: el informe las enlaza.
+* Cada modelo nuevo (M7, M1, M2...): añadir su escritura a MODELOS en curso_tareas.py y volver a aplicar el parche.
+  Cada ficha nueva con «Ahora tú»: sus láminas en FICHAS_AT y su código en FICHAS_LISTAS.
+* OJO: el formato de Copiar de R02-R07 se ha supuesto igual que el de R01 («ESCRITURA - TAREA n ...», «Pautas: ...»,
+  texto entre «---»). Si alguna no se lee, mirar su pack() en el build.
+* Probado en Chromium con copias de cada pieza (kit, pautas, revisión, modelos, banda 1, R01, M6, U05): lámina
+  reconocida, petición con la lámina, informe con la ficha enlazada, móvil sin scroll lateral, sin errores.

@@ -1,0 +1,1930 @@
+ESTADO DEL CURSO DE PREPARACIÓN DELE A2 (actualizar en cada chat)
+===========================================================================
+Plan completo: claude/DELE_A2_curso_preparacion_plan.txt (apartados 2, 6, 7 y 8).
+(15/10: las novedades del 15/10 que estaban en claude/DELE_A2_curso_estado_15oct.txt ya están aquí; ese archivo se ha borrado.)
+(23/10: lo que la R13 dejó en claude/DELE_A2_curso_estado_R13.txt ya está aquí (bloque de la R13 en HECHO (22/10/2026,
+noche), índice, corrector y nota «ANTES DEL M2»); ese archivo se ha borrado.)
+REGLA PARA CHATS A LA VEZ (23/10): si dos chats trabajan al mismo tiempo, el último en terminar vuelve a leer este archivo
+justo antes de subirlo y añade solo su parte; si no puede, deja su parte en un archivo aparte (como hizo la R13) y el
+siguiente chat la mete aquí y lo borra.
+
+HECHO (11/10/2026)
+* Piezas comunes: claude/curso_comun.py (paleta coral A2, CSS base, ASCII puro,
+  meta noindex, función page()). Todos los ejecutables del curso la usan.
+* Módulo 0 "Conoce el examen": claude/build_M0.py
+  -> DELEA2_curso_M0_conoce_el_examen.html (recursos/A2/dele-curso/).
+  Pestañas: El examen · Cómo se aprueba (calculadora 30/50) · El día del examen ·
+  Reglas de oro · Test V/F (16) · Tu opinión (preguntas del piloto + Copiar).
+* Índice del curso (solo profesora): claude/build_indice.py
+  -> DELEA2_curso_indice.html (biblioteca/profesora/). 52 piezas, filtros,
+  "Copiar enlace" en las piezas listas. Para marcar una pieza: estado "listo".
+  Listas: M0, M4-1, M4-2, M4-3, M4 bloqueo, M3-1, M3-2, M3-3, M3-4, M3-5, PR-1, R01, R02, R04, R05, R06, R07, R08, R10, R13, R14a. (En la web el índice detecta
+  solo qué piezas están subidas; en build_indice.py M4-3, "Qué hacer si me bloqueo", M3-1, M3-2, M3-3, M3-4, M3-5,
+  R01, R02, R04, R05, R06, R07, R08, R10, R13 y R14a siguen como "pendiente" hasta que se regenere el índice: cambiar su estado a "listo" y su descripción la
+  próxima vez que se toque. La R06 lleva ahora también hace / desde / desde hace / durante / en: ponerlo en su descripción.
+  15/10: también M4-5 (dosier oral) y el Modelo 6 (DELEA2_curso_M06_examen.html) como "listo".
+  20/10: y el Modelo 7 (DELEA2_curso_M07_examen.html). 20/10 noche: y el Modelo 1 (DELEA2_curso_M01_examen.html).
+  22/10: y la R08 (DELEA2_curso_R08_conectores.html). 22/10 noche: y la R10 (DELEA2_curso_R10_lo_la_le.html) y la R13
+  (DELEA2_curso_R13_formulas_correo.html; en build_indice.py ya tiene el nombre bueno, SLUG «formulas_correo»: al regenerar,
+  título «Las funciones de los correos», su descripción y «listo»). 23/10: y la R14a
+  (DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html). OJO: en build_indice.py la R14 es una sola pieza; al regenerarlo,
+  partirla en R14a (este archivo, «listo») y R14b (vocabulario de fuera de casa, pendiente).)
+* Corrector de la escritura (profesora): claude/build_corrector.py + claude/corrector_tareas.py
+  -> DELEA2_corrector_escritura.html (biblioteca/profesora/).
+  (15/10: la versión buena es corrector_escritura.html + claude/patch_corrector.py + claude/curso_tareas.py: ver
+  claude/corrector_curso_nota.txt. 23/10: los nombres de archivo de FICHAS de build_corrector.py están mal (R04, R05, R10,
+  R14): no usarlo.)
+  Pasos: pegar el texto del estudiante -> copiar petición para Claude -> pegar
+  respuesta JSON -> revisar bandas/pautas/errores -> informe PDF o texto.
+  Escala oficial (uso 66 %, cumplimiento 34 %). Trae las escrituras de U01-U10;
+  cada modelo nuevo se añade a corrector_tareas.py (15/10: PENDIENTE añadir las escrituras del M6: tarea 1 correo de
+  usted a la tienda Casa Útil; tarea 2 opción 1 «El mejor consejo que me han dado» y opción 2 el primer día de Bruno en
+  la heladería; están en claude/fuente_M06.py, ESCRITA. OJO: el 15/10 la tarea 1 del M6 pasó a ser un correo DE TÚ a Pablo,
+  que viene a tu ciudad: añadir esa, no la de Casa Útil. 20/10: PENDIENTE también las del M7: tarea 1 correo de tú a Irene,
+  que estrena una obra de teatro; tarea 2 opción 1 «Un amigo o una amiga de la infancia» y opción 2 la vida de Encarna,
+  panadera (tríptico); están en claude/fuente_M07.py, ESCRITA. 20/10 noche: PENDIENTE también las del M1: tarea 1 correo de
+  tú a la prima Alba, que vuelve de un año en Irlanda; tarea 2 opción 1 «Un profesor o una profesora que recuerdo» y opción 2
+  el día que se escapó Lunes, el gato de Nora (tríptico); están en claude/fuente_M01.py, ESCRITA. En la versión buena, el M6
+  ya está en MODELOS de curso_tareas.py; faltan el M7 y el M1). FICHAS_LISTAS: 23/10 HECHO en claude/curso_tareas.py
+  (R01, R02, R04, R05, R06, R07, R08, R10, R13 y R14, con los nombres de archivo reales y las láminas de «Ahora tú» de R08,
+  R10, R13 y R14a): ver HECHO (23/10/2026). Aplicado al corrector de María el 23/10. El informe enlaza la
+  ficha de pasados, la de hay/está/es, la de concordancia y posesivos, la de muy/mucho y también/tampoco, la de
+  preposiciones o de duración (hace, desde hace, durante), la de tú/usted mezclados, la de conectores (todo con «y»,
+  porque / por eso / además mal usados), la de pronombres (lo/la/le equivocados, el pronombre fuera de su sitio, nombres
+  repetidos), la de las funciones de los correos (pautas sin su fórmula o fórmulas mal hechas: gracias para, siento no
+  puedo, enhorabuena por el cumpleaños, te invito venir, ¡que te mejoras!, un «no» sin excusa) y la de vocabulario.
+* Oral tarea 2, foto (M4-2): claude/build_M4_T2_foto.py + claude/banco_fotos_T2.py
+  -> DELEA2_curso_M4_T2_foto.html (recursos/A2/dele-curso/), M4T2_prompts_imagenes.txt
+  y nombres.txt (CARPETA DELE_A2_curso). Imágenes M4T2_foto1..6.jpg (1600 px, 90 KB)
+  en WordPress, carpeta del mes MES_WP = "2026/10" (en banco_fotos_T2.py).
+  Objetivo: que no describan demasiado deprisa (llegar a 2-3 min).
+  Pestañas: La tarea (la regla de las tres frases: 6 preguntas x 3 frases) ·
+  La plantilla (6 preguntas oficiales + comodines, con la edad aproximada "tiene 30
+  años, más o menos"; ejemplo lo que veo / un detalle / mi opinión, puentes, ganar
+  tiempo; imprimible) · La preparación (12 minutos para las tres tareas: reparto
+  recomendado 1 elegir + 4 T1 + 4 T2 + 2 T3 + 1 repasar; los 4 minutos de la foto paso
+  a paso; ESQUEMA DE LAS SEIS CASILLAS con tres líneas • veo / + detalle / → opinión,
+  imprimible en blanco; ejemplo relleno con las notas modelo de la foto 2; reglas de
+  las notas) · Practica · Tu opinión (5 preguntas).
+  Preparación en la práctica (los dos modos): 4 minutos con notas (por defecto), 30 s
+  mirando o sin preparación. Con notas: rellenan el esquema (aviso si escriben frases),
+  y al hablar ven sus notas de cada casilla; al final, sus notas junto a las notas
+  modelo. Cada foto tiene NOTAS modelo en banco_fotos_T2.py.
+  Practica: 6 fotos (o al azar). Modo guiado: cada pregunta en pantalla con su
+  tiempo (20/25/30 s), tres escalones que aparecen a 0, 1/3 y 2/3 del tiempo, pista
+  "Fíjate en" por foto, el botón Siguiente se activa a los 2/3; opcional 30 s de
+  preparación, sonido y "descripción modelo en pantalla" (tiempo ajustado al texto).
+  Modo examen: reloj (verde 2:00, rojo 3:00), aviso si termina antes de 2:00.
+  Grabación opcional (MediaRecorder): se queda en el navegador, se puede escuchar,
+  guardar en el dispositivo o borrar. Resultado: tiempo, zona 2-3 min, historial de
+  tiempos por foto, lista de autorrevisión y descripción modelo con comodines marcados.
+  Fotos: comida en el campo, veterinario, lavandería, cocina de restaurante, pista de
+  patinaje, teletrabajo con niños. Para añadir fotos: solo banco_fotos_T2.py.
+* Web: carpeta recursos/A2/dele-curso/ con .htaccess "Options -Indexes".
+
+  Práctica en ancho (hasta 1240 px) con la foto más grande; botón "Ver en grande" (o clic
+  en la foto): foto a pantalla completa con el reloj y la pregunta actual arriba.
+
+* Banco de la tarea 2 con 12 fotos (11/10): 1-6 ENTRENAMIENTO (muchísimos detalles) y 7-12
+  COMO EN EL EXAMEN (2-4 personas, una acción clara, escena sencilla; prompts con
+  EXAM_STYLE). Al elegir salen en dos grupos; consejo distinto según el tipo. TANDA_ACTUAL
+  en el banco decide qué fotos van al M4T2_prompts_imagenes.txt y al nombres.txt.
+  Ejemplo de notas de la pestaña La preparación: foto 7.
+  (12/10: el estilo de las fotos del taller de escritura, ESTILO + NO_IA de fotos_M3.py, es más
+  natural que EXAM_STYLE: sin HDR ni contraste, nadie posa. Si se hacen más fotos de la oral,
+  copiarlo también en banco_fotos_T2.py.)
+* Modo concentración (11/10): mientras se practica se esconde la cabecera con el menú;
+  vuelve al terminar o al parar. En pantallas de menos de 900 px (móvil y tablet en
+  vertical) la foto se queda fija arriba con una franja oscura: pregunta + reloj.
+* Grabación revisada (11/10, María no oía nada): MediaRecorder sin trozos (start() sin
+  timeslice) y sin pausar el grabador (Safari); medidor de nivel del micrófono y aviso si
+  no llega sonido a los 10 s. Se guarda solo en la página; botón para guardarla en Descargas.
+
+* Oral tarea 1, monólogo (M4-1), 11/10: claude/build_M4_T1_temas.py + claude/banco_temas_T1.py
+  -> DELEA2_curso_M4_T1_temas.html (recursos/A2/dele-curso/). Sin imágenes ni audios.
+  Mismo estilo y motor que el taller de la foto (modo concentración, grabación, tiempos).
+  BANCO: 20 temas. 9 de las láminas oficiales (persona importante, persona de la familia,
+  plato favorito, red social, regalo, curso, fiesta especial, mejores vacaciones; Modelo 0:
+  un viaje) y 11 frecuentes (deporte, vida de niño, trabajo o estudios, ciudad, casa,
+  tiempo libre, libro/película/serie, rutina, estación favorita, tienda o mercado, salud y
+  hábitos). LÁMINAS ORIGINALES: mismos temas, pautas redactadas por nosotras (formato
+  oficial: intro + 5 pautas). Cada pauta lleva sus tiempos (pres / pas / antes / fut) y las
+  palabras que lo dicen. Cada tema: notas modelo en palabras clave con un verbo conjugado
+  por casilla y monólogo modelo de 235-280 palabras (abre + 5 párrafos + cierra) con los
+  verbos marcados por tiempo en colores (presente azul, pasado coral, antes ámbar, futuro
+  verde). El build comprueba que cada párrafo usa los tiempos que pide su pauta.
+  Narradores variados (también extranjeros: polaco, inglés, francesa, brasileño).
+  Pestañas: La tarea (lámina de ejemplo, memoria vs. palabras clave, estructura empezar +
+  5 pautas + terminar, cinco claves, "puedes inventar") · Los tiempos (4 tarjetas: qué es,
+  palabras de la lámina, verbos, frases para empezar; lámina con los tiempos marcados;
+  pasado vs. "antes"; ejercicio "¿Qué tiempo pide?": 10 pautas al azar de temas distintos,
+  se pueden marcar dos tiempos; frases para empezar, pasar, terminar y unir; imprimible) ·
+  La preparación (reparto de los 12 minutos con la T1 destacada; los 4 minutos paso a paso;
+  ESQUEMA DE CINCO CASILLAS con el tiempo de cada pauta + líneas Empiezo/Termino, imprimible
+  en blanco; ejemplo relleno con el tema 3; reglas de las notas) · Practica · Tu opinión.
+  Practica: lista de temas (oficiales / frecuentes) o "Como en el examen: dos temas al
+  azar" (eliges uno). Preparación: 4 min con notas (por defecto), 1 min leyendo o sin
+  preparación. Modo guiado: cada pauta en pantalla con sus tiempos, ritmo 24/30/36 s por
+  pauta (2:00 / 2:30 / 3:00), escalones responde / detalle / por qué, verbos del tiempo,
+  tus notas, frase para empezar en la pauta 1 y para terminar en la 5; la lámina al lado
+  marca la pauta actual; opción "monólogo modelo en pantalla". Modo examen: reloj (verde
+  2:00, rojo 3:00) y lista de pautas para marcar con las notas. Resultado: tiempo, zona,
+  historial por tema, autorrevisión (7 puntos), monólogo modelo coloreado y notas propias
+  junto a las notas modelo. Opinión: 5 preguntas + resultado del ejercicio y tiempos.
+  Para añadir temas: solo banco_temas_T1.py.
+
+* Oral tarea 3, diálogos (M4-3), 11/10: claude/build_M4_T3_dialogos.py + claude/banco_dialogos_T3.py
+  -> DELEA2_curso_M4_T3_dialogos.html (recursos/A2/dele-curso/). Sin imágenes ni audios.
+  Título "Habla con el examinador". Mismo estilo y motor que M4-1/M4-2 (modo concentración,
+  grabación, reloj, notas, storageKey dele-a2-curso-M4-T3).
+  BANCO: 12 situaciones. 6 de PLANIFICAR (tú): fiesta sorpresa para los padres con el
+  hermano (tema del Modelo 0), escapada de fin de semana, cena en casa con el compañero de
+  piso, visita de una amiga extranjera, ir a un concierto, comida de despedida de una
+  compañera que se jubila. 6 de SERVICIO (usted): farmacia (resfriado), taquilla de la
+  estación, reservar mesa por teléfono, apuntarse al gimnasio, cambiar unos auriculares que
+  no funcionan, enviar un paquete en correos. Las 8 situaciones de las láminas de 2022 NO
+  se usan aquí: quedan para los modelos M1-M8 (matriz del plan).
+  Cada situación: lámina con el formato oficial (tema de la foto, situación, "El
+  examinador / La examinadora es...", CANDIDATO + pautas), trato, notas modelo (idea +
+  ¿pregunta? por pauta + segunda opción), el pequeño problema (resumen) y el diálogo
+  modelo completo turno a turno (examinador + candidato, 9-10 turnos, unos 3,5-4 min a 105
+  palabras/min + 1,5 s por cambio de turno). Frases del candidato marcadas en 4 colores:
+  propongo o pido (azul), pregunto (ámbar), acepto o reacciono (verde), digo que no y busco
+  otra solución (coral). El build comprueba: saludo al principio y despedida al final,
+  todas las pautas trabajadas, un solo pequeño problema con respuesta {r:...}, al menos 3
+  preguntas del candidato, las 4 funciones, y que no se mezcla tú/usted.
+  Pestañas: La tarea (lámina de ejemplo, cómo trabaja el examinador y el pequeño problema,
+  esquema saludo-pautas-problema-adiós, los dos tipos, solo sí/no vs. responder + añadir +
+  preguntar, cinco claves, "puedes inventar") · Las frases (4 tarjetas con columnas tú/usted,
+  empezar y terminar, tabla tú/usted, si no entiendo, diálogo modelo marcado; ejercicio
+  "¿Qué respondes?": 8 de 14 frases del examinador con 3 respuestas y explicación;
+  imprimible) · La preparación (reparto de los 12 minutos con la T3 destacada: 2 min; los 2
+  minutos paso a paso; ESQUEMA DEL DIÁLOGO: TÚ/USTED + 5 casillas idea · ¿pregunta? + B
+  "si dice que no" + plan final, imprimible en blanco; ejemplo con la situación 3; reglas) ·
+  Practica · Tu opinión (5 preguntas + resultado del ejercicio y tiempos).
+  Practica: lista por tipo o "Como en el examen: dos opciones al azar" (una de planificar
+  siempre). Preparación: 2 min con notas (por defecto), 30 s leyendo o sin preparación.
+  Modo guiado turno a turno: la frase del examinador en pantalla (aviso coral en el turno
+  del problema), tiempo por respuesta 15/20/25 s (saludo y despedida, 3/4), escalones
+  responde / detalle o porqué / pregunta o propón (distintos en saludo, despedida y
+  problema), tus notas de esa pauta (y la segunda opción en el problema), frases útiles de
+  las funciones de ese turno según el tipo; la lámina al lado marca la pauta actual y las
+  hechas; opción "respuestas modelo en pantalla". Modo examen: reloj (verde 3:00, rojo
+  4:00), las frases del examinador una a una con "Siguiente frase del examinador", lista de
+  pautas para marcar; aviso si termina antes de 3:00. "Para quien hace de examinador":
+  instrucciones + el pequeño problema (para practicar en pareja o con María).
+  Resultado: tiempo (en guiado, lo hablado + las frases del examinador estimadas), zona
+  3-4 min, historial, autorrevisión (7 puntos), diálogo modelo y notas propias junto a las
+  modelo. Para añadir situaciones: solo banco_dialogos_T3.py.
+  PENDIENTE DE REVISAR (María, 11/10): le sirve de momento, pero duda si es demasiado complejo
+  para estudiar solo en A2 (las frases del entrevistador y tantas preguntas). Le dará una vuelta
+  más adelante; posibles ideas: versión más corta, menos turnos o audio del examinador.
+
+* Escritura, kit de frases (M3-1), 11/10: claude/build_M3_kit_frases.py + claude/banco_frases_M3.py
+  -> DELEA2_curso_M3_kit_frases.html (recursos/A2/dele-curso/). Fotos: ver "FOTOS DEL TALLER DE
+  ESCRITURA" (12/10). Sin audios.
+  Título "Kit de frases para la escritura"; storageKey dele-a2-curso-M3-kit. En el material
+  la destreza es "Escritura". SIN CONTADOR DE PALABRAS: consejo de contar líneas a ojo (unas
+  10 palabras por línea: T1 6-7 líneas, T2 7-8), con una línea de muestra escrita "a mano".
+  Pestañas: Las dos tareas (T1 60-70 / T2 opción 1 y 2 de 70-80; tabla tipo de texto -> dónde
+  sale; reparto de los 45 min 5 leer y elegir + 15 T1 + 20 T2 + 5 revisar; contar a ojo; tres
+  reglas: cada pauta una frase, tú/usted, no solo y/porque) · Correo a un amigo · Correo de
+  usted · Dos trampas · Blog o diario · Biografía · Con fotos · Tu opinión.
+  Cada tipo: tarjetas de frases por función con colores (informal: saludar, agradecer,
+  disculparse, invitar, aceptar, rechazar, proponer, despedirse; formal: saludar, decir por qué
+  escribe, pedir información, disculparse o reclamar, agradecer, despedirse; blog: empezar,
+  contar, describir, valorar, terminar; biografía: origen, fechas y edades, hechos, cómo era,
+  ahora; fotos: situar, contar, describir la escena, cómo se sintió) · lámina con formato
+  oficial · texto modelo que aprueba (pautas numeradas, frases en color, conectores
+  subrayados, "ver sin marcas", palabras y líneas) · "Por qué aprueba" · aviso de la trampa ·
+  ejercicios · "Ahora tú": otra lámina, caja de texto guardada en el navegador y lista de
+  revisión. Imprimible (frases y ejemplo).
+  Ejemplos: cumpleaños de Marta (63 pal.), escuela de cocina, de usted (69), excursión a
+  Guadalest (77), Rosa Llorente cocinera (79), mudanza del hermano con 3 fotos (78).
+  "Ahora tú": excursión en bici de Dani (rechazar), gimnasio Aquaforma (usted), cena especial,
+  Tomás Ferrer biólogo, curso de cocina con compañeros (3 fotos).
+  Ejercicios (9; tres motores: elegir una a una / huecos con desplegables / cazar errores):
+  completa el correo de Lucas y "¿Qué escribes?" (informal), "¿Cuál es la frase de usted?",
+  completa la entrada del blog (Granada), "Del dato a la frase" (biografía), "¿Qué frase va en
+  tu texto?" (fotos: no describir en presente), y en Dos trampas: caza los errores tú/usted en
+  un correo de usted (hotel) y en uno a un amigo (boda) + tabla tú/usted; conectores: antes
+  (solo y/porque, 8 veces) y después (6 conectores), tabla por uso y "Elige el conector"
+  (diario de Clara).
+  El build comprueba: palabras de cada ejemplo dentro del límite de su tarea, una frase para
+  cada pauta, tú/usted coherente en los correos y en las correcciones del ejercicio de caza,
+  mínimo de funciones (informal) y de conectores (textos de la tarea 2), entradas de 35-45.
+  Tu opinión: 5 preguntas (texto más difícil, ejemplos marcados, qué trampa, frase nueva/falta
+  algo, control 1-10). COPIAR incluye resultados de los ejercicios y LOS TEXTOS DE "AHORA TÚ"
+  (con la tarea y cuántos puntos de la revisión han marcado) para que María los corrija con el
+  corrector. Para cambiar contenidos: solo banco_frases_M3.py.
+  ARREGLADO (12/10): el botón Siguiente del motor "elegir una a una" salía antes de responder
+  (.row{display:flex} pisaba hidden). Añadido ".row[hidden]{display:none}" al CSS y
+  regenerado (y vuelto a regenerar el 12/10 con las fotos: subir la versión nueva).
+  (22/10: el kit enseña así que, aunque y como, que en el Plan curricular son [R]. DECIDIDO con María: el kit no se
+  toca; la R08 solo practica los conectores [P] y pone esos tres en un recuadro «Los verás en los textos».)
+
+HECHO (12/10/2026)
+* Escritura, las pautas como lista de control (M3-2): claude/build_M3_pautas.py +
+  claude/banco_pautas_M3.py -> DELEA2_curso_M3_pautas.html (recursos/A2/dele-curso/).
+  Fotos: ver "FOTOS DEL TALLER DE ESCRITURA". Sin audios. storageKey dele-a2-curso-M3-pautas.
+  Mismo estilo que el kit.
+  IDEA CENTRAL: cada pauta, al menos una frase; un texto sencillo que cumple todas aprueba;
+  a uno difícil al que le falta una se le queda el cumplimiento en el límite (matizado el 12/10,
+  ver abajo). Cada pauta se desmonta en PIEZAS (en el banco, cada pauta es {"t": texto, "p":
+  [piezas]}): las pautas dobles cuentan como dos.
+  Pestañas: La regla (lámina de Jorge, que se va a Bilbao: texto A sencillo de Lucía, 62
+  pal., aprueba; texto B difícil de Max, 70 pal., le falta la pauta 3: en el límite; tres
+  estados ✓ completa / ½ a medias / ✗ falta; "una frase... pero no cinco": reparto de líneas
+  por pauta, contar a ojo 10 palabras por línea) · Leer una pauta (qué haces + piezas + tiempo;
+  tabla de pistas: y, coma, y por qué, qué... y qué no, "o" = eliges una, paréntesis = ejemplos,
+  dos o tres cosas; qué pide cada verbo; las preguntas del correo son pautas; ejercicios
+  "¿Cuántas cosas pide?" (8 de 20 pautas, botones 1-4, muestra las piezas) y "¿Qué tiempo
+  pide?" (8); imprimible) · Tu mini lista (1 minuto por tarea dentro de los 5 de leer y
+  elegir; 5 pasos: TÚ/USTED o tipo de texto arriba, una línea por pauta, piezas separadas
+  por comas, palabras clave, ✓ al escribir; ejemplo "Mi primer día de trabajo" en tarjeta
+  "a mano" + dos listas malas (con frases / con huecos); "¿Qué línea es mejor?" (5);
+  "Haz tu mini lista" con la lámina de Inés (curso de fotografía): comprueba cada línea
+  (vacía, pocas piezas, parece una frase) y enseña la lista modelo; mini lista en blanco
+  imprimible) · ¿Qué falta? (lo que más se olvida; 8 textos de estudiantes con la lámina:
+  correos de tú de Yuki (mudanza: pauta 1 a medias, 3 falta), Tom (regalo, COMPLETO), Irina
+  (vuelta de México: sin despedida), correo de usted de Lena (habitación: 3 a medias), revista
+  de Ahmed (San Juan, nivel alto: lo peor y la pauta 5 faltan), diario de Olga (la última
+  frase cuenta el pasado en vez de planes), biografía de Pierre (pintora: falta dónde nació y
+  qué hace ahora; texto corto), fotos de Kenji (concierto: falta la opinión); para cada
+  pauta el estudiante marca ✓ / ½ / ✗; al comprobar: piezas en verde/tachadas, explicación,
+  el texto se colorea por pauta y "la lección"; "¿Cumple la pauta?" (8 de 10 frases)) ·
+  Ahora tú (4 tareas: Paula y el día sin coches (tú), curso de fotografía La Lonja (usted),
+  revista "mi lugar favorito", boda de una prima con 3 fotos; en cada una: 1. mini lista con
+  "Comprobar mi lista", 2. texto, 3. revisión pieza por pieza con casillas + puntos generales)
+  · Tu opinión (5 preguntas: qué me pasa más, ¿haré la mini lista?, qué parte ayuda más,
+  qué cuesta, control 1-10).
+  COPIAR: resultados, la mini lista del ejercicio y, por cada tarea de "Ahora tú", la mini
+  lista, las piezas revisadas y el texto (para el corrector de María).
+  El build comprueba: piezas 1-4 por pauta, entradas de 35-45 palabras, textos A/B de la regla
+  (60-70, A completo y B con una pauta sin frase), en los textos de estudiantes que una pauta
+  que "falta" no tiene ninguna frase y una completa o a medias sí, tú/usted coherente, que hay
+  un texto completo y los tres estados, y que las listas modelo tienen tantas piezas como la
+  pauta. Para cambiar contenidos: solo banco_pautas_M3.py.
+
+* Escritura, la revisión final de 5 minutos (M3-4): claude/build_M3_revision.py +
+  claude/banco_revision_M3.py -> DELEA2_curso_M3_revision_final.html (recursos/A2/dele-curso/).
+  Fotos: ver "FOTOS DEL TALLER DE ESCRITURA". Sin audios. storageKey dele-a2-curso-M3-revision.
+  Mismo estilo que el kit y las pautas. El build importa también banco_frases_M3.py y
+  banco_pautas_M3.py (láminas de sus "Ahora tú").
+  IDEA CENTRAL: guardar siempre 5 minutos al final y revisar con una lista fija, en un orden
+  fijo, una pasada para cada cosa (mirando solo esa cosa). LA LISTA (8 pasadas, en el banco
+  con clave, tiempo, "mira solo", "buscas", ejemplos mal -> bien y truco): 1 pautas (con la
+  mini lista, 60 s) · 2 tú/usted del saludo a la despedida (20 s) · 3 pasados indefinido /
+  imperfecto / perfecto (50 s) · 4 hay / está / es (25 s) · 5 concordancias y posesivos, "mis
+  amigo" (40 s) · 6 muy / mucho (20 s) · 7 conectores, no solo y/porque (30 s) · 8 líneas
+  contadas a ojo, unas 10 palabras por línea (15 s). Total 4:20 + 40 s de margen. En el examen:
+  2 min para la T1 y 3 para la T2, la lista entera en cada texto.
+  Pestañas: Los 5 minutos (reparto de los 45 min con "Revisar" destacado; por qué una lista y
+  no "leer otra vez"; la lista en un vistazo con barra de tiempos) · La lista (una tarjeta por
+  pasada; TARJETA DE REVISIÓN imprimible con dos casillas T1/T2) · Cómo corregir (tres reglas:
+  tachar limpio con una raya, escribir encima, no reescribir; correo corregido "a mano" con
+  tachados, ‸ y asterisco; tabla "si encuentras... haces"; lo que no hay que hacer) · Caza por
+  pasadas (un ejercicio por pasada, se elige con botones: pautas = "¿qué haces si falta algo?"
+  (5); tú/usted = Kofi a su profesora (usted); pasados = blog de Anna en Cuenca; hay/está/es =
+  correo de Iván, piso nuevo; concordancias = biografía de Martina Gil, veterinaria; muy/mucho =
+  diario de Sara; conectores = fotos, excursión de Lucía con su clase; líneas = "¿corto, bien
+  o largo?" (6); cada error con su corrección y una explicación) · A contrarreloj (4 textos
+  con la lámina: correo de tú de Sam (Nuria, recomendaciones: completo, 5 errores), correo de
+  usted de Greta (Biciruta: falta la pauta 4, corto), revista de Paolo (mejor cumpleaños:
+  completo), fotos de Lin (parque de atracciones: falta la pauta 3, corto); reloj de 5, 3 o 2
+  min o sin reloj; el texto aparece al pulsar Empezar; se marcan las frases con error, cada
+  pauta "tiene su frase / falta" y la longitud; al comprobar o al acabarse el tiempo: cada
+  error con su pasada en color, corrección y porqué, tabla de resultados por pasada y la
+  lección) · Ahora tú (elige un texto escrito en "Ahora tú" del kit (5) o de las pautas (4),
+  leído del mismo navegador, o pega otro con su tipo de texto; texto antes + texto revisado
+  editable; cronómetro de 5 min (sigue contando en rojo si se pasa); guía pasada a pasada con
+  "mira solo / buscas", barra de tiempo de la pasada, casillas de pautas de la lámina, trato
+  de la tarea, longitud corto/bien/largo y contador de fallos corregidos por pasada; al
+  terminar: tiempo, fallos por pasada y "lo que más se te escapa"; se guardan las 6 últimas
+  revisiones) · Tu opinión (5 preguntas: qué pasada cuesta más, ¿guardarás 5 minutos?, ¿sirve
+  la lista en orden fijo?, qué fallo no veías / falta algo, control 1-10).
+  COPIAR: caza por pasadas, contrarreloj (resultado, tiempo y detalle por pasada) y cada
+  revisión de "Ahora tú" con el texto ANTES y DESPUÉS, los fallos por pasada y el tiempo.
+  El build comprueba: 8 pasadas en el orden fijo que caben en 5 min con margen, un ejercicio
+  por pasada, correcciones distintas del original y con explicación, tú/usted (los errores lo
+  son y las correcciones no), que la corrección de conectores quita "y/porque", en el
+  contrarreloj que las pautas que faltan no tienen frase y las demás sí, palabras del texto
+  corregido (dentro del límite o claramente corto si falta una pauta), tú/usted coherente en
+  los correos corregidos, que salen todas las pasadas de gramática y que hay textos completos
+  y con una pauta que falta. Para cambiar contenidos: solo banco_revision_M3.py.
+
+* Escritura, textos modelo aprobado / excelente (M3-5): claude/build_M3_modelos.py +
+  claude/banco_modelos_M3.py -> DELEA2_curso_M3_textos_modelo.html (recursos/A2/dele-curso/).
+  Fotos: ver "FOTOS DEL TALLER DE ESCRITURA". Sin audios. storageKey dele-a2-curso-M3-modelos.
+  Mismo estilo que el kit, las pautas y la revisión. El build importa también banco_frases_M3.py
+  y banco_pautas_M3.py (láminas de sus "Ahora tú").
+  IDEA CENTRAL: no hace falta escribir difícil para aprobar; el excelente no es más largo ni más difícil,
+  tiene dos o tres mejoras del A2.
+  OJO CON LA ESCALA OFICIAL (Guía, escala de Expresión e interacción escritas): la banda 2 de cumplimiento
+  todavía admite que falle UNA pauta; la banda 1 es cuando fallan dos o más. Por eso aquí NO se dice "si falta
+  una pauta, suspendes", sino: falta una -> ya no puede ser 3 y estás en el límite; falta otra o está a medias
+  -> 1. Son dos notas separadas: el uso de la lengua no arregla el cumplimiento. (Desde el 12/10 el kit, las
+  pautas, el Módulo 0 y el plan dicen lo mismo.)
+  Pestañas: Las bandas (las dos notas: cumplimiento ~1/3 y uso ~2/3 con lo que mira cada una; tabla de bandas
+  0-3 en sencillo con puntos sobre 25; aprobado y excelente en una frase; "difícil no es excelente"; "¿Por qué
+  un texto difícil puede no aprobar?": texto A sencillo (2 + 2) y texto B difícil al que le faltan dos pautas
+  (cumplimiento 1, uso 3)) · Los textos modelo (5 tipos con selector; para cada uno la lámina plegada y las
+  pautas en color siempre a la vista; APROBADO y EXCELENTE lado a lado o uno debajo de otro; "con marcas / ver
+  sin marcas"; opción "colorear los tiempos verbales"; frase de cada pauta numerada y en color, conectores
+  subrayados, mejoras como etiquetas de color; debajo de cada texto: líneas a ojo (≈ palabras), pautas,
+  conectores y tiempos; "Por qué aprueba" / "Por qué es excelente"; "Pauta por pauta: ¿qué ha cambiado?";
+  imprimible) · Qué cambia (tabla de las 6 mejoras: un conector más, un pasado bien combinado, un detalle o
+  un porqué, una palabra más precisa, una pregunta al lector, una frase con cuando/porque; qué haces, antes ->
+  después y a qué nota ayuda; en móvil, tarjetas; "lo que no es subir de nivel"; imprimible) · Practica
+  ("¿Aprobado o excelente?" 8 de 12; "Sube un escalón" 8 de 9 con distractores de B1, con error o solo más
+  largos; "Una palabra mejor": huecos con tres opciones = la que sube / correcta pero no sube / error) ·
+  ¿Aprueba? (6 textos de estudiantes con su lámina: Bilal correo de tú y Amira biografía, sencillos y
+  completos: aprueban; Sofía revista y Luca correo, difíciles: falta una pauta y otra a medias; Jan correo de
+  usted y Mei correo a un amigo, difíciles: mezclan tú y usted; tres respuestas: aprueba / en peligro: falta
+  una pauta / en peligro: mezcla; al responder, el texto se colorea por pauta, palabras de tú en naranja y de
+  usted en azul, estado de cada pauta y la lección) · Ahora tú (elige un texto de "Ahora tú" del kit (5) o de
+  las pautas (4), uno de los revisados en la revisión final (se lee su "después"), escribe uno nuevo con 4
+  láminas nuevas (correo a Irene que aprende tu idioma, voluntarios de la fiesta del barrio de usted, blog "un
+  lugar que me sorprendió", cena en casa con 3 fotos) o pega otro; paso 1: lista corta "¿aprueba?" (una casilla
+  por pauta si se conoce la lámina, trato, líneas, pasados/concordancias/muy-mucho) que hay que completar,
+  con el texto editable; paso 2: texto aprobado al lado del texto excelente editable y las 6 mejoras para
+  marcar (mínimo 2; "cambia, no añadas"); se guardan los 6 últimos) · Tu opinión (5 preguntas: qué
+  sorprende, qué mejora usarás primero, ¿ayuda lado a lado?, qué cuesta / falta algo, control 1-10).
+  COPIAR: resultados de los ejercicios, ¿Aprueba? (primera respuesta) y cada texto de "Ahora tú" ANTES
+  (aprobado) y DESPUÉS (excelente) con las mejoras marcadas.
+  El build comprueba: palabras de los dos textos de cada tipo dentro del límite de su tarea, una frase para
+  cada pauta, tú/usted coherente (y nada de usted en la tarea 2), que el excelente usa más conectores
+  distintos y más tiempos distintos que el aprobado (todos los verbos conjugados van marcados en el banco),
+  al menos 3 mejoras por excelente y las 6 entre todos; en ¿Aprueba?: los que aprueban completos, coherentes y
+  con las palabras; los de "falta" con una pauta sin frase y otra a medias; los de "mezcla" con todas las
+  pautas y palabras de tú y de usted; al menos dos de cada. Para cambiar contenidos: solo banco_modelos_M3.py.
+  Indice: marcar M3-5 como "listo" la próxima vez que se regenere build_indice.py.
+
+* Escritura, de la banda 1 a la banda 2 (M3-3): claude/build_M3_banda1.py + claude/banco_banda1_M3.py
+  -> DELEA2_curso_M3_banda1_a_banda2.html (recursos/A2/dele-curso/). Fotos: ver "FOTOS DEL TALLER DE
+  ESCRITURA". Sin audios. storageKey dele-a2-curso-M3-banda1. Mismo estilo que las otras piezas del
+  taller. Importa curso_comun.py y fotos_M3.py: las láminas de "Ahora tú" del kit y de las pautas van
+  resumidas en el banco (FUENTES_KIT, FUENTES_PAUTAS: id, nombre, tarea, trato y pautas); si se cambian
+  allí, cambiarlas aquí.
+  IDEA CENTRAL: un texto de banda 1 casi nunca está lejos del aprobado: falla por dos o tres cosas
+  concretas que se pueden ver y arreglar. Fiel a la escala oficial: 0 pautas que fallan -> 2 o 3; una ->
+  todavía 2, en el límite; dos o más -> 1. Una pauta "falla" si falta, está a medias, no se entiende o
+  contesta otra cosa.
+  LA OPERACIÓN RESCATE, siempre en este orden: 1 completa las pautas (también: contesta otra cosa,
+  describe las fotos, copia la ficha) · 2 que cada frase se entienda · 3 conectores · 4 verbos,
+  concordancias y trato (el tú/usted va aquí) · 5 cuenta las líneas.
+  Pestañas: La banda 1 (idea grande; qué es en el cumplimiento y en el uso con ejemplos; la banda 2;
+  tabla "pautas que fallan" con la escala; dos notas separadas) · Los fallos (7 tarjetas: pautas que faltan
+  o a medias, texto muy corto, frases que no se entienden, describir las fotos en presente, contestar otra
+  cosa, tú y usted mezclados, todo con "y"; ejemplo mal/bien, arreglo rápido y en qué paso se arregla;
+  imprimible) · Operación rescate (los 5 pasos con su porqué; el correo de Mila a Clara, que se va a Berlín,
+  transformado paso a paso: original de 42 pal. -> 62; botones Original + 5 pasos; "antes / después" o "ver
+  los cambios" (diferencias palabra a palabra, tachado / añadido); qué se ha hecho en cada paso; al final,
+  original al lado del rescatado con las pautas en color y "ver todos los cambios") · Rescata textos (5
+  textos de banda 1 con su lámina: Lena correo a un amigo (Óscar se muda: pauta 3 no se entiende, 4 contesta
+  otra cosa, todo con y, corto), Ahmed correo de usted (piscina: pauta 3 en inglés, 4 a medias, tú/usted),
+  Nils blog (fin de semana en Valencia: presente, todo con y, 4 a medias, 5 cuenta el pasado), Yusuf
+  biografía (Carmen Soto, maestra: ficha copiada, verbos sin conjugar, falta qué hace ahora, muy corto),
+  Chiara fotos (concierto: describe las fotos en presente, frase rota, falta cómo se sintió, muy corto);
+  1. diagnóstico con 7 casillas (pautas, tipo de texto, se entiende, conectores, verbos/concordancias,
+  tú/usted, muy corto) y comprobación con la explicación de cada fallo y su paso; 2. rescate: caza las
+  frases con fallos (cada una con su corrección, su paso y su porqué) y, si falta una pauta, elegir la frase
+  que la completa; 3. banda 2: original (fallos subrayados, "falta: pauta N") al lado del rescatado (pautas en
+  color, frase añadida con borde), cambios palabra a palabra y la lección) · Ejercicios ("¿Banda 1 o banda
+  2?" 8 de 11 con el porqué, honesto con la escala: una pauta a medias = banda 2 en el límite; "¿Se
+  entiende?" 8 con tres versiones; "Completa la pauta" 6 textos con hueco: elegir o escribir la propia frase
+  y compararla con la nuestra) · Ahora tú (texto del kit (5) o de las pautas (4) o de los historiales de la
+  revisión final y de los textos modelo, del mismo navegador, o pegar otro; operación rescate en el orden
+  fijo, un paso cada vez con su guía, el texto editable y casillas "lo que he arreglado"; al final antes /
+  después con líneas a ojo y cambios palabra a palabra; se guardan los 6 últimos) · Tu opinión (5 preguntas:
+  qué fallo te pasa más, ¿sirve el orden fijo?, qué paso cuesta, qué has descubierto / falta algo, control
+  1-10).
+  COPIAR: por cada texto, diagnóstico (visto / se ha escapado / marcado sin fallo), caza y completar;
+  ejercicios y las frases propias de "Completa la pauta"; cada texto de "Ahora tú" ANTES y DESPUÉS con lo
+  arreglado en cada paso.
+  El build comprueba: 5 pasos en el orden fijo; en la demo, que cada etapa cambia algo, que la versión
+  final es la última etapa, tiene todas las pautas, 60-70 palabras y el original es corto; en los textos
+  para rescatar: palabras de la versión rescatada dentro del límite, una frase para cada pauta, que en el
+  original fallan al menos dos pautas o hay frases que no se entienden, tú/usted coherente en la versión
+  rescatada (y nada de usted en la tarea 2), que el original de un fallo de trato mezcla de verdad, cada
+  corrección distinta del original y con explicación, y que "diag" explica justo los fallos que tiene el
+  texto ("muy corto" = 6 palabras o más por debajo del mínimo). Para cambiar contenidos: solo
+  banco_banda1_M3.py.
+  Indice: marcar M3-3 como "listo" la próxima vez que se regenere build_indice.py.
+
+* FOTOS DEL TALLER DE ESCRITURA (12/10): las láminas "con fotos" (texto con fotos y biografía con
+  fotos) de las cinco piezas M3 llevan IMÁGENES DE VERDAD, como en el examen, en vez de recuadros.
+  UN TRÍPTICO POR LÁMINA (María, 12/10), como Uxx_escrita.jpg de los simulacros: una sola imagen
+  (nombre propio, ver abajo), formato 3:1, con tres paneles cuadrados iguales separados por una línea blanca fina.
+  Al generar las tres fotos a la vez, la persona sale igual en las tres.
+  PIEZA COMÚN: claude/fotos_M3.py. MES_WP = "2026/10" (carpeta del mes de WordPress, como en
+  banco_fotos_T2.py), ANCHO 1600 px / KB 90 (nombres.txt), ESTILO + TRIPTICO + NO_IA (prompts),
+  fotos_html(), CSS y check(). Los cinco builds la importan.
+  CÓMO SE VE: en el ordenador, el tríptico entero con las etiquetas "Foto 1, 2, 3"; en el móvil (760 px o
+  menos), cada tercio recortado de la misma imagen, uno debajo de otro, con su etiqueta; al imprimir, el
+  tríptico entero; si la imagen no carga, se ve la lista de descripciones (clase .ftno).
+  ESTILO (María, 12/10): que NO parezcan de IA: foto normal hecha con el móvil, luz plana y suave,
+  SIN HDR NI CONTRASTE, colores apagados, algo de grano, piel y ropa normales, poses y posturas
+  naturales, nadie posa ni mira a la cámara; composición sencilla del examen (persona grande, una
+  acción, sitio fácil de reconocer, fondo normal, todo enfocado), sin texto legible. NO_IA al
+  final del prompt: "Avoid: HDR, high contrast, oversharpening, glossy or airbrushed skin...".
+  EN EL BANCO, cada lámina con fotos lleva: "photos" (descripción en español = texto alternativo y lo
+  que se ve sin imagen), "img" (nombre fijo que dice qué foto es, M3_NN_bio_quien_que o M3_NN_dia_que,
+  p. ej. M3_01_bio_rosa_cocinera.jpg: NN = número de orden; María, 13/10), "rotulo" (para nombres.txt: qué lámina
+  es y qué se ve en cada panel, "1 ..., 2 ..., 3 ...", sin tildes), "persona" (inglés: la
+  MISMA persona en los tres paneles; en las biografías, la misma a distintas edades, con rasgos fijos)
+  y "escenas" (inglés: una por panel). Prompt = ESTILO + TRIPTICO + persona + "Panel 1 (left)... Panel 2
+  (middle)... Panel 3 (right)..." + NO_IA.
+  check() en cada build: 3 fotos, nombre fijo, persona, una escena por panel, texto alternativo, que
+  ninguna escena pida posar (mirar o sonreír a la cámara) y que el prompt diga "3:1", "no HDR" y "no
+  readable text". Personas variadas entre láminas (edades, orígenes, situaciones).
+  14 TRÍPTICOS (42 fotos; una sola imagen aunque la lámina salga en varias piezas):
+  01 bio_rosa_cocinera (kit) · 02 bio_tomas_biologo (kit, revisión, modelos) · 03 dia_mudanza_hermano (kit) ·
+  04 dia_curso_cocina (kit, revisión, modelos) · 05 bio_lucia_pintora (pautas) · 06 dia_concierto_apagon
+  (pautas) · 07 dia_boda_prima (pautas, revisión, modelos) · 08 dia_parque_atracciones (revisión) ·
+  09 bio_marta_guia_montana, 10 dia_nieve_familia, 11 bio_pedro_cartero, 12 dia_cena_amigos (modelos) ·
+  13 bio_carmen_maestra, 14 dia_concierto_lluvia (banda 1). Una lámina nueva: el número siguiente (15...).
+  claude/build_M3_fotos.py -> M3_prompts_imagenes.txt (un prompt por tríptico, en el orden de nombres.txt),
+  nombres.txt (CARPETA DELE_A2_curso; una línea por lámina: "M3_01_bio_rosa_cocinera | 1600 | 90 |
+  Biografia Rosa cocinera: 1 chica saca pan del horno, 2 ..., 3 ..."; el rótulo del banco) y M3_laminas_fotos.txt. Si la herramienta no da 3:1: el formato más ancho y recortar a
+  3:1 dejando tres tercios iguales (el móvil recorta cada tercio).
+  Para añadir una lámina con fotos: rellenar photos/img/rotulo/persona/escenas en su banco y volver a ejecutar
+  su build y build_M3_fotos.py.
+  ENTREGADO 12/10 (versión tríptico, sustituye a la de 42 fotos sueltas): los cinco HTML regenerados (ya
+  con la regla matizada; HAY QUE SUBIR LOS CINCO a recursos/A2/dele-curso/), M3_prompts_imagenes.txt y
+  nombres.txt (13/10: con los nombres nuevos que dicen qué foto es; los HTML y el nombres.txt anteriores
+  ya no sirven). PENDIENTE (María): generar los 14 trípticos, pasarlos por "Imagen DELE" y subirlos a
+  WordPress, Medios, carpeta 2026/10 (si el mes de subida cambia, cambiar MES_WP en fotos_M3.py y
+  regenerar los cinco HTML).
+
+* Oral, qué hacer si me bloqueo (M4, 12/10): claude/build_M4_bloqueo.py + claude/banco_bloqueo_M4.py
+  -> DELEA2_curso_M4_bloqueo.html (recursos/A2/dele-curso/). Sin imágenes nuevas ni audios (en "Ahora
+  tú" usa las fotos de la tarea 2 que ya están en WordPress, M4T2_fotoN.jpg, carpeta MES_WP_T2 = "2026/10"
+  en el banco; si no cargan, se ve la descripción). storageKey dele-a2-curso-M4-bloqueo. Mismo estilo y
+  motor que las otras piezas del taller oral (reloj, grabación que se queda en el navegador, modo
+  concentración). La oral no se corrige con IA: la corrige María.
+  IDEA CENTRAL: en la oral, quedarse callado es lo peor que puede pasar; siempre hay algo que decir,
+  aunque no sepas una palabra o no entiendas al examinador. Regla de los cinco segundos.
+  Pestañas: Por qué importa (bloqueo -> frase de rescate -> sigo; cuatro tarjetas fieles a la escala
+  oficial de la Guía: te quedas callado (banda 0: «pausas o silencios prolongados y frecuentes»; pauta sin
+  responder), el examinador te ayuda todo el tiempo (una ayuda cabe en la banda 2; ayuda constante =
+  banda 1), contestas solo sí/no en la T3 (banda 1 de cumplimiento: «responde brevemente»), lees las
+  notas (la Guía permite consultarlas; leer frases rompe el discurso «razonablemente continuo»); tabla de
+  las bandas 0-3 sobre pausas y ayuda en sencillo; "lo que sí puedes hacer sin miedo"; qué valora el
+  examinador cuando te bloqueas y sigues) · Las frases (seis situaciones, cada una con cuándo pasa, qué
+  haces, frases en columnas "sirven siempre / con un amigo (tú) / examinador, tienda (usted)", ejemplos
+  cortos con la frase de rescate en color y un truco: no sé una palabra; no entiendo al examinador;
+  necesito pensar; me he equivocado; me quedo en blanco (monólogo o foto: vuelve a la lámina, a las notas
+  o a las seis preguntas); no sé qué contestar en el diálogo (responde + añade + devuelve la pregunta);
+  tabla tú/usted; TARJETA DE RESCATE imprimible (una hoja) e imprimir la página) · ¿Qué dices? (8 de 16
+  situaciones, al menos una de cada tipo, con tres respuestas y el porqué; chips de situación, tarea y
+  trato; al terminar, enlaces a las situaciones falladas) · Describe la palabra (8 de 16 palabras A2 que
+  "no te salen": paraguas, llave, cartera, cargador, maleta, horno, toalla, despertador, bufanda, tijeras,
+  frigorífico, recepcionista, andén, aparcar, devolver, sacacorchos; contexto de la tarea, tres
+  descripciones (la buena y dos malas: en otra lengua / demasiado vaga / describe otra cosa, con su
+  porqué); "Ahora tú": escribir la propia descripción (aviso si dice la palabra) o grabarla) · Entrenador
+  (tarjetas a ritmo fijo: palabras para explicar sin decirlas, preguntas del examinador de tú o de usted,
+  frases difíciles a propósito con la aclaración que aparece al 40 % (percance, te pilla, bote...),
+  frases con un error para corregirse en voz alta, "te quedas en blanco"; opciones: todo mezclado / solo
+  palabras / preguntas; tú, usted o los dos; 1:30, 2:00 o 3:00; una tarjeta cada 15, 20 o 25 s; silencio
+  máximo 3, 5 o 7 s; CON EL MICRÓFONO CUENTA LOS SILENCIOS: 3 s de calibración del ruido de la habitación,
+  barra de silencio y aviso rojo "¡Habla!" al pasar el límite; solo mide si hay voz, el sonido no sale del
+  navegador ni se analiza con IA; sin micrófono, el estudiante dice cuántas veces se ha callado;
+  grabación opcional; resultado: silencios largos, el más largo, % del tiempo con voz, historial y
+  autorrevisión) · Ahora tú (las láminas de las otras tres piezas del taller oral, resumidas en el banco:
+  FUENTES_T1 (20 temas), FUENTES_T2 (12 fotos con sus palabras), FUENTES_T3 (12 situaciones con trato);
+  lee del mismo navegador el historial y las notas de dele-a2-curso-M4-T1/-T2/-T3: las láminas
+  practicadas salen primero, en verde, y las notas se ven en cada pauta; la tarea entera con reloj
+  (T1/T2 2:00-3:00, T3 3:00-4:00), la lámina al lado marcando la pauta o pregunta actual y 2, 3 o 5
+  bloqueos en pautas al azar (T1: palabra, pregunta del examinador, error, en blanco; T2: palabras de esa
+  foto, pregunta, en blanco, error; T3: no entiendes, pequeño problema (con la segunda opción de las
+  notas), no sabes qué contestar, palabra), con las frases de rescate en el trato de la lámina; mismos
+  silencios, grabación e historial) · Tu opinión (5 preguntas: qué me pasa más, ¿te ha ayudado el
+  entrenador?, la frase que usaré primero, falta / no he entendido, control 1-10).
+  COPIAR: ¿Qué dices? y Describe la palabra (mejor y último), las descripciones propias, cada práctica
+  del entrenador y de "Ahora tú" (fecha, tiempo, lámina, silencios largos y el más largo o lo que dice el
+  estudiante) y las respuestas. Las grabaciones no se copian (el estudiante se las envía a María).
+  El build comprueba: seis situaciones con frases y ejemplos (frase de rescate marcada con {{ }}); TÚ/USTED
+  COHERENTE como en la tarea 3: frases de tú sin marcas de usted y al revés, frases "para los dos" y
+  respuestas de monólogo sin ninguna de las dos, ejemplos (candidato y examinador), tabla, tarjeta, la
+  respuesta buena de cada pregunta de ¿Qué dices? según su trato, preguntas del entrenador, frases
+  difíciles y su aclaración, citas de los sucesos de la T3 (las acotaciones entre paréntesis no cuentan);
+  al menos dos preguntas por situación; que la descripción buena no dice la palabra; tipo de fallo de cada
+  descripción mala; 20 + 12 + 12 láminas con 5 pautas (T1, T3) y que el trato de cada situación de la T3
+  va con el examinador. Para cambiar contenidos: solo banco_bloqueo_M4.py (si cambian las láminas de las
+  otras piezas, cambiar también FUENTES_T1/T2/T3 aquí).
+  Índice: marcar "Qué hacer si me bloqueo" como "listo" la próxima vez que se regenere build_indice.py.
+
+* MATIZADA LA REGLA DE LA PAUTA QUE FALTA (12/10, pendiente desde M3-5): el kit (M3-1, regla 1 de "Tres
+  reglas para aprobar"), las pautas (M3-2: el recuadro de la regla, el párrafo de Max y la nota del texto B
+  en banco_pautas_M3.py), la regla de oro 7 del Módulo 0 (build_M0.py) y la del plan (apartado 6, y la
+  "consecuencia práctica" del 1.1) dicen ahora lo mismo que la escala oficial y que M3-3 y M3-5: un texto
+  sencillo y completo aprueba; si falta una pauta, te quedas en el límite (ya no puede ser 3); si faltan
+  dos (o una falta y otra está a medias), banda 1. Regenerados y comprobados (mismas palabras y
+  comprobaciones que antes): DELEA2_curso_M3_kit_frases.html, DELEA2_curso_M3_pautas.html y
+  DELEA2_curso_M0_conoce_el_examen.html (HAY QUE SUBIR LOS TRES). El kit y las pautas se han vuelto a
+  regenerar después con los trípticos: vale la versión de los cinco HTML de las fotos (ver arriba).
+
+HECHO (12/10/2026, noche)
+* Ficha de remedio R01 "Los pasados y las preguntas": claude/build_R01_pasados.py +
+  claude/banco_R01_pasados.py -> DELEA2_curso_R01_pasados.html (recursos/A2/dele-curso/).
+  Sin imágenes ni audios. storageKey dele-a2-curso-R01. Importa curso_comun.py.
+  DECIDIDO CON MARÍA (12/10): entran los TRES pasados; núcleo imperfecto / indefinido con gramática
+  cognitiva (la idea de su píldora de 2ST: imperfecto = la acción DESDE DENTRO, en proceso, sin ver el final;
+  indefinido = DESDE FUERA, entera, con su final) y el perfecto como "LA VENTANA DE AHORA" (hoy, este
+  año, alguna vez, nunca, ya). "Las preguntas" = PREGUNTAS EN PASADO: la pregunta te da el tiempo y
+  contestas con el mismo; el salto de la ventana abierta a la fecha (¿Has estado? -> Sí, estuve en
+  2022); de la pauta "pregúntale..." a la pregunta directa (tú/usted). Español de España (nota: en
+  América también "hoy fui"; en el examen valen las dos; ayer + perfecto nunca).
+  Colores de los tiempos (propios de esta ficha): imperfecto ámbar, indefinido coral, perfecto turquesa.
+  Pestañas: La idea (tres tarjetas dentro / fuera / ventana; parejas con DIAGRAMA SVG:
+  cruzar la calle y el semáforo, tender la ropa y la lluvia, aparcar y el perro, salir del trabajo y la
+  llamada, Lucía hablaba / habló por teléfono; el truco del cuando (durante / después) y mientras; ¿era o fue?; la ventana de
+  ahora en SVG; nota España/América; "Imprimir el resumen", una sección oculta que solo sale al
+  imprimir) · Contar una historia (ruta en bici con un pinchazo, con botones "toda / solo las acciones / solo
+  el decorado"; marcadores en tres columnas; "durar mucho no es imperfecto"; iba a + infinitivo (cena con
+  Carla y el autobús perdido); dónde sale en el examen) · Las preguntas (tabla pregunta -> respuesta
+  con el mismo tiempo; el salto; cómo se hace una buena pregunta: ¿?, tildes, orden, preguntas cortas,
+  tú/usted; de la pauta a la pregunta; ejercicios: ¿Qué tiempo pide? 8 de 12, Completa la pregunta 10 de
+  16 (preguntas personales), Haz la pregunta 7 de 9) · Practica (¿Proceso o fin? 8 de 10;
+  Elige el pasado: 4 textos con huecos = correo de Lucas, blog "Mi primer día en Alicante", biografía de
+  Inés Navarro, monólogo "Mis mejores vacaciones"; Antes, ahora y el cambio: 7 frases (café x2, coche,
+  carne, mar, vivir con los padres, fútbol); ¿Bien o mal? 8 de 12 errores típicos) · Ahora tú (Escritura: lámina T1 correo a Lola (con dos
+  preguntas) o T2 blog "un día que no salió como pensabas", cada pauta con su tiempo; "Revisar mis
+  pasados": detector de palabras de tiempo sobre el texto sin tildes: aviso ROJO si un momento cerrado
+  (ayer, el sábado pasado, en 2019...) va con perfecto, ámbar si hoy/este año/alguna vez va sin perfecto,
+  recuerdos para de niño/siempre/mientras; comprueba ¿ ? y el número de preguntas; no corrige el texto;
+  lista de los pasados con casillas. Oral: 12 preguntas en cadena: eliges la forma del verbo y contestas
+  en voz alta 30 s con escalones responde / detalle / ¿Y tú?, respuesta modelo con los verbos en color)
+  · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem (opción múltiple y huecos; en los huecos se puede volver a probar y
+  se guarda el primer intento). Opciones barajadas.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido ->
+  bueno), tarjetas orales hechas y LOS TEXTOS DE LA ESCRITURA con su lámina (para el corrector de María).
+  El build comprueba: marcas [f:] [i:] [v:] bien cerradas; en las parejas, imperfecto en a e indefinido
+  en b; en la historia, acciones con indefinido y decorado solo con imperfecto; el salto de perfecto a
+  indefinido; huecos con 3 opciones distintas y motivo conocido; que los textos trabajan los tres tiempos;
+  antes-ahora con dos huecos y el primero de costumbre; un solo ____ por pregunta; ¿ y ? compensados;
+  explicación en cada ítem; bien/mal con corrección solo en las malas; 5 pautas por lámina; regex del
+  detector. Para cambiar contenidos: solo banco_R01_pasados.py.
+  EJEMPLOS PROPIOS (María, 13/10): sus estudiantes antiguos pueden tener los PDF de la píldora de 2ST
+  (contraste imperfecto/indefinido) y las fichas de AIL ("Quiero conocerte mejor", "La historia de mi vida",
+  "Nos vamos de vacaciones"). Se mantiene la estructura y la forma, pero NINGÚN ejemplo sale de esos PDF
+  (cambiados el 13/10: las parejas, mi tío era/fue -> mi vecino, el ejemplo de iba a, los temas de "4
+  tiempos, 2 frases", cinco preguntas de "Quiero conocerte mejor", tarjetas orales y la historia de la playa,
+  que se parecía a la de Andrea). Regla para las próximas fichas: inspirarse en sus materiales, nunca copiar
+  sus ejemplos.
+  Probado: ASCII puro, node --check, simulación completa en jsdom (todas las pestañas y ejercicios, la
+  revisión de la escritura y Copiar) y capturas en Chromium (ordenador y móvil).
+  Índice y corrector: ver la nota de R02 (abajo).
+
+HECHO (14/10/2026)
+* Ficha de remedio R02 "Hay, está y es": claude/build_R02_hay_esta_es.py +
+  claude/banco_R02_hay_esta_es.py -> DELEA2_curso_R02_hay_esta_es.html (recursos/A2/dele-curso/).
+  Sin imágenes nuevas ni audios (en "Ahora tú" oral usa las fotos 7-12 de la tarea 2 que ya están en
+  WordPress, M4T2_fotoN.jpg, MES_WP_T2 = "2026/10" en el banco; si no cargan, se ve la descripción).
+  storageKey dele-a2-curso-R02. Importa curso_comun.py. Mismo formato y motor que la R01.
+  ENFOQUE COGNITIVO (aprobado por María, 13/10): pensar en LA OTRA PERSONA. HAY presenta algo NUEVO para
+  el que escucha (un/una/unos, sin artículo, números, mucho, poco, algún, qué); ESTÁ sitúa algo que LOS DOS
+  YA CONOCEN, solo falta dónde (el/la, mi/tu, este, nombres propios, ¿dónde?); ES = dónde (o cuándo) PASA
+  un evento (fiesta, boda, concierto, reunión, examen, comida). LA CADENA: primero hay (presentas), después
+  está (sitúas). Ser/estar en general queda para la R03.
+  Colores propios de esta ficha: hay violeta, está azul, es turquesa. Marcas del banco: [h:] [e:] [s:].
+  Pestañas: La idea (tres tarjetas presenta / sitúa / evento con un dibujo SVG sencillo cada una: dos
+  cabezas con bocadillos, el del otro vacío y con "+" para hay, los dos con la misma cosa y una chincheta
+  para está, un cartel con reloj y chincheta para es; "Mira la diferencia": 5 parejas (una panadería, un
+  cajero, un perro en la foto, dos sofás, la fiesta / la casa de Nuria) con DIAGRAMA SVG grande y
+  explicación; "Lo que va detrás" en tres columnas; la cadena con tres ejemplos; cuatro avisos: hay no
+  cambia, está sí cambia, ¿dónde es? / ¿dónde está?, hay también con eventos; "Imprimir el resumen") · En
+  el examen (dónde sale: oral T2 (la pregunta 2 de la lámina: ¿Dónde están? ¿Qué objetos hay?), oral T1,
+  escritura T1 (piso, indicaciones, invitación), escritura T2 (mi barrio), lectura T2 (anuncios); los 6
+  errores típicos con su porqué: *está un parque, *hay el museo, *la fiesta está en mi casa, *hay mi
+  hermano, *están muchos turistas, *han dos sofás; truco: el lugar delante + hay) · Practica (¿Hay, está o
+  es? 8 de 14; ¿Qué va detrás? 8 de 10; Textos del examen con huecos: anuncio de una habitación en piso
+  compartido, correo "Cómo llegar a mi casa", descripción de la foto "En el mercado", revista "Mi barrio"
+  (28 huecos); ¿Bien o mal? 8 de 12) · Ahora tú (Escritura: lámina T1 correo a Héctor sobre el piso nuevo o
+  T2 revista "Mi barrio", cada pauta con el verbo que pide; "Revisar hay / está / es": DETECTOR DE
+  ERRORES TÍPICOS sobre el texto sin tildes: ROJO está/están + un/una/número/muchos... (no salta con "está
+  un poco"), hay + el/la/mi/este..., evento + está en (fiesta, concierto, boda, reunión, cumpleaños...),
+  han + un/dos/muchos; ÁMBAR hay + palabra con mayúscula (¿nombre propio?); avisa si la lámina pide el
+  evento y no hay "es en / es a las", y si no se usa hay; cuenta hay / está / es; no corrige el texto;
+  lista de revisión con casillas. Oral: "Describe una foto" con las fotos 7-12: preparación con las
+  palabras de lugar, 1 min "qué hay" + 1 min "dónde está" con reloj y escalones a 0/20/40 s, autorrevisión
+  (5 puntos) y descripción modelo hay + está marcada) · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem, con el porqué; en los huecos, el motivo con el verbo en color y se
+  guarda el primer intento.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido ->
+  bueno), fotos hechas con la autorrevisión y LOS TEXTOS DE LA ESCRITURA con su lámina y lo que ha
+  encontrado el detector (para el corrector de María).
+  El build comprueba: marcas [h:] [e:] [s:] bien cerradas y con una forma de su verbo; en las parejas,
+  cada frase con su verbo y los tres verbos entre todas; ejemplos de "lo que va detrás" con su verbo; la
+  cadena empieza con hay; los cuatro errores típicos pedidos están; huecos con 3 opciones distintas, motivo
+  conocido y la buena del verbo que dice su motivo; los textos trabajan los tres verbos; opciones de
+  "¿Hay, está o es?" = hay / está(n) / es(son); un solo ____ por pregunta; explicación en cada ítem;
+  bien/mal con corrección solo en las malas; 5 pautas por lámina; regex del detector y 11 PRUEBAS
+  (frases con el resultado esperado, también "está un poco lejos", "la cena está muy buena", "hay que");
+  fotos solo 7-12, modelo de hay solo con hay (empieza con "En la foto hay") y modelo de está solo con está.
+  Para cambiar contenidos: solo banco_R02_hay_esta_es.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María ni de los anuncios y textos de vivienda de la U04.
+  Probado: ASCII puro, node --check, simulación completa en jsdom (todas las pestañas, los cuatro
+  ejercicios, los cuatro textos, el detector en el navegador con los mismos resultados que en Python, la
+  foto con y sin imagen y Copiar) y capturas en Chromium (ordenador y móvil).
+
+* Ficha de remedio R04 "Concordancia y posesivos" (14/10, madrugada): claude/build_R04_concordancia_posesivos.py +
+  claude/banco_R04_concordancia_posesivos.py -> DELEA2_curso_R04_concordancia_posesivos.html
+  (recursos/A2/dele-curso/). Sin imágenes nuevas ni audios (en "Ahora tú" oral usa las fotos 7-12 de la
+  tarea 2 que ya están en WordPress, M4T2_fotoN.jpg, MES_WP_T2 = "2026/10" en el banco; si no cargan, se ve
+  la descripción). storageKey dele-a2-curso-R04. Importa curso_comun.py. Mismo formato y motor que R01 y R02.
+  ENFOQUE COGNITIVO (aprobado por María, 14/10): 1) EL NOMBRE MANDA: es el CAPITÁN del equipo y lleva una
+  CAMISETA con dos datos (masculino o femenino; uno o varios); todo lo que va con él (artículo, este, mi,
+  nuestro, mucho/poco, adjetivos) se pone la misma camiseta; un error = alguien con la camiseta de otro.
+  2) EL POSESIVO MIRA A LA COSA: dos preguntas, ¿de quién? elige la palabra (mi, tu, su, nuestr-, vuestr-) y
+  ¿qué cosa? le pone la camiseta (nuestra casa, sus hijos). 3) Tónicos (el mío, la tuya): el nombre se va,
+  pero su camiseta se queda.
+  DIBUJOS (SVG): camisetas con "masc./fem." y "uno/varios" (varios = dos camisetas, una detrás de otra),
+  el capitán con brazalete "C", hilo discontinuo que une al equipo; la palabra que falla en rojo con "otra
+  camiseta". Colores propios de esta ficha: masculino turquesa, femenino violeta (nada de azul/rosa),
+  posesivo (la palabra del dueño) azul; plural = subrayado doble. Marcas del banco: grupos [ms:...] [fs:...]
+  [mp:...] [fp:...] con ^ delante del nombre (el capitán); un grupo puede ir sin nombre ([fs:mía],
+  [ms:el tuyo], adjetivo después de ser).
+  Pestañas: La idea (tres tarjetas el capitán / el equipo / el posesivo mira a la cosa; leyenda de colores;
+  "Mira el equipo": 6 equipos (mis amigos españoles, nuestra casa nueva, unas chicas simpáticas, un problema
+  pequeño, mucha gente joven, esta foto antigua), cada uno con la frase buena y la frase con error, el
+  dibujo de las camisetas y la explicación; "¿Quién se pone la camiseta?" en tres columnas (cambian en
+  género y número / solo en número: mi, mis, adjetivos en -e y en consonante / no cambian: muy, números, de
+  + nombre); cómo se hace el plural (-s, -es, -ces); "Capitanes que engañan" (masculinos con -a: problema,
+  día, mapa, idioma, tema, sofá; femeninos con -o: mano, foto, moto, radio; la gente; el agua fría; sin -o
+  ni -a: apréndelo con su artículo); el truco: mira hacia atrás y busca al capitán; "Imprimir el resumen")
+  · Los posesivos (dibujo "dos preguntas": nosotros + una casa -> nuestr|a casa; CONSTRUCTOR: eliges el
+  dueño (6) y la cosa (piso, casa, pisos, casas, hermano...) y sale el posesivo con la raíz en azul y el
+  final con el color de la cosa, la forma sin nombre (la nuestra) y después de ser (es nuestra / son
+  nuestras), con el porqué; tabla de todos los posesivos con la columna "sin nombre detrás"; LA TRAMPA DE
+  SU Y SUS: Ana y Luis -> su casa, Pedro -> sus hijos, mis abuelos -> sus amigos, Marta -> su bicicleta,
+  con dibujo personas -> camisetas: "cuenta las cosas, no las personas"; sin nombre detrás: 4 parejas con
+  el nombre / sin el nombre; nota: me duele la cabeza, no "mi cabeza") · En el examen (oral T2 pregunta 1:
+  cómo son y qué ropa llevan; oral T1 una persona de mi familia / importante; escritura T1 presentar a la
+  familia, el piso; escritura T2 biografía; lectura T3 "su hermana"; los 8 errores típicos con su porqué:
+  *mis amigo, *la problema, *las gente son, *nuestro casa, *su hijos, *unas chicas simpático, *mucho
+  personas, *mi madre es alto y tiene el pelo rubia; tip: es la pasada 5 de la revisión final) · Practica
+  (¿Qué camiseta lleva? 8 de 14; Los posesivos 8 de 12 (también tónicos y "mi / mis" con dos huecos);
+  Textos del examen con huecos: foto "En la terraza", correo "Te presento a mi familia", biografía "Carmen
+  Vidal, fotógrafa", correo "Nuestro piso nuevo" (37 huecos; motivos en dos familias: el nombre manda /
+  el posesivo mira a la cosa); ¿Bien o mal? 8 de 12) · Ahora tú (Escritura: lámina T1 correo a Clara "te
+  presento a mi familia" o T2 revista "una persona importante en mi vida", cada pauta con su foco
+  (concordancia / posesivos); "Revisar concordancia y posesivos": DETECTOR DE ERRORES TÍPICOS sobre el texto
+  sin tildes: ROJO mis/tus/sus/nuestros + nombre sin -s (no salta con números: mis dos, mis cuatro), mi/su/
+  nuestro + nombre en -s (no salta con cumpleaños, país, paraguas, lunes...; "tu" no, por "tú vas"),
+  la/una + problema/día/idioma/tema..., el/un + mano/foto/moto, las/muchas + gente y "gente son", mucho/poco
+  + plural (no salta con "mucho más", "mucho todos los días"), muchos/unos + nombre femenino (personas,
+  veces, cosas...), nuestro + nombre en -a y nuestra + nombre en -o (con las excepciones que engañan); ÁMBAR
+  adjetivo con la otra camiseta (una camiseta blanco), madre es alto / padre es baja, varios + adjetivo
+  sin -s; avisa si la lámina pide posesivos y casi no hay; cuenta los posesivos; no corrige el texto; lista
+  de revisión con casillas. Oral: "describe a las personas" con las fotos 7-12: 1 min "¿cómo son?" + 1 min
+  "¿qué ropa llevan?" con reloj, escalones a 0/20/40 s y palabras útiles; autorrevisión (5 puntos) y dos
+  descripciones modelo con los equipos en color) · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem, con el porqué; en los huecos, el motivo con su familia en color y se
+  guarda el primer intento.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido ->
+  bueno), fotos hechas con la autorrevisión y LOS TEXTOS DE LA ESCRITURA con su lámina y lo que ha
+  encontrado el detector (avisos rojos y ámbar, posesivos, palabras), para el corrector de María.
+  El build comprueba: grupos bien cerrados y con su camiseta (tabla de artículos, demostrativos, posesivos,
+  mucho/poco/otro/todo; adjetivos en -o/-a con el género del grupo; -s en los de varios y no en los de uno,
+  con excepciones como gris o paraguas; "el agua" como femenino; un solo capitán por grupo); en los equipos,
+  una sola frase buena, un capitán en la mala y al menos una palabra con otra camiseta; su/sus con los dos
+  casos (dos dueños y una cosa; un dueño y varias); los tónicos llevan la camiseta del nombre y no llevan
+  nombre; los 7 errores típicos pedidos están; huecos con 3 opciones distintas, motivo conocido, la buena de
+  los motivos de posesivo es un posesivo, las dos familias y los motivos principales usados; 3 opciones
+  distintas en los ítems; explicación en cada ítem; bien/mal con corrección solo en las malas y los 7 errores;
+  5 pautas por lámina; regex del detector sin tildes y sin cosas que no funcionen igual en el navegador;
+  27 PRUEBAS del detector (10 que no deben saltar: mis dos hermanos, mi cumpleaños, su país, el día, la foto,
+  mucha gente, mucho más, nuestro problema, tú vas, mucho todos los días...) y una prueba con cada error
+  típico; fotos solo 7-12, modelos con al menos 5 grupos, "cómo son" empieza con "En la foto hay" y el de la
+  ropa usa "lleva". Comprobado también rompiendo el banco a propósito (las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R04_concordancia_posesivos.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María.
+  Probado: ASCII puro, node --check, simulación completa en jsdom (todas las pestañas, los 6 equipos, el
+  constructor con todos los dueños y cosas, los tres ejercicios, los cuatro textos resueltos hueco a hueco,
+  el detector en el navegador con los mismos resultados que en Python en las 27 pruebas, la revisión de la
+  escritura, la foto y Copiar) y capturas en Chromium (ordenador y móvil).
+
+HECHO (14/10/2026, noche)
+* Ficha de remedio R05 "Muy y mucho, también y tampoco": claude/build_R05_muy_mucho.py +
+  claude/banco_R05_muy_mucho.py -> DELEA2_curso_R05_muy_mucho_tambien_tampoco.html (recursos/A2/dele-curso/).
+  Sin imágenes nuevas ni audios (en "Ahora tú", "Oral: la foto" usa las fotos 7-12 de la tarea 2 que ya están
+  en WordPress, M4T2_fotoN.jpg, MES_WP_T2 = "2026/10" en el banco; si no cargan, se ve la descripción).
+  storageKey dele-a2-curso-R05. Importa curso_comun.py. Mismo formato y motor que R01, R02 y R04.
+  ENFOQUE COGNITIVO (aprobado por María, 14/10): una pregunta para cada palabra: ¿CÓMO? -> MUY, ¿CUÁNTO? ->
+  MUCHO, y mirar la palabra de al lado. 1) MUY = EL BOTÓN DEL VOLUMEN: sube la intensidad de un adjetivo o
+  de un adverbio y no se viste nunca; no se sube dos veces (*muy mucho -> muchísimo) y no se queda solo
+  (*sí, muy). 2) MUCHO = LA CANTIDAD (un montón): delante de un nombre se pone su camiseta (enlaza con la
+  R04); detrás del verbo no cambia; más / menos / mejor / peor ya comparan -> mucho mejor. 3) TAMBIÉN /
+  TAMPOCO = EL ECO: ¿qué dice el otro, + o -? ¿repito (también / tampoco) o cambio (no / sí)? ¿Yo o a mí?
+  lo decide el verbo (gustar y sus amigos -> a mí); tampoco ya es un no.
+  Colores propios de esta ficha: muy ámbar, mucho turquesa, también/tampoco azul, sí/no coral. Marcas del
+  banco: [m:muy ...] [c:mucho ...] [t:también/tampoco] [x:sí/no].
+  Pestañas: Muy y mucho (tres tarjetas el volumen / la cantidad / el eco con dibujo; leyenda; "Mira la
+  diferencia": 6 parejas muy / mucho (el frío, cansada, la playa, la plaza, el pueblo, hablar español) con
+  DIAGRAMA SVG de cada frase: barra de volumen con el botón "muy"; montón + camiseta para mucho + nombre;
+  verbo + contador para verbo + mucho; dos barras antes/ahora para mucho mejor; "¿Qué va al lado?" en 5
+  cajas; el truco; "Cuidado con...": muy mucho, muy solo, hace frío / tengo hambre (son nombres), muy mayor
+  sí existe, poco funciona igual; "Imprimir el resumen") · También y tampoco (EL CUADRO DEL ECO en SVG: + / -
+  x repito / cambio; CONSTRUCTOR: 8 frases + "pienso lo mismo / lo contrario" -> el cuadro con la casilla
+  marcada, la respuesta corta en color, la larga, ¿y tú? / ¿y a ti? y el porqué; ¿Yo o a mí? en dos
+  columnas; tampoco ya es un no; devuelve la pregunta) · En el examen (oral T3, T1, T2, escritura T1 y T2,
+  auditiva y lectura; los 11 errores típicos: *mucho bonita, *muy gente, *estoy mucho cansado, *me gusta
+  muy, *muy mucho, *mucho personas, *yo también no, *a mí también no me gusta, *yo tampoco me gusta,
+  *hace muy frío, *muy mejor; tip: pasada 6 de la revisión final) · Practica (¿Muy o mucho? 8 de 16; ¿Qué
+  dices tú? 8 de 12 (reacciones al examinador con yo / a mí y también / tampoco / sí / no, y tampoco en
+  frase); Textos del examen con huecos: correo "Querida Marta", blog "Mi ciudad" (Cádiz), diálogo de la T3
+  "Planes para el sábado" y foto "En el mercado" (34 huecos, motivos en tres familias: volumen / cantidad /
+  eco); ¿Bien o mal? 8 de 15) · Ahora tú (Escritura: lámina T1 correo a Nico (reaccionar a sus gustos +
+  describir tu ciudad) o T2 revista "Un lugar que me gusta mucho", cada pauta con su foco; "Revisar muy,
+  mucho, también y tampoco": DETECTOR DE ERRORES TÍPICOS sobre el texto sin tildes: ROJO muy + nombre (y
+  hace / tengo muy frío, hambre...), muy mucho, mucho + adjetivo o adverbio, gustar + muy y verbo + muy +
+  artículo, muy al final, mucho/muchos + nombre femenino, mucho + nombre en plural, muy más / mejor,
+  también no / tampoco no, yo (también) me gusta; ÁMBAR no ... también, "mí también" sin a, "a mí también"
+  con verbo normal; avisa si la lámina pide reaccionar, muy o mucho y no aparecen; cuenta muy, mucho y
+  reacciones; no corrige el texto; lista de revisión con casillas. Oral 1 "Reacciona": 8, 12 o 16 tarjetas
+  de 16 frases del examinador (+ / -, gustar / verbo normal), la página dice "piensas lo mismo / lo
+  contrario" (mitad y mitad), 4, 6 u 8 s para reaccionar en voz alta y 8 s para añadir un detalle o
+  devolver la pregunta, con reloj que avanza solo; respuesta modelo; autoevaluación ✓ / ✗; resultado con
+  los fallos e historial de las 6 últimas. Oral 2 "La foto": fotos 7-12, 1 min con escalones a 0/20/40 s
+  (qué hay / cómo son y están / qué hacen), palabras útiles, autorrevisión (4 puntos) y descripción modelo
+  con muy y mucho en color) · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem, con el porqué; en los huecos, el motivo con su familia en color y se
+  guarda el primer intento.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido ->
+  bueno), prácticas de "Reacciona" (fecha, aciertos, tiempo, fallos), fotos hechas con la autorrevisión y LOS
+  TEXTOS DE LA ESCRITURA con su lámina y lo que ha encontrado el detector, para el corrector de María.
+  El build comprueba: marcas [m:] [c:] [t:] [x:] bien cerradas y con su palabra; en las parejas, muy en a
+  y mucho en b, los tres sitios de mucho (nombre con camiseta, verbo, comparar); en el eco y en el oral, que
+  la respuesta larga empieza por la respuesta que sale de la regla (+/-, repito/cambio, yo/a mí) y que el
+  signo y "gustar" van con la frase; que salen los cuatro tipos de frase; los 9 errores típicos pedidos en
+  "En el examen", en ¿Bien o mal? y en las pruebas del detector; en ¿Qué dices tú?, la buena = la de la
+  regla; huecos con 3 opciones distintas, motivo conocido y la buena de la familia de su motivo (todos los
+  motivos usados); 5 pautas por lámina y una que pide reaccionar; regex del detector sin tildes ni cosas que
+  no funcionen igual en el navegador; 32 PRUEBAS (14 que no deben saltar: muy poco, me gusta muy poco,
+  mucho mejor, muchos buenos amigos, a mí tampoco me gusta, el café está muy frío, muy mayor, para mí
+  también, no sé si Ana viene también, hace mucho calor, muy pocas tiendas...), las mismas en node que en
+  Python; que el detector ve cada error típico y cada frase mala; que NADA de lo que la ficha da por bueno
+  (parejas, ejemplos, modelos, textos rellenos, reacciones, fotos) da un aviso rojo; fotos solo 7-12, modelos
+  con al menos dos muy y dos mucho; y que la opción buena de los huecos no cae siempre en el mismo sitio del
+  desplegable (ver abajo). Comprobado también rompiendo el banco a propósito (las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R05_muy_mucho.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María.
+  Probado: ASCII puro, noindex, node --check, simulación completa en Chromium (Playwright): las 6 parejas, el
+  constructor del eco con las 16 combinaciones, los tres ejercicios, los cuatro textos resueltos hueco a
+  hueco, el detector en el navegador igual que en Python en las 32 pruebas, la revisión de la escritura,
+  "Reacciona" (con el reloj que avanza solo), la foto con y sin imagen y Copiar; capturas en ordenador y
+  móvil (390 px, sin scroll lateral).
+
+HECHO (14/10/2026, mañana)
+* ARREGLADO EL FALLO DEL MOTOR DE HUECOS (encontrado el 14/10 al probar la R05): la función seeded() que
+  baraja las opciones de los desplegables (h = h*1103515245+12345; r = h % (j+1)) dejaba la opción BUENA casi
+  NUNCA en el primer lugar. Arreglo (el de la R05, una línea): h = (Math.imul(h,1103515245)+12345)>>>0;
+  r = (h>>>16) % (j+1).
+  Reparto de la opción buena (1.º / 2.º / 3.º lugar del desplegable), antes -> ahora:
+    R01: 0/29/18 -> 13/19/15 en sus 47 huecos (también el oral, que la usa para ordenar las opciones:
+         0/8/4 -> 3/6/3) · R02: 0/18/10 -> 11/11/6 (28 huecos) · R04: 0/27/10 -> 10/12/15 (37 huecos) ·
+    R05: ya estaba bien (12/11/11) · R06: nace arreglada (9/17/12).
+  Arreglados directamente los HTML que María tenía subidos (adjuntados por ella; solo cambia esa línea,
+  comprobado con diff y node --check): DELEA2_curso_R01_pasados.html, DELEA2_curso_R02_hay_esta_es.html y
+  DELEA2_curso_R04_concordancia_posesivos.html (ENTREGADOS el 14/10; HAY QUE VOLVER A SUBIR LOS TRES).
+  OJO, LOS BUILDS DEL PROYECTO (build_R01_pasados.py, build_R02_hay_esta_es.py y
+  build_R04_concordancia_posesivos.py) TODAVÍA LLEVAN LA LÍNEA ANTIGUA: en este chat no había archivos del
+  proyecto en disco y no se reescribieron a mano para no meter erratas. Herramienta para arreglarlos:
+  claude/arreglar_seeded.py (python3 arreglar_seeded.py build_R01_pasados.py build_R02_hay_esta_es.py
+  build_R04_concordancia_posesivos.py; vale también para los .html; deja igual lo que ya está bien).
+  REGLA: ANTES DE VOLVER A EJECUTAR CUALQUIERA DE ESOS TRES BUILDS, PASARLE arreglar_seeded.py (y subir el
+  build arreglado al proyecto); si no, el HTML nuevo vuelve a tener el fallo.
+  Otras piezas con desplegables: el kit (M3-1) y los textos modelo (M3-5) NO usan seeded(): barajan al azar
+  con Math.random cada vez que se abre la página, así que no tienen el fallo (tampoco la revisión, M3-4).
+
+* Ficha de remedio R06 "Preposiciones frecuentes": claude/build_R06_preposiciones.py +
+  claude/banco_R06_preposiciones.py -> DELEA2_curso_R06_preposiciones.html (recursos/A2/dele-curso/).
+  SIN IMÁGENES (ni fotos nuevas ni fotos de la oral) y sin audios: todos los dibujos son SVG del build,
+  también el plano del barrio de "Cómo se llega". storageKey dele-a2-curso-R06. Importa curso_comun.py.
+  Mismo formato y motor que R01, R02, R04 y R05 (barajado ya arreglado).
+  ENFOQUE COGNITIVO (aprobado por María, 14/10): EL MAPA DEL VIAJE. Cada preposición es una pieza de un
+  viaje dibujado en un plano, y el mismo dibujo sirve para el espacio y para el tiempo: A = LA FLECHA que
+  llega a un punto (voy a Madrid, a las cinco, veo a mi madre); EN = LA CAJA, estás dentro del sitio, del
+  vehículo o del periodo (en casa, en tren, en mayo), por eso a pie / andando (sin caja) y con = una persona;
+  DE... A / DESDE... HASTA = LA LÍNEA con principio y final, los extremos van en pareja (de solo = de dónde
+  sales o eres); POR = LA ZONA por donde pasas sin punto exacto (por el parque, por la mañana) y lo que está
+  DETRÁS (gracias por, por eso), también el camino del mensaje (por teléfono); PARA = LA DIANA, la meta
+  delante (para ti, para aprender, para el viernes). Truco: por mira hacia atrás, para mira hacia delante.
+  IDEAS TOMADAS DEL EJECUTABLE B1 DE MARÍA (0_Preposiciones_B1.html, sin copiar ejemplos): la frase que junta
+  varias piezas (aquí "Salgo de casa a las ocho y voy en bici por el parque al trabajo con Marta, para
+  llegar pronto") y el aviso "con = una persona, en = el vehículo" (de ahí viene *voy con tren).
+  Colores propios de esta ficha: a azul, en turquesa, de... a ámbar, por violeta, para coral. Marcas del
+  banco: [a:] [e:] [l:] [p:] [m:]; huecos [[buena|d1|d2#motivo]] con 17 motivos en 5 familias (flecha,
+  caja, línea, por, para); cada motivo dice qué respuestas buenas admite.
+  Pestañas: El mapa (5 tarjetas con dibujo; leyenda; la frase del viaje; "Mira la diferencia": 6 parejas con
+  DIAGRAMA SVG de cada frase (voy a / estoy en, en tren / a pie, a las diez / en octubre, a las nueve / de
+  nueve a dos, al parque / por el parque, gracias por / es para) con los seis dibujos: flecha, caja, línea,
+  zona, diana y "a pie, sin caja"; "El verbo te ayuda" (movimiento -> a, sin movimiento -> en, origen -> de,
+  con quién -> con); "Cuidado con...": con / en, al y del, casa sin artículo, los días sin nada; "MONTA TU
+  PLAN": la frase de la T3 "Quedamos {dónde} {a qué hora} y vamos {cómo} {adónde}" con 4 columnas para
+  elegir y el porqué de cada pieza; "Imprimir el resumen") · El reloj (un día dibujado en SVG: por la
+  mañana / tarde / noche como zonas, a las 8 como punto, de 9 a 2 y de 5 a 9 como líneas; 7 tarjetas: a +
+  hora, en + mes / estación / año, por + parte del día (en España nunca a / en la mañana), con la hora: de
+  la mañana, de... a / desde... hasta, para + día límite, los días sin nada; truco del horario) · Por y
+  para (dibujo: tú en el centro, por hacia atrás = camino, zona, causa; para hacia delante = persona,
+  objetivo, día límite; "Pruébalo": 8 frases y el dibujo marca hacia dónde mira) · Hace y durante (NUEVA,
+  14/10 mediodía: ver abajo) · En el examen (oral T3,
+  T1, T2, escritura T1 y T2, auditiva y lectura con horarios; los 11 errores pedidos: *voy en Madrid, *estoy
+  a casa, *voy con tren, *voy en pie, *de 9 hasta 2, *desde las 9 a las 2, *gracias para, *es por ti (=
+  para ti), *voy a clase por aprender, *a la mañana, *en la mañana; tip para la revisión final) · Practica
+  (¿Qué preposición? 8 de 16; ¿Por o para? 8 de 12; Textos del examen con huecos: correo "¿Quedamos el
+  sábado?", correo "Cómo llegar a mi casa", anuncio "Biblioteca San Blas" con horarios y diálogo de la T3
+  "Planes para el cine" (38 huecos; en las parejas de horario un extremo va fijo para que no haya dos
+  respuestas buenas); ¿Bien o mal? 8 de 16) · Ahora tú (Escritura: lámina T1 correo a Rubén para quedar el
+  sábado o T2 blog "Mi semana", cada pauta con su pieza; "Revisar las preposiciones": DETECTOR DE ERRORES
+  TÍPICOS sobre el texto sin tildes: ROJO ir/venir/llegar/volver + en + ciudad / casa / clase o + en el / la
+  + algo que no es un vehículo, estar/vivir/trabajar/quedamos + a casa / a ciudad / al centro..., con +
+  vehículo, ir en pie, de + hora / día + hasta, desde + hora + a / desde el lunes al viernes, gracias para,
+  palabra + por + aprender/mejorar/practicar/aprobar/ahorrar/conocer (no con gracias, perdona,
+  enhorabuena...), a / en la mañana / tarde / noche (no "a la mañana siguiente"), en las + hora, a el / de el
+  + sitio; ÁMBAR con el / la + vehículo, es / son por ti (no "es por mi culpa"); avisa si la lámina pide una
+  pieza y no aparece; cuenta a, en, por y para; no corrige el texto; lista de revisión con casillas. Oral 1
+  "Quedamos": 8, 12 o 16 tarjetas de 16 (pregunta del examinador + datos: 19:30, la puerta del museo,
+  metro, lunes-viernes 8:00-15:00...), 6, 8 o 10 s para contestar en voz alta con reloj que avanza solo,
+  respuesta modelo marcada, autoevaluación ✓ / ✗, resultado con los fallos e historial de las 6 últimas.
+  Oral 2 "Cómo se llega": PLANO DEL BARRIO en SVG (estación, parque, plaza Mayor, biblioteca, mercado, cine,
+  casa de Lucía, calle Mayor, avenida del Mar, calle del Sol, calle Real, paradas de autobús) con el camino
+  marcado desde "Estás aquí" hasta la diana; 3 caminos (a casa de Lucía a pie cruzando el parque, a la
+  biblioteca en autobús, al cine a pie por la avenida); 1 min con escalones a 0/20/40 s (de dónde sales /
+  cómo vas y por dónde / hasta dónde y dónde está), palabras útiles, autorrevisión (4 puntos) y explicación
+  modelo marcada) · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem, con el porqué; en los huecos, el motivo con su familia en color y se
+  guarda el primer intento.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido -> bueno),
+  prácticas de "Quedamos" (fecha, aciertos, tiempo, fallos), caminos hechos con la autorrevisión y LOS
+  TEXTOS DE LA ESCRITURA con su lámina y lo que ha encontrado el detector, para el corrector de María.
+  El build comprueba: marcas bien cerradas y con su preposición ([a:] con a/al, [e:] empieza por en, [l:] por
+  de/del/desde/hasta, [p:] por por, [m:] por para); en las parejas, la marca va con el dibujo, los dos
+  dibujos son distintos y salen los seis; ejemplos de "el verbo te ayuda", del reloj (y los días sin
+  marca), de por/para y del plan con su familia; los 11 errores pedidos en "En el examen", en ¿Bien o mal? y
+  en las pruebas del detector; opciones de 3 preposiciones distintas; en ¿Por o para? están las dos y la
+  buena es una de ellas; huecos con 3 preposiciones distintas, motivo conocido, la buena admitida por su
+  motivo y todos los motivos usados; 5 pautas por lámina y las cinco piezas entre las dos láminas; regex del
+  detector sin tildes ni cosas que no funcionen igual en el navegador; 36 PRUEBAS (17 que no deben saltar:
+  voy en tren a Madrid, vivo a dos calles, llego en cinco minutos, voy con Ana en el coche de su padre, de
+  nueve a dos y desde las cuatro hasta las siete, gracias por venir / lo hago por ti, a las ocho de la
+  mañana, a la mañana siguiente, voy en julio a Roma, está a la derecha, en las dos tiendas, gracias por
+  practicar, problemas con mi coche, quedamos al lado del cine, es por mi culpa...), las mismas en node que
+  en Python; que el detector ve cada error típico y cada frase mala; que NADA de lo que la ficha da por bueno
+  (parejas, ejemplos, las 108 frases posibles del plan, reloj, por/para, textos rellenos, tarjetas, caminos)
+  da un aviso rojo; 16 tarjetas orales que trabajan las cinco piezas; caminos con puntos dentro del plano, una
+  ruta a pie y otra en autobús; y que la opción buena de los huecos no cae siempre en el mismo sitio.
+  Comprobado también rompiendo el banco a propósito (las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R06_preposiciones.py (también el plano: LUGARES, CALLES_ROT, PLAZA,
+  PARADAS y RUTAS); la pestaña Hace y durante, solo tiempo_R06.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María.
+  Probado: ASCII puro, noindex, simulación completa en Chromium (Playwright): las 7 pestañas, las 6 parejas
+  con sus dos dibujos, todas las piezas del plan, las 8 frases de por/para, los tres ejercicios enteros, los
+  cuatro textos resueltos hueco a hueco (un fallo primero y luego la buena), el detector en el navegador
+  igual que en Python en las 36 pruebas, la revisión de la escritura (3 avisos rojos donde tocan y ninguno en
+  un texto bueno), "Quedamos" con el reloj que avanza solo, los tres caminos, Copiar y recargar la página con
+  el progreso guardado; capturas en ordenador y móvil (390 px, sin scroll lateral en ninguna pestaña).
+
+* ÍNDICE: marcar R01, R02, R04, R05, R06, R07, R08, R10, R13 y R14a como "listo" (con su descripción) la próxima vez que se
+  regenere build_indice.py (y partir la R14 en R14a y R14b). CORRECTOR: HECHO el 23/10 en claude/curso_tareas.py
+  (FICHAS_LISTAS = R01, R02, R04, R05, R06, R07, R08, R10, R13 y R14, con los nombres de archivo reales) y aplicado al
+  corrector de María el 23/10; ver HECHO (23/10/2026).
+
+* BARRA DE PESTAÑAS (María, 14/10): en muchas piezas las últimas pestañas (7, 8) no se ven en el ordenador
+  y hay que desplazar la barra sin ninguna pista de que hay más (la cabecera mide como el texto, 820 px, y en
+  Mac la barra de desplazamiento no se ve). DECIDIDO: una sola fila también en el ordenador (dos filas se ven
+  apelotonadas); si no caben todas, flechas ‹ › en los bordes con degradado (se pueden pulsar), la pestaña
+  actual se centra sola y la rueda del ratón mueve la barra. HECHO EN claude/curso_comun.py (NAV_CSS + NAV_JS,
+  que page() añade a cualquier <nav class="steps"> ; no hay que tocar los builds): cualquier pieza que se
+  regenere ya lo lleva. Probado en la R06 (1100 px: caben todas y no salen flechas; 700 y 390 px: flechas y
+  pestaña centrada). La R07 nace con la barra nueva; la R06 ampliada (8 pestañas) también la lleva.
+  PENDIENTE DE REPARAR, poco a poco (María: "habrá que cambiar y depurar cosas"): todas las piezas ya subidas
+  (M0, M3-1 a M3-5, M4 y R01, R02, R04, R05). Al regenerar cada una por otro motivo, ya sale con la barra
+  nueva; comprobar antes si usa la barra común (las del taller oral M4 pueden tener cabecera propia y modo
+  concentración). R01, R02 y R04: pasar antes arreglar_seeded.py a su build (ver arriba).
+  (15/10: los modelos completos usan el motor de los simulacros, no curso_comun.py: su barra es la del motor,
+  con 7 pestañas que caben.)
+
+* NOTA DE TRABAJO (14/10): en algunos chats los archivos del proyecto NO están en disco (solo se pueden
+  leer, no ejecutar). Si hace falta regenerar una pieza ya hecha y no están, pedir a María que adjunte el
+  HTML subido o arreglarlo con un script pequeño (como arreglar_seeded.py o arreglar_R06_tiempo.py) en vez de
+  reescribir a mano un build o un banco largos. Las piezas nuevas se escriben enteras y se suben al proyecto.
+  (14/10 mediodía: curso_comun.py es corto; si no está en disco se puede copiar de lo que devuelve project_read
+  y comprobar que su CSS y su NAV_JS están igual dentro de un HTML ya generado, como se hizo con la R06.)
+  (15/10, M6: el motor y la libreta tampoco estaban en disco; se copiaron tal cual desde project_read solo para
+  ejecutarlos en ese chat, sin subirlos: en el proyecto siguen los originales, y el adaptador trabaja sobre ellos.)
+  (20/10, M7: igual. Si adaptar_motor.py dice "ok ... con 20 cambios", la copia del motor coincide en todos los
+  trozos que toca. De DELEA2_F1_U02_datos.py, build_modelo.py solo usa "email" y "estrategias", y de voces.txt solo
+  los códigos: basta con copiar eso.)
+  (20/10 noche, M1: igual que en el M7; "ok ... con 20 cambios". Para subir al proyecto con project_write y
+  local_path, el archivo tiene que estar en la carpeta de trabajo del chat (/home/claude), no en el scratchpad.)
+  (22/10, R08: igual: curso_comun.py se copió de project_read y la R08 se escribió entera en /home/claude.)
+  (22/10 noche, R10: igual que en la R08.)
+  (23/10, R14a: igual. Las fuentes de los modelos (fuente_Mxx.py) son demasiado largas para copiarlas a mano: por eso
+  las fichas nuevas de los modelos van con el script anadir_fichas_modelos.py, que se pasa en el chat que tenga las
+  fuentes en disco (el del M2). voces.txt basta con una copia local con los códigos (los ID no hacen falta).)
+
+HECHO (14/10/2026, mediodía)
+* R06 AMPLIADA CON "HACE Y DURANTE" (María, 14/10: en el plan no había ninguna ficha para hace / desde hace /
+  desde / durante / en + tiempo; en vez de abrir una R15, "lo dejamos ya arreglado" en la R06). Pestaña nueva
+  entre "Por y para" y "En el examen" (la R06 tiene ahora 8 pestañas).
+  PIEZA PROPIA: claude/tiempo_R06.py (contenidos, comprobaciones, HTML, CSS y JS de la pestaña, con su propio
+  progreso: storageKey dele-a2-curso-R06-tiempo). Para cambiar algo de esta pestaña: solo tiempo_R06.py.
+  ENFOQUE COGNITIVO (sigue el mapa de la R06): LA LÍNEA DEL TIEMPO CON EL AHORA. HACE + tiempo = desde ahora
+  miras hacia atrás hasta un punto (llegué hace tres meses: pasado); DESDE + fecha o momento = el punto donde
+  empieza algo que sigue hasta hoy (vivo en este piso desde octubre); DESDE HACE + tiempo = la misma línea que
+  llega hasta ahora, pero dices cuánto mide (trabajo aquí desde hace dos semanas: presente); DURANTE + tiempo =
+  un trozo cerrado con principio y final (viví en Roma durante tres años); EN + tiempo = la caja de lo que
+  tardas (hice el puzle en una hora; llego en diez minutos). Colores de la R06: hace azul (la flecha), desde /
+  desde hace ámbar (la línea), durante violeta, en turquesa (la caja). Marcas: [h:] [d:] [u:] [n:].
+  Contenido: 5 tarjetas con DIAGRAMA SVG de la línea del tiempo (punto AHORA, flecha hacia atrás, línea que
+  sigue, trozo cerrado, caja con reloj) y el tiempo verbal de cada una; "el truco del verbo" (hace + pasado,
+  desde / desde hace + presente, durante + pasado terminado; hace un año que vivo aquí = vivo aquí desde hace
+  un año); tabla de preguntas y respuestas (¿Cuándo llegaste? ¿Desde cuándo...? ¿Cuánto tiempo estuviste...?
+  ¿Cuánto tiempo tardas...? ¿Cuánto tiempo hace que...?); dónde sale (oral T1, biografías, auditiva y lectura);
+  6 errores típicos (*desde dos años, *antes dos años, *desde hace 2023, *viví en Roma desde tres años, *vivo
+  aquí durante dos años, *estudié desde hace un año); Practica: "¿Qué palabra?" 8 de 14 con corrección
+  inmediata y el porqué, y dos textos con huecos: correo "Mi vida en Valencia" (7) y monólogo de la T1 "Un
+  curso que hice" (5), con motivos que dicen qué respuesta admiten. Copiar incluye sus resultados (antes de la
+  opinión) y la opinión tiene la opción "Hace y durante". El resumen imprimible lleva las 5 tarjetas.
+  DETECTOR DE LA ESCRITURA AMPLIADO (4 avisos nuevos, también en "Revisar las preposiciones" de Ahora tú):
+  ROJO desde + cantidad de tiempo (desde dos años), antes / atrás + cantidad (antes dos años), desde hace +
+  fecha (desde hace 2023, desde hace enero); ÁMBAR vivo / estudio / tengo... + durante + cantidad. 14 pruebas
+  (8 que no deben saltar: desde hace dos años, desde 2023, dos años antes, durante tres años, en una hora,
+  hace dos años que vivo aquí, antes de las dos, durante el día). Comprueba también: buenas de las cinco
+  palabras, motivo de cada hueco, todos los motivos usados, nada bueno da aviso rojo (con el detector entero
+  de la R06), lo mismo en node que en Python, y la buena no cae siempre en el mismo sitio (3/5/4).
+  CÓMO SE METE EN LA R06: claude/arreglar_R06_tiempo.py, que hace lo mismo en el build y en el HTML:
+    python3 arreglar_R06_tiempo.py build_R06_preposiciones.py   (añade al build: importa tiempo_R06
+      y extiende el detector, la pestaña en STEPS, el botón de "Por y para", la opción de la opinión, el
+      resumen, la vista + T.check(), Copiar y el CSS/JS en page()).
+    python3 arreglar_R06_tiempo.py DELEA2_curso_R06_preposiciones.html  (lo mismo sobre el HTML ya subido).
+  Si el archivo ya la tiene, no hace nada. HECHO sobre el HTML que adjuntó María (ENTREGADO el 14/10: HAY QUE
+  VOLVER A SUBIR DELEA2_curso_R06_preposiciones.html). EL BUILD DEL PROYECTO (build_R06_preposiciones.py)
+  TODAVÍA NO LA LLEVA (en este chat no estaba en disco): ANTES DE VOLVER A EJECUTARLO, PASARLE
+  arreglar_R06_tiempo.py (con tiempo_R06.py y curso_comun.py en la misma carpeta) y subir el build arreglado.
+  Probado en Chromium: 8 pestañas, el botón de Por y para lleva a la nueva, los 5 dibujos, el quiz entero, los
+  dos textos hueco a hueco (fallo y luego la buena), los 3 avisos rojos nuevos en la revisión de la escritura,
+  el detector igual en el navegador, Copiar, recargar y móvil 390 px sin scroll lateral; sin errores de consola.
+
+* Ficha de remedio R07 "Tú y usted": claude/build_R07_tu_usted.py + claude/banco_R07_tu_usted.py
+  -> DELEA2_curso_R07_tu_usted.html (recursos/A2/dele-curso/). SIN IMÁGENES (ni fotos nuevas ni de la oral) y
+  sin audios: todos los dibujos son SVG del build. storageKey dele-a2-curso-R07. Importa curso_comun.py.
+  Mismo formato y motor que R01-R06 (barajado arreglado, barra de pestañas nueva).
+  ENFOQUE COGNITIVO (aprobado por María, 14/10): LA DISTANCIA Y EL CARRIL. 1) LA DISTANCIA DECIDE: cerca
+  (amigo, familia, compañero, un niño) -> tú; un paso de distancia (servicio, desconocido mayor, recepción,
+  correo formal) -> usted. 2) USTED HABLA COMO «ÉL / ELLA»: es la persona que pones un paso más allá, en la
+  casilla de él; por eso sus formas son las de él (tiene, le, se llama, su); formas fijas que hay que
+  aprender: para / a / con usted, perdone, oiga, mire, pase, siéntese. 3) EL CARRIL: al saludar eliges carril
+  y no cambias hasta la despedida; verbo, te/le, tu/su, perdona/perdone, ¿y tú?/¿y usted? van todos en el
+  mismo; cambiar de carril a mitad = el error.
+  Colores: tú naranja, usted azul (los mismos que «¿Aprueba?» de los textos modelo), para los dos verde.
+  Marcas del banco: [t:] [u:] [n:]; huecos con 14 motivos en dos carriles (saludo, despedida, verbo,
+  pronombre, posesivo, llamar la atención, devolver la pregunta, de tú y de usted).
+  DIBUJOS (SVG): cerca (dos personas dentro del mismo círculo, «¿Tienes un momento?») / a un paso (mostrador
+  en medio y flecha «un paso de distancia», «¿Tiene un momento?»); YO · TÚ · ÉL/ELLA con usted en la casilla de
+  él y una flecha que te mira; LA CARRETERA de dos carriles con las señales SALUDO · VERBO · TE/LE · TU/SU ·
+  ¿Y TÚ? · DESPEDIDA y el coche que cambia de carril con una ✗ (y la versión con el coche en su carril).
+  Pestañas: La distancia (3 tarjetas; los dos dibujos; «¿Tú o usted? Toca una persona»: 10 personas con su
+  dibujo y el porqué; «En el examen, la lámina te lo dice» (4 láminas); nota de España: mucho tú, si te hablan
+  de tú puedes pasar a tú, en el examen manda la lámina; el truco de él/ella con dibujo y tabla; formas fijas;
+  «Imprimir el resumen») · El carril (carretera; tabla «Todo lo que cambia» en 11 filas: verbo, cómo te
+  llamas, te/le, para ti/usted, contigo/con usted, posesivos, llamar la atención, pedir o invitar, devolver la
+  pregunta, saludo y despedida del correo; lo que sirve para los dos; «CAMBIA DE CARRIL»: 6 frases y los
+  botones carril de tú / de usted, con la carretera, la frase y la lista de piezas que cambian; nota plegada
+  vosotros / ustedes) · Los correos (saludos y despedidas en tres columnas: tú, usted, para los dos; «Un
+  saludo nunca falla»; LA MISMA PETICIÓN DOS VECES: Leo quiere comprar una bici, a su amigo Iker y al señor
+  Mira, lado a lado) · En el examen (escritura T1, oral T3 planificar = tú / servicio = usted, orales T1 y T2,
+  LAS INSTRUCCIONES DEL EXAMEN SIEMPRE SON DE USTED Y NO DECIDEN EL TRATO DE TU CORREO; regla de oro 8 y
+  pasada 2 de la revisión; los 9 errores típicos pedidos: saludo de tú y despedida de usted (Hola... Atentamente),
+  al revés (Estimado... Un beso), Señora, ¿puedo ayudarte? ¿Usted busca algo?, *¿Puede usted ayudarte?, *Querido
+  señor García... un beso, *Estimada Sra. López: ¿qué tal estás?, *perdona a un cliente, *oiga a un amigo, su /
+  tu mezclados) · Practica (¿Qué dices? 8 de 14: situación + la buena / la del otro carril / la que mezcla;
+  Cambia de carril 8 de 12, hacia usted y hacia tú, con distractores a medias; Textos del examen con huecos:
+  correo a Joel (tú), clases de cerámica (usted), diálogo de la T3 «Una tarde de juegos» (tú) y «En la óptica»
+  (usted), 34 huecos; ¿Bien o mal? 8 de 14) · Ahora tú (Escritura: lámina T1 correo a Noa, que se muda a tu
+  ciudad (tú), o correo a la señora Ferrer de la Academia Compás (usted), cada pauta con la pieza del carril
+  que va a usar; «REVISAR TÚ Y USTED»: DETECTOR DE MEZCLA sobre el texto sin tildes con dos listas de palabras
+  que solo son de un carril (tú: tu/tus, ti, contigo, tuyo, te + verbo frecuente, ayudarte/llamarte..., verbos
+  en -s, ¿qué tal estás?, oye/perdona/mira con coma, siéntate/escríbeme/dime, querido, un beso/un abrazo;
+  usted: usted(es), estimado, atentamente, cordial, perdone/disculpe/oiga/siéntese/pase/espere, mire con coma,
+  Sr./Sra., que tenga) — su, le o tiene NO cuentan porque también son de él —; avisos ROJOS frase a frase
+  (usted + una palabra de tú; perdone/disculpe/oiga/mire + una palabra de tú; querido + señor/señora) y del
+  texto entero (palabras de los dos carriles; Estimado... + un beso; Estimado + ¿qué tal estás?); ÁMBAR
+  (Hola o Querido + Atentamente; un su en un texto de tú: ¿es de otra persona?); además, el carril de la
+  lámina: rojo si en la de tú hay palabras de usted o al revés, ámbar si no hay ninguna palabra segura del
+  carril; enseña las palabras de tú y de usted que ha encontrado; no corrige el texto; lista del carril con
+  casillas. Oral «DOS VECES LO MISMO»: 4, 6 u 8 tarjetas de 12 (necesitas un boli, buscas una calle, hablar
+  más despacio, cambio de 20 euros, ayudar con la maleta, el nombre, las llaves olvidadas, ofrecer una silla,
+  abrir la ventana, dar las gracias, su opinión, despedirse); cada tarjeta: primero a alguien cercano (tú) y
+  después al examinador como persona que no conoces (usted), 8, 10 o 15 s cada una con reloj que avanza solo,
+  modelo de las dos, autoevaluación «¿has cambiado todas las piezas?», resultado e historial de las 6 últimas)
+  · Tu opinión (5 preguntas).
+  CORRECCIÓN INMEDIATA en cada ítem, con el porqué; en los huecos, el motivo con su carril en color y se
+  guarda el primer intento.
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido -> bueno),
+  prácticas del oral (fecha, aciertos, tiempo, fallos) y LOS TEXTOS DE LA ESCRITURA con su lámina, su carril y
+  lo que ha encontrado el detector (avisos y palabras de cada carril), para el corrector de María.
+  El build comprueba: marcas bien cerradas y de su carril (tablas, formas fijas, saludos, despedidas, frases,
+  modelos orales); las frases de «Cambia de carril» con las mismas piezas en el mismo orden y el resto igual;
+  los dos correos de Leo con 55-75 palabras y sin palabras del otro carril; los errores típicos pedidos en «En
+  el examen», en ¿Bien o mal? y en las pruebas del detector; en ¿Qué dices?, que la buena no tiene palabras
+  del otro carril, que la opción que mezcla mezcla de verdad (y da aviso rojo) y que la del otro carril no
+  tiene palabras del bueno; en Cambia de carril, que la buena no tiene palabras del carril de antes; huecos con
+  3 opciones distintas, motivo conocido, la buena admitida por su motivo, TODOS LOS HUECOS DE UN TEXTO DEL
+  CARRIL DEL TEXTO, todos los motivos usados y el texto relleno sin palabras del otro carril; láminas con 5
+  pautas y todos los focos; regex sin tildes ni cosas que no funcionen igual en el navegador; 26 PRUEBAS del
+  detector (13 que no deben saltar: un correo de usted entero, uno de tú, ¿Quiere usted un té con leche?, mi
+  abuelo me dio su reloj, te llamo mañana, que tenga un buen día, mira las fotos de estas vacaciones, ella mira,
+  pase: está en su casa, mi hermano y su novia, le escribo... ¿le va bien?, le encanta pasear...), las mismas
+  en node que en Python (frase a frase + texto entero, como la página); que NADA de lo que la ficha da por
+  bueno da un aviso rojo; y que la opción buena de los huecos no cae siempre en el mismo sitio (8/15/11).
+  Comprobado también rompiendo el banco a propósito (6 casos: las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R07_tu_usted.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María, y no repite los del kit (hotel y aparcamiento,
+  boda de Pablo), la revisión final (Kofi, Nuria, Biciruta), los textos modelo (Jan, Mei), la T3 (farmacia,
+  taquilla, restaurante, gimnasio, auriculares, correos) ni «Qué hacer si me bloqueo» (pedir que repitan).
+  Probado: ASCII puro, noindex, node --check, simulación completa en Chromium (Playwright): las 7 pestañas, las
+  10 personas, las 6 frases en los dos carriles, los tres ejercicios enteros, los cuatro textos resueltos hueco
+  a hueco (fallo y luego la buena; «a la primera» correcto), el detector en el navegador igual que en Python en
+  las 26 pruebas, la revisión de la escritura (ningún rojo en los dos correos buenos, rojos donde se mezcla,
+  rojo si la lámina de tú lleva usted), el oral con el reloj que pasa solo de tú a usted y al modelo, Copiar,
+  recargar con el progreso guardado y móvil 390 px sin scroll lateral en ninguna pestaña; sin errores de consola.
+
+HECHO (15/10/2026)
+* Dosier oral A2 de estructuras (M4-5): claude/build_M4_dosier.py + claude/banco_dosier_M4.py
+  (importa curso_comun.py). Un solo banco y dos salidas:
+  -> DELEA2_curso_M4_dosier_oral.html (recursos/A2/dele-curso/): ejecutable del curso.
+     storageKey dele-a2-curso-M4-dosier. Sin imágenes ni audios.
+  -> DELEA2_dosier_oral_estructuras.pdf (21 páginas, A4, con Chromium): hoja de consulta
+     imprimible; sustituye al PDF anterior de María con el mismo nombre. Se sube también a
+     recursos/A2/dele-curso/ (el ejecutable enlaza ahí: "Descargar el dosier en PDF").
+     También sale DELEA2_dosier_oral_impresion.html (de él se hace el PDF; no hace falta subirlo).
+  BASE: el PDF A2 que ya tenía María (secciones 1-10: la prueba, los 12 minutos, tarea 1, tarea 2,
+  tarea 3, supervivencia, errores, practica, soluciones, tarjeta de bolsillo). Misma estructura y
+  frases. CORREGIDO para que diga lo mismo que la Guía oficial y que M4-1/2/3, R07:
+    1) los 12 minutos son para LAS TRES TAREAS (antes: "tareas 1 y 2" y "la tarea 3 no se prepara");
+       reparto 1 elegir + 4 tema + 4 foto + 2 diálogo + 1 repasar;
+    2) la foto con las SEIS preguntas oficiales en su orden (antes: 5 bloques empezando por el lugar
+       y sin "qué relación hay entre ellos"); tabla nueva "La relación entre ellos"; regla de las tres
+       frases;
+    3) la tarea 3 con los dos tipos: PLANIFICAR con un amigo (tú; el más frecuente en las láminas de
+       2022) y SERVICIO (usted), el pequeño problema, la situación viene en la lámina; tabla nueva
+       "Con un amigo: proponer y quedar"; segundo diálogo modelo (pícnic con una amiga, llueve);
+    4) tú o usted LO DICE LA LÁMINA (antes: "escucha al entrevistador");
+    5) monólogo modelo de 231 palabras con lámina de cinco pautas (antes 150 palabras, 4 pautas) y
+       descripción modelo de 242 palabras, un párrafo por pregunta (antes 110);
+    6) errores: el 10.º es ahora tú/usted mezclados con un amigo; estrategia: hablar de tu vida en vez
+       de describir la foto.
+  Ejecutable, pestañas: Empieza aquí (cómo usarlo + la prueba por dentro) · Preparación · Tarea 1 ·
+  Tarea 2 · Tarea 3 · Si me bloqueo (supervivencia + errores) · Practica · Tarjeta · Tu opinión.
+  Cada pestaña enlaza las piezas del curso que la amplían (M4-1/2/3/4, R01, R02, R04, R05, R07).
+  Practica (9 ejercicios, corrección inmediata, se guarda el primer intento): 1 ¿he ido o fui? ·
+  2 hay / está / están · 3 gustos · 4 estar + gerundio (escribir; acepta sin tilde con aviso) ·
+  5 tarea 3 en la estación (usted, desplegables) · 6 tarea 3 con un amigo (tú, desplegables) ·
+  7 ¿a qué pregunta de la foto contesta? (1-6) · 8 esquema de la tarea 1 (3 láminas, reloj de 4 min,
+  aviso si escriben frases) · 9 autoevaluación. Tarjeta de bolsillo imprimible sola. Opinión
+  (5 preguntas) + Copiar (resultados con los fallos, esquema, autoevaluación y opinión).
+  El build comprueba: preparación de las tres tareas y reparto 1+4+4+2+1, las seis preguntas en
+  orden, longitudes de los modelos, tiempos del monólogo, diálogo de tú sin usted y al revés, "te lo
+  dice la lámina", ejercicios coherentes (buena entre las opciones, un hueco por frase, las seis
+  preguntas en el ej. 7) y reparte la opción buena (10/17/9).
+  Probado en Chromium: 9 pestañas, todos los ejercicios, Copiar, recargar con el progreso guardado,
+  móvil 390 px sin scroll lateral, sin errores de consola. PDF revisado página a página.
+  Para cambiar contenidos: solo banco_dosier_M4.py (y volver a ejecutar el build: salen el HTML y el PDF).
+  Índice: marcar M4-5 como "listo" la próxima vez que se regenere build_indice.py (archivo
+  DELEA2_curso_M4_dosier_oral.html, ya coincide).
+
+* M1 (15/10): propuesta de temas presentada a María (no construido). Ajustes a la fila M1 de la matriz:
+  CA1 salud (no compras: chocaba con la oral del mercado), CL4 blog «Mi primera media maratón» (no
+  biografía: ya hay biografía en la escritura), CA3 cambios en la rutina (no ocio), oral T1 B «la
+  estación del año que más me gusta» (no vacaciones: ya en CL3); foto 1 puesto de quesos y aceitunas
+  en el mercado semanal de un pueblo de costa en verano (servicio, usted), foto 2 cocina de un piso
+  compartido un domingo de lluvia (planificar, tú); escritura T2 B biografía de Amparo, librera.
+  Pendiente de su aprobación. (15/10, M6: OJO, el M6 ya usa una «media maratón de diciembre» en la CA3
+  —la del hermano de Lucía—; si el M1 mantiene el blog de la media maratón, cambiar uno de los dos.)
+  (20/10, M7: OJO TAMBIÉN: la propuesta es anterior a los hallazgos del examen real. La T3 de la foto 1
+  (mercado, servicio de usted) tiene que pasar a ser de TÚ, como todas las láminas desde 2020; y la opción 2
+  de la escritura del M7 ya es una biografía con tríptico de una mujer con un negocio de pueblo (Encarna,
+  panadera): para el M1, mejor un día contado con tres fotos o una biografía muy distinta.)
+  (20/10 noche: SUPERADA. El M1 está hecho con la propuesta revisada: ver HECHO (20/10/2026, noche).)
+
+* MODELO 6 COMPLETO, "como el examen" (15/10, aprobado por María): primer modelo del Módulo 2.
+  PIEZAS NUEVAS (sirven para M1-M8):
+  - claude/build_modelo.py: como build_unidad.py, pero para los modelos. python3 build_modelo.py fuente_Mxx
+    -> DELEA2_curso_Mxx_datos.py, DELEA2_curso_Mxx_estudiante.txt y _profesora.txt (cuadernillos), Mxx_guion.txt,
+    nombres.txt (CARPETA DELE_A2_curso) y Mxx_prompts_imagenes.txt. Nombres del curso, código de la oral
+    A2-Mxx, sin portada ni foto de bloqueo de la oral, storageKey dele_a2_curso_mxx_v1, audios
+    DELEA2_curso_Mxx_CA_Tn.m4a en la carpeta del mes de WordPress (MES_WP de la fuente).
+    COMPRUEBA (se para si algo falla): extensiones oficiales de todos los textos (CL-T1 250-300, CL-T2 50-80,
+    CL-T3 100-120, CL-T4 375-425, CA-T1 50-80, CA-T2 40-60, CA-T3 225-275, CA-T4 30-50), numeración 1-25,
+    claves sin rachas de 3, repartos CL-T3 (2-2-2 o 3-2-1) y CA-T3 (2-2-2), CA-T4 con 11 enunciados y 3 que
+    sobran, categorías y estrategias conocidas, todos los contenidos con ítems y con fichas, cifras escritas
+    con letras en lo que se oye, VOCES_EVITAR (las del simulacro anterior) y que las voces existen en
+    voces.txt (si está en la carpeta), perfil completo de las fotos, situaciones nunca usadas y las dos fotos
+    de la oral distintas, nombres de imagen que dicen qué es, textos modelo de la escritura (palabras dentro
+    del límite, todas las pautas marcadas, el excelente con más conectores distintos y 3 mejoras como mínimo,
+    el correo de usted sin palabras de tú), diálogos modelo de la T3 (tú/usted coherente en el candidato, un
+    solo pequeño problema, empieza el examinador y termina el candidato, 3 preguntas del candidato como
+    mínimo, una nota por pauta) y nombres.txt sin tildes ni comillas.
+  - claude/adaptar_motor.py + claude/motor_modelo_extra.py: el motor y la libreta NO se reescriben.
+    python3 adaptar_motor.py lee DELE_A2_motor_simulacro.py y escribe DELE_A2_motor_modelo.py con 20 cambios
+    pequeños (cada uno busca un trozo exacto y se para si no lo encuentra o lo encuentra dos veces). Las piezas
+    nuevas (CSS_MODELO y JS_MODELO) están en motor_modelo_extra.py. Solo se activan con "modelo": true en los
+    datos: con los datos de una unidad, el motor adaptado hace lo de siempre. La libreta (DELE_oral_profesora.py)
+    no se toca. Luego: python3 DELE_A2_motor_modelo.py DELEA2_curso_Mxx_datos -> DELEA2_curso_Mxx_examen.html y
+    DELEA2_curso_Mxx_oral_profesora.html. (Si el motor original cambia, volver a ejecutar adaptar_motor.py.)
+    LO NUEVO EN EL EJECUTABLE: título "DELE A2 · Modelo N (nivel)"; "Qué vas a encontrar en este modelo" en
+    Inicio; meta noindex; en Resultados: ¿LISTO PARA PRESENTARTE? con el cálculo 30/50 de cada grupo (lectura +
+    escritura; auditiva + oral; cada ítem un punto) y dos casillas para la nota de la escritura y de la oral que
+    da María (sobre 25): sin notas, dice cuánto necesita en la escritura y en la oral para llegar a 30; con
+    notas, APTO / justo / no apto por grupo y un veredicto (con margen si los dos grupos >= 33); cada contenido
+    de "Qué tienes que repasar" con sus FICHAS DE REMEDIO enlazadas (enlaces relativos: el modelo va en la misma
+    carpeta dele-curso/); "Para la escritura y la oral": los 10 talleres M3 y M4 con el dosier M4-5; CONTROL DE
+    PROGRESO estilo CRONO: tiempo total de cada prueba (lo mide la página: de entrar a entregar), minutos por
+    tarea de la lectura y de la escritura (con el recomendado), "¿qué me ha costado?" por tarea (6 opciones por
+    prueba) y sensación de control 1-10 por prueba; tabla "Tus modelos" que compara los modelos hechos en el
+    mismo navegador (localStorage dele_a2_curso_progreso_v1). COPIAR (resultados) incluye los grupos 30/50, las
+    fichas de cada contenido flojo y el control de progreso. En Escritura, al entregar: TEXTOS MODELO aprobado /
+    excelente lado a lado para la T1 y las dos opciones de la T2 (número de pauta, conectores subrayados,
+    palabras y líneas a ojo, por qué aprueba / por qué es excelente y las mejoras). En la Oral, al abrirla:
+    "Después de la prueba: modelos de la tarea 3" plegados (notas modelo, el pequeño problema, la segunda opción
+    y el diálogo modelo con el turno del problema marcado). La libreta lleva los dos diálogos modelo dentro del
+    guion de la T3.
+  - claude/fuente_M06.py: el contenido (para cambiar algo del M6, solo este archivo y volver a construir).
+  CONTENIDO DEL M6 (temas MEZCLADOS, cada tarea de un área distinta; solo la oral es de viajes, como pedía la
+  matriz): CL1 correo de Claudia a Hugo (ha adoptado un perro, Tango: rutina antes/ahora, el sofá roto, le pide
+  que lo cuide en el puente; primero pensaba en una residencia) · CL2 mercadillo solidario (ej.), piscina
+  municipal (horario de invierno), corte de agua en la comunidad, bicis de la ciudad, foro aprender a nadar de
+  mayor, taller "arregla tu móvil", Villafría cierra el centro a los coches, donación de sangre, frutería con
+  reparto · CL3 voluntariado: Rocío (banco de alimentos), Alberto (acompaña a Pepe, un señor mayor), Nuria
+  (limpieza de playas en Alicante) · CL4 reportaje "Rosa y la biblioteca que viaja" (bibliobús de la sierra de
+  Albarracín, la nevada de 2021, Eusebio de 90 años, club de lectura por videollamada) · CA1 olvidos en casa de la
+  abuela (ej.), qué lleva a la cena, dónde quedan, el tiempo en la sierra, regalo para la madre, actividad de la
+  niña, cómo va al aeropuerto · CA2 programa "Tu ciudad" (ej.), aviso de lluvias, academia de idiomas, receta de
+  lentejas, Tecnocasa, cine de verano, fiesta del barrio · CA3 Lucía (un mes sin redes) y Andrés (reloj
+  inteligente; la media maratón es del hermano de Lucía) · CA4 cita del dentista (ej.), cambio de vía, mudanza
+  de Iván, ofertas del súper, paquete en casa de la vecina, piscina cerrada, cartera perdida en la estación de
+  autobuses, coche arreglado; sobran tren con retraso, fiesta de cumpleaños y tienda que cierra antes ·
+  ESCRITURA T1 correo DE USTED a la tienda online Casa Útil (la lámpara rota: cambio o devolución) · T2 opción 1
+  revista «El mejor consejo que me han dado» · opción 2 TRÍPTICO del primer día de Bruno (17 años) en una
+  heladería · ORAL T1 «un objeto muy especial para mí» / «la música en mi vida» · T2 foto 1 tienda de material
+  de montaña (dos hermanos, otoño, mañana) y foto 2 recepción de un hotel pequeño de costa (familia, noche de
+  verano con tormenta), con las seis preguntas oficiales · T3 compras para un viaje a la montaña con un hermano
+  (PLANIFICAR, tú; problema: no puede ese día y va a llover) y recepción del hotel (SERVICIO, usted; problema:
+  la habitación con vistas no está libre hasta mañana). Contenidos (8) con fichas: pasados (R01), planes (R01,
+  M4-3), normas (M0), tiempo (R06), lugares (R02, R06), cantidad (R05), personas (R04, R07), opinión (R05).
+  Voces (ninguna de la U10): CA1 DANI + NIEVE, FIONA + LYDIA, OSCAR + SARA_JOVEN, AITANA + DANIEL_ES, ANA_MARIA +
+  VOLU, SARA_2 + AGUSTIN, TATIANA + RAFA; CA2 JUAN_CARLOS, SERGIO, TAMARA, MARINA_ES, ZABRA, CESAR, DAVID_LAT;
+  CA3 LUCÍA = EVA, ANDRÉS = MARIO; CA4 DIANA, LUIS_VEGA, TOMAS, BOBBY, LINA, SANTIAGO_ES, NINOSKA, JUAN_CARLOS_2.
+  (En el M7 estaban en VOCES_EVITAR.)
+  Situaciones nuevas en SITUACIONES_USADAS["M06"]: tienda de material de montaña una mañana de otoño;
+  recepción de un hotel pequeño de costa una noche de verano con tormenta.
+  Código de la oral: A2-M06 (el motor lo calcula y lo escribe; está en la libreta).
+  ENTREGADO a María (15/10): DELEA2_curso_M06_examen.html (SUBIR a recursos/A2/dele-curso/),
+  DELEA2_curso_M06_oral_profesora.html (SUBIR a biblioteca/profesora/), M06_guion.txt (audios:
+  python3 generar_audios.py M06_guion.txt en Documentos/DELE_AUDIO -> DELEA2_curso_M06_CA_T1..T4.m4a a WordPress
+  2026/10), M06_prompts_imagenes.txt + nombres.txt (2 fotos de la oral, el tríptico de la escritura y 7 viñetas;
+  a WordPress 2026/10), cuadernillos del estudiante y de la profesora para revisar.
+  Probado en Chromium (Playwright): Inicio, lectura y auditiva contestadas y entregadas, escritura entregada
+  (textos modelo), Resultados (grupos sin y con notas, fichas, talleres, control de progreso, tabla de modelos),
+  Copiar con todo, recargar con lo guardado, oral abierta con el código y modelos de la T3, libreta con los
+  diálogos; móvil 390 px sin scroll lateral; sin errores de consola (solo faltan las imágenes y los audios,
+  que todavía no están subidos).
+  CORREGIDO EL 15/10 (tarde), después de estudiar los exámenes reales (claude/DELE_A2_examen_real_hallazgos.txt):
+  escritura T1 ahora es un correo DE TÚ a un amigo (Pablo viene a tu ciudad del 3 al 6 de diciembre: qué te parece,
+  qué has hecho estas semanas, dos planes, si puede dormir en tu casa, dos preguntas), con sus textos aprobado y
+  excelente; oral T1 con una pauta que sorprende en cada opción (qué guarda la gente de su país como recuerdo / la
+  música típica de su país); oral T2 con fotos como las de 2022 (DOS personas, UNA acción, casa): foto 1 «Preparar un
+  viaje» (dos hermanos hacen las mochilas para la montaña en el salón; él con un gorro de pompón puesto en casa) y
+  foto 2 «Pintar la casa» (padre e hija pintan el salón de azul claro; ella con pintura en la cara, él con gorro de
+  periódico); oral T3 LAS DOS DE TÚ, con pautas que mezclan planificar y contar cosas propias (preparar el viaje a la
+  montaña con el hermano; pintar el salón con un amigo), diálogos modelo nuevos y guion del examinador como «esquema
+  para la interacción» del Modelo 0 (preguntas por pauta + pequeño problema). Imágenes nuevas:
+  M06_oral_foto1_mochilas_montana.jpg y M06_oral_foto2_pintar_salon.jpg (las del hotel y la tienda ya no sirven); el
+  tríptico de Bruno, las viñetas y el guion de audio NO cambian. Herramienta: claude/corregir_M06.py (ya aplicada).
+  build_modelo.py actualizado: el trato de la escritura T1 lo dice ESCRITA['t1']['trato'] (lo normal, "tú"); la T3 de
+  usted solo con T3_SERVICIO = True en la fuente; las fotos de la oral llevan ESTILO_ORAL (foto de móvil de un familiar,
+  dos personas, una acción, alguien puede mirar a la cámara) y el perfil lleva "detalle" (un detalle curioso) en vez de
+  "problema" (el problema va en la tarea 3, no en la foto).
+  PENDIENTE: María revisa los cuadernillos; añadir las escrituras del M6 a corrector_tareas.py (ver Corrector);
+  marcar el M6 como "listo" en build_indice.py; si el panel de la profesora no calcula solos los códigos, añadir
+  A2-M06. 20/10: el M6 todavía NO enseña el perfil al final de Resultados (su fuente no tiene PERFIL): para que lo
+  enseñe, añadir a fuente_M06.py PERFIL = {"pruebas": {"lectura": "=", "auditiva": "+", "escrita": "=", "oral": "="}, ...}
+  (y, si María quiere, SIN_EFECTOS / ETIQUETAS con el audio rehecho), volver a construir y subir el HTML.
+  23/10: OJO, fuente_M06.py del proyecto es de las 10:21 del 15/10 y corregir_M06.py de las 14:53: puede que la fuente
+  subida NO lleve las correcciones. Antes de reconstruir el M6, pasarle corregir_M06.py (si ya está, no hace nada).
+  23/10: las fichas R08, R10, R13 y R14a se añaden a sus contenidos con anadir_fichas_modelos.py (ver HECHO 23/10).
+
+HECHO (20/10/2026)
+* MODELO 7 COMPLETO, "nivel alto" (perfil + + + =: el más exigente; para 2-3 semanas antes del examen).
+  Propuesta de temas aprobada por María (20/10: en la foto 1, las amigas buscan piso de ALQUILER, no para comprar).
+  ARCHIVOS: claude/fuente_M07.py (el contenido: para cambiar algo del M7, solo este archivo y volver a construir) y
+  claude/DELEA2_curso_M07_datos.py (generado). Se construye igual que el M6:
+  python3 build_modelo.py fuente_M07 -> python3 adaptar_motor.py -> python3 DELE_A2_motor_modelo.py DELEA2_curso_M07_datos.
+  CAMBIOS EN LAS PIEZAS COMUNES (subidas al proyecto; sirven para todos los modelos):
+  - motor_modelo_extra.py: AL FINAL DE RESULTADOS (que solo se abren al entregar lectura, auditiva y escritura),
+    «CÓMO ERA ESTE MODELO Y CÓMO LEER TU NOTA» (xPerfil): tabla prueba / este modelo (+ más difícil que el examen,
+    = como el examen, − más fácil) / tu nota aquí / en el examen real (orientativo: con + "probablemente algo más:
+    entre N y N+2"; con − "entre N−2 y N"; con = "más o menos lo mismo"); la frase de lectura («Este modelo tenía la
+    lectura, la auditiva y la escritura más difíciles que el examen: tu nota real en esas pruebas será probablemente
+    algo más alta (uno o dos puntos de 25)»); cuando están las notas de la profesora, cómo leer cada grupo (>= 30:
+    "con un modelo así de exigente, es una buena señal"; 27-29 en un grupo con "+": "estás muy cerca"; menos: "es el
+    grupo que tienes que entrenar"); y la nota de la fuente (qué lo hacía difícil). Se actualiza al escribir las
+    notas; va en Copiar («PERFIL DEL MODELO»). Si la fuente no trae PERFIL, no sale nada. Además: la tabla de los
+    grupos 30/50 lleva desplazamiento propio (en el móvil se salía 11 px) y, si ni con un 25 se llega a 30, lo dice
+    así (antes: "necesitas 30 de 25").
+  - adaptar_motor.py: el cambio de Resultados añade xPerfil(R) (siguen siendo 20 cambios).
+  - build_modelo.py: PERFIL de la fuente -> DATA["perfil"] y línea en el cuadernillo de la profesora; las extensiones
+    de CA-T2, CA-T3 y CA-T4 se cuentan sin las etiquetas de emoción; SIN_EFECTOS = True en la fuente -> se para si
+    queda un SONIDO; ETIQUETAS = True -> se para si una intervención del audio no empieza con su etiqueta o si la
+    etiqueta no son palabras en inglés.
+  CONTENIDO (temas MEZCLADOS; nada del M6, de las unidades, de los talleres ni de la propuesta del M1). Extensiones en
+  la parte alta: CL1 290, CL2 65-75, CL3 110-118, CL4 412, CA1 65-76, CA2 50-57, CA3 257, CA4 38-43.
+  CL1 correo de la abuela Remedios a su nieto Álex (bodas de oro el 14 de junio: al principio en el restaurante del
+  puerto, al final en el jardín de la casa del pueblo; la tía Pilar pide mesas al ayuntamiento, el primo Sergio hace
+  la paella, ella los postres; el abuelo quería una cena los dos solos y cambió de opinión por sus hermanos de
+  Argentina; le pide un vídeo con fotos antiguas y elegirlas juntos en el puente de mayo) · CL2 recogida de ropa del
+  colegio (ej.), recogida de muebles del ayuntamiento, autoescuela, plaza de garaje, foro del abono joven, Museo del
+  Mar, cercanías con autobús, concurso de fotos del barrio, zapatería (cambios y devoluciones) · CL3 trabajar de
+  noche: Marisa (recepcionista de hotel en Sevilla; cambiada la panadera de la propuesta porque la escritura ya tiene
+  a Encarna, panadera), Fermín (autobús búho de Madrid), Andrea (vigilante de museo en Bilbao) · CL4 «Julián vuelve
+  a clase» (fontanero jubilado de 68 años en Elche: secundaria y bachillerato de adultos, la nieta Laia, la mujer
+  Rosa) · CA1 técnico en casa (ej.), dónde trabaja ahora Elena, qué deporte hace ahora, qué han reservado ya para la
+  cena de empresa, a qué hora sale el autobús que va a coger la chica, qué llevar al curso de cerámica, dónde están
+  las llaves del vecino · CA2 «Despierta con nosotros» (ej.), mercado medieval, óptica, «Tu casa, tu dinero», Ciclos
+  Martín, teatro infantil, concurso de la radio · CA3 Paula (cocina los domingos para toda la semana; aprendió con
+  vídeos) y Rubén (pide a domicilio; su hermana es cocinera; el curso que no hizo; lleva el postre) · CA4 peluquería
+  (ej.), súper que cierra más tarde, Irene no puede ir a la cena, cafetería del tren cerrada, centro de salud (pedir
+  cita), biblioteca (el libro ha llegado), concierto media hora más tarde, Lucas ofrece hacer la compra; sobran:
+  espectáculo suspendido, aceptar una invitación, tienda que abre más tarde · ESCRITURA T1 correo DE TÚ a Irene,
+  que estrena una obra con su grupo de teatro (felicitar, qué has hecho, si vas o por qué no, quedar otro día, dos
+  preguntas) · T2 opción 1 revista «un amigo o una amiga de la infancia» (cinco pautas que mezclan pasados y
+  presente; la última: por qué cree que algunas amistades duran) · opción 2 TRÍPTICO de Encarna, panadera de un
+  pueblo de Cuenca (1982 de niña con su padre, 2003 abre su panadería, hoy enseña a hacer pan en su cocina; pauta de
+  suposición: por qué cree que ya no tiene la panadería) · ORAL T1 «una tradición de mi familia» (pauta que se sale
+  de lo personal: una costumbre de su país que a la gente de fuera le parece curiosa) / «los animales y yo» (qué
+  piensa de los animales en bares, tiendas y transporte) · T2 foto 1 «Buscar piso» (dos amigas de unos 25 años miran
+  pisos de ALQUILER en un portátil en el sofá de un estudio, tarde de invierno, un gato dormido en las piernas de una)
+  y foto 2 «En el huerto» (abuelo y nieta recogen tomates en un huerto urbano entre edificios, mañana de verano) ·
+  T3 LAS DOS DE TÚ, con pautas que mezclan planificar y contar cosas propias: «Un piso para compartir» (con un amigo,
+  antes de ir a la agencia; problema: el examinador tiene una gata y el anuncio no acepta animales) y «Plantas para
+  la oficina» (con un compañero de trabajo, la terraza de la oficina; problema: se va todo agosto y no puede regar).
+  Contenidos (8) con fichas: pasados (R01), planes (R01, M4-3), normas (M0), tiempo (R06), lugares (R02, R06),
+  cantidad (R05), personas (R04, R07), opinión (R05).
+  AUDIO: SIN EFECTOS (ni sintonía, ni din-don, ni pitido) y TODAS las intervenciones con su etiqueta de emoción de
+  ElevenLabs v3 al principio ([curious], [sighs], [cheerful], [hurried], [apologetic], [neutral]...; solo van al guion,
+  las transcripciones salen limpias). La dificultad va en el guion: narrador «Va a escuchar a...», las tres opciones
+  mencionadas y dos descartadas, preguntas con ya / ahora / todavía, paráfrasis en T2 y T4, «ninguno» con la hermana de
+  Rubén y con un plan que no se hizo, muletillas y frases sin terminar.
+  Voces (ninguna del M6): CA1 RAQUEL + MARTIN_3, GABRIEL_ES + ESTELA, CAROLINA + EMILIO, SUSANA + VALENTINA, CRISTINA +
+  JAVIER, SARA + DAVID_M1, ERIK + LUCIA; CA2 HUGO, MARTIN_2, GABI, CLARA, ELEGUAR, MARTIN_1, LUCIA_AR; CA3 PAULA = MIA,
+  RUBÉN = MILO; CA4 SOFIA, SANTIAGO_LAT, CRISTINA_LAT, LUIS_GUILLERMO, MAYA, LUISA, BOGA, DAVID_CO.
+  EN EL M1, VOCES_EVITAR = ESTAS.
+  Situaciones nuevas en SITUACIONES_USADAS["M07"]: salón de un estudio: dos amigas buscan piso de alquiler en un
+  portátil; huerto urbano entre edificios: un abuelo y su nieta recogen tomates.
+  Código de la oral: A2-M07 (el motor lo calcula y lo escribe; está en la libreta).
+  ENTREGADO a María (20/10): DELEA2_curso_M07_examen.html (SUBIR a recursos/A2/dele-curso/),
+  DELEA2_curso_M07_oral_profesora.html (SUBIR a biblioteca/profesora/), M07_guion.txt (audios:
+  python3 generar_audios.py M07_guion.txt en Documentos/DELE_AUDIO -> DELEA2_curso_M07_CA_T1..T4.m4a a WordPress
+  2026/10), M07_prompts_imagenes.txt + nombres.txt (2 fotos de la oral, el tríptico de Encarna y 7 viñetas; a
+  WordPress 2026/10), cuadernillos del estudiante y de la profesora para revisar.
+  Probado en Chromium (Playwright), 38 comprobaciones: el perfil NO se ve en Inicio, lectura, auditiva ni escritura y
+  SÍ en Resultados; lectura y auditiva contestadas y entregadas (18 y 17), textos modelo de la escritura, grupos y
+  perfil con y sin notas (grupo con 31, grupo con 28 y "estás muy cerca", escritura "entre 13 y 15", oral "lo mismo"),
+  fichas, talleres, control de progreso, Copiar con el perfil, recargar con todo guardado, transcripciones sin
+  etiquetas, oral abierta con el código y modelos de la T3, libreta con el esquema del examinador y los diálogos;
+  móvil 390 px sin scroll lateral en todas las vistas (también Resultados); sin errores de consola.
+  PENDIENTE: María revisa los cuadernillos; añadir las escrituras del M7 a corrector_tareas.py (ver Corrector);
+  marcar el M7 como "listo" en build_indice.py; si el panel de la profesora no calcula solos los códigos, añadir A2-M07.
+  23/10: las fichas R08, R10, R13 y R14a se añaden a sus contenidos con anadir_fichas_modelos.py (ver HECHO 23/10).
+
+HECHO (20/10/2026, noche)
+* MODELO 1 COMPLETO, "de entrada" (perfil = − = −: lectura y escritura como el examen; auditiva y oral en la parte
+  fácil del examen real, nunca por debajo). Propuesta de temas aprobada por María (20/10 noche).
+  ARCHIVOS: claude/fuente_M01.py (el contenido: para cambiar algo del M1, solo este archivo y volver a construir) y
+  claude/DELEA2_curso_M01_datos.py (generado). Se construye igual que el M7 (las piezas comunes NO han cambiado):
+  python3 build_modelo.py fuente_M01 -> python3 adaptar_motor.py -> python3 DELE_A2_motor_modelo.py DELEA2_curso_M01_datos.
+  En la fuente: PERFIL = {"pruebas": {"lectura": "=", "auditiva": "-", "escrita": "=", "oral": "-"}, ...} (con "cuando"
+  y "nota": qué lo hacía más amable), SIN_EFECTOS = True, ETIQUETAS = True.
+  CÓMO SE HA HECHO EL "−" (para repetirlo en otros modelos): auditiva con extensiones en la parte baja (CA1 52-57,
+  CA2 40-48, CA3 234, CA4 30-39), una sola idea por audio, las tres opciones de la T1 mencionadas pero descartadas con
+  claridad («no, la cabeza no», «antes estaba ahí, pero ahora...», «esas tampoco»), palabras muy frecuentes, pocas
+  paráfrasis (gratis / no pagas, enfrente del parque), «ninguno» claro en la T3 (la hermana de Nuria; clases de baile
+  los sábados que no existen); oral con temas muy cercanos (la familia, las estaciones), fotos de una acción muy clara
+  y pocos objetos, T3 con pautas sencillas y un problema fácil (trabaja el sábado -> vamos el viernes; los dos
+  necesitan el baño a las siete -> turnos). Se mantienen la pauta que sorprende en la T1 y la mezcla de planificar y
+  contar en la T3. Lectura "=": CL1 273, CL2 51-70, CL3 107-108, CL4 398.
+  CONTENIDO (temas MEZCLADOS; nada del M6, del M7, de las unidades ni de los talleres):
+  CL1 correo de Carlos a su amiga Inés (profesor de música en un colegio de Logroño desde septiembre; pensaba alquilar
+  un piso en el centro y al final vive de momento con su tía Rosario; Lola, la profesora de inglés, lo lleva en coche;
+  coro los viernes; la invita al concierto de Navidad de sus alumnos el 18 de diciembre y a dormir en casa de su tía)
+  · CL2 intercambio de juguetes en la biblioteca (ej.), campamento urbano de verano, escuela de música Do Re Mi, Correos
+  en agosto, obras del ascensor de la comunidad, mercado ecológico de los sábados, feria del libro, menú del día del
+  bar El Rincón, bici de montaña de segunda mano · CL3 unas vacaciones diferentes: Lorena (casa rural en Galicia sin
+  cobertura; ya ha reservado para el año que viene), Iván (intercambio de casa con una familia de Lyon; su hija
+  traduce), Pilar (camping con la caravana de sus padres en Asturias; la avería y el agricultor del tractor) · CL4
+  reportaje «Sandra, árbitra» (24 años, enfermera en Castellón, arbitra en Tercera; de niña jugaba con su hermano Jorge
+  y sus amigos; empezó a los 16 cuando no llegó el árbitro; los padres que gritaban en la grada; exámenes cada mes;
+  Jorge, ahora su mayor fan) · CA1 SALUD: qué le duele (ej.: garganta), qué compra en la farmacia (jarabe), dónde está
+  ahora el centro de salud (enfrente del parque), qué desayuna ahora Óscar (fruta), qué le lleva al hospital (un
+  libro), cómo va al fisio (andando), qué le recomienda la médica (nadar) · CA2 «Tarde de música» (ej.), piscina
+  municipal, tapones del colegio San Jorge, Muebles Casa Bonita, el tiempo del fin de semana, academia Palabras,
+  fiesta del barrio del Carmen · CA3 Nuria (trabaja en casa tres días; ahora cocina; a veces no habla con nadie) y
+  Marcos (ha vendido el coche; va en bici; come con sus compañeros; clases de baile los jueves) · CA4 autoescuela
+  cambia el día (ej.), tren con retraso, Marta da las gracias por la mudanza, ofertas de fruta en el súper, Toni pide un
+  favor (paquete), biblioteca cerrada por la fiesta local, Andrés invita a la abuela a comer, Clara ha perdido las gafas
+  de sol; sobran: esperar en otro lugar, vuelo que sale antes, espectáculo cancelado · ESCRITURA T1 correo DE TÚ a la
+  prima Alba, que vuelve de trabajar un año en Irlanda (alegrarte, qué has hecho este año, planes para el verano,
+  comida familiar con día, lugar y hora, dos preguntas) · T2 opción 1 revista «un profesor o una profesora que
+  recuerdo» (quién, cómo era y sus clases, algo que pasó, qué usas todavía, cómo tiene que ser un buen profesor) ·
+  opción 2 TRÍPTICO «el día que se escapó Lunes», el gato de Nora (sale por la ventana; carteles y una vecina mayor; lo
+  encuentra dormido en una caja de manzanas de la frutería; pauta de suposición: por qué cree que se escapó) · ORAL T1
+  «una persona de mi familia» (pauta que sorprende: cómo son normalmente las familias en su país) / «la estación del
+  año que más me gusta» (qué estación prefiere la gente de su país para las vacaciones) · T2 foto 1 «En el mercado»
+  (una señora de unos 60 prueba queso en un puesto de quesos y aceitunas del mercado semanal de un pueblo de costa;
+  el vendedor joven le corta otro trozo; un perrito asoma del carro) y foto 2 «Limpiar la casa» (dos compañeros de piso
+  de unos 23 limpian la cocina un domingo por la mañana después de una cena: él friega con guantes amarillos, ella
+  barre con auriculares y canta) · T3 LAS DOS DE TÚ (láminas de 2022 guardadas para el M1: mercado y compañeros de
+  piso): «Una cena en casa» (con un amigo; pautas: dónde haces la compra, si has organizado una cena, qué cocinar,
+  qué comprar y cuánto gastar, cuándo ir al mercado; problema: el examinador trabaja el sábado por la mañana) y
+  «Organizar la casa» (con el amigo que se muda al piso; pautas: horario, tareas que te gustan y quién las hacía en tu
+  casa de pequeño, repartir tareas, normas, primer fin de semana; problema: los dos necesitan el baño a las siete).
+  Cada una con lámina, notas modelo, pequeño problema, segunda opción, diálogo modelo (12 turnos) y esquema del
+  examinador pregunta por pregunta en la libreta.
+  Contenidos (8) con fichas, como en el M7: pasados (R01), planes (R01, M4-3), normas (M0), tiempo (R06), lugares
+  (R02, R06), cantidad (R05), personas (R04, R07), opinión (R05).
+  Voces (ninguna del M7): CA1 DANIEL_ES + FIONA, MARIO + LYDIA, SARA_JOVEN + VOLU, AITANA + DANI, MARINA_ES + LUIS_VEGA,
+  SARA_2 + SANTIAGO_ES, TATIANA + OSCAR; CA2 SERGIO, BOBBY, TAMARA, JAVI_ROJAS, ENRIQUE, LINA, ZABRA; CA3 NURIA = EVA,
+  MARCOS = RAFA; CA4 DIANA, DAVID_M2, RITA, ALEJANDRO, DIEGO, MARINA, GABRIEL_CO, JANET.
+  EN EL M2, VOCES_EVITAR = ESTAS.
+  Situaciones nuevas en SITUACIONES_USADAS["M01"]: mercado semanal de un pueblo de costa: una señora prueba queso en
+  un puesto; cocina de un piso compartido: dos compañeros limpian después de una cena.
+  Imágenes (nombres.txt): M01_oral_foto1_mercado_queso, M01_oral_foto2_limpiar_cocina_piso, M01_escrita_nora_gato_lunes
+  (tríptico 3:1) y las 7 viñetas M01_CA1_0..6 (cabeza_garganta_espalda, jarabe_pastillas_crema, farmacia_parque_mercado,
+  galletas_tostadas_fruta, flores_libro_bombones, andando_autobus_taxi, correr_yoga_nadar).
+  Código de la oral: A2-M01 (el motor lo calcula y lo escribe; está en la libreta).
+  ENTREGADO a María (20/10 noche): DELEA2_curso_M01_examen.html (SUBIR a recursos/A2/dele-curso/),
+  DELEA2_curso_M01_oral_profesora.html (SUBIR a biblioteca/profesora/), M01_guion.txt (audios:
+  python3 generar_audios.py M01_guion.txt en Documentos/DELE_AUDIO -> DELEA2_curso_M01_CA_T1..T4.m4a a WordPress
+  2026/10), M01_prompts_imagenes.txt + nombres.txt (2 fotos de la oral, el tríptico de Nora y 7 viñetas; a WordPress
+  2026/10), cuadernillos del estudiante y de la profesora para revisar.
+  Probado en Chromium (Playwright), 39 comprobaciones: el perfil NO se ve en Inicio, lectura, auditiva ni escritura y
+  SÍ en Resultados; lectura y auditiva contestadas y entregadas (20/25 con cinco fallos a propósito), textos modelo de
+  la escritura (3 pares), grupos y perfil con notas (oral "−": "entre 11 y 13"; escritura "=": "más o menos lo mismo";
+  frase «no te fíes de una nota muy alta» de las pruebas "−"), fichas, control de progreso, recargar con todo guardado,
+  transcripciones sin etiquetas, oral abierta con el código y modelos de la T3, libreta con el esquema del examinador y
+  los diálogos; móvil 390 px sin scroll lateral en todas las vistas; sin errores de consola.
+  PENDIENTE: María revisa los cuadernillos; añadir las escrituras del M1 a corrector_tareas.py (ver Corrector);
+  marcar el M1 como "listo" en build_indice.py; si el panel de la profesora no calcula solos los códigos, añadir A2-M01.
+  23/10: las fichas R08, R10, R13 y R14a se añaden a sus contenidos con anadir_fichas_modelos.py (ver HECHO 23/10).
+
+HECHO (22/10/2026)
+* Ficha de remedio R08 "Conectores: las flechas entre frases": claude/build_R08_conectores.py +
+  claude/banco_R08_conectores.py -> DELEA2_curso_R08_conectores.html (recursos/A2/dele-curso/).
+  SIN IMÁGENES y sin audios: todos los dibujos son SVG del build. storageKey dele-a2-curso-R08. Importa curso_comun.py.
+  Mismo formato y motor que R01-R07 (barajado seeded() arreglado, barra de pestañas nueva, corrección inmediata).
+  ENFOQUE COGNITIVO (aprobado por María, 22/10): LAS FLECHAS ENTRE FRASES (sigue el mapa de la R06). Cada conector es
+  una flecha que le dice al lector hacia dónde va la frase siguiente. Cinco flechas, cada una con su dibujo y su color:
+  ORDENAR = la línea de pasos (primero -> después / luego -> más tarde -> al final; entonces = en ese momento), azul;
+  SUMAR = el más (y, además, también, tampoco; además solo suma cosas del mismo lado), verde; GIRAR = la curva (pero),
+  violeta; LA CAUSA = la flecha hacia atrás (porque; es que para excusarse con un amigo), ámbar; LO QUE PASA = la flecha
+  hacia delante (por eso; entonces en la conversación), coral. «O» como flecha pequeña de elegir (solo en el resumen y en
+  un ítem). EL ESPEJO: los mismos dos hechos y la flecha se da la vuelta (me quedé en casa porque llovía = llovía, por eso
+  me quedé en casa). AL FINAL también avisa de que el plan cambió (trampa de la lectura y la auditiva). ENTONCES tiene dos
+  caras (en una historia = en ese momento; en un diálogo = por eso).
+  NIVEL: solo los conectores [P] del Plan curricular. Los [R] (así que, aunque, como al principio, sin embargo) salen
+  solo en un recuadro plegado «Los verás en los textos (no los necesitas para aprobar)», nunca en ejercicios, huecos ni
+  en el detector (el build lo comprueba). DECIDIDO (22/10): el kit (M3-1) y la revisión final (M3-4), que enseñan así
+  que, aunque y como, NO se tocan.
+  Marcas del banco: [o:] [s:] [g:] [c:] [r:] (el build comprueba que cada palabra marcada es de su flecha); huecos
+  [[buena|d1|d2#motivo]] con 12 motivos en las cinco flechas.
+  Pestañas: Las flechas (5 tarjetas con dibujo SVG y la pregunta de cada flecha; leyenda; «Mira la diferencia»: 6
+  parejas con la frase y el dibujo de cada flecha, uno debajo de otro: la lluvia porque / por eso, la habitación pero /
+  además, las tardes de Óscar y / después, el cine es que / pero, entonces en un diálogo / en una historia, el mar
+  también / pero; tabla «Las flechas en un vistazo»; recuadro de los [R]; «Imprimir el resumen») · Contar en orden (la
+  línea de pasos en SVG; la misma historia, el examen de conducir, con los botones «Solo con y» (7 y marcadas en rojo) /
+  «Con flechas» (las cinco flechas); cuatro trucos; «Al final: el plan cambió» con 3 casos de lectura y auditiva y la
+  respuesta plegada) · Porque y por eso (el espejo con los dos dibujos; constructor «Dale la vuelta»: 6 pares de hechos
+  (autobús, perro, trabajo, ruido, cena, regalo) y dos botones, empiezo por lo que pasó / por la causa, con su dibujo;
+  «es que», la excusa de los amigos, y la nota: en un correo de usted, porque; «entonces» en la conversación; ¿Por qué? /
+  Porque) · En el examen (escritura T2 y T1, oral T1 y T3, lectura y auditiva; la escala oficial deja en la banda 1 los
+  textos desordenados con conectores muy básicos; regla de la pasada 7 de la revisión final; los 10 errores típicos:
+  todo con y, además para contrastar, porque y por eso al revés (dos casos), *en el final, *también no, es que en un correo
+  de usted, *¿Porque...?, después tres veces, «además de,» sin nada detrás) · Practica (¿Qué flecha? 8 de 16; ¿Porque o por eso? 8 de 12;
+  Textos del examen con huecos: correo a Bea (excusa y plan), blog «Mi primera clase de surf», biografía «Pilar Soto,
+  ceramista» y diálogo de la T3 «Una cena para el profesor» (30 huecos); ¿Bien o mal? 8 de 18) · Ahora tú (Escritura:
+  lámina T1 correo a Raúl, que te invita a una paella en el pueblo (no puedes ir; mensaje de entrada de 35 palabras), o
+  T2 revista «Un cambio importante en mi vida»; cada pauta con la flecha que la ayuda; «REVISAR MIS FLECHAS»: DETECTOR sobre
+  el texto sin tildes, frase a frase y el texto entero: ROJO *en el final, *también no, *¿Porque...?, «además de,» sin nada detrás; ÁMBAR
+  tres «y» o más en una frase, además entre algo bueno y algo malo (o al revés; no salta si detrás hay un «no»), tiempo
+  atmosférico + «, porque me / nos», «por eso» + tiempo atmosférico, «es que» en un correo de usted, después tres veces,
+  porque tres veces; además cuenta las flechas de cada tipo y las «y», avisa si un texto de 40 palabras o más usa menos de
+  tres flechas distintas y si una pauta pide una flecha que no aparece; no corrige el texto; lista de las flechas con
+  casillas. Oral «Cuéntalo en orden»: 3, 4 o 6 tarjetas de 12 (cena en casa de Marta, mercadillo, gimnasio, Granada,
+  examen difícil, playa, fiesta sorpresa, móvil perdido, montaña, cena quemada, tren a Madrid, entrevista de trabajo):
+  cuatro hechos en palabras clave, 30, 45 o 60 s con reloj que pasa solo, historia modelo con las flechas en color y «¿Qué
+  flechas has usado tú?» (bien si son tres o más); resultado e historial de las 6 últimas) · Tu opinión (5 preguntas).
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido -> bueno), prácticas
+  del oral (cuántas historias con tres flechas y las flechas de cada una) y LOS TEXTOS DE LA ESCRITURA con su lámina, los
+  avisos y las flechas contadas, para el corrector de María.
+  El build comprueba: marcas bien cerradas y de su flecha; en las parejas, la flecha de cada frase, dos flechas distintas
+  y las cinco entre todas; la historia con flechas usa las cinco y la de «y» no lleva ninguna; el espejo (porque / por
+  eso); ítems con 3 opciones distintas, un solo ____ y explicación; ¿Qué flecha? con la buena de su flecha y las cinco
+  flechas; ¿Porque o por eso? con las dos; huecos con 3 opciones, motivo conocido, la buena admitida por su motivo y los
+  12 motivos usados; NADA [R] en opciones, huecos ni textos buenos; láminas con 5 pautas, todas las flechas y el mensaje
+  de la T1 de 35-45 palabras; tarjetas orales con 4 hechos y modelo de tres flechas o más; 30 PRUEBAS del detector (17 que
+  no deben saltar: estaba cansada, porque había trabajado mucho; hacía frío porque estábamos en enero; trabajé doce horas,
+  por eso estaba muy cansada; buena y, además, no era cara; al final del día; lo malo es que... en un correo de usted;
+  además de la playa; perdona, es que... (de tú)...), las mismas en node que en Python, y también las cuentas de flechas;
+  que cada error típico y cada frase mala dan aviso y que los 10 errores pedidos salen en los dos sitios; que NADA de lo
+  que la ficha da por bueno da ningún aviso (ni rojo ni ámbar); y que la opción buena de los huecos no cae siempre en el
+  mismo sitio (12/10/8). Comprobado también rompiendo el banco a propósito (las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R08_conectores.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María ni repite los del kit (playa con Ana, diario de Clara), la
+  revisión final o las fichas R01-R07.
+  Probado: ASCII puro, noindex, simulación completa en Chromium (Playwright), 113 comprobaciones: las 7 pestañas, las 6
+  parejas con sus dos dibujos, la historia en los dos modos, las 12 frases del espejo, los tres ejercicios enteros, los
+  cuatro textos resueltos hueco a hueco (fallo y luego la buena; «a la primera»), el detector en el navegador, la revisión
+  de la escritura (rojo y ámbar en un texto malo, nada en uno bueno), el oral con el reloj que pasa solo y la elección de
+  flechas, Copiar, recargar con el progreso guardado y móvil 390 px sin scroll lateral en ninguna pestaña; sin errores de
+  consola.
+  23/10: en el corrector, HECHO (curso_tareas.py: FICHAS_LISTAS y sus dos láminas). En los modelos, con
+  anadir_fichas_modelos.py: la R08 va en «opinion» (junto a la R05) y en «planes» («al final» = el plan cambió).
+
+HECHO (22/10/2026, noche)
+* Ficha de remedio R10 "Lo, la, le: el paquete y el destinatario": claude/build_R10_pronombres.py +
+  claude/banco_R10_pronombres.py -> DELEA2_curso_R10_lo_la_le.html (recursos/A2/dele-curso/).
+  SIN IMÁGENES y sin audios: todos los dibujos son SVG del build. storageKey dele-a2-curso-R10. Importa curso_comun.py.
+  Mismo formato y motor que R01-R08 (barajado seeded() arreglado, barra de pestañas nueva, corrección inmediata).
+  ENFOQUE COGNITIVO (aprobado por María, 22/10 noche): EL PAQUETE Y EL DESTINATARIO. El verbo mueve un PAQUETE (lo
+  que compras, ves, llamas, esperas) hacia un DESTINATARIO (la persona que lo recibe). EL PAQUETE = lo / la / los / las,
+  con la camiseta de su nombre (R04): la tarta -> la compro; EL DESTINATARIO = le / les, solo dice «a qué persona» y no
+  tiene género: le escribo un mensaje (a Ana, a Pedro); ME, TE, NOS, OS sirven para los dos papeles y no cambian nunca.
+  Dos preguntas en orden fijo: 1) ¿el verbo ya lleva un paquete (das, mandas, dices algo)? -> la persona es le / les;
+  2) si no, lo que recibe la acción es el paquete: lo / la / los / las. EL IMÁN (dónde va): delante del verbo conjugado
+  (lo compro, lo voy a comprar, lo he comprado, no lo compro) o PEGADO al final del infinitivo, del gerundio (con tilde)
+  y del imperativo afirmativo (comprarlo, comprándolo, cómpralo); nunca en medio, nunca suelto detrás del verbo
+  conjugado, nunca dos veces. ESPAÑA: «le vi» (a un hombre) es correcto y vale en el examen (el detector no lo marca);
+  *la dije, *la escribo un correo, *la gusta y le para una cosa son errores. USTED = él / ella (R07): le escribo, la
+  espero (o le espero, muy normal en España). Reflexivos (me levanto) en una nota: no son paquete ni destinatario, pero
+  van en el mismo sitio.
+  NIVEL: solo lo [P] del Plan curricular (GR-06, GR-16). Las combinaciones (se lo, me la), la duplicación del paquete (el
+  pan lo compro yo) y el imperativo negativo (no lo toques) son [R]: solo en un recuadro plegado «Lo verás en los textos
+  (no lo necesitas para aprobar)»; el build comprueba que no hay dos pronombres juntos en nada de lo que se practica.
+  Colores propios de esta ficha: paquete turquesa, destinatario violeta, me/te/nos/os verde, pegado coral. Marcas del
+  banco: [d:] [i:] [m:] [p:] (p = palabra con el pronombre pegado; el build comprueba que termina en pronombre y que el
+  gerundio y el imperativo llevan tilde); huecos [[buena|d1|d2#motivo]] con 12 motivos (lo, la, los, las, le, les, usted,
+  me/te/nos/os, y la posición: conjugado, infinitivo, gerundio, imperativo; los de posición admiten la buena por regex).
+  Pestañas: El paquete (4 tarjetas con dibujo SVG: verbo -> caja; verbo -> caja -> persona; te = te; el imán; leyenda;
+  «Mira la diferencia»: 6 parejas con el dibujo de cada frase (la tarta: la compro / le compro una tarta a mi madre;
+  Ana: la llamo / le escribo un mensaje; mis padres: los visito / les mando fotos; el profesor: lo espero / le pregunto
+  una duda, con la nota de «le espero»; las fotos: las miro / les enseño las fotos; tú: te invito / te regalo un libro);
+  «¿Para qué sirven?»: el mismo texto sin pronombres (el piso repetido, en rojo) y con pronombres; «Imprimir el resumen»)
+  · ¿Dónde va? (EL IMÁN en SVG: verbo conjugado delante; ir a / tener que + infinitivo y estar + gerundio, delante o
+  pegado; imperativo siempre pegado; ✗ nunca en medio, ✗ nunca dos veces; el truco del verbo conjugado; lo que nunca se
+  hace; CONSTRUCTOR «Monta la frase»: 7 cosas que hacer (comprar la tarta, llamar a Pedro, imprimir los billetes, enviar
+  las fotos, escribir un mensaje a mi abuela, explicar el plan a mis amigos, ayudarnos) x 8 formas (presente, ir a, tener
+  que, estar + gerundio, perfecto, con no, imperativo de tú y de usted) -> las frases buenas con el pronombre en color y
+  el porqué; nota de los reflexivos) · ¿Lo, la o le? (las dos preguntas; dos tablas: solo paquete (comprar, ver, llamar,
+  conocer, invitar, esperar, ayudar, visitar) y paquete + destinatario (dar, regalar, mandar, escribir, decir, contar,
+  explicar, preguntar, prestar); verbos que están en las dos listas; «En España: le vi»; con usted; recuadro [R]) · En el
+  examen (escritura T1 y T2, oral T3 de tú y de usted, lectura y auditiva: ¿a quién se refiere ese le?, instrucciones con
+  imperativo de usted; regla para la revisión final: una pasada para los pronombres; los 11 errores típicos: *compro lo,
+  *voy a lo comprar, *lo voy a comprarlo, *tengo que escribir le, *estamos esperando te, *la dije, *llama me, *la escribo
+  un correo (a mi abuela), *la gusta, el nombre repetido en la frase siguiente, *le voy a mandarle) · Practica (¿Qué
+  pronombre? 8 de 16; ¿Dónde va? 8 de 12 (la frase entera); Textos del examen con huecos: correo a Nuria (la mudanza),
+  blog «La bici de mi abuela», diálogo de la T3 «Una fiesta para Marcos» y correo de usted «A la academia Lenguas Vivas»
+  (25 huecos); ¿Bien o mal? 8 de 17) · Ahora tú (Escritura: lámina T1 correo a Lucía (fiesta sorpresa para su madre:
+  ayudarla, qué compras y cuándo, un regalo para su madre, el libro de fotografía; mensaje de entrada de 36 palabras) o
+  T2 revista «Una persona que me ha ayudado mucho»; cada pauta con el pronombre que la ayuda; «REVISAR MIS PRONOMBRES»:
+  DETECTOR sobre el texto sin tildes, frase a frase y el texto entero: ROJO pronombre suelto detrás de un verbo (delante
+  de un punto o una coma, de mañana / hoy / el sábado / en la..., o de yo / tú...), en medio (voy a lo comprar, tengo que
+  la llamar), dos veces (lo voy a comprarlo, le voy a mandarle), separado del infinitivo o del gerundio delante de para /
+  con / en / un... (escribir le un correo, esperando te en; no salta con «antes de salir te llamo»), laísmo con un
+  paquete detrás (la dije que / la dije a, la escribo un correo, la di un abrazo; no salta con «la compré una semana
+  antes», «se la di», «la regalé a mi prima»), lo / la + gusta / encanta / interesa / duele; ÁMBAR el mismo nombre con
+  artículo en dos frases seguidas (no cuenta casa, mañana, los días...); además cuenta (aproximado) paquetes,
+  destinatarios, me/te/nos/os y pegados, avisa si un texto de 40 palabras o más no tiene ninguno y si una pauta pide un
+  pronombre que no aparece; no corrige el texto; lista de los pronombres con casillas. Oral «CONTESTA SIN REPETIR»: 8,
+  12 o 16 tarjetas de 16 preguntas del examinador como en la T3 (¿Quién compra las bebidas? / tú -> Las compro yo; ¿Qué
+  le regalamos a Pablo? / un libro -> Le regalamos un libro; ¿Dónde dejo las llaves? -> Déjalas en la mesa...), 6, 8 o
+  10 s con reloj que pasa solo, respuesta modelo marcada, autoevaluación ✓ / ✗, resultado con los fallos e historial de
+  las 6 últimas) · Tu opinión (5 preguntas).
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido -> bueno), prácticas
+  del oral (fecha, aciertos, tiempo, fallos) y LOS TEXTOS DE LA ESCRITURA con su lámina, los avisos y los pronombres
+  contados, para el corrector de María.
+  El build comprueba: marcas bien cerradas y de su pieza; en las parejas, el pronombre de cada frase, la pieza de su
+  dibujo, dos papeles distintos y una pareja con me/te/nos/os; en el constructor, todas las formas en todos los verbos, el
+  pronombre de cada frase, dos frases (delante y pegado) en ir a / tener que / estar, pegado en el imperativo y delante en
+  presente, perfecto y con no, las tres piezas y todos los pronombres; ejemplos de las tablas con su pieza; ítems con 3
+  opciones distintas, un solo ____ y explicación; ¿Qué pronombre? con la buena de su pieza, solo pronombres en las opciones
+  y lo, la, los, las, le y les entre las buenas; huecos con 3 opciones, motivo conocido, la buena admitida por su motivo
+  (lista o regex), solo pronombres en los huecos de pronombre y los 12 motivos usados; láminas con 5 pautas, todos los
+  focos y el mensaje de la T1 de 35-45 palabras; tarjetas orales con las cuatro piezas; NADA con dos pronombres juntos;
+  40 PRUEBAS del detector (23 que no deben saltar: lo compro mañana; voy a comprarlo mañana; estoy haciéndolo ahora;
+  llámame esta tarde; le dije que no podía ir; antes de salir te llamo; me voy a casa a ducharme; voy a hacer lo que me
+  dices; Pilar me ha llamado, en el bar te espero; se lo di a mi madre; por la mañana la llamo; la compré una semana
+  antes; le espero, señor García, le vi ayer; cuando me llames; a la mujer le regalé unas flores; la regalé a mi prima, lo
+  hago yo...), las mismas en node que en Python, y también las cuentas; que cada error típico y cada frase mala dan aviso
+  y que los 8 tipos de aviso salen en los errores típicos; que el texto sin pronombres da aviso; que NADA de lo que la
+  ficha da por bueno da ningún aviso (ni rojo ni ámbar); y que la opción buena de los huecos no cae siempre en el mismo
+  sitio (10/4/11). Comprobado también rompiendo el banco a propósito (9 casos: las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R10_pronombres.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María ni repite los de las fichas R01-R08.
+  Probado: ASCII puro, noindex, simulación completa en Chromium (Playwright), 194 comprobaciones: las 7 pestañas, las 6
+  parejas con sus dos dibujos, el constructor entero (7 x 8), los tres ejercicios enteros, los cuatro textos resueltos
+  hueco a hueco (fallo y luego la buena; «a la primera»), el detector en el navegador igual que en Python en las 40
+  pruebas, la revisión de la escritura (rojos y ámbar en un texto malo, nada en uno bueno), las dos láminas, el oral con
+  el reloj que pasa solo al modelo, Copiar, recargar con el progreso guardado, el resumen imprimible y móvil 390 px sin
+  scroll lateral en ninguna pestaña; sin errores de consola.
+  23/10: en el corrector, HECHO (curso_tareas.py: FICHAS con su archivo real DELEA2_curso_R10_lo_la_le.html, FICHAS_LISTAS
+  y sus dos láminas). En los modelos, con anadir_fichas_modelos.py: la R10 va en «personas» (junto a la R04).
+
+* Ficha de remedio R13 "Las funciones de los correos": claude/build_R13_funciones.py +
+  claude/banco_R13_funciones.py -> DELEA2_curso_R13_formulas_correo.html (recursos/A2/dele-curso/).
+  (Hecha a la vez que la R10, en otro chat; su parte estaba en claude/DELE_A2_curso_estado_R13.txt y la metió aquí el
+  chat de la R14a el 23/10.)
+  El nombre del archivo es el que ya esperaban build_indice.py (SLUG "formulas_correo") y curso_tareas.py del
+  corrector: el índice la detecta en la web sin regenerarlo.
+  SIN IMÁGENES y sin audios: todos los dibujos son SVG del build. storageKey dele-a2-curso-R13. Importa curso_comun.py.
+  Mismo formato y motor que R01-R08 (barajado seeded() arreglado, barra de pestañas nueva, corrección inmediata).
+  ENFOQUE COGNITIVO (aprobado por María, 22/10): ATRÁS, ADELANTE Y CONTESTAR + EL MOLDE DE TRES PIEZAS. Cada pauta de la
+  tarea 1 es un verbo y cada verbo es un gesto hacia la otra persona en una de tres direcciones: MIRA ATRÁS, a algo
+  que ya pasó (agradecer, disculparse, felicitar: «por» + lo que pasó, como el «por» de la R06), violeta; MIRA
+  ADELANTE, a lo que quieres que pase (invitar, proponer, pedir, dar un consejo, desear algo bueno), verde; CONTESTA a
+  lo que te proponen (aceptar, rechazar con excusa), turquesa. Cada pauta se convierte en su frase con EL MOLDE: la
+  fórmula fija + el dato de la lámina + un detalle (por qué, cómo te sientes o una pregunta). Cada función en los dos
+  CARRILES de la R07 (tú naranja, usted azul); el tú primero, porque la tarea 1 es casi siempre de tú (hallazgos).
+  NIVEL: solo fórmulas [P]: GR-15 (me gustaría, me encantaría, ¿podría...?, ¿le importaría...?) y GR-17 (¡Que
+  aproveche!, ¡Que te mejores!, ¡Que lo pases bien!, ¡Que tengas buen viaje! y sus formas de usted). Lo [R] o de B1
+  (deberías, yo que tú, espero que + subjuntivo, me gustaría que..., ojalá, dos pronombres juntos) solo en un recuadro
+  plegado «Lo verás en los textos», con la alternativa del A2 al lado; el build comprueba que no sale en nada de lo que
+  la ficha da por bueno.
+  Marcas del banco: [f:fórmula] [d:dato] [x:detalle] [p:otra propuesta]; huecos [[buena|d1|d2#motivo]] con 18 motivos
+  ligados a las diez funciones. Una regex por función (FUNC_RX) y dos listas de palabras de un solo carril (TU_RX, US_RX).
+  Pestañas (7): Atrás y adelante (3 tarjetas con dibujo SVG; el molde en SVG; leyenda de piezas y carriles; «Las diez
+  funciones»: botones por dirección + carril de tú / de usted -> tarjeta con la pregunta, el molde de esa función, el
+  ejemplo con las tres piezas en color, más fórmulas de ese carril y el «ojo»; tabla de las diez en un vistazo; «Lo
+  verás»; «Imprimir el resumen») · De la pauta a la frase (cómo se lee una pauta: el verbo es la función, «y» = dos
+  frases, «decir si puede» = aceptar o rechazar, «y por qué» = el detalle, las preguntas del correo son pautas; «MONTA
+  LA FRASE»: 4 situaciones (una invitación, una buena noticia, te piden un favor, alguien está enfermo), cada una con
+  una versión de tú y otra de usted y 5 pautas; tocas una pauta y la frase se monta pieza a pieza (fórmula -> dato ->
+  detalle); 40 frases; «las otras pautas del correo» con su ficha: saludar/despedirse R07, qué has hecho R01, planes
+  R01, día-lugar-hora R06, dos preguntas R01·R07) · Sí y no (el no en cuatro piezas en SVG: la pena, el no, la excusa,
+  otra propuesta; el sí con un detalle; ¿es que o porque?; «Contesta tú»: 6 invitaciones, 3 de tú y 3 de usted, con
+  los botones digo que sí / digo que no) · En el examen (escritura T1, oral T3, lectura T1 y auditiva T4; la regla del
+  cumplimiento y la pasada 1 de la revisión final; 12 errores típicos: *enhorabuena por tu cumpleaños, *gracias para,
+  *gracias por me invitar, *te invito venir, *siento no puedo, *perdona por no he contestado, *¡que te mejoras!,
+  *¿puedes me ayudar?, *te recomiendo de, *me gustaría que vienes, el «no» sin excusa, *¿por qué quedamos? para
+  proponer) · Practica (¿Qué pide la pauta? 8 de 16; ¿Qué frase escribes? 8 de 16, con la situación y el carril y como
+  distractores la del otro carril, la de otra función y la que tiene un error; Textos del examen con huecos: Celia
+  contesta a Gael (tú), Íñigo a la academia de pintura (usted), Lidia a Jaime antes de su entrevista (tú) y el diálogo
+  de la T3 «Un sábado con la sobrina» (tú), 28 huecos; ¿Bien o mal? 8 de 19) · Ahora tú (Escritura: lámina T1 de tú,
+  Vanesa se va a Lisboa con una beca, o de usted, la asociación de vecinos invita a la comida de sus veinte años;
+  mensajes de entrada de 35-45 palabras; cada pauta con la función que pide; «REVISAR MIS FUNCIONES»: DETECTOR sobre el
+  texto sin tildes, frase a frase y el texto entero: ROJO los 10 errores de fórmula de arriba; ÁMBAR «espero que»,
+  «¿por qué + quedamos / vamos...?» sin «no», «deberías / yo que tú» (correcto, pero no hace falta) y un «no puedo»
+  sin excusa en todo el texto; además, ROJO si hay palabras del otro carril de la lámina y ÁMBAR por cada pauta que no
+  tiene ninguna fórmula de su función; enseña qué funciones ha encontrado; no corrige el texto; lista de revisión con
+  casillas. Oral «Responde rápido»: 6, 10 o 14 tarjetas de 20 (mitad de tú y mitad de usted, las diez funciones):
+  situación + función + carril, 6, 8 o 10 s con reloj que pasa solo, respuesta modelo, autoevaluación ✓ / ✗,
+  resultado con lo que hay que repasar e historial de las 6 últimas; sirve también para la tarea 3) · Tu opinión (5
+  preguntas).
+  COPIAR: resultados de cada ejercicio con los fallos, huecos a la primera con los errores (elegido -> bueno), prácticas
+  del oral (aciertos y funciones que repasar) y LOS TEXTOS DE LA ESCRITURA con su lámina, su carril, los avisos, las
+  pautas sin fórmula y las funciones encontradas, para el corrector de María.
+  El build comprueba: diez funciones bien repartidas en las tres direcciones; cada frase de la ficha (ejemplos, las 40
+  del constructor, las 12 de «Contesta tú», «dónde sale») con sus piezas en orden (empieza por la fórmula), con una
+  fórmula de SU función (FUNC_RX) y sin palabras del otro carril; el «no» de las invitaciones con su excusa (es que de
+  tú, porque de usted) y su propuesta; el constructor trabaja las diez funciones; ítems con 3 opciones distintas y
+  explicación; en ¿Qué pide la pauta? las opciones son funciones y la buena es la suya; en ¿Qué frase escribes? la buena
+  lleva la fórmula de su función, en su carril, y salen las diez funciones y los dos carriles; huecos con 3 opciones,
+  motivo conocido, la buena admitida por su motivo, los 18 motivos usados y el texto relleno sin palabras del otro
+  carril; láminas con 5 pautas, funciones conocidas, mensaje de 35-45 palabras y una de cada carril; 20 tarjetas orales
+  con las diez funciones y los dos carriles; regex sin tildes ni cosas que no funcionen igual en el navegador; 34
+  PRUEBAS del detector (16 que no deben saltar: ¡Que tenga buen viaje!, un hotel que tiene un buen desayuno, ¿por qué
+  vienes tan tarde?, me gustaría saber el precio, ¿puedes ayudarme?, el domingo no puedo: es que..., lo siento mucho,
+  pero el jueves no puedo, porque trabajo...), las mismas en node que en Python, y también FUNC_RX, TU_RX y US_RX sobre
+  las tarjetas orales, las opciones de ¿Qué frase escribes? y los textos rellenos; que cada error típico y cada frase
+  mala dan aviso; que NADA de lo que la ficha da por bueno da ningún aviso (ni rojo ni ámbar) ni tiene formas de B1; y
+  que la opción buena de los huecos no cae siempre en el mismo sitio (8/11/9). Comprobado también rompiendo el banco a
+  propósito (6 casos: palabra de tú en una frase de usted, frase sin fórmula, B1 en un modelo, buena no admitida,
+  «no» sin excusa, pieza que falta: las comprobaciones saltan).
+  Para cambiar contenidos: solo banco_R13_funciones.py.
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María, del kit M3-1 (Marta, Lucas, Irene, Dani, escuela de
+  cocina, Aquaforma), de la R07 (Leo, Iker, Joel, Noa, Ferrer) ni de los correos de los modelos (Pablo, Irene, Alba).
+  Probado: ASCII puro, noindex, simulación completa en Chromium (Playwright), 34 comprobaciones: las 7 pestañas, las diez
+  funciones en los dos carriles, las 40 frases del constructor montadas pieza a pieza, las 12 respuestas de «Contesta
+  tú», los tres ejercicios enteros con fallos a propósito, los cuatro textos resueltos hueco a hueco (fallo y luego la
+  buena; «a la primera»), la revisión de la escritura (rojos en un texto malo, nada en un correo bueno de tú ni en uno
+  de usted, avisos de pauta sin fórmula, de «no» sin excusa y de carril mezclado), el oral con el reloj que pasa solo y
+  mitad de tú y mitad de usted, Copiar, recargar con el progreso guardado y móvil 390 px sin scroll lateral en ninguna
+  pestaña; sin errores de consola.
+  23/10: en el corrector, HECHO (curso_tareas.py: título «Las funciones de los correos», FICHAS_LISTAS y sus dos
+  láminas). En los modelos, con anadir_fichas_modelos.py: la R13 va en «planes» (invitar, aceptar, rechazar, proponer).
+
+HECHO (23/10/2026)
+* Ficha de remedio R14a "Vocabulario en escenas (1): la casa y el día a día": claude/build_R14a_vocabulario.py +
+  claude/banco_R14a_vocabulario.py -> DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html (recursos/A2/dele-curso/),
+  DELEA2_curso_R14a_guion.txt (12 audios), R14a_prompts_imagenes.txt + nombres.txt (12 trípticos de viñetas A-B-C).
+  DECIDIDO CON MARÍA (22-23/10): la R14 se DIVIDE EN DOS FICHAS. R14a = las áreas ALTA de casa y del día a día; R14b = las
+  de fuera de casa (pendiente, ver SIGUIENTE). «Escucha y elige» CON AUDIO de ElevenLabs.
+  storageKey dele-a2-curso-R14a. Importa curso_comun.py. Mismo formato y motor que R01-R13 (barra de pestañas nueva,
+  corrección inmediata, huecos con el barajado seeded() arreglado, «Ahora tú» con detector, Copiar para el corrector).
+  ENFOQUE COGNITIVO (aprobado por María, 22/10): LAS PALABRAS VIVEN EN ESCENAS, NO EN LISTAS. Tres herramientas:
+  1) LA ESCENA: cada palabra se guarda en un sitio (el piso que visitas, el restaurante, el médico...) y en una RED de
+  cuatro ramas (quién / qué cosas / qué haces / qué dices, o las que pida la escena), con el artículo delante (el sofá,
+  la nevera: la camiseta del nombre de la R04); se recuerda volviendo a la escena: «TAPA Y RECUERDA» (el texto de la
+  escena con huecos y la primera letra; avisa si solo falla la tilde; las palabras falladas pasan a «las que se te
+  resisten»). 2) EL TRÍO: en la tarea 1 de la auditiva las tres viñetas son de la misma familia y dos se descartan; las
+  palabras se aprenden en tríos que se confunden, con LAS FRASES QUE DESCARTAN («No, ... no», «Antes..., pero ahora...»,
+  «Ya tengo...», «Se ha terminado / no hay», «Ese es... (otra persona)», «Pues entonces...»). 3) LA PAREJA DE PARÁFRASIS:
+  el examen dice lo mismo con otras palabras (amueblado = tiene muebles, gratis = no se paga, una docena = doce...).
+  ÁREAS (Plan curricular, apartado 5, todas ALTA): Personas (LX-01, LX-02, LX-04) · La casa (LX-10) · La comida (LX-05)
+  · Las compras (LX-12) · La salud (LX-13). Dos escenas por área (10; 279 palabras en las redes): ¿Cómo es? (la foto de
+  la boda de la prima), la familia y cómo estamos (comida del domingo); el piso (visita a un piso en alquiler), la vida en
+  casa (piso compartido, tareas); mercado y cocina (la tortilla), el restaurante (cena de cumpleaños); la tienda de ropa
+  (rebajas), las tiendas del barrio; en el médico, la farmacia y los hábitos. Tres tríos y cinco parejas por área.
+  NIVEL: solo léxico LX del Plan curricular, nada de B1; sin dos pronombres juntos ni duplicación del objeto (el build
+  lo comprueba en los audios y en los textos).
+  Pestañas (7): La idea (tres tarjetas con dibujo SVG: la escena, el trío, la pareja; las cinco áreas; dónde salen en el
+  examen; «tu cuaderno de escenas: cinco reglas»; «Imprimir el resumen» con todas las redes) · Las escenas (área ->
+  escena; la red de cuatro ramas en color; «Leer la escena» / «Tapa y recuerda»; los tríos del área; MI CUADERNO DE
+  ESCENAS: palabra + frase propia por área, se guarda y va en Copiar) · Escucha y elige (como la tarea 1: las frases que
+  descartan; 12 conversaciones de 50-62 palabras, dos por área y una más en comida y en compras: «Las doce, en orden» o
+  «Una ronda de seis al azar»; cada una con el narrador «Va a escuchar a...», la pregunta, el tríptico de viñetas A-B-C y
+  tres botones; se puede escuchar DOS VECES antes de contestar, como en el examen; al contestar, el porqué y la
+  transcripción con lo que es en verde y lo que se descarta tachado; SI EL AUDIO NO CARGA, «leer la conversación» (sin
+  marcas) y contestar; si la imagen no carga, las opciones en texto) · Dilo de otra forma (1. Las parejas: tarjetas que
+  se dan la vuelta, «El texto dice / La pregunta dice»; 2. Une la pareja, 8; 3. Anuncios del examen: 10 anuncios tipo
+  tarea 2 de la lectura (piso en alquiler, compañera de piso, menú del día, frutería, zapatería, mercadillo de ropa,
+  centro de salud, farmacia de guardia, intercambio de idiomas, acompañar a una señora mayor), 6 al azar, con la opción
+  buena en paráfrasis y un distractor literal) · Practica (¿Qué sobra? 8 de 14; ¿Qué palabra va con...? 8 de 14 (pedir
+  cita, poner la mesa, hacer la compra, pagar con tarjeta / en efectivo, tener fiebre, mudarse...); Textos del examen con
+  huecos: correo «¡Ya tengo piso!», blog «El mercado de los sábados», mensaje «Mañana no puedo ir» y foto «En la foto
+  hay...» (30 huecos, 25 motivos); ¿Bien o mal? 8 de 16 (*tercer suelo, *con efectivo, *prescripción, *mover a un piso,
+  *estoy hambre, *soy cansada, *me duele mi cabeza, *número de camiseta, *la factura en el bar, *comprar en la
+  biblioteca, la suegra...)) · Ahora tú (Escritura: lámina T1 correo a Nacho, que se muda a tu ciudad (dónde comprar,
+  ropa barata, qué hacer si se pone enfermo, invitarle a cenar; mensaje de entrada de 38 palabras) o T2 revista «Mi
+  casa: antes y ahora»; cada pauta con las áreas que la ayudan; «REVISAR MIS PALABRAS»: DETECTOR sobre el texto sin
+  tildes, frase a frase y el texto entero: ROJO *tercer suelo, *con efectivo / *en tarjeta, *prescripción, *mover(se) a /
+  de un piso o casa, *estoy (mucha) hambre / frío..., *soy cansado / enfadado..., *me duele mi..., *número de + prenda;
+  ÁMBAR es + estado (es preocupada), factura en el bar o el restaurante, comprar en la biblioteca, «cosa», «bonito» o
+  «grande» tres veces; además cuenta las palabras de las escenas por área, avisa si una pauta no tiene palabras de su
+  área y si un texto de 40 palabras o más usa menos de 8; no corrige el texto; lista de revisión con casillas. Oral «LA
+  ESCENA EN UN MINUTO»: las fotos 7-12 de la tarea 2 (M4T2_fotoN.jpg, ya en WordPress; si no cargan, la descripción):
+  1 minuto con reloj y tres partes que cambian solas a los 20 y 40 s (las personas y la ropa / el lugar y las cosas /
+  qué hacen); al final marca las palabras que ha dicho de la lista de cada foto; historial) · Tu opinión (5 preguntas).
+  AUDIO (DELEA2_curso_R14a_guion.txt): 12 archivos DELEA2_curso_R14a_CA1_01..12.m4a, narrador (voz 0) + dos voces;
+  SIN EFECTOS; cada intervención con su etiqueta de emoción de ElevenLabs v3; cifras con letras; ninguna voz del M1 ni
+  de las descartadas (VOCES_EVITAR en el banco). Voces: ANTONIO, CAROLINA, CRISTINA, CRISTINA_LAT, DAVID_M1, EMILIO,
+  ERIK, ESTELA, GABRIEL_ES, JAVIER, LUCIA, MARTIN_1, MARTIN_2, MARTIN_3, MAYA, MIA, MILO, RAQUEL, SARA, SOFIA, SUSANA,
+  VALENTINA (en la R14b, evitarlas). La página los busca en WordPress, carpeta MES_WP = "2026/10" (en el banco).
+  IMÁGENES: 12 trípticos 3:1 de viñetas (1200 px, 90 KB), con el mismo estilo VIN de las viñetas de los modelos
+  (ilustración plana sencilla, como el cuadernillo del examen): R14a_CA1_01_gafas_barba_bigote ...
+  R14a_CA1_12_fiebre_tos_oidos; nombres.txt con CARPETA DELE_A2_curso. A WordPress, 2026/10.
+  COPIAR: tapa y recuerda por escena y las palabras que se resisten, el cuaderno de escenas, escucha y elige (aciertos
+  y fallos), los ejercicios con sus fallos, los huecos a la primera (elegido -> bueno), el oral (palabras dichas por
+  foto) y LOS TEXTOS DE LA ESCRITURA con su lámina, los avisos y las palabras de cada área, para el corrector de María.
+  El build comprueba: marcas de las escenas bien cerradas y cada palabra marcada en la red de su rama (con su lema);
+  cada palabra de los tríos en la red de su área; 12 conversaciones con su área, dos voces distintas, que existen en
+  voces.txt (si está en la carpeta) y no son del M1 ni descartadas, el narrador solo al principio, etiqueta de emoción
+  en inglés al principio de cada intervención, un [v:] y al menos dos [x:], 50-80 palabras, cifras con letras y nada
+  [R] ni de B1; anuncios con la buena distinta del distractor literal; ítems con opciones distintas y explicación;
+  huecos con 3 opciones, motivo conocido, la buena admitida por su motivo y todos los motivos usados; láminas con 5
+  pautas y áreas conocidas, mensaje de la T1 de 35-45 palabras; 34 PRUEBAS del detector (17 que no deben saltar: vivo
+  en la tercera planta, el suelo de la cocina, pagué con tarjeta, me muevo en bici por la ciudad, el café está frío,
+  es un trabajo cansado, ¿qué talla usa? ¿y qué número de zapatos?, la factura de la luz, saco libros de la
+  biblioteca y compro novelas en la librería...), las mismas en node que en Python; que cada error típico de ¿Bien o
+  mal? da su aviso y que NADA de lo que la ficha da por bueno da un aviso rojo; y que la opción buena de los huecos no
+  cae siempre en el mismo sitio (10/8/12).
+  Para cambiar contenidos: solo banco_R14a_vocabulario.py (y volver a ejecutar el build: salen el HTML, el guion, los
+  prompts y el nombres.txt).
+  EJEMPLOS PROPIOS: ninguno sale de los materiales de María ni de los manuales; no repite las conversaciones de la
+  tarea 1 del M1 (cabeza/garganta/espalda, jarabe/pastillas/crema, correr/yoga/nadar...).
+  Probado: ASCII puro, noindex, simulación completa en Chromium (Playwright), 166 comprobaciones: las 7 pestañas, las 10
+  escenas, tapa y recuerda (fallo, tilde, a la primera, ver las palabras), el cuaderno, las 12 conversaciones (dos
+  escuchas con audio simulado y luego el botón bloqueado; corrección y transcripción con lo bueno y dos descartes), sin
+  audio (leer la conversación), las parejas, une la pareja y los anuncios, los tres ejercicios, los cuatro textos hueco a
+  hueco (fallo y luego la buena; «a la primera»), el detector en el navegador igual que en Python en las 34 pruebas, la
+  revisión de la escritura (4 rojos en un texto malo, ninguno en uno bueno), el oral con el reloj y la foto que no carga,
+  Copiar, recargar con el progreso guardado y móvil 390 px sin scroll lateral en ninguna pestaña; sin errores de consola.
+  (23/10: dos conversaciones tenían 48-49 palabras; alargadas a 51-55 y el build exige ya 50-80, como la tarea 1.)
+
+* LAS FICHAS R08, R10, R13 Y R14 EN EL CORRECTOR (23/10): HECHO en claude/curso_tareas.py, el archivo de datos que usa
+  claude/patch_corrector.py sobre corrector_escritura.html (la versión buena del corrector, ver claude/corrector_curso_nota.txt;
+  build_corrector.py es la versión antigua y sus nombres de archivo están mal: no usarlo).
+  - FICHAS con los nombres de archivo y los títulos reales: R08 «Conectores: las flechas entre frases»; R10 «Lo, la, le:
+    el paquete y el destinatario» -> DELEA2_curso_R10_lo_la_le.html (antes ponía R10_pronombres, que no existe); R13
+    «Las funciones de los correos»; R14 «Vocabulario en escenas (1): la casa y el día a día» ->
+    DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html (cuando exista la R14b, añadirla).
+  - FICHAS_LISTAS = R01, R02, R04, R05, R06, R07, R08, R10, R13, R14: el informe enlaza ya las diez.
+  - FICHAS_AT: las dos láminas de «Ahora tú» de R08 (Raúl y la paella; un cambio importante en mi vida), R10 (Lucía y la
+    fiesta sorpresa; una persona que me ha ayudado mucho), R13 (Vanesa y la beca, de tú; la señora Medina y la asociación
+    de vecinos, de usted) y R14a (Nacho se muda; mi casa, antes y ahora), con los mismos textos que sus bancos, para que
+    el corrector reconozca la lámina en lo que copian (por las pautas).
+  APLICADO (23/10, 10:40): María adjuntó su corrector_escritura.html (ya llevaba el parche del curso); se le cambiaron
+  solo los datos (lo mismo que hace el paso 1 de patch_corrector.py) y se le devolvió con el mismo nombre para subirlo a
+  biblioteca/profesora/. Probado en Chromium: un texto copiado de la R14a se reconoce con su lámina (antes «Lámina no
+  reconocida»), salen las 8 láminas nuevas de R08, R10, R13 y R14a, sin errores. Para próximos cambios de datos: pedir a
+  María su corrector_escritura.html y repetir lo mismo con el curso_tareas.py del proyecto.
+  SIGUEN PENDIENTES en curso_tareas.py las escrituras de los modelos M7 y M1 (MODELOS solo tiene el M6).
+
+* LAS FICHAS R08, R10, R13 Y R14a EN LOS CONTENIDOS DE LOS MODELOS (23/10): claude/anadir_fichas_modelos.py.
+  python3 anadir_fichas_modelos.py fuente_M01.py fuente_M06.py fuente_M07.py   (y cualquier fuente nueva)
+  Añade al diccionario R las cuatro fichas (justo antes de "M0") y a los contenidos: personas + R10, R14a · opinion +
+  R08 · planes + R13, R08 · cantidad + R14a · lugares + R14a. Primero lo comprueba todo y solo escribe si todo cuadra; si
+  la fuente ya las tiene, no la toca; se para si no encuentra un contenido. Probado sobre una copia con el mismo formato.
+  NO SE HA PODIDO APLICAR EN ESTE CHAT: las fuentes de los modelos no estaban en disco (solo se pueden leer) y son
+  demasiado largas para reescribirlas a mano. PENDIENTE: en el chat del M2 (que tiene que copiar fuente_M01.py y el
+  motor), pasar el script a fuente_M01, fuente_M06 y fuente_M07, subir las tres fuentes arregladas, regenerar los tres
+  DELEA2_curso_Mxx_examen.html y subirlos (María: recursos/A2/dele-curso/). OJO M6: comprobar antes que fuente_M06.py del
+  proyecto ya lleva las correcciones del 15/10 (busca «Pintar la casa»); si no, pasarle primero corregir_M06.py. La
+  fuente del M2 nace ya con las fichas si se copia de una fuente arreglada.
+
+SIGUIENTE
+* PRIORIDAD DE OCTUBRE 2026 (decidida por María el 11/10: es lo que quiere trabajar este mes
+  con sus estudiantes de DELE A2), en este orden y un chat para cada pieza:
+  1) HECHO: Taller oral tarea 1 (monólogo): DELEA2_curso_M4_T1_temas.html.
+  2) HECHO: Taller oral tarea 3 (diálogos): DELEA2_curso_M4_T3_dialogos.html.
+  3) HECHO: Taller de escritura (Módulo 3), las cinco piezas (con fotos de verdad desde el 12/10):
+     M3-1 Kit de frases por tipo de texto (DELEA2_curso_M3_kit_frases.html).
+     M3-2 Las pautas como lista de control (DELEA2_curso_M3_pautas.html).
+     M3-3 De la banda 1 a la banda 2 (DELEA2_curso_M3_banda1_a_banda2.html).
+     M3-4 Revisión final de 5 minutos (DELEA2_curso_M3_revision_final.html).
+     M3-5 Textos modelo aprobado / excelente (DELEA2_curso_M3_textos_modelo.html).
+  4) HECHO (12/10): Qué hacer si me bloqueo (DELEA2_curso_M4_bloqueo.html).
+* FICHAS DE REMEDIO ANTES DE LOS SIMULACROS (María, 14/10; 21/10: AHORA R08, R10, R13 y R14, ver MODELOS): HECHAS R05 (14/10), R06 (14/10; ampliada el 14/10
+  con hace / desde hace / durante / en), R07 (14/10), R08 (22/10), R10 (22/10 noche), R13 (22/10 noche) y R14a (23/10).
+  Fichas hechas: R01, R02, R04, R05, R06, R07, R08, R10, R13, R14a.
+  Pendientes del plan (para más adelante): R03 ser y estar, R09 verbos como gustar, R11 planes
+  y futuro, R12 traer/llevar, ir/venir, pedir/preguntar, R14b vocabulario de fuera de casa (SIGUIENTE).
+  (Cuando exista la R11, añadirla a las fichas del contenido "planes" de los modelos. Cuando exista la R09, enlazarla
+  desde la R10: el aviso de *la gusta ya la nombra. La R03 ser y estar enlazaría bien con los avisos *soy cansada / es
+  preocupada de la R14a.)
+  >>> ANTES DEL M2 (María, 21/10, 00:04): FICHAS DE REMEDIO R08, R10, R13 y R14, para que sus estudiantes vayan
+  haciendo esos ejercicios. Un chat por ficha, en este orden: R08 conectores (HECHA, 22/10) -> R10 lo / la / le
+  (HECHA, 22/10 noche) -> R13 fórmulas y funciones de los correos (HECHA, 22/10 noche, a la vez que la R10) -> R14
+  vocabulario por áreas, DIVIDIDA EN DOS (María, 23/10): R14a la casa y el día a día (HECHA, 23/10) -> R14b fuera de casa
+  (SIGUIENTE). Mismo formato y motor que R01-R14a (curso_comun.py, barajado seeded() arreglado, barra de pestañas nueva,
+  corrección inmediata, detector en «Ahora tú», Copiar para el corrector de María). Antes de construir cada una,
+  proponer a María el enfoque en pocas líneas.
+  YA HECHO PARA LAS CUATRO (23/10): FICHAS_LISTAS y láminas en curso_tareas.py del corrector (aplicado al
+  corrector de María el 23/10); el script anadir_fichas_modelos.py para los contenidos de los modelos (falta pasarlo a las
+  fuentes M01, M06 y M07 y regenerarlas: en el chat del M2). FALTA marcarlas en el índice (build_indice.py). La R14b,
+  cuando esté: añadirla a FICHAS (y FICHAS_LISTAS si va con otra clave) y FICHAS_AT de curso_tareas.py y a NUEVAS /
+  ANADIR de anadir_fichas_modelos.py (p. ej. «tiempo» y «normas»).
+  DESPUÉS, el M2 (María ya tiene escrito su prompt del M2, 22/10; abajo hay otro actualizado).
+  PROMPTS PREPARADOS (23/10), para pegar en un chat nuevo cada uno:
+  - R14b: «Vamos con la ficha de remedio R14b «Vocabulario en escenas (2): fuera de casa» del curso DELE A2. Antes de
+    empezar, lee claude/DELE_A2_curso_estado.txt (sobre todo el bloque de la R14a y la nota «ANTES DEL M2»), el plan
+    (apartado 3: las 12 áreas) y en el Plan curricular el apartado 5 (léxico LX). Es la segunda mitad de la R14, con el
+    mismo enfoque, las mismas pestañas y el mismo motor que la R14a: copia claude/build_R14a_vocabulario.py y
+    claude/banco_R14a_vocabulario.py como build_R14b / banco_R14b y cambia solo el contenido. Áreas de frecuencia ALTA:
+    viajes, transporte y alojamiento (LX-14), ocio, deporte y espectáculos (LX-08), estudios (LX-06), trabajo (LX-07) y
+    el tiempo y las estaciones (LX-20); al final, un rincón corto con las de frecuencia MEDIA (servicios LX-11, medios y
+    móvil LX-09 y LX-16, fiestas). «Escucha y elige» con 12 audios (sin efectos, etiquetas de emoción, ninguna voz de la
+    R14a ni del último modelo), prompts de las viñetas y nombres.txt; anuncios de la lectura con paráfrasis; nada de B1;
+    ejemplos propios que no repitan la R14a ni los modelos. Antes de construir, propónme en pocas líneas las escenas y
+    los ejemplos. Al terminar: archivos y dónde subirlos, build y banco en el proyecto, estado actualizado, la R14b en
+    curso_tareas.py del corrector (FICHAS y láminas) y en anadir_fichas_modelos.py, y el prompt del M2.»
+  - M2: «Vamos con el Modelo 2 del curso DELE A2 (de entrada; perfil + = − =). Antes de empezar, lee
+    claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE MODELO: M2», el bloque del M1 y el del 23/10 sobre las fichas de
+    los modelos) y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Copia del proyecto lo que
+    haga falta para construir (build_modelo.py, adaptar_motor.py, motor_modelo_extra.py, el motor, la libreta, voces.txt
+    y fuente_M01.py como base). Lo primero: pasa claude/anadir_fichas_modelos.py a fuente_M01.py, fuente_M06.py (antes,
+    corregir_M06.py si hace falta) y fuente_M07.py, regenera esos tres modelos y súbelos, para que enlacen ya las fichas
+    R08, R10, R13 y R14. Después, propónme en pocas líneas los temas del M2 (sin repetir los del M1, M6 y M7 ni las
+    escenas de la R14) y no construyas hasta que te diga que sí. Al terminar: archivos y dónde subirlos, comando de
+    Terminal de los audios, prompts y nombres.txt de las imágenes, fuente y datos en el proyecto, la escritura del M2 (y
+    las del M7 y el M1, que faltan) en curso_tareas.py del corrector y el estado actualizado.»
+  >>> SIGUIENTE MODELO: M2 (de entrada; perfil + = − =: lectura en la parte alta del examen, sin salir del A2; auditiva
+  como el examen; escritura en la parte fácil del examen; oral como el examen).
+  Cómo se hace: copiar claude/fuente_M01.py (o fuente_M07.py) como fuente_M02.py y cambiar el contenido (M = "02",
+  NOMBRE "Modelo 2", NIVEL "de entrada", PERFIL = {"pruebas": {"lectura": "+", "auditiva": "=", "escrita": "-",
+  "oral": "="}, ...}, SIN_EFECTOS = True, ETIQUETAS = True, VOCES_EVITAR = las voces del M1, SITUACIONES_USADAS con
+  "M01" y "M02"); python3 build_modelo.py fuente_M02 (con voces.txt y DELEA2_F1_U02_datos.py en la carpeta);
+  python3 adaptar_motor.py; python3 DELE_A2_motor_modelo.py DELEA2_curso_M02_datos. Si en el chat no están en disco
+  el motor, la libreta, DELEA2_F1_U02_datos.py y voces.txt, copiarlos tal cual de project_read solo para ejecutar
+  (no reescribirlos ni subirlos). 23/10: copiar la fuente DESPUÉS de pasarle anadir_fichas_modelos.py (o pasárselo a
+  fuente_M02.py): así el M2 nace con las fichas R08, R10, R13 y R14a.
+  ANTES DE EMPEZAR, LEER claude/DELE_A2_examen_real_hallazgos.txt (manda sobre todo lo demás).
+  "+" EN LA LECTURA (sin salir del A2, como el M7): textos en la parte alta de la extensión oficial, más información
+  por texto, distractores finos (otra persona, otro día, un plan que cambia), paráfrasis y léxico A2 menos frecuente.
+  "−" EN LA ESCRITURA (sin bajar del examen): T1 de tú con un amigo o familiar, entrada de 35-45 palabras y pautas
+  claras de una o dos piezas; T2 con temas muy cercanos y pautas menos densas (la opción 2, una historia con tres fotos
+  muy fáciles de contar), sin dejar de mezclar tiempos ni de pedir la suposición en la opción 2. Los textos modelo
+  aprobado y excelente, como siempre.
+  "=" EN LA AUDITIVA Y EN LA ORAL: como el M6 (auditiva en el centro de la extensión oficial, tres opciones
+  mencionadas en la T1, paráfrasis en T2 y T4, «ninguno» con terceras personas en la T3; oral con fotos como las de
+  2022 y T3 con pautas que mezclan planificar y contar).
+  Matriz del plan para el M2 (punto de partida, revisarla con lo que ya usan M1, M6 y M7): CL1 correo de un
+  estudiante de intercambio · CL3 tres restaurantes · CL4 blog de un viaje · CA1 restaurante y estación · CA3 amigos
+  que se apuntan a un curso · escritura T1 correo a un amigo que viene de visita (OJO: el M6 ya tiene a Pablo, que viene
+  a tu ciudad: cambiarlo) · T2 A una comida especial / B diario de un día de viaje con fotos · oral T1 mi plato favorito /
+  un curso que hice · T2-T3 las láminas de 2022 guardadas para el M2: clases para adultos (elegir un curso con un
+  amigo) + restaurante (elegir restaurante con un amigo), LAS DOS DE TÚ. OJO: el M7 ya tiene comida en la CA3 (cocinar
+  para la semana) y un alumno de 68 años (CL4); el M1 tiene salud (CA1), un trabajo nuevo y el mercado; el M6, un viaje a
+  la montaña. 23/10, OJO TAMBIÉN con la R14a: su escucha y sus anuncios usan restaurante (el pescado que se ha terminado,
+  la tortilla), menú del día de La Huerta, piso en alquiler, frutería, zapatería, centro de salud y farmacia de guardia:
+  si el M2 tiene restaurante en la CA1, que no sean los mismos platos ni las mismas situaciones. Antes de construir,
+  proponer los temas a María en pocas líneas.
+  AUDIO (María, 15/10): NADA DE SONIDOS ENLATADOS (ni sintonía de radio, ni din-don de megafonía, ni pitido de
+  contestador: el examen real tampoco los tiene) y TODAS las voces con la expresividad que pide su contexto (etiquetas
+  de emoción de ElevenLabs v3 en cada intervención: un anuncio de radio animado, una megafonía neutra y clara, un
+  mensaje de contestador con prisa o preocupado, amigos que se ríen o se sorprenden, un cliente un poco molesto...).
+  La dificultad del audio va en el guion (opciones que se mencionan y se descartan, paráfrasis, muletillas, frases sin
+  terminar), no en efectos ni en ruido. (El M6 todavía lleva sintonía, din-don y pitido: quitarlos si María lo pide.)
+  DIFICULTAD POR PRUEBAS (CONFIRMADA por María el 15/10): ningún modelo por debajo del
+  examen; cada modelo con al menos una prueba «+» y otra más amable. (− = parte fácil del examen · = como el examen
+  · + = parte alta, sin salir del A2.) Lectura / Auditiva / Escritura / Oral:
+    M1 = − = − (hecho, 20/10 noche) · M2 + = − = · M3 = + = = · M4 − = + + · M5 = = = = (termómetro) · M6 = + = = (hecho) ·
+    M7 + + + = (hecho, 20/10) · M8 = = = = (ensayo general, la última semana).
+  (Nota: el M1 = − = − no tiene ninguna prueba "+": es el modelo de entrada; la regla de "al menos una +" se
+  cumple en el conjunto, no en el M1.)
+  El perfil del modelo y cómo leer la nota ya están hechos (motor_modelo_extra.py, 20/10): basta con poner PERFIL en
+  la fuente.
+* Regla para todas las piezas: si llevan fotos, entregar los prompts de las imágenes y el nombres.txt
+  (con el estilo natural de fotos_M3.py: sin HDR ni contraste, poses naturales; si son una historia de
+  tres fotos, un tríptico 3:1 como en los simulacros); si llevan audio, el guion para generar_audios.py y
+  el comando de Terminal.
+* PENDIENTE DE DECIDIR (María, 12/10): duda de que "De la banda 1 a la banda 2" (M3-3) sea muy útil para
+  alguien que prepara el A2. Lo decidirá cuando el curso esté completo.
+* Idea pendiente: monólogos modelo de la T1 y frases del examinador de la T3 en audio
+  (ElevenLabs), para oír el ritmo de un candidato que aprueba y practicar el diálogo
+  escuchando (plan, apartado 4; pregunta abierta para María). Si se hace, el entrenador de
+  "Qué hacer si me bloqueo" podría leer en voz alta las preguntas y las frases difíciles.
+
+
+===========================================================================
+(23/10, al reducir el proyecto: aquí sigue, tal cual, claude/DELE_A2_curso_estado_23oct.txt)
+===========================================================================
+NOVEDADES DEL 23/10/2026 (leer junto con claude/DELE_A2_curso_estado.txt; pasarlas allí la próxima vez que se reescriba)
+===========================================================================
+HECHO (23/10)
+* LIBRETA ORAL DE LA PROFESORA CON «GUION EN VIVO» (María: en la libreta salían las dos fotos y las sugerencias juntas,
+  en un bloque de texto, y no era fácil leer y hablar con el estudiante a la vez).
+  PIEZAS NUEVAS: claude/libreta_vivo.py (lee el guion y oralModelos, y pinta la vista nueva) + claude/patch_libreta_vivo.py
+  (10 cambios pequeños y comprobados en DELE_oral_profesora.py; se para si no encuentra un trozo; si ya está aplicado no hace
+  nada; las libretas B2 no cambian; sin libreta_vivo.py la libreta funciona como siempre).
+  LO NUEVO EN CADA TAREA (A2): arriba, a todo lo ancho y en letra grande, SOLO la opción o la foto elegida.
+   - T1: la lámina de esa opción + sus dos ayudas («no interrumpa...») y las ayudas generales.
+   - T2: la foto de verdad (imgBase + img; clic = más grande; si no carga, la descripción) + las ayudas de ESA foto + las seis
+     preguntas de la lámina.
+   - T3: se elige sola con la foto de la T2; TÚ / USTED en grande; «Usted es: ...» con miniatura de la foto; el ESQUEMA PASO A
+     PASO (lo que dice la profesora en grande; debajo, la respuesta modelo del candidato sacada del diálogo modelo; el PEQUEÑO
+     PROBLEMA en coral con «espere a que proponga...», la solución modelo y la «otra solución posible» de las notas); se toca
+     cada paso al terminarlo, se tacha y se marca el siguiente (se guarda); botón «Respuestas modelo» sí/no (se recuerda);
+     «Empezar de nuevo»; diálogo modelo completo plegado (como chat) y «Lo que ve el estudiante» plegado. En las unidades
+     (U01-U10), que no tienen esquema sino un párrafo, sale el papel en frases sueltas con el «Problema:» en coral y lo que
+     ve el estudiante abierto. Si el guion no dice el trato: amigo/hermano/compañero de piso = TÚ; el resto (servicio) = USTED.
+   - El resto de la libreta (tiempos, apuntes, recuento, escalas, informe, historial) no cambia.
+  ENTREGADO: DELEA2_curso_M01_oral_profesora.html, DELEA2_curso_M06_oral_profesora.html y DELEA2_curso_M07_oral_profesora.html
+  (SUBIR a biblioteca/profesora/, sustituyen a las anteriores; mismo código de la oral: M01 7P33R, M06 3SG9J, M07 9GBB7).
+  Se generaron con claude/libreta_desde_extracto.py + claude/css_motor.py (CSS del motor) a partir de extractos de los datos.
+  ENTREGADO (23/10, mediodía): las 10 libretas de las unidades DELEA2_F1_U01..U10_oral_profesora.html con el guion en vivo
+  (SUBIR a biblioteca/profesora/; mismos códigos). Hechas con claude/actualizar_libreta_html.py, que actualiza una libreta YA
+  HECHA leyendo los datos que lleva dentro (no hace falta el motor) y comprueba que código, láminas y contenidos quedan
+  iguales. Fotos: Uxx_oral_foto1/2.jpg en 2026/09 (U01-U03) y 2026/10 (U04-U10). Probadas las 10 en Chromium, sin errores.
+  U08: faltaba en WordPress U08_oral_foto1.jpg (la farmacia). Entregado el prompt nuevo (estilo natural, 3:2) y su nombres.txt
+  (CARPETA DELE_A2_U08); María la genera y la sube a 2026/10 con el nombre exacto U08_oral_foto1.jpg.
+  REGLA: ANTES DE VOLVER A EJECUTAR UN MOTOR (unidades o modelos), pasar patch_libreta_vivo.py a DELE_oral_profesora.py y
+  poner libreta_vivo.py en la carpeta; así todas las libretas nuevas (M2...) salen ya con el guion en vivo.
+  El guion del examinador de los modelos tiene que seguir el formato de M01/M06/M07 («Foto N (papel)» + filas «Etiqueta ....
+  texto» + «PEQUEÑO PROBLEMA .... «...». Espere a que...»): libreta_vivo.comprobar() avisa si falta algo.
+
+DECIDIDO CON MARÍA (23/10)
+* GUION EN VIVO EN TODAS LAS LIBRETAS: A2 HECHO (modelos y unidades). B2: en el proyecto «DELE B2 simulacros Examenes», con sus
+  datos: añadir a libreta_vivo.py una función vivo_b2 (T1 propuestas: solo la opción elegida y sus preguntas «ent» paso a paso;
+  T2 foto grande + preguntas de esa foto; T3 encuesta elegida + preguntas) y la rama B2 en el patch; copiar allí libreta_vivo.py,
+  patch_libreta_vivo.py y actualizar_libreta_html.py (este último solo lee A2: adaptarlo). Otros niveles: misma pieza.
+* «QUÉ HACER SI ME BLOQUEO» (M4) SE REESTRUCTURA (SIGUIENTE PIEZA). Pestañas APROBADAS por María (23/10, 12:15; «Entrar» y
+  «Cerrar bien» JUNTAS en una sola pestaña):
+  1 Entrar y terminar (NUEVA): el día de la oral paso a paso (sala de preparación, 12 minutos con notas, la sala del examen,
+    los dos examinadores, las preguntas de contacto, el paso de una tarea a otra, el final y dejar las notas); simulador de la
+    entrada (4-5 preguntas de contacto de usted, con reloj y grabación, respuestas modelo, y enlace con «¿Qué opción ha
+    elegido?»); cómo CERRAR la T1 y la T2 sin cortar de golpe (fórmulas A2: «Y eso es todo sobre...», «Para terminar, creo
+    que...», «En resumen, en la foto veo...»), ejercicio «elige el cierre» y práctica «te quedan 20 segundos: cierra».
+  2 Por qué importa · 3 Las frases · 4 ¿Qué dices? · 5 Describe la palabra · 6 Entrenador (las de ahora) · 7 Ahora tú (+ modo
+  ORAL COMPLETA: entrada + T1 + T2 + T3 + despedida) · 8 Tu opinión.
+  Oficial (Guía del examen A2, «Administración»): preguntas de contacto para romper el hielo y que el candidato se tranquilice
+  (no se evalúan); dos examinadores, uno es entrevistador e interlocutor y el otro solo califica; 12 minutos de preparación para
+  las tres tareas con notas y borrador que se pueden consultar. Habitual (marcarlo así, no como oficial): documento de
+  identidad, «¿Qué opción ha elegido?», «Muy bien, pasamos a la foto», «Hemos terminado, muchas gracias», dejar las notas.
+  Se construye con build_M4_bloqueo.py + banco_bloqueo_M4.py + curso_comun.py del proyecto (sale con las flechas de la barra).
+  Mismo storageKey (dele-a2-curso-M4-bloqueo) para no perder el historial; el Copiar incluye lo nuevo.
+* BANCO DE REFUERZO DE LA ESCRITURA (como el banco de temas M4-1), después del bloqueo:
+  - Los cinco tipos del kit, pero el CORREO DE USTED con menos peso (María: «es una versión no habitual»; la T1 real es de tú):
+    pocas láminas, marcadas «por si acaso», no en el modo «como en el examen».
+  - NUEVO TIPO pedido por María: DESCRIBIR UNA FOTO POR ESCRITO, con las estructuras de la oral T2 (hay / está, estar +
+    gerundio, lleva, parece que, creo que van a...), con las fotos de la oral que ya están en WordPress (M4T2_foto1-12).
+  - Unas 20 láminas; trípticos nuevos para biografía y «un día con fotos» (unos 8): dar prompts y nombres.txt al construir.
+* ÍNDICE: regenerarlo UNA vez al terminar la R14b (R14 -> R14a «listo» + R14b), con todo lo pendiente de «listo» (M3-x, M4,
+  R01-R14b, M1/M6/M7) y las piezas nuevas (banco de escritura, bloqueo reestructurado si ya están).
+* El kit M3-1 (y M0, M3-2..5, M4, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
+  HTML subidos con un script pequeño que meta NAV_CSS + NAV_JS de curso_comun.py (hace falta que María adjunte los HTML), o al
+  regenerar cada pieza.

@@ -1,0 +1,164 @@
+# GUION DE AUDIO · UNIDAD 2
+# Formato: "VOZ: texto" = frase · [n] = silencio de n segundos · "# ARCHIVO nombre" = archivo de salida
+# "SONIDO n: descripcion" = efecto de sonido de n segundos (antes de hablar, nunca debajo de la voz)
+# Las frases y efectos repetidos no se pagan dos veces: salen de la cache.
+# REPARTO DE VOCES U02 (ninguna protagonista de la U01)
+# T3 conversación: Nuria = SARA_JOVEN (España, joven) · Rafa = DANI (España, joven)
+# T4 mensajes: 0 contestador academia = SOFIA (Colombia) · 1 estación = MARINA_ES · 2 museo = LUIS_VEGA
+#   3 contestador Pablo = ANTONIO (Latinoamérica) · 4 cine = MARTIN_2 · 5 grandes almacenes = CRISTINA
+#   6 aeropuerto = DAVID_M1 · 7 contestador Luis = MARTIN_3
+# Efectos: din-don en megafonía, pitido en contestador (solo dos efectos distintos, se reutilizan)
+
+
+# ARCHIVO DELEA2_F1_U02_CA_T3
+0: Prueba de comprensión auditiva. Escuche con atención todas las instrucciones. Esta prueba contiene dos tareas. Usted debe responder a trece preguntas. La duración es de veinte minutos, aproximadamente. Marque las opciones elegidas en la Hoja de respuestas.
+[3]
+0: Tarea tres. Instrucciones. Usted va a escuchar una conversación entre dos amigos, Nuria y Rafa. Indique si los enunciados, del trece al dieciocho, se refieren a Nuria, a, a Rafa, be, o a ninguno de los dos, ce. Escuchará la conversación dos veces. Marque las opciones elegidas en la Hoja de respuestas.
+[2]
+0: Ahora tiene treinta segundos para leer los enunciados.
+[30]
+
+# Conversación (primera vez)
+DANI: ¡Nuria! ¡Cuánto tiempo! ¿Qué tal?
+SARA_JOVEN: ¡Hola, Rafa! Muy bien. Oye, ¿dónde estuviste el fin de semana? Te llamé el sábado y no contestaste.
+DANI: Es que me fui a Sevilla con mi hermano. Fuimos al concierto de un grupo que nos encanta y el domingo comimos con mis tíos.
+SARA_JOVEN: ¡Qué bien! Yo el sábado fui al estreno de la película de mi prima Laura, en un cine del centro.
+DANI: ¿Tu prima hace cine?
+SARA_JOVEN: Sí, es actriz. Empezó hace cinco años en el teatro y esta es su primera película. Tiene un papel pequeño, pero sale en varias escenas.
+DANI: ¿Y qué tal la película?
+SARA_JOVEN: Me gustó mucho. Cuenta la historia de una nadadora que ganó una medalla de oro en los Juegos Olímpicos. Después del estreno cenamos con el director y con algunos actores.
+DANI: ¡Qué suerte! Pues yo también tengo una noticia: la semana pasada empecé a trabajar en una escuela de música. Doy clases de guitarra a niños por las tardes.
+SARA_JOVEN: ¡Enhorabuena! ¿Y dejaste la tienda?
+DANI: No, todavía no. Por las mañanas sigo en la tienda, pero en verano quiero dejarla.
+SARA_JOVEN: Pues yo este mes termino el máster. Presento el trabajo final el día veinte.
+DANI: ¡Qué nervios! Oye, ¿vamos juntos a ver la película de tu prima? Me apetece mucho.
+SARA_JOVEN: Vale, aunque yo ya la vi... Bueno, no me importa verla otra vez. ¿El viernes?
+DANI: Perfecto. El viernes a las ocho.
+[10]
+# (repetición)
+DANI: ¡Nuria! ¡Cuánto tiempo! ¿Qué tal?
+SARA_JOVEN: ¡Hola, Rafa! Muy bien. Oye, ¿dónde estuviste el fin de semana? Te llamé el sábado y no contestaste.
+DANI: Es que me fui a Sevilla con mi hermano. Fuimos al concierto de un grupo que nos encanta y el domingo comimos con mis tíos.
+SARA_JOVEN: ¡Qué bien! Yo el sábado fui al estreno de la película de mi prima Laura, en un cine del centro.
+DANI: ¿Tu prima hace cine?
+SARA_JOVEN: Sí, es actriz. Empezó hace cinco años en el teatro y esta es su primera película. Tiene un papel pequeño, pero sale en varias escenas.
+DANI: ¿Y qué tal la película?
+SARA_JOVEN: Me gustó mucho. Cuenta la historia de una nadadora que ganó una medalla de oro en los Juegos Olímpicos. Después del estreno cenamos con el director y con algunos actores.
+DANI: ¡Qué suerte! Pues yo también tengo una noticia: la semana pasada empecé a trabajar en una escuela de música. Doy clases de guitarra a niños por las tardes.
+SARA_JOVEN: ¡Enhorabuena! ¿Y dejaste la tienda?
+DANI: No, todavía no. Por las mañanas sigo en la tienda, pero en verano quiero dejarla.
+SARA_JOVEN: Pues yo este mes termino el máster. Presento el trabajo final el día veinte.
+DANI: ¡Qué nervios! Oye, ¿vamos juntos a ver la película de tu prima? Me apetece mucho.
+SARA_JOVEN: Vale, aunque yo ya la vi... Bueno, no me importa verla otra vez. ¿El viernes?
+DANI: Perfecto. El viernes a las ocho.
+[10]
+0: Fin de la tarea tres.
+
+
+# ARCHIVO DELEA2_F1_U02_CA_T4
+0: Tarea cuatro. Instrucciones. Usted va a escuchar ocho mensajes, incluido el ejemplo. Cada mensaje se repite dos veces. Seleccione el enunciado, de la a a la ka, que corresponde a cada mensaje, del diecinueve al veinticinco. Hay once opciones, incluido el ejemplo. Seleccione siete. Marque las opciones elegidas en la Hoja de respuestas.
+[2]
+0: A continuación va a oír un ejemplo.
+[1]
+0: Mensaje cero.
+[2]
+SONIDO 1: Single short electronic answering machine beep, clean, no background noise
+SOFIA: Hola, Marcos. Soy Elena, de la academia de música. Te llamo porque mañana no hay clase de guitarra: el profesor está enfermo. La clase es el jueves, a la misma hora. ¡Hasta el jueves!
+[3]
+0: La opción correcta es la letra a: una clase cambia de día.
+[3]
+0: Ahora tiene cuarenta y cinco segundos para leer los enunciados.
+[45]
+
+# Mensaje 1 (ítem 19, clave E)
+0: Mensaje uno.
+[2]
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+MARINA_ES: Atención, por favor. El tren con destino Valencia, con salida a las diez y cuarto, tiene un retraso de veinte minutos. La nueva hora de salida es a las diez y treinta y cinco, por la vía cuatro. Disculpen las molestias.
+[15]
+# (repetición)
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+MARINA_ES: Atención, por favor. El tren con destino Valencia, con salida a las diez y cuarto, tiene un retraso de veinte minutos. La nueva hora de salida es a las diez y treinta y cinco, por la vía cuatro. Disculpen las molestias.
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 2 (ítem 20, clave H)
+0: Mensaje dos.
+[2]
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+LUIS_VEGA: Estimados visitantes: el museo cierra dentro de quince minutos. Les recordamos que la exposición sobre la vida del pintor Julián Arce termina este domingo. Desde el lunes, la sala tres está cerrada por obras. Gracias por su visita.
+[15]
+# (repetición)
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+LUIS_VEGA: Estimados visitantes: el museo cierra dentro de quince minutos. Les recordamos que la exposición sobre la vida del pintor Julián Arce termina este domingo. Desde el lunes, la sala tres está cerrada por obras. Gracias por su visita.
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 3 (ítem 21, clave K)
+0: Mensaje tres.
+[2]
+SONIDO 1: Single short electronic answering machine beep, clean, no background noise
+ANTONIO: Hola, mamá, soy Pablo. Ya estoy en el hotel. El avión salió con una hora de retraso, pero el viaje fue muy tranquilo. Mañana visito la ciudad y el jueves empieza el congreso. Te llamo el fin de semana. ¡Besos!
+[15]
+# (repetición)
+SONIDO 1: Single short electronic answering machine beep, clean, no background noise
+ANTONIO: Hola, mamá, soy Pablo. Ya estoy en el hotel. El avión salió con una hora de retraso, pero el viaje fue muy tranquilo. Mañana visito la ciudad y el jueves empieza el congreso. Te llamo el fin de semana. ¡Besos!
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 4 (ítem 22, clave D)
+0: Mensaje cuatro.
+[2]
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+MARTIN_2: Señoras y señores, les informamos de que la sesión de las ocho de la película El último verano está completa. Todavía quedan entradas para la sesión de las diez y media. Pueden comprarlas en la taquilla o en nuestra página web.
+[15]
+# (repetición)
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+MARTIN_2: Señoras y señores, les informamos de que la sesión de las ocho de la película El último verano está completa. Todavía quedan entradas para la sesión de las diez y media. Pueden comprarlas en la taquilla o en nuestra página web.
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 5 (ítem 23, clave J)
+0: Mensaje cinco.
+[2]
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+CRISTINA: Atención, clientes: hoy a las doce, en la librería de la segunda planta, la actriz Marta Ruiz presenta el libro sobre su vida. Después de la presentación, firma ejemplares a todos los clientes. ¡Les esperamos!
+[15]
+# (repetición)
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+CRISTINA: Atención, clientes: hoy a las doce, en la librería de la segunda planta, la actriz Marta Ruiz presenta el libro sobre su vida. Después de la presentación, firma ejemplares a todos los clientes. ¡Les esperamos!
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 6 (ítem 24, clave G)
+0: Mensaje seis.
+[2]
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+DAVID_M1: Última llamada para los pasajeros del vuelo cuatro cero dos con destino Lisboa. Por favor, diríjanse inmediatamente a la puerta be doce. La puerta se cierra dentro de cinco minutos. Les recordamos que deben tener preparada la tarjeta de embarque.
+[15]
+# (repetición)
+SONIDO 2: Two-tone ding-dong chime of a public address announcement system, clean and clear, no voices, no background noise
+DAVID_M1: Última llamada para los pasajeros del vuelo cuatro cero dos con destino Lisboa. Por favor, diríjanse inmediatamente a la puerta be doce. La puerta se cierra dentro de cinco minutos. Les recordamos que deben tener preparada la tarjeta de embarque.
+[3]
+0: Elija la opción correcta.
+[10]
+
+# Mensaje 7 (ítem 25, clave B)
+0: Mensaje siete.
+[2]
+SONIDO 1: Single short electronic answering machine beep, clean, no background noise
+MARTIN_3: Hola, Carmen, soy Luis. Te llamo para darte las gracias por el regalo de cumpleaños. ¡El libro de fotografía me encantó! Ya lo he mirado entero. ¿Quedamos el sábado para tomar algo? Llámame, ¿vale?
+[15]
+# (repetición)
+SONIDO 1: Single short electronic answering machine beep, clean, no background noise
+MARTIN_3: Hola, Carmen, soy Luis. Te llamo para darte las gracias por el regalo de cumpleaños. ¡El libro de fotografía me encantó! Ya lo he mirado entero. ¿Quedamos el sábado para tomar algo? Llámame, ¿vale?
+[3]
+0: Elija la opción correcta.
+[10]
+
+0: Fin de la prueba de comprensión auditiva.

@@ -1,0 +1,125 @@
+PLANTILLA DE ENTREGA DEL SIMULACRO Y REGISTRO DE PRODUCCIÓN — DELE A2
+===========================================================================
+Documento base del proyecto "DELE A2" (2spanishteachers.com).
+Define exactamente CÓMO se entrega cada simulacro generado (para que todos
+los productos vendidos tengan estructura idéntica) y el registro para
+controlar el estado de producción de cada unidad.
+
+---------------------------------------------------------------------------
+1. ENTREGA ESTÁNDAR DE CADA SIMULACRO (DOS VERSIONES SEPARADAS)
+---------------------------------------------------------------------------
+
+VERSIÓN A — CUADERNILLO DEL ESTUDIANTE (la que se publica/vende)
+  1) Portada breve:
+     - "Simulacro DELE A2 — Unidad [X]: [tema de la unidad]"
+     - Qué contiene, duración total estimada y materiales necesarios.
+     - Aviso legal fijo: "Material de preparación original. No es un
+       examen oficial y es independiente del Instituto Cervantes."
+       (Sin nombrar 2spanishteachers: los estudiantes vienen de iTalki y
+       la marca no les dice nada.)
+  2) Tip de arranque (1-2 consejos del banco de tips, los que tocan a las
+     tareas de esta unidad).
+  3) Comprensión de lectura: instrucción oficial + textos + ítems. Tiempo:
+     30 min en U01-U05 (dos tareas) y 60 min en U06-U10 (cuatro tareas).
+     (Cada tarea precedida de su tip corto si procede.)
+  4) Comprensión auditiva: instrucción oficial + ítems. Tiempo: unos 20
+     min en U01-U05 y 40 min en U06-U10. (El estudiante recibe los audios
+     .m4a, no los guiones.)
+  5) Expresión e interacción escritas (45 min, prueba completa): Tarea 1 y
+     Tarea 2 (con sus dos opciones), con la instrucción y la extensión
+     oficiales + cómo enviarlas para corrección (botón de copiar).
+  6) Vocabulario y dudas (sin tiempo, DESPUÉS de la escritura, como en el
+     ejecutable: el estudiante ya tiene delante textos y transcripciones):
+     palabras nuevas + frase propia con cada una + recuadro de dudas.
+  7) Expresión e interacción orales (prueba completa, en clase): láminas
+     de las tres tareas + "Qué se valora" resumido (de la plantilla oral)
+     + aviso de que se hace en clase con la profesora.
+  8) Hoja de respuestas (para imprimir o rellenar en pantalla).
+
+VERSIÓN B — CUADERNILLO DE LA PROFESORA (interno, nunca se publica)
+  1) Clave de respuestas en tabla rápida (ítem → letra).
+  2) Metadatos completos de cada ítem (etiquetas, justificación) según el
+     sistema de corrección.
+  3) Transcripciones de los audios (el guion para generarlos es aparte:
+     Uxx_guion.txt, ver más abajo).
+  4) Mapa de contenidos del simulacro: tabla contenido → ítems que lo
+     evalúan (es la base del semáforo del informe).
+  5) Guion del entrevistador para la oral. Tareas 1 y 2: el entrevistador
+     NO interviene (son monólogos); solo una o dos ayudas por opción o por
+     foto, para usar si el estudiante se bloquea o termina antes de 2
+     minutos. Tarea 3: el papel de la profesora (datos, preguntas y un
+     pequeño problema). + Qué mirar en la oral de esta unidad y errores
+     esperables. Tiempos: T1 2-3 min, T2 2-3 min, T3 3-4 min.
+  6) Imágenes: perfil de cada foto (oral y escritura) y situaciones ya
+     usadas.
+
+GUION DE AUDIO (Uxx_guion.txt, lo genera build_unidad.py)
+  Texto plano para generar_audios.py, formato actual:
+     # ARCHIVO DELEA2_F1_Uxx_CA_Tn      -> empieza un audio
+     0: texto                           -> narrador
+     SOFIA: texto                       -> personaje (código de voces.txt)
+     LYDIA/RADIO: texto                 -> radio, megafonía o contestador
+     [5]                                -> silencio de 5 segundos
+     SONIDO 2: descripción en inglés    -> efecto de 2 s, antes de hablar
+     # comentario                       -> no se lee
+  Reparto de voces en la cabecera. Números, horas y precios con letras.
+  Cada audio con su instrucción locutada, ejemplo una vez y cada ítem dos
+  veces, con las pausas oficiales.
+  Salida: DELEA2_F1_Uxx_CA_Tn.m4a (un archivo por tarea).
+
+FORMATO DE ARCHIVO:
+* Los dos cuadernillos (.txt) son para revisar. Lo que se publica es el
+  HTML interactivo (DELEA2_F1_Uxx_simulacro.html), que genera el motor con
+  los mismos datos. Ver el documento de producción.
+
+---------------------------------------------------------------------------
+2. NOMENCLATURA DE ARCHIVOS (PARA NO PERDERSE CON 10+ UNIDADES)
+---------------------------------------------------------------------------
+* Cuadernillo estudiante:  DELEA2_F1_U03_estudiante.(txt/html/pdf)
+* Cuadernillo profesora:   DELEA2_F1_U03_profesora.txt
+* Audios:                  DELEA2_F1_U03_CA_T1.m4a (fase, unidad, prueba, tarea: un archivo por tarea)
+* Simulacro (web pública):  DELEA2_F1_U03_simulacro.html
+* Libreta oral (protegida): DELEA2_F1_U03_oral_profesora.html
+* Fuente y guion:           fuente_U03.py · U03_guion.txt · U03_prompts_imagenes.txt · nombres.txt
+* Informe de un alumno:    DELEA2_F1_U03_informe_[nombre].txt
+* Modelos completos:       DELEA2_F3_M01_estudiante.txt (M = modelo)
+Reglas: fase siempre indicada (F1 = manual, F2 = curso propio, F3 = modelos)
+y unidad con dos dígitos (U01, U02...) para que ordene bien.
+
+---------------------------------------------------------------------------
+3. REGISTRO DE PRODUCCIÓN (COPIAR Y MANTENER AL DÍA)
+---------------------------------------------------------------------------
+Estado de cada unidad. Valores: — / EN CURSO / HECHO / REVISADO / PUBLICADO
+
+  (una tabla por fase; empezar con la fase 1)
+  UNIDAD | CONTENIDOS EN KNOWLEDGE | EXAMEN GENERADO | REVISADO POR MARÍA/LAURA | AUDIOS PRODUCIDOS | SUBIDO A LA WEB
+  U01    | HECHO                   | HECHO           | REVISADO                 | HECHO             | PUBLICADO
+  U02    | HECHO                   | HECHO           | REVISADO                 | HECHO             | PUBLICADO
+  U03    | HECHO                   | HECHO           | REVISADO                 | HECHO             | PUBLICADO
+  U04    | HECHO                   | HECHO           | REVISADO                 | HECHO             | PUBLICADO
+  U05    | HECHO                   | HECHO (04/10)   | —                        | —                 | —
+  (añadir filas según las unidades del libro)
+
+Regla de calidad: NADA se publica sin la fila "REVISADO POR MARÍA/LAURA"
+marcada. La IA produce el borrador completo; la validación pedagógica final
+(nivel, naturalidad, erratas, escucha real de los audios TTS) es siempre
+humana, especialmente porque el material se vende.
+
+---------------------------------------------------------------------------
+4. CHECKLIST DE MATERIALES QUE APORTA MARÍA AL KNOWLEDGE
+---------------------------------------------------------------------------
+[ ] Índice/temario de la fuente de la fase actual, por unidad (gramática,
+    léxico, funciones, tema): en fase 1 el del manual de referencia; en
+    fase 2 el del curso A2 propio — imprescindible antes de generar cada
+    unidad.
+[ ] Guía oficial del examen DELE A2 (referencia de formato).
+[ ] Examen modelo oficial (referencia de formato).
+[ ] Índices de otros manuales de preparación (referencia de enfoque).
+[ ] Lista de recursos de la biblioteca de 2ST con sus títulos/URLs, para
+    que los informes de repaso puedan enlazar a recursos reales.
+[ ] (Opcional, para la fase HTML) Design system / plantilla HTML de 2ST.
+[ ] (Cuando estén elegidas) Las voces TTS finalistas y a qué personaje
+    corresponde cada una (VOZ 1 = ..., VOZ 2 = ...), para que los guiones
+    salgan ya asignados.
+===========================================================================
+Documento base para subir al proyecto "DELE A2".

@@ -1,0 +1,122 @@
+# VOCES DEL PROYECTO DELE (colección DELE de ElevenLabs) · 82 voces (actualizado 22/10/2026)
+# Formato: CODIGO = ID   # nombre en ElevenLabs · acento · sexo · edad · uso
+# El 0 es siempre el narrador (Javier Rojas). En cada guion se usan estos códigos.
+# Uso: conversación = diálogos (CA-T1, CA-T3) · publicidad / informativa = radio y megafonía (CA-T2, CA-T4).
+# NUEVA OCT = añadida en octubre de 2026 (Carolina, Raquel, Erik, Mario latino, Maya).
+# DESCARTADAS (María, 22/10/2026: suenan enlatadas o raras en la radio del M7; no volver a usarlas ni a añadirlas):
+#   HUGO (Hugo - Cheerful, Raspy and Commanding · zHRr9GkjqXG8YdNdzt2V)
+#   CLARA (Clara - Psychologist & Therapist Serena · GmtcEEMFvC7O5dGtyB3K)
+#   LUCIA_AR (Lucia - Warm, Expressive and Soothing, Argentina · yA5jrK1S9cpCAojBYyMu)
+
+0 = eHAEFkimnYz57pupUMcq   # Javier Rojas - Learning & Storytelling · narrador
+
+# MUJERES · España
+AITANA = AxFLn9byyiDbMn5fmyqu   # Aitana - Warm, Friendly and Expressive · España · mujer · joven · narración
+CAROLINA = UOIqAnmS11Reiei1Ytkc   # Carolina - Natural, Neutral and Clear · España · mujer · mediana edad · conversación · NUEVA OCT
+CRISTINA = 1CeqBeXMOqCleeQjfYfO   # Cristina - Premium Spanish Female · España · mujer · joven · publicidad
+ESTELA = iuYybvSfclFoJ9ab2Im6   # Estela - Conversacional peninsular · España · mujer · mediana edad · conversación
+EVA = RgXx32WYOGrd7gFNifSf   # Eva Dorado - Warm, Soft and Convincing · España · mujer · mediana edad · narración
+FIONA = ElGl0o9qwShv7sa2jOeA   # Fiona - Warm & Engaging · España · mujer · joven · narración
+LUCIA = rDkIS117MFsZ9FVeK2Rx   # Lucia - Radiant and Spirited · España · mujer · mediana edad · publicidad
+LYDIA = SDVJaMLoJa7wc3s2sn7d   # Lydia - Warm, Energetic and Confident · España · mujer · mediana edad · informativa
+MARINA_ES = GB7fZx4ubHWxbBE05abF   # Marina - Clear, Velvety and Articulated · España · mujer · joven · informativa
+MIA = Qvbf0AoA7UZSgJUp8Ba5   # Mía Evans - Nuanced, Polished and Clear · España · mujer · mediana edad · narración
+RAQUEL = 1eHrpOW5l98cxiSRjbzJ   # Raquel - Young, Bright and Cheerful · España · mujer · joven · conversación · NUEVA OCT
+SARA = KHCvMklQZZo0O30ERnVn   # Sara Martin - Gentle and Layered · España · mujer · mediana edad · informativa
+SARA_2 = Ir1QNHvhaJXbAGhT50w3   # Sara Martin - Light, Intimate and Tender · España · mujer · mediana edad · narración
+SARA_JOVEN = gD1IexrzCvsXPHUuT0s3   # Sara Martin  - Young and Reflective · España · mujer · joven · conversación
+SUSANA = N4QRhgZ7ZDNlSKHK9TCR   # Susana Escribano · España · mujer · mediana edad · conversación
+
+# MUJERES · Argentina
+GABI = 8jv0VaaN6d7mWZAeGj79   # Gabi - Friendly, Publicity & Casual · Argentina · mujer · joven · publicidad
+JANET = r3lotmx3BZETVvcKm6R6   # Janet Tucumán - Natural Narrator · Argentina · mujer · mediana edad · conversación
+MARINA = RO0BdeZ6XxVXOfbdD4H0   # Marina - Argentina · Argentina · mujer · mediana edad · conversación
+NIEVE = nAFxIJGj7iSTeltygOfB   # Nieve - Argentinian Grandmother · Argentina · mujer · mayor · narración
+RITA = klD8ai7tOs4cUL3kcChn   # Rita - Friendly, lively · Argentina · mujer · joven · conversación
+
+# MUJERES · Colombia
+DIANA = irla3teuChAApguKnzms   # Diana García - Sales, Warm & Persuasive · Colombia · mujer · mediana edad · conversación
+LINA = VmejBeYhbrcTPwDniox7   # Lina - Sunny, Kind and Friendly · Colombia · mujer · joven · conversación
+SOFIA = b2htR0pMe28pYwCY9gnP   # Sofía - Natural and Conversational · Colombia · mujer · joven · conversación
+VALENTINA = J4vZAFDEcpenkMp3f3R9   # Valentina - Joyful, Lively Friend · Colombia · mujer · joven · conversación
+
+# MUJERES · México
+ANA_MARIA = m7yTemJqdIqrcNleANfX   # Ana María - Calm, Natural and Clear · México · mujer · joven · conversación
+TAMARA = 45awEU2ZYXZdWPFsUd43   # Tamara · México · mujer · joven · publicidad
+
+# MUJERES · Latinoamérica
+CRISTINA_LAT = nTkjq09AuYgsNR8E4sDe   # Cristina Campos - Natural Conversations · Latinoamérica · mujer · joven · conversación
+LUISA = aZilAbZ5tl8i9lA1EF02   # Luisa - Friendly, Versatile · Latinoamérica · mujer · joven · narración
+MAYA = nbcvT3C2tyOd2OsRAtUf   # Maya - Dynamic Agent & Storyteller · Latinoamérica · mujer · mediana edad · conversación · NUEVA OCT
+NINOSKA = zl1Ut8dvwcVSuQSB9XkG   # Ninoska - Spanish Teacher · Latinoamérica · mujer · mediana edad · informativa
+TATIANA = 2rigMbVWLdqtBSCahJFX   # Tatiana Martin - Wise-speaking, calm · Latinoamérica · mujer · mediana edad · narración
+
+# MUJERES · sin acento indicado (escuchar antes)
+KANIKA = CYZATuZ1tjgW8es1QfPG   # Kanika – Wild & Crime Documentary · sin acento indicado (escuchar antes) · mujer · mediana edad · tele/espectáculo
+
+# HOMBRES · España
+BOBBY = RXPQcKYH6wnQn5NLiWCD   # Bobby - Sharp, Persuasive and Dynamic · España · hombre · mediana edad · publicidad
+DANI = 7QQzpAyzlKTVrRzQJmTE   # Dani - Hurried, Dynamic and Engaging · España · hombre · joven · conversación
+DANIEL_ES = E3gU1I86D0XjvRrEszPm   # Daniel - Spanish Sales & Customer Care · España · hombre · mediana edad · conversación
+DAVID_M1 = y6WtESLj18d0diFRruBs   # David Martin - Clear, Calm and Elegant · España · hombre · joven · informativa
+DAVID_M2 = Nh2zY9kknu6z4pZy6FhD   # David Martin - Confident and Balanced · España · hombre · joven · narración
+EFRAYN = tEMiC7LbpKm1kc0l4WmM   # Efrayn RS ToonSenior – Expressive and Dynamic · España · hombre · mediana edad · tele/espectáculo
+EMILIO = ZCh4e9eZSUf41K4cmCEL   # Emilio - Warm, Solid and Convincing · España · hombre · mediana edad · informativa
+GABRIEL_ES = 4R9s73RrCF4wi6GqmzrT   # Gabriel Blanco - Warm & Expressive · España · hombre · mediana edad · narración
+JAVIER = PToUZ7lhIUiz1SP94rGo   # Javier - Mature and Commanding · España · hombre · mediana edad · publicidad
+JAVI_ROJAS = aYbngTsp5kp0sibI3Z0T   # Javi Rojas - Rich, Polished and Elegant · España · hombre · mediana edad · narración
+LUIS_VEGA = E3MrNtjUaYrNQEr9YqXs   # Luis Vega - Engaging, Neutral and Clear · España · hombre · mediana edad · informativa
+MARIO = DZyrV4biPT5EX8YED3PT   # Mario - Warm, Solid and Agile · España · hombre · mediana edad · narración
+MARTIN_1 = D7dkYvH17OKLgp4SLulf   # Martin Osborne - Polished and Energetic · España · hombre · mediana edad · publicidad
+MARTIN_2 = erKgR0s8Y67t4iiHuA9R   # Martin Osborne - Polished and Expressive · España · hombre · mediana edad · informativa
+MARTIN_3 = LlZr3QuzbW4WrPjgATHG   # Martin Osborne - Round and Polished · España · hombre · mediana edad · conversación
+MILO = v4b4rQBhckrIsOHsrbub   # Milo - Conversational & Casual · España · hombre · mediana edad · conversación
+OSCAR = LdJsUJ9dnNgwNnALzX1G   # Oscar Lance - Solid and Credible · España · hombre · joven · tele/espectáculo
+RAFA = lyvlYLiDFO0hCi3aCanq   # Rafa N - Cinematic Story Narrator · España · hombre · mediana edad · narración
+SANTIAGO_ES = 4ui1DEkTGfRSG3GdvCcf   # Santiago - Spanish Executive · España · hombre · mediana edad · informativa
+SERGIO = NEtfpHpuEDBEmqdtNOyt   # Sergio - Clear, Ringing and Positive · España · hombre · mediana edad · publicidad
+VOLU = w8u1dIxiWVelUtUQg1MB   # Volu · España · hombre · joven · conversación
+
+# HOMBRES · Argentina
+AGUSTIN = ByVRQtaK1WDOvTmP1PKO   # Agustín - Relaxed, Warm and Approachable · Argentina · hombre · mediana edad · conversación
+DIEGO = 5da4nOCHLuswM3TyAUSo   # Diego - Casual & Friendly · Argentina · hombre · mediana edad · conversación
+TOMAS = QK4xDwo9ESPHA4JNUpX3   # Tomas - Argentina & Uruguaya · Argentina · hombre · joven · conversación
+
+# HOMBRES · Colombia
+ALBEIRO = HVD2dHblkFaLh5Hy0HUJ   # Albeiro Sandoval · Colombia · hombre · mediana edad · conversación
+BOGA = NGuczaxV7CJACyG07XxA   # El Boga - Enthusiastic and  Energetic · Colombia · hombre · mediana edad · tele/espectáculo
+CRISTIAN = o2vbTbO3g4GrKUg7rehy   # Cristian Sanchez - Lively and Deep · Colombia · hombre · mediana edad · conversación
+DANIEL_CO = TjldTGy7iELoRNPa6sJh   # Daniel - Comercial · Colombia · hombre · joven · conversación
+DAVID_CO = ECOET12tGKHdXyB0CfqU   # David - Friendly Male · Colombia · hombre · joven · conversación
+GABRIEL_CO = l7mz7X0JldPlSP6WNhdd   # Gabriel · Colombia · hombre · mediana edad · conversación
+JUAN_RESTREPO = ucWwAruuGtBeHfnAaKcJ   # Juan Restrepo - Calm and Smooth · Colombia · hombre · joven · conversación
+
+# HOMBRES · México
+ALEJANDRO = SR7nDRaowD2i3v2ycaDS   # Alejandro - Confident and Serious · México · hombre · joven · conversación
+ENRIQUE = iDEmt5MnqUotdwCIVplo   # Enrique Mondragón - Elegant and Dynamic · México · hombre · mediana edad · narración
+LUIS_GUILLERMO = gwk2CKlAQ1B4a2RPxJoF   # Luis Guillermo - Warm and Engaging · México · hombre · mediana edad · informativa
+
+# HOMBRES · Perú
+DIEGO_PE = dF1Qg3iMRirscWEMtEKb   # Diego Cárdenas - Soothing and Mediative · Perú · hombre · joven · informativa
+
+# HOMBRES · Venezuela
+ERIK = TYqnEp5FYmaKfdSGcRoE   # Erik Gonzalez - Latino & Pausado · Venezuela · hombre · joven · conversación · NUEVA OCT
+
+# HOMBRES · Latinoamérica
+ABUELO_CHARLIE = Yb8JGzcZyW5YYzenhRCm   # El Abuelo Charlie - Wise-sounding, Calm · Latinoamérica · hombre · mayor · personaje
+ALBERTO = l1zE9xgNpUTaQCZzpNJa   # Alberto Rodríguez - Serious, Narrative · Latinoamérica · hombre · mediana edad · narración
+ANTONIO = htFfPSZGJwjBv1CL0aMD   # Antonio - Confident, Gentle and Clear · Latinoamérica · hombre · joven · conversación
+CESAR = 4GeB1bS2GAHAsGRM0eeU   # Cesar Rodriguez - Young and Energetic · Latinoamérica · hombre · joven · tele/espectáculo
+DAVID_LAT = dQ0C8BEdKF2odmELvNee   # David - Clear, Warm and Patient · Latinoamérica · hombre · joven · informativa
+JUAN_CARLOS = G4IAP30yc6c1gK0csDfu   # Juan Carlos - Confident and Upbeat · Latinoamérica · hombre · mediana edad · publicidad
+JUAN_CARLOS_2 = YExhVa4bZONzeingloMX   # Juan Carlos - Warm and Conversational · Latinoamérica · hombre · mediana edad · conversación
+MARIO_LAT = tomkxGQGz4b1kE0EM722   # Mario - Animated and chatty · Latinoamérica · hombre · joven · conversación · NUEVA OCT
+MIGUEL = k8cFOyAg7B9qwBlDDNTC   # Miguel - Deep, Rich and Cinematic · Latinoamérica · hombre · mediana edad · tele/espectáculo
+SANTIAGO_LAT = js7Ktj7UJCd7W0StVolw   # Santiago Méndez Bravo - News Presenter · Latinoamérica · hombre · mediana edad · informativa
+ZABRA = 9XaoraKgpXhItOQktYsV   # Zabra - Energetic and Engaging Announcer · Latinoamérica · hombre · joven · publicidad
+
+# HOMBRES · EE. UU. (latino)
+ELEGUAR = T7QGPtToiqH4S8VlIkMJ   # Eleguar - Rich, Excited and Dynamic · EE. UU. (latino) · hombre · joven · publicidad
+
+# HOMBRES · sin acento indicado
+CRISTIAN_M = 6hfb8itl0CXl6ZA7WVIA   # Cristian Medina · sin acento indicado · hombre · joven · tele/espectáculo

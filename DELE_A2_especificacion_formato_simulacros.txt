@@ -1,0 +1,315 @@
+ESPECIFICACIÓN DEL EXAMEN DELE A2 Y DEL SIMULACRO POR UNIDAD
+===========================================================================
+Documento base del proyecto "DELE A2" (2spanishteachers.com).
+Versión corregida: estructura contrastada con las Especificaciones
+oficiales, la Guía oficial del examen y el examen Modelo 0 oficial (formato vigente desde 2020). Un libro de
+modelos comercial confirma la misma estructura.
+
+ES LA NORMA de formato. Se aplica a los mini-simulacros por unidad (fases 1
+y 2) y a los modelos completos (fase 3).
+
+PRINCIPIO: cada tarea del simulacro es IDÉNTICA a la del examen real en
+tipo de texto, extensión, número de ítems, tipo de respuesta, numeración,
+instrucción y mecánica de audio. Lo único que cambia en los mini-simulacros
+es que se hacen menos tareas (la mitad del tiempo), no tareas "simplificadas".
+
+CONTENIDO SIEMPRE ORIGINAL: textos, guiones e ítems se escriben desde cero.
+Del examen oficial solo se imita el FORMATO; de la fuente de la fase actual
+solo se toman los CONTENIDOS de cada unidad. El nivel lo fija el documento
+"Plan curricular A2 del proyecto".
+
+---------------------------------------------------------------------------
+1. ESTRUCTURA OFICIAL DEL EXAMEN (REFERENCIA EXACTA)
+---------------------------------------------------------------------------
+
+PRUEBA 1. COMPRENSIÓN DE LECTURA — 60 minutos — 25 ítems
+Extensión total de los textos: 1325-1725 palabras.
+
+CL-T1 · ítems 1-5 · selección múltiple (A, B o C)
+  Texto: un correo, carta o mensaje personal (ámbito personal).
+  Extensión: 250-300 palabras.
+  Evalúa: idea principal e información específica, sencilla y previsible.
+  Instrucción: "Usted va a leer el correo electrónico que [Nombre] ha
+  escrito a su amigo/a [Nombre]. A continuación, conteste a las preguntas
+  (de la 1 a la 5). Seleccione la opción correcta (A, B o C). Marque las
+  opciones elegidas en la Hoja de respuestas."
+  Formato de ítem: enunciado incompleto o pregunta ("Marta escribe a
+  Carmen para…", "Según el correo, Paula…") + tres opciones.
+
+CL-T2 · ítems 6-13 · selección múltiple (A, B o C) · CON EJEMPLO (0)
+  Textos: nueve textos breves (ejemplo + ocho) de ámbito público:
+  anuncios, carteles, avisos, folletos, noticias muy breves, entradas de
+  foro o blog. Cada texto con su título o encabezado, como un anuncio real.
+  Extensión: 50-80 palabras cada uno.
+  Evalúa: información concisa y explícita (condiciones, horarios, precios,
+  normas, instrucciones).
+  Instrucción: "Usted va a leer ocho anuncios. A continuación, responda a
+  las preguntas (de la 6 a la 13). Seleccione la opción correcta (A, B o
+  C). Marque las opciones elegidas en la Hoja de respuestas."
+  Orden: TEXTO 0 + ítem 0 resuelto; después TEXTO 1 + ítem 6, TEXTO 2 +
+  ítem 7… Cada ítem se refiere solo a su texto.
+
+CL-T3 · ítems 14-19 · RELACIONAR (A, B o C)
+  Textos: tres textos (A, B, C) de tres personas sobre un mismo tema
+  (sus vacaciones, su trabajo, su barrio, un curso…), en primera persona.
+  Extensión: 100-120 palabras cada uno.
+  Evalúa: información específica y predecible; distinguir textos parecidos.
+  Instrucción: "Usted va a leer tres textos de tres personas que hablan
+  de [tema]. Relacione las preguntas (14-19) con los textos (A, B o C).
+  Marque las opciones elegidas en la Hoja de respuestas."
+  Formato: primero la tabla de preguntas "¿Quién…?" con columnas A. [NOMBRE]
+  / B. [NOMBRE] / C. [NOMBRE]; después los tres textos. Reparto de claves
+  habitual: dos ítems por texto (puede ser 3-2-1, nunca 4-1-1).
+  Cada pregunta es una paráfrasis: nunca repite literalmente la frase del
+  texto que la responde.
+
+CL-T4 · ítems 20-25 · selección múltiple (A, B o C)
+  Texto: un texto narrativo (entrada de blog, biografía, diario, noticia,
+  cuento, texto de guía de viaje), ámbitos personal y público, con título.
+  Extensión: 375-425 palabras.
+  Evalúa: ideas esenciales y cambios de tema.
+  Instrucción: "Usted va a leer un texto [de/sobre…]. A continuación,
+  conteste a las preguntas (de la 20 a la 25). Seleccione la opción
+  correcta (A, B o C). Marque las opciones elegidas en la Hoja de
+  respuestas."
+  Los ítems siguen el orden del texto.
+
+PRUEBA 2. COMPRENSIÓN AUDITIVA — 40 minutos — 25 ítems
+Todos los audios se escuchan DOS veces. Extensión total: 975-1465 palabras.
+Voz del narrador (VOZ N) para instrucciones, preguntas y avisos de tiempo.
+
+CA-T1 · ítems 1-6 · selección múltiple con IMÁGENES (A, B o C)
+  · CON EJEMPLO (Conversación 0)
+  Textos: seis conversaciones breves cara a cara (más el ejemplo):
+  informales (actividades, tiempo libre, gustos) o transaccionales
+  (tiendas, restaurantes, estaciones, aeropuertos, hoteles).
+  Extensión: 50-80 palabras cada una.
+  Instrucción: "Usted va a escuchar seis conversaciones. Escuchará cada
+  conversación dos veces. Después, tiene que contestar a las preguntas
+  (de la 1 a la 6). Seleccione la opción correcta (A, B o C). Marque las
+  opciones elegidas en la Hoja de respuestas."
+  Mecánica de cada conversación: el narrador la presenta ("Va a escuchar
+  a un hombre que habla con la recepcionista de un hotel.") → diálogo →
+  el narrador lee la pregunta → [5 s] → se repite la conversación con su
+  pregunta → [3-5 s].
+  Opciones: tres IMÁGENES. En el cuadernillo se entregan como descripción
+  para ilustrar ("A: imagen de un cepillo de dientes") y la versión HTML
+  las muestra como ilustración o icono. Las tres imágenes son objetos,
+  lugares o acciones que APARECEN en el diálogo; solo una responde.
+
+CA-T2 · ítems 7-12 · selección múltiple (A, B o C) · CON EJEMPLO (Audio 0)
+  Textos: seis anuncios o fragmentos de radio (más el ejemplo): noticias
+  breves, publicidad, programación, eventos, ofertas. Ámbito público.
+  Extensión: 40-60 palabras cada uno.
+  Instrucción: "Usted va a escuchar seis anuncios o fragmentos de un
+  programa de radio y tiene que responder a seis preguntas. Cada
+  audición se repite dos veces. Lea las preguntas (de la 7 a la 12) y
+  seleccione la opción correcta (A, B o C). Marque las opciones elegidas
+  en la Hoja de respuestas."
+  Formato de ítem: "Según la audición, [X]…" / "El anuncio dice que…".
+  Mecánica: audio → [pausa] → se repite → "Conteste a la pregunta número
+  [n]" → [pausa].
+
+CA-T3 · ítems 13-18 · RELACIONAR con A (persona 1) / B (persona 2) /
+  C (ninguno de los dos)
+  Texto: una conversación informal entre dos amigos (hombre y mujer)
+  sobre noticias personales, vida cotidiana, planes, citas.
+  Extensión: 225-275 palabras.
+  Instrucción: "Usted va a escuchar una conversación entre dos amigos,
+  [Nombre] y [Nombre]. Indique si los enunciados (del 13 al 18) se
+  refieren a [Nombre] (A), a [Nombre] (B) o a ninguno de los dos (C).
+  Escuchará la conversación dos veces. Marque las opciones elegidas en la
+  Hoja de respuestas."
+  Mecánica: "Ahora tiene 30 segundos para leer los enunciados." [30 s] →
+  conversación → [pausa] → se repite → [pausa].
+  Enunciados en tercera persona sin sujeto ("Ha hecho un examen hoy.",
+  "Va a ir a la costa con su familia."). Reparto habitual: 2 A, 2 B, 2 C.
+  Los enunciados C tocan algo que SÍ se menciona pero no se aplica a
+  ninguno (lo hace un tercero, se descarta, es otro día…).
+
+CA-T4 · ítems 19-25 · RELACIONAR mensajes con enunciados
+  · CON EJEMPLO (Mensaje 0)
+  Textos: ocho mensajes breves (ejemplo + siete): megafonía (estación,
+  aeropuerto, tienda, teatro), contestador, avisos, publicidad breve.
+  Ámbitos personal y público. Extensión: 30-50 palabras cada uno.
+  Enunciados: ONCE (A-K), incluido el del ejemplo. Se usan siete; tres
+  sobran y deben ser plausibles.
+  Instrucción: "Usted va a escuchar ocho mensajes, incluido el ejemplo.
+  Cada mensaje se repite dos veces. Seleccione el enunciado (de la A a la
+  K) que corresponde a cada mensaje (del 19 al 25). Hay once opciones,
+  incluido el ejemplo. Seleccione siete. Marque las opciones elegidas en
+  la Hoja de respuestas."
+  Mecánica: ejemplo resuelto → "Ahora tiene 45 segundos para leer los
+  enunciados." [45 s] → cada mensaje: audio → [15 s] → se repite → [3 s]
+  → "Elija la opción correcta." → [10 s].
+
+PRUEBA 3. EXPRESIÓN E INTERACCIÓN ESCRITAS — 45 minutos — 2 tareas
+EIE-T1 · 60-70 palabras
+  Se da un texto de entrada breve de 35-45 palabras, presentado en el
+  formato de su género (carta, nota, mensaje, invitación o correo), y la
+  instrucción "Conteste a su amigo. En el correo tiene
+  que:" seguida de 4-5 pautas con guion (saludar; contar/explicar…;
+  proponer…; hacer una/dos preguntas y despedirse).
+  Cierre: "Número de palabras recomendadas: entre 60 y 70."
+EIE-T2 · 70-80 palabras · el candidato ELIGE una de dos opciones
+  Instrucción: "Elija solo una de las dos opciones. En cada opción tiene
+  que tratar todos los puntos."
+  OPCIÓN 1: texto sobre un tema de la vida personal (una fiesta, unas
+  vacaciones, un cambio…) con 4-5 pautas.
+  OPCIÓN 2: texto biográfico o narrativo a partir de fotos o datos (dos
+  personas antes y ahora, la vida de alguien con fechas, un viaje con
+  problemas) con 3-4 pautas. El estímulo (fotos y/o datos) da información
+  clara y muy sencilla que acota el texto. En el cuadernillo, las fotos se
+  entregan como descripción para ilustrar, igual que en CA-T1.
+  Cierre: "Número de palabras recomendadas: entre 70 y 80."
+
+PRUEBA 4. EXPRESIÓN E INTERACCIÓN ORALES — 12 min + 12 de preparación
+EIO-T1: monólogo de 2-3 minutos sobre un tema de la vida cotidiana a
+  elegir entre dos; lámina con instrucciones y desglose de aspectos del
+  tema. EIO-T2: descripción de una fotografía de una situación práctica de la
+  vida cotidiana (compras, transporte…), 2-3 minutos, con lámina de pautas. EIO-T3:
+  diálogo de 3-4 minutos con el entrevistador en una situación simulada
+  relacionada con la foto de la Tarea 2.
+
+CALIFICACIÓN
+* Cada prueba vale 25 puntos. Grupo 1 = Lectura + Escrita; Grupo 2 =
+  Auditiva + Oral. APTO: mínimo 30/50 en CADA grupo, sin compensación.
+* Lectura y auditiva: 1 punto por acierto, 0 por error, sin penalización.
+  Consejo fijo para el estudiante: no dejar nunca un ítem en blanco.
+
+---------------------------------------------------------------------------
+2. EL MINI-SIMULACRO POR UNIDAD (FASES 1 Y 2)
+---------------------------------------------------------------------------
+Regla de tiempo (decidida con María, septiembre 2026):
+* Unidades 1 a 5: las pruebas de COMPRENSIÓN (lectura y auditiva) se
+  hacen a MITAD de tiempo, con dos tareas completas cada una (rotación).
+* Unidades 6 a 10: comprensión COMPLETA, con las cuatro tareas de lectura
+  (60 minutos, 25 ítems) y las cuatro de auditiva (40 minutos, 25 ítems).
+  En los datos de la unidad: "tiempos": {"lectura": 60, "auditiva": 40}.
+En todas las unidades, las pruebas de
+EXPRESIÓN (escrita y oral) se hacen ENTERAS, igual que en el examen real,
+porque son las destrezas que menos se practican durante el curso.
+
+ORDEN Y DURACIÓN
+  0) Recordatorio de la unidad (sin tiempo): qué contenidos repasa este
+     simulacro, en 3-4 líneas, y 1-2 tips de examen para las tareas que
+     tocan.
+  1) Comprensión de lectura — 30 minutos, 2 tareas (U01-U05) · 60
+     minutos, 4 tareas (U06-U10).
+  2) Comprensión auditiva — unos 20 minutos, 2 tareas (U01-U05) · 40
+     minutos, 4 tareas (U06-U10), con la mecánica de audio oficial.
+  3) Expresión e interacción escritas — 45 minutos — prueba COMPLETA:
+     EIE-T1 (60-70 palabras) + EIE-T2 con sus dos opciones (70-80
+     palabras). Se envía para corrección (botón de copiar en la versión
+     HTML).
+  4) Resultados y corrección de lectura y auditiva (al entregar las tres
+     pruebas).
+  5) Vocabulario y dudas (sin tiempo, fuera del cronómetro, AL FINAL,
+     después de la escritura, como en el ejecutable): el estudiante ya
+     puede ver los textos y las transcripciones, anota las palabras que no
+     conocía y escribe una frase propia con cada una. Incluye un recuadro
+     de dudas para la profesora.
+  6) Expresión e interacción orales — prueba COMPLETA, en clase con la
+     profesora: 12 minutos de preparación + 12 minutos de prueba (EIO-T1
+     con dos temas a elegir, EIO-T2 con dos fotografías a elegir y EIO-T3
+     sobre la fotografía elegida). El cuadernillo del estudiante incluye
+     las láminas; el de la profesora, el guion del entrevistador y la
+     plantilla de evaluación oral (libreta oral en HTML). En EIO-T1 y
+     EIO-T2 el entrevistador no interviene: solo ayuda si el estudiante se
+     bloquea.
+  Duración cronometrada de la parte escrita del simulacro (lectura +
+  auditiva + escrita): 95 minutos en U01-U05 y 145 minutos en U06-U10,
+  más el bloque de vocabulario. La oral,
+  aparte, en clase.
+  Los temas de la escrita y la oral salen de la unidad en la medida de lo
+  posible, pero tienen el formato y la amplitud del examen real.
+
+NUMERACIÓN Y MATERIALES
+* Cada tarea conserva su numeración oficial (CL-T3 siempre ítems 14-19,
+  CA-T4 siempre 19-25…) y su ejemplo cuando el oficial lo lleva (CL-T2,
+  CA-T1, CA-T2, CA-T4). Así el estudiante se familiariza con el examen tal
+  cual es.
+* Instrucciones en la formulación oficial (apartado 1), con usted.
+* Hoja de respuestas con el formato oficial: solo las filas de las tareas
+  incluidas.
+* Los audios se entregan completos (instrucción locutada + ejemplo +
+  pausas + repeticiones), de modo que el estudiante hace la prueba
+  auditiva de principio a fin sin tocar el reproductor. Duración real del
+  archivo: la que resulte (aprox. 12-15 minutos de audio en 20 minutos de
+  prueba).
+
+ROTACIÓN DE LAS TAREAS DE COMPRENSIÓN (solo unidades 1 a 5; de la 6 a la
+10 van las cuatro tareas)
+        LECTURA      AUDITIVA
+  U01   T1 + T2      T1 + T2
+  U02   T3 + T4      T3 + T4
+  U03   T1 + T3      T1 + T3
+  U04   T2 + T4      T2 + T4
+  U05   T1 + T4      T1 + T4
+  U06-U10   T1 + T2 + T3 + T4 (examen completo)
+  Resultado: en U01-U05 cada tarea aparece dos o tres veces; desde la U06,
+  todas en cada unidad. La escrita y
+  la oral no rotan: van completas en todas las unidades. Se permite
+  intercambiar la combinación de una unidad por la de otra si el
+  contenido encaja mejor (por ejemplo, una unidad de relatos en pasado
+  con CL-T4), manteniendo el equilibrio final. El cambio se anota en el
+  registro de producción. Si el itinerario tiene otro número de
+  unidades, se continúa el mismo ciclo.
+
+VINCULACIÓN CON LA UNIDAD
+* Temas, léxico, gramática y funciones de textos, guiones e ítems salen de
+  la unidad correspondiente de la fuente de la fase actual. Se admiten
+  contenidos de unidades ANTERIORES y de A1; nunca de unidades posteriores
+  como clave de un ítem.
+* Cada ítem se etiqueta con los nombres canónicos del plan curricular del
+  proyecto (sistema de corrección).
+* En fase 1 la dificultad acompaña al aprendizaje: textos hacia la parte
+  baja de la extensión oficial y distractores claros. El formato, en
+  cambio, es siempre el oficial.
+
+---------------------------------------------------------------------------
+3. FASE 3 — MODELOS DE EXAMEN COMPLETOS
+---------------------------------------------------------------------------
+* Las 4 pruebas con todas sus tareas y tiempos reales (60 + 40 + 45 + oral).
+* Dificultad del examen real o ligeramente superior, siempre dentro de A2
+  (ver "Cómo sube la dificultad" en el plan curricular).
+* Contenidos repartidos por todo el nivel, no por unidades, cubriendo
+  sobre todo los campos léxicos de frecuencia alta.
+* Mismo etiquetado e informe; el informe añade la valoración "¿listo para
+  presentarse?" con la referencia de 30/50 por grupo.
+
+---------------------------------------------------------------------------
+4. REGLAS DE REDACCIÓN DE ÍTEMS (CONTROL DE CALIDAD)
+---------------------------------------------------------------------------
+* Selección múltiple: 3 opciones, una sola correcta, longitud y estructura
+  similares.
+* Distractores anclados en el texto o audio (mencionados pero incorrectos:
+  otra persona, otro día, plan descartado, cantidad cercana). Nunca
+  absurdos. Ver técnicas en el plan curricular, sección 9.
+* Un ítem = una información.
+* La opción correcta parafrasea; la palabra literal del texto suele ir en
+  un distractor.
+* Claves repartidas sin rachas (máximo dos seguidas iguales).
+* Las tareas de relacionar (CL-T3, CA-T3, CA-T4) respetan los repartos de
+  clave indicados en el apartado 1.
+* Nivel estrictamente A2 según el plan curricular del proyecto.
+* Español peninsular. Nombres de personas, empresas y lugares inventados o
+  genéricos (ciudades españolas reales permitidas como escenario).
+
+GUIONES DE AUDIO
+* Encabezado por audio: código de archivo, duración estimada, voces (VOZ N
+  narrador; VOZ 1, VOZ 2… con sexo y edad aproximada).
+* Números, horas, precios y fechas escritos con letras.
+* Pausas y repeticiones marcadas como en el oficial: [5 segundos],
+  [SE REPITE LA CONVERSACIÓN 2], "Conteste a la pregunta número 8".
+* Ritmo NATURAL, el de una conversación real entre españoles (ni lento
+  ni de robot), con articulación clara; conversaciones naturales
+  (saludos, "pues", "oye", "¿sabes?", "vale"), con interrupciones breves
+  y cambios de idea cuando la tarea lo pide. La facilidad del nivel A2
+  está en el texto (léxico y frases sencillas), no en hablar despacio.
+* Sin ruido de fondo debajo de la voz. Se permiten EFECTOS DE SONIDO
+  breves, siempre ANTES de hablar: sintonía de radio (CA-T2), din-don de
+  megafonía y pitido de contestador (CA-T4). Siempre los mismos efectos,
+  para que el estudiante los reconozca y para que salgan de la caché.
+===========================================================================
+Documento base para subir al proyecto "DELE A2".

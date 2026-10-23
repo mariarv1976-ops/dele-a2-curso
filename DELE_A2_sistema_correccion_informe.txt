@@ -1,0 +1,128 @@
+SISTEMA DE CORRECCIÓN E INFORME DE REPASO — DELE A2
+===========================================================================
+Documento base del proyecto "DELE A2" (2spanishteachers.com).
+Define cómo se corrigen los mini-simulacros y, sobre todo, cómo se traduce
+el resultado en un informe claro de QUÉ TIENE QUE REPASAR el estudiante.
+
+PRINCIPIO CENTRAL: un examen que solo da una nota no enseña nada. Cada ítem
+lleva etiquetas de contenido, de modo que los fallos se agrupan por contenido
+y el informe le dice al estudiante exactamente qué repasar y dónde.
+
+---------------------------------------------------------------------------
+1. ETIQUETADO DE ÍTEMS (OBLIGATORIO AL GENERAR CADA EXAMEN)
+---------------------------------------------------------------------------
+Cada ítem de lectura y auditiva (y cada punto de contenido de la tarea
+escrita) se genera con este bloque de metadatos:
+
+  ITEM: [número]
+  DESTREZA: lectura | auditiva | escrita | oral
+  TAREA_DELE: CL-T1 ... CL-T4 | CA-T1 ... CA-T4 | EIE-T1 | EIE-T2 | EIO-T1 ... EIO-T3
+  UNIDAD: [unidad de la fuente de la fase actual, o "modelo completo" en fase 3]
+  CONTENIDO_GRAMATICAL: [del plan curricular A2, p. ej. "contraste perfecto/indefinido"]
+  CONTENIDO_LEXICO: [campo temático, p. ej. "salud y cuerpo humano"]
+  FUNCION: [p. ej. "aceptar/rechazar una invitación"]
+  ESTRATEGIA: [p. ej. "localizar información específica", "inferir la idea principal"]
+  RESPUESTA_CORRECTA: A | B | C
+  JUSTIFICACION: [1-2 líneas: por qué es correcta y por qué los distractores no]
+
+Notas:
+* No todos los campos son obligatorios en todos los ítems (un ítem de léxico
+  puro puede no llevar CONTENIDO_GRAMATICAL), pero todo ítem lleva al menos
+  UNA etiqueta de contenido + ESTRATEGIA + JUSTIFICACION.
+* Las etiquetas usan siempre los nombres del plan curricular A2 del proyecto,
+  para que los informes sean consistentes entre unidades.
+
+---------------------------------------------------------------------------
+2. AUTOCORRECCIÓN (LECTURA Y AUDITIVA)
+---------------------------------------------------------------------------
+* Corrección automática con la clave de respuestas.
+* Al corregir, el estudiante NO ve solo "bien/mal": ve la JUSTIFICACION de
+  cada ítem fallado (por qué la correcta es la correcta y qué trampa tenía
+  el distractor elegido). Esto convierte cada fallo en un microaprendizaje.
+* Nota de la parte autocorregible expresada en dos formatos:
+  - X/25 ítems (o proporcional en los mini-simulacros)
+  - Equivalencia orientativa DELE: "En el examen real necesitas
+    aproximadamente un 60% del Grupo para el APTO".
+
+---------------------------------------------------------------------------
+3. EL INFORME DE REPASO (SALIDA ESTÁNDAR DE CADA SIMULACRO)
+---------------------------------------------------------------------------
+Tras corregir, se genera SIEMPRE este informe con esta estructura fija:
+
+  INFORME DE RESULTADOS — UNIDAD [X]
+  ----------------------------------------
+  1) RESUMEN GENERAL
+     - Lectura: X/Y aciertos (semáforo)
+     - Auditiva: X/Y aciertos (semáforo)
+     - Escrita: pendiente de corrección / corregida (semáforo)
+     - Comentario global en 2-3 frases, en tono positivo y concreto.
+
+  2) SEMÁFORO POR CONTENIDOS
+     Agrupar los ítems por etiqueta de contenido y calcular % de acierto:
+     - VERDE (80-100%): "Dominado. No necesitas repasarlo ahora."
+     - ÁMBAR (60-79%): "Casi. Repásalo con un ejercicio corto."
+     - ROJO (0-59%): "Prioridad de repaso antes del siguiente simulacro."
+     Mostrar máximo 6-8 filas, ordenadas de rojo a verde.
+
+  3) QUÉ REPASAR Y DÓNDE (solo ámbar y rojo)
+     Para cada contenido en ámbar/rojo:
+     - Qué es exactamente lo que falla (basado en las justificaciones de
+       los ítems fallados, no genérico).
+     - Dónde repasarlo: unidad correspondiente de la fuente de la fase
+       actual (manual o curso propio) + recurso de la biblioteca de
+       recursos si existe + tipo de ejercicio recomendado.
+     - Un mini-reto de 1 frase ("Escribe 3 frases con 'ya' y 'todavía no'").
+
+  4) ESTRATEGIA DE EXAMEN
+     1-2 consejos de técnica de examen deducidos de los errores (p. ej.,
+     "Has fallado 3 ítems por elegir una opción que repite palabras del
+     texto: en el DELE la opción que repite palabras literales suele ser
+     el distractor").
+
+  5) SIGUIENTE PASO
+     - Si predomina el verde: pasar al siguiente simulacro.
+     - Si hay rojos: repasar primero y repetir solo las tareas afectadas.
+     - Cierre fijo (sin nombrar 2spanishteachers: los estudiantes vienen
+       de iTalki): "La expresión oral y la corrección personalizada de la
+       escritura se trabajan en clase con tu profesora."
+
+---------------------------------------------------------------------------
+4. CORRECCIÓN DE LA EXPRESIÓN ESCRITA (EN EL CURSO O EN CLASE)
+---------------------------------------------------------------------------
+Cuando el estudiante envía su texto (o lo pega en el curso), se corrige con
+esta rúbrica adaptada de las escalas DELE A2, con 4 bandas (0-3) por criterio:
+
+* ADECUACIÓN Y CUMPLIMIENTO DE LA TAREA: ¿Responde a todos los puntos de la
+  instrucción? ¿Respeta el tipo de texto (correo, nota) y el registro?
+  ¿Cumple la extensión?
+* COHERENCIA Y COHESIÓN: ¿Se entiende sin esfuerzo? ¿Usa conectores básicos
+  (y, pero, porque, después, entonces) y puntuación razonable?
+* CORRECCIÓN GRAMATICAL: errores en estructuras del nivel (concordancia,
+  pasados, ser/estar, preposiciones frecuentes). Se toleran errores en
+  estructuras superiores al nivel.
+* ALCANCE Y LÉXICO: ¿Usa el vocabulario de la unidad/nivel con precisión
+  suficiente? ¿Repite siempre las mismas palabras o muestra variedad A2?
+
+Formato de la corrección devuelta al estudiante:
+  1) Versión del texto con errores marcados por categorías (GR = gramática,
+     LEX = léxico, ORT = ortografía, COH = cohesión, ADE = adecuación).
+  2) Puntuación por criterio (0-3) + global orientativa sobre 25.
+  3) Los 3 errores más importantes explicados (solo 3: no abrumar).
+  4) Versión modelo del texto (para comparar, no para copiar).
+  5) Las etiquetas de los errores alimentan el mismo semáforo del informe.
+
+---------------------------------------------------------------------------
+5. SEGUIMIENTO ENTRE SIMULACROS (VISIÓN DE CURSO)
+---------------------------------------------------------------------------
+* Cada informe termina con una tabla acumulada: contenidos que han estado
+  en rojo/ámbar en simulacros anteriores y su estado actual (¿mejoró?).
+  El seguimiento es continuo entre fases: lo trabajado en la fase 1 cuenta
+  para los informes de las fases siguientes.
+* Un contenido que aparece en rojo en DOS simulacros seguidos se marca como
+  "PUNTO CRÍTICO" y genera una recomendación directa de clase individual
+  o de recurso específico de la biblioteca.
+* Objetivo final: al terminar todas las unidades, el estudiante tiene un
+  mapa completo de su preparación y decide con datos si está listo para
+  los modelos de examen completos (fase 3).
+===========================================================================
+Documento base para subir al proyecto "DELE A2".
