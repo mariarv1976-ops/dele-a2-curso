@@ -8,6 +8,7 @@
 # FICHAS_LISTAS con R08, R10, R13 y R14; laminas de "Ahora tu" de R08, R10, R13 y R14a en FICHAS_AT.
 # 23/10/2026 noche (chat de la R14b): ficha R14b (vocabulario de fuera de casa) en FICHAS y FICHAS_LISTAS, y sus dos laminas.
 # 24/10/2026: BANCO con las 20 laminas del banco de escritura (M3-6).
+# 24/10/2026 (chat del M2): escrituras del M1, del M2 y del M7 en MODELOS (con anadir_modelos_corrector.py, copiadas de sus fuentes).
 
 def t1(instr, inp, lead, pautas):
     return {"instr": instr, "input": inp, "lead": lead, "pautas": pautas, "min": 60, "max": 70}
@@ -43,6 +44,42 @@ MODELOS = [
                            "18:00. Hay una cola muy larga de clientes. A Bruno se le cae una bandeja con tres copas de helado.",
                            "22:00. La heladería está cerrada. La jefa y Bruno toman un helado en la terraza y se ríen."],
                    intro2="Escriba un texto sobre el primer día de Bruno. Hable de:")}},
+ {"id": "A2-M01", "nombre": "Modelo 1 · de entrada", "pz": "Modelos completos",
+  "t1": t1("Su prima Alba ha trabajado un año en Irlanda y le ha escrito este correo.",
+           ["¡Hola! ¿Qué tal? ¡Ya estoy en España! Llegué de Dublín el lunes y estoy muy contenta. Tengo muchas ganas de veros a todos. ¿Y tú? ¿Qué has hecho este año? ¿Tienes planes para el verano? Escríbeme pronto.", "Un beso, Alba"],
+           "Conteste a Alba. En el correo tiene que:",
+           ["saludar y decirle que se alegra de su vuelta;", "contarle qué ha hecho usted este año y cómo está;", "explicarle sus planes para el verano;", "proponerle una comida con la familia: el día, el lugar y la hora;", "hacerle dos preguntas sobre su año en Irlanda y despedirse."]),
+  "t2": {"instr": T2_INSTR, "min": 70, "max": 80,
+         "op1": t2("Una revista en español pide a sus lectores textos sobre sus recuerdos del colegio. Escriba un texto sobre un profesor o una profesora que recuerda. Hable de:",
+                   ["quién era, qué enseñaba y en qué colegio o escuela;", "cómo era él o ella y cómo eran sus clases;", "algo que pasó en una de sus clases y que usted recuerda bien;", "qué aprendió de él o de ella que todavía usa hoy;", "cómo cree que tiene que ser un buen profesor."]),
+         "op2": t2("Nora vive en un piso de una ciudad con su gato, Lunes. Aquí tiene tres fotos de un día especial.",
+                   ["qué pasó por la mañana y cómo se sentía Nora;", "qué hizo Nora para buscar a su gato y quién la ayudó;", "cómo terminó el día y por qué cree usted que el gato se escapó."],
+                   photos=["Por la mañana. Nora, una chica de unos treinta años, ve desde la cocina cómo su gato sale por la ventana abierta.", "Por la tarde. Nora pega en una farola un cartel con la foto de su gato y habla con una vecina mayor.", "Por la noche. Nora encuentra a su gato dormido en una caja de la frutería de la planta baja; el frutero se ríe."],
+                   intro2="Escriba un texto sobre el día que se escapó Lunes. Hable de:")}},
+ {"id": "A2-M02", "nombre": "Modelo 2 · de entrada", "pz": "Modelos completos",
+  "t1": t1("Su amiga Bea le ha escrito este correo.",
+           ["¡Hola! ¿Cómo estás? ¡Tengo una noticia! He cambiado de trabajo y ahora estoy en una oficina muy cerca de tu casa. ¿Comemos juntos un día de la semana que viene? Cuéntame también qué tal todo: ¡hace mucho que no hablamos!", "Un abrazo, Bea"],
+           "Conteste a Bea. En el correo tiene que:",
+           ["saludar y decirle qué le parece su nuevo trabajo;", "contarle cómo es normalmente su semana;", "contarle qué ha hecho usted este mes;", "proponerle un día, un lugar y una hora para comer;", "hacerle dos preguntas sobre su nuevo trabajo y despedirse."]),
+  "t2": {"instr": T2_INSTR, "min": 70, "max": 80,
+         "op1": t2("Una revista en español prepara un número especial sobre la casa. Escriba un texto sobre la primera casa en la que vivió sin sus padres. Hable de:",
+                   ["dónde estaba y cuándo fue a vivir allí;", "cómo era la casa y con quién vivía;", "qué hacía allí un día normal;", "algo divertido o especial que le pasó en esa casa;", "cómo es su casa ahora y qué le gusta más de ella."]),
+         "op2": t2("Lucía vive en Valverde, un pueblo de Murcia donde casi nunca nieva. Aquí tiene tres fotos de un día de invierno.",
+                   ["qué vio Lucía al levantarse y cómo se sintió;", "qué hicieron en la plaza y con quién;", "qué hicieron por la tarde y por qué cree usted que ese día no hubo colegio."],
+                   photos=["Por la mañana. Lucía, una niña de unos nueve años, y su padre desayunan en la cocina y miran por la ventana: todo está blanco.", "Al mediodía. Lucía, su hermano pequeño y unos vecinos hacen un muñeco de nieve en la plaza del pueblo.", "Por la tarde. Toda la familia toma chocolate caliente en la cocina; los guantes y los gorros están encima del radiador."],
+                   intro2="Escriba un texto sobre el día que nevó en el pueblo de Lucía. Hable de:")}},
+ {"id": "A2-M07", "nombre": "Modelo 7 · nivel alto", "pz": "Modelos completos",
+  "t1": t1("Su amiga Irene, que hace teatro, le ha escrito este correo.",
+           ["¡Hola! ¿Qué tal? Te escribo con una noticia: el sábado 22 estrenamos la obra de mi grupo de teatro en el centro cultural, a las ocho. ¡Estoy muy nerviosa! ¿Vienes? ¿Y tú cómo estás? ¿Qué has hecho estas semanas?", "Un beso, Irene"],
+           "Conteste a Irene. En el correo tiene que:",
+           ["saludar y felicitarla por el estreno;", "contarle qué ha hecho usted estas semanas y cómo está;", "decirle si va a ir al estreno y, si no puede, explicarle por qué;", "proponerle quedar otro día: el día, el lugar y la hora;", "hacerle dos preguntas sobre la obra y despedirse."]),
+  "t2": {"instr": T2_INSTR, "min": 70, "max": 80,
+         "op1": t2("Una revista en español prepara un número especial sobre la amistad. Escriba un texto sobre un amigo o una amiga de su infancia. Hable de:",
+                   ["quién es y cómo y dónde se conocieron;", "qué hacían juntos cuando eran pequeños y cómo era él o ella entonces;", "algo especial o divertido que les pasó juntos;", "cómo es su vida ahora y si todavía se ven;", "por qué cree que algunas amistades duran toda la vida."]),
+         "op2": t2("Encarna es panadera en un pueblo de Cuenca. Aquí tiene tres fotos de su vida.",
+                   ["cómo era su vida de niña y qué hacía en la panadería;", "qué cambió en 2003 y cómo era entonces su trabajo;", "qué hace ahora y por qué cree usted que ya no tiene la panadería."],
+                   photos=["1982. Encarna, una niña de unos ocho años, ayuda a su padre a sacar el pan del horno en la panadería de la familia.", "2003. Encarna, ya adulta, abre la puerta de la panadería por la mañana. Ahora la panadería es suya.", "Hoy. Encarna, con el pelo gris, enseña a hacer pan a un grupo de personas en la cocina de su casa."],
+                   intro2="Escriba un texto sobre la vida de Encarna. Hable de:")}},
 ]
 
 # ------------------------------------------------------------------ TALLER DE ESCRITURA (M3): "Ahora tú"

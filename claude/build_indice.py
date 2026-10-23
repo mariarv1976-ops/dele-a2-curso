@@ -59,8 +59,8 @@ for c, t, d in TAREAS:
 MODELOS = [
  ("1", "de entrada · = − = −", "listo", True,
   "Carlos, profesor de música en Logroño · unas vacaciones diferentes · Sandra, árbitra · salud. Oral: mi familia / las estaciones. Código de la oral A2-M01."),
- ("2", "+ = − =", "pendiente", True,
-  "Por hacer. Lectura más exigente; escritura amable. Oral (de tú): clases para adultos / elegir restaurante."),
+ ("2", "de entrada · + = − =", "listo", True,
+  "Jonas, estudiante de intercambio en Granada · tres restaurantes · Marta viaja sola a Oporto · Celia y Samuel · Bea y su trabajo nuevo · la nieve en el pueblo de Lucía. Oral (de tú): un curso para los dos / ¿dónde comemos? Código de la oral A2-M02."),
  ("3", "= + = =", "pendiente", False, "Por hacer. La auditiva aprieta."),
  ("4", "− = + +", "pendiente", False, "Por hacer. Escritura y oral exigentes (pautas densas, tarea 3 larga)."),
  ("5", "termómetro · = = = =", "pendiente", False, "Por hacer. Examen calibrado: el que mejor predice la nota."),

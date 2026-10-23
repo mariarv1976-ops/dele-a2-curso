@@ -30,6 +30,8 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `U02_guion.txt` | 11 KB | GUION DE AUDIO · UNIDAD 2 |
 | `build_unidad.py` | 21 KB | Genera a partir de fuente_Uxx.py: datos.py, cuadernillos, guion de audio (las 4 tareas de auditiva: |
 | `claude/DELEA2_curso_M01_datos.py` | 92 KB | DATOS DEL MODELO 01 (curso de preparación DELE A2) · generado con build_modelo.py |
+| `claude/DELEA2_curso_M02_datos.py` | 97 KB | Datos del Modelo 2 (generado por build_modelo.py desde fuente_M02.py) |
+| `claude/DELEA2_curso_M06_datos.py` | 95 KB | Datos del Modelo 6 (generado por build_modelo.py desde fuente_M06.py; en el repo desde el 24/10) |
 | `claude/DELEA2_curso_M07_datos.py` | 97 KB | DATOS DEL MODELO 07 (curso de preparación DELE A2) · generado con build_modelo.py |
 | `claude/DELE_A2_curso_estado.txt` | 22 KB | ESTADO DEL CURSO DE PREPARACIÓN DELE A2 · VERSIÓN CORTA (actualizar en cada chat) |
 | `claude/DELE_A2_curso_preparacion_plan.txt` | 25 KB | PLAN DEL CURSO DE PREPARACIÓN DELE A2 |
@@ -39,6 +41,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/actualizar_libreta_html.py` | 4 KB | Pone el GUION EN VIVO a una libreta oral A2 YA HECHA (DELEA2_..._oral_profesora.html), sin el motor ni los datos: |
 | `claude/adaptar_motor.py` | 4 KB | Crea DELE_A2_motor_modelo.py a partir de DELE_A2_motor_simulacro.py (sin tocar el original). |
 | `claude/anadir_fichas_modelos.py` | 4 KB | Anade las fichas de remedio R08, R10, R13, R14a y R14b a los contenidos de los modelos completos (fuente_Mxx.py). |
+| `claude/anadir_modelos_corrector.py` | 3 KB | Añade a curso_tareas.py (MODELOS) la escritura de un modelo completo copiada de su fuente_Mxx.py (uso: python3 anadir_modelos_corrector.py fuente_M02). |
 | `claude/arreglar_R06_tiempo.py` | 4 KB | Mete la pestana "Hace y durante" (tiempo_R06.py) en la ficha R06 de preposiciones. |
 | `claude/arreglar_seeded.py` | 1 KB | ARREGLO DEL MOTOR DE HUECOS (curso DELE A2, 14/10/2026) |
 | `claude/banco_R01_pasados.py` | 32 KB | BANCO DE LA FICHA DE REMEDIO R01: LOS PASADOS Y LAS PREGUNTAS (curso DELE A2) |
@@ -97,6 +100,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/curso_tareas.py` | 24 KB | TAREAS DE ESCRITURA DEL CURSO DE PREPARACION DELE A2 QUE CONOCE EL CORRECTOR DE LA PROFESORA |
 | `claude/fotos_M3.py` | 9 KB | FOTOS DE LAS LAMINAS DEL TALLER DE ESCRITURA (Modulo 3 del curso de preparacion DELE A2) |
 | `claude/fuente_M01.py` | 85 KB | FUENTE DEL MODELO 1 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
+| `claude/fuente_M02.py` | 92 KB | FUENTE DEL MODELO 2 · Curso de preparación DELE A2 (de entrada, perfil + = − =) |
 | `claude/fuente_M06.py` | 83 KB | FUENTE DEL MODELO 6 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
 | `claude/fuente_M07.py` | 89 KB | FUENTE DEL MODELO 7 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
 | `claude/fuente_U06.py` | 66 KB | FUENTE DE LA UNIDAD 6 (fase 1) · Guía del ocio |

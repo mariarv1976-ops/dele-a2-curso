@@ -2041,3 +2041,86 @@ HECHO (24/10, madrugada) · BANCO DE ESCRITURA M3-6 (detalle en el historial del
   y ahora · b4 «Una costumbre de mi familia» · c1 Julián (fútbol, huerto) · c2 Nuria (enfermera, Perú) · c3 Pilar y Ramón
   (baile) · c4 Karim (taller de bicis) · d1 fiesta sorpresa por la jubilación de mamá · d2 pintar el piso con amigos ·
   d3 voluntaria en la carrera popular · d4 excursión en bici y el tractor · u1 profesora de pilates · u2 casa rural.
+
+HECHO (24/10/2026, 01:20)
+* M01, M06 y M07 CON LAS FICHAS NUEVAS: python3 anadir_fichas_modelos.py fuente_M01.py fuente_M06.py fuente_M07.py (M06 ya
+  llevaba «Pintar la casa», no hizo falta corregir_M06.py) + python3 patch_libreta_vivo.py (DELE_oral_profesora.py del repo
+  ya lleva el guion en vivo) + build_modelo.py -> adaptar_motor.py -> DELE_A2_motor_modelo.py. Comparados los datos antes y
+  después: solo se añaden fichas (R08, R10, R13, R14a, R14b) en los contenidos; nada se quita. Códigos iguales (7P33R, 3SG9J,
+  9GBB7). libreta_vivo.comprobar() sin avisos. Abiertos en Chromium sin errores. Commit 2153e6e (también
+  claude/DELEA2_curso_M06_datos.py, que no estaba en el repo).
+* MODELO 2 COMPLETO, "de entrada" (perfil + = − =: lectura en la parte alta del examen, sin salir del A2; auditiva y oral
+  como el examen; escritura en la parte fácil del examen). Propuesta aprobada por María (24/10, 00:57). Se cambió la matriz
+  del plan porque salía casi monotemática (comida en cinco tareas y cursos en tres): comida solo en la CL3 y en la oral,
+  cursos solo en la oral.
+  ARCHIVOS: claude/fuente_M02.py y claude/DELEA2_curso_M02_datos.py (generado). Se construye igual que el M7:
+  python3 build_modelo.py fuente_M02 -> python3 adaptar_motor.py -> python3 DELE_A2_motor_modelo.py DELEA2_curso_M02_datos.
+  En la fuente: PERFIL {"lectura": "+", "auditiva": "=", "escrita": "-", "oral": "="} (con "cuando" y "nota"),
+  SIN_EFECTOS = True, ETIQUETAS = True; TALLERES con el banco de escritura (M3-6) y la descripción nueva de M4-4.
+  CÓMO SE HA HECHO EL "+" DE LA LECTURA: extensiones en la parte alta (CL1 283, CL2 67-80, CL3 114-118, CL4 414), muchos
+  datos por texto y distractores finos (otra persona: Ana/Chloé, la madre/el padre, Rosa; otro momento: la residencia de
+  antes, los primeros días; un plan que cambia: volver a Hamburgo, ir con Rosa; condiciones: con compra mínima, solo los
+  corredores, excepto la de spinning), paráfrasis (no hay que pagar nada = no se paga; 300/600 = la mitad; los fines de
+  semana hasta las 22:00 = más tarde los sábados y domingos; me daba vergüenza... ya no = más tranquila) y léxico A2 menos
+  frecuente (efectivo, cremalleras, belenes, tasca, cuestas). Sin pluscuamperfecto ni subjuntivo (se quitaron «no había
+  viajado» y «busca a alguien que dé / vaya / tenga»).
+  "=" EN LA AUDITIVA: centro de la extensión (CA1 51-65, CA2 51-60, CA3 255, CA4 35-44), narrador «Va a escuchar a...»,
+  tres opciones mencionadas y dos descartadas, paráfrasis en T2 y T4, «ninguno» con el hermano Iván (ya tiene casa) y con el
+  gimnasio al que Samuel quiere apuntarse pero no se ha apuntado. "−" EN LA ESCRITURA: T1 de tú a una amiga (entrada 43
+  palabras, pautas de una pieza), T2 temas muy cercanos y tríptico muy fácil de contar, con mezcla de tiempos y suposición.
+  CONTENIDO: CL1 correo de Jonas (alemán de intercambio en Granada) a Carmen, la señora de la familia de Cádiz con la que vivió
+  en verano (antes residencia, ahora piso en el Albaicín con Ana, de Jaén, y Chloé, de su clase; clases de alemán a niños por
+  las tardes para pagar el alquiler; pensaba volver a Hamburgo, al final vienen sus padres del 20 al 30; visita el 27; la madre
+  quiere aprender las croquetas; el padre estudia español con una aplicación) · CL2 lavandería Burbujas (ej.), intercambio de
+  idiomas en el bar El Faro, sofá cama (300 €, nuevo 600, sin colchón), Arreglos Carmela (tres prendas, la más barata gratis),
+  mercadillo de Navidad, aparcamiento de Las Palmeras (motos gratis siempre), gimnasio municipal en Navidad (piscina cerrada
+  del 2 al 5), concurso de belenes de San Antón, Paloma busca profesor de matemáticas · CL3 tres restaurantes: La Despensa de
+  Elvira (Burgos, pizarra según el mercado, menú infantil), Arrocería Tomás (Santa Pola, solo a mediodía, solo efectivo),
+  Casa Kimchi (Zaragoza, empezó con comida para llevar, clases de cocina coreana) · CL4 blog «Mi primer viaje sola» (Marta,
+  52, Valladolid; Rosa se rompe una pierna; tren a Vigo y autobús; la pareja de Salamanca; la pensión de la señora Fernanda y
+  los pasteles de nata; la vergüenza de comer sola y la mesa grande de la tasca; las cuestas; propone a Rosa viajar cada una
+  sola) · CA1 qué bebe (ej.: agua), dónde se sientan (cerca de la cocina), qué postre (flan: la tarta lleva nueces), de qué
+  andén sale hoy (siete), dónde quedan (puerta principal), qué día va el técnico (viernes), dónde está el coche (enfrente del
+  colegio) · CA2 «La tarde contigo» (ej.), maratón (el metro abre antes), Electrohogar (se llevan la lavadora vieja gratis),
+  cines Odeón (3D: seis euros), ludoteca del gimnasio Activa, baile para mayores en San Blas (gratis), línea veinte (menos
+  los fines de semana) · CA3 Celia (patinete: tarda menos; corre con su perra) y Samuel (en casa de sus padres para ahorrar;
+  trabaja los sábados en la tienda de su tío) · CA4 veterinario Cuatro Patas (ej.), tintorería Limpiasol (el vestido no está),
+  Sonia cambia el restaurante, el fontanero llega más tarde, el colegio Los Almendros (qué llevar a la excursión), zumba nueva
+  (megafonía), Jorge pide su maleta, Muebles Lorca lleva el sofá; sobran: cambia la hora de una cena, un profesional no puede
+  ir hoy, una actividad se suspende · ESCRITURA T1 correo DE TÚ a Bea (trabajo nuevo cerca de tu casa; tu semana; qué has
+  hecho este mes; día, lugar y hora para comer; dos preguntas) · T2 op. 1 revista «mi primera casa sin mis padres» · op. 2
+  TRÍPTICO «el día que nevó en el pueblo» (Lucía, Valverde, Murcia: la ventana, el muñeco de nieve en la plaza, el chocolate
+  con los guantes en el radiador; suposición: por qué no hubo colegio) · ORAL T1 «un regalo que he recibido» (pauta que
+  sorprende: regalar dinero en lugar de un objeto) / «una fiesta especial para mí» (qué fiesta de su país le recomienda a un
+  turista) · T2 foto 1 «Clases para adultos» (una señora de unos 60 aprende guitarra con un chico de unos 30 en un centro
+  cívico; pegatina de un grupo de rock en la funda) y foto 2 «Comer fuera» (dos amigas en una terraza: una fotografía los
+  platos, llega el camarero) · T3 LAS DOS DE TÚ: «Un curso para los dos» (pautas: tiempo libre, cursos que has hecho,
+  qué curso, presencial o por ordenador, días, precio y cuándo apuntarse; problema: el examinador trabaja los lunes y los
+  miércoles por la tarde) y «¿Dónde comemos?» (cumpleaños de Javi; pautas: comida y alergias, el último restaurante, cuál,
+  dinero y regalo, hora y reserva; problema: la pizzería está completa el sábado a mediodía). Diálogos modelo de 12 turnos y
+  esquema del examinador en el formato de M01/M06/M07 (libreta_vivo.comprobar() sin avisos).
+  Voces (ninguna del M1 ni descartada): CA1 CAROLINA + JAVIER, EMILIO + SUSANA, VALENTINA + CRISTINA, SARA + DAVID_M1,
+  ERIK + MARTIN_3, ANA_MARIA + AGUSTIN, TOMAS + MIA; CA2 EFRAYN, MARTIN_2, JUAN_CARLOS, GABI, LUCIA, NINOSKA, SANTIAGO_LAT;
+  CA3 CELIA = RAQUEL, SAMUEL = GABRIEL_ES; CA4 MAYA, LUISA, CRISTINA_LAT, CRISTIAN, MARTIN_1, LUIS_GUILLERMO, JUAN_RESTREPO,
+  DIEGO_PE. EN EL M3, VOCES_EVITAR = ESTAS.
+  Situaciones nuevas en SITUACIONES_USADAS["M02"]: sala de un centro cívico: una señora aprende a tocar la guitarra con un
+  chico joven; terraza de un bar en una plaza: dos amigas comen raciones y una hace fotos a los platos.
+  Imágenes (nombres.txt, CARPETA DELE_A2_curso): M02_oral_foto1_clase_guitarra_adultos, M02_oral_foto2_terraza_amigas_comer,
+  M02_escrita_lucia_nieve_pueblo (tríptico 3:1) y las 7 viñetas M02_CA1_0..6 (cerveza_zumo_agua, terraza_ventana_cocina,
+  flan_helado_tarta_queso, anden_dos_cinco_siete, cafeteria_puerta_taquillas, lunes_miercoles_viernes,
+  colegio_aparcamiento_casa).
+  Código de la oral: A2-M02 -> 4ZJ2J.
+  Probado en Chromium (Playwright), 66 comprobaciones en ordenador y en móvil (390 px): perfil oculto en Inicio y lectura
+  y visible en Resultados con + y −; lectura con tres fallos a propósito (22/25); auditiva; escritura entregada y textos modelo
+  (con los conectores subrayados); enlaces a R08, R10, R13, R14a y R14b; transcripciones sin etiquetas; recarga con todo
+  guardado; oral abierta con el código y la T3; libreta con el código, la foto, el esquema y el pequeño problema; sin scroll
+  lateral en ninguna vista; sin errores de consola.
+  ENTREGADO a María: DELEA2_curso_M02_examen.html (recursos/A2/dele-curso/), DELEA2_curso_M02_oral_profesora.html
+  (biblioteca/profesora/), M02_guion.txt (audios: python3 generar_audios.py M02_guion.txt en Documentos/DELE_AUDIO ->
+  DELEA2_curso_M02_CA_T1..T4.m4a a WordPress 2026/10), M02_prompts_imagenes.txt + nombres.txt (a WordPress 2026/10),
+  cuadernillos del estudiante y de la profesora para revisar.
+* CORRECTOR: claude/anadir_modelos_corrector.py (nuevo) copia la escritura de una fuente_Mxx.py a MODELOS de curso_tareas.py
+  (si el id ya está, no la toca; comprueba que el resultado es Python válido). Pasado con fuente_M01, fuente_M02 y fuente_M07:
+  MODELOS = A2-M06, A2-M01, A2-M02, A2-M07, con la misma forma que la entrada del M6. FALTA aplicar patch_corrector.py al
+  corrector de María (no está en el repo; el corrector del curso, build_corrector.py, no lleva ese parche).
+* ÍNDICE: M2 «listo» en build_indice.py (61 piezas, 32 listas). PENDIENTE de antes: marcar el M7 como «listo» ya estaba hecho.
