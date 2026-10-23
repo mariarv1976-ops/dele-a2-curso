@@ -2005,3 +2005,39 @@ HECHO (23/10/2026, noche) · chat de la R14b
   (python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html, con curso_tareas.py al lado) y subirlo.
 * MODELOS (anadir_fichas_modelos.py): R14b en NUEVAS y en los contenidos «planes», «normas» y «tiempo». Probado sobre copias de
   fuente_M01, M06 y M07 (las tres quedan con las cinco fichas y F() las encuentra). Se pasa en el chat del M2.
+
+
+===========================================================================
+M3-6 · BANCO DE REFUERZO DE LA ESCRITURA (24/10/2026)
+===========================================================================
+HECHO (24/10, madrugada) · BANCO DE ESCRITURA M3-6 (detalle en el historial del repo, buscar «M3-6»)
+* DECIDIDO CON MARÍA: SE DESCARTA «DESCRIBIR UNA FOTO POR ESCRITO» (no es una tarea de la escritura del A2 y choca con la
+  trampa del kit: describir las fotos en presente en vez de contar). Sus láminas pasan a los tipos del examen.
+* 20 láminas originales: 6 correos a un amigo (T1 de tú, entrada 35-45) · 4 blog/diario/revista (T2 op. 1) · 4 biografías y
+  4 días con fotos (T2 op. 2, trípticos nuevos M3_15 a M3_22) · 2 correos de usted «por si acaso» (fuera del modo examen).
+  Cada pauta con sus piezas y sus tiempos (presente, pasado, cómo era, planes); toda lámina mezcla tiempos; en la op. 2 hay una
+  pauta de suposición («por qué cree usted que...»). Textos modelo con los tiempos en color y los conectores (T1 62-70, T2 70-80).
+  Temas sin repetir el kit, M3-2 a M3-5, M1, M6, M7 ni lo previsto para el M2.
+* Pestañas: Cómo funciona · Practica (filtro por tipo; lámina + qué tiempo pide cada pauta + frases nuevas + contador de palabras
+  + detectores: tú/usted en los correos, «no veo pasados» y menos de tres conectores en la T2 + lista de control por piezas +
+  modelo plegado) · Como en el examen (T1 de tú + dos opciones de T2 al azar, reloj de 45 min con pausa, sin ayudas hasta
+  terminar; después lista de control y modelos; historial de 10) · Tu opinión (Copiar).
+* El build comprueba palabras, entrada, que cada pauta use sus tiempos en el modelo, tú/usted, formas de B1 (futuro simple,
+  condicional salvo me gustaría / podría de cortesía, subjuntivo, aunque...) y las fotos (fotos_M3.check). Probado en Chromium
+  (ordenador y móvil 390 px sin scroll lateral, reloj y pausa, recarga, Copiar), sin errores.
+* Corrector: las 20 láminas en BANCO de curso_tareas.py (claves «Banco de escritura · <título>», ids A2-B-a1...u2); probado con
+  el parseCurso del parche: reconoce las láminas de Practica y de Como en el examen. FALTA aplicarlo (junto con la R14b) al
+  corrector de María: python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html -> biblioteca/profesora/.
+* ENTREGADO: DELEA2_curso_M3_banco_escritura.html (SUBIR a recursos/A2/dele-curso/), M3_banco_prompts_imagenes.txt +
+  nombres.txt (8 trípticos, CARPETA DELE_A2_curso, a WordPress 2026/10; si se suben en noviembre, MES_WP = "2026/11" en
+  build_M3_banco.py y volver a construir). Código en el repo (commit 2088fb6).
+* Archivos: claude/banco_escritura_M3.py (LAMINAS, TIPOS, FRASES, AVISO, TIEMPOS) + claude/build_M3_banco.py. storageKey
+  dele-a2-curso-M3-banco (S.w por lámina, S.wc «id|pauta|pieza» y «sNNN:id|...» en el modo examen, S.sim, S.sims).
+* Formato de Copiar: «CURSO DELE A2 - ESCRITURA: BANCO DE ESCRITURA», «Nombre:», bloques «== Banco de escritura · <título>
+  (tarea n) ==» con Tarea, Pautas, Lista de control, Palabras y el texto entre «---»; «COMO EN EL EXAMEN:» (los tres últimos);
+  «OPINIÓN:» (5 preguntas).
+* Láminas: a1 Lola empieza la universidad · a2 Hugo y su perro Rufo · a3 Iván no fue a la clase de inglés · a4 tío Paco ·
+  a5 Álex quiere correr · a6 Carla y el mercadillo · b1 «Mi primer trabajo» · b2 diario: todo salió mal · b3 mi barrio antes
+  y ahora · b4 «Una costumbre de mi familia» · c1 Julián (fútbol, huerto) · c2 Nuria (enfermera, Perú) · c3 Pilar y Ramón
+  (baile) · c4 Karim (taller de bicis) · d1 fiesta sorpresa por la jubilación de mamá · d2 pintar el piso con amigos ·
+  d3 voluntaria en la carrera popular · d4 excursión en bici y el tractor · u1 profesora de pilates · u2 casa rural.
