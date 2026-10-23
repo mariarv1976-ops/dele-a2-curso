@@ -33,7 +33,8 @@ PIEZAS HECHAS (build -> HTML · clave de localStorage). Todas usan claude/curso_
 * M5 Fichas de remedio (build_Rxx + banco_Rxx -> DELEA2_curso_Rxx_....html · dele-a2-curso-Rxx):
   R01 pasados · R02 hay/está/es · R04 concordancia y posesivos · R05 muy/mucho · R06 preposiciones (tiempo_R06.py)
   · R07 tú/usted · R08 conectores · R10 lo/la/le (DELEA2_curso_R10_lo_la_le.html) · R13 fórmulas del correo
-  · R14a vocabulario casa y día a día. Pendientes: R03, R09, R11, R12, R14b (SIGUIENTE).
+  · R14a vocabulario casa y día a día · R14b vocabulario fuera de casa (build_R14b_vocabulario.py + banco_R14b_vocabulario.py
+  -> DELEA2_curso_R14b_vocabulario_fuera_de_casa.html · dele-a2-curso-R14b; 23/10 noche). Pendientes: R03, R09, R11, R12.
 * M2 Modelos completos: M1, M6 y M7 hechos (fuente_Mxx.py -> build_modelo.py -> DELEA2_curso_Mxx_datos.py ->
   adaptar_motor.py (motor + motor_modelo_extra.py) -> DELEA2_curso_M0N_examen.html y _oral_profesora.html).
   Códigos de la oral: M01 7P33R · M06 3SG9J · M07 9GBB7.
@@ -78,6 +79,21 @@ HECHO (23/10)
   El guion del examinador de los modelos tiene que seguir el formato de M01/M06/M07 («Foto N (papel)» + filas «Etiqueta ....
   texto» + «PEQUEÑO PROBLEMA .... «...». Espere a que...»): libreta_vivo.comprobar() avisa si falta algo.
 
+HECHO (23/10, noche) · R14b (detalle completo en el historial del repo, buscar «R14b»)
+* Ficha R14b «Vocabulario en escenas (2): fuera de casa»: copia del build de la R14a (mismo motor y pestañas) con su banco.
+  Áreas: viajes, ocio, estudios, trabajo, el tiempo + rincón de frecuencia media «Servicios, móvil y fiestas» (dos escenas y
+  una sola conversación). 12 escenas, 12 conversaciones, 10 anuncios, 28 huecos, detector de calcos (jugar fútbol, hace lluvia,
+  billete del concierto, tomar un examen...). Oral con las fotos 1-6 de la tarea 2. 133 comprobaciones en Chromium, sin errores.
+  VOCES (María): cada conversación con UNA voz peninsular repetida de la R14a y UNA latinoamericana libre (con la R14a y el M1
+  fuera solo quedaba EFRAYN como peninsular libre). Ninguna del M1 ni descartada.
+  ENTREGADO: DELEA2_curso_R14b_vocabulario_fuera_de_casa.html (SUBIR a recursos/A2/dele-curso/), DELEA2_curso_R14b_guion.txt
+  (audios DELEA2_curso_R14b_CA1_01..12.m4a a WordPress 2026/10), R14b_prompts_imagenes.txt + nombres.txt (12 trípticos
+  R14b_CA1_NN_..., CARPETA DELE_A2_curso, a WordPress 2026/10).
+* Corrector: R14b en FICHAS, FICHAS_LISTAS y FICHAS_AT de curso_tareas.py (el código R14 sigue siendo la R14a);
+  patch_corrector.py pone R14 y R14b en la lista de códigos de la petición para Claude. FALTA aplicarlo al corrector de María
+  (python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html) y subirlo a biblioteca/profesora/.
+* Modelos: anadir_fichas_modelos.py añade también la R14b (contenidos planes, normas y tiempo). Se pasa en el chat del M2.
+
 DECIDIDO CON MARÍA (23/10)
 * GUION EN VIVO EN TODAS LAS LIBRETAS: A2 HECHO (modelos y unidades). B2: en el proyecto «DELE B2 simulacros Examenes», con sus
   datos: añadir a libreta_vivo.py una función vivo_b2 (T1 propuestas: solo la opción elegida y sus preguntas «ent» paso a paso;
@@ -116,8 +132,8 @@ DECIDIDO CON MARÍA (23/10)
   - NUEVO TIPO pedido por María: DESCRIBIR UNA FOTO POR ESCRITO, con las estructuras de la oral T2 (hay / está, estar +
     gerundio, lleva, parece que, creo que van a...), con las fotos de la oral que ya están en WordPress (M4T2_foto1-12).
   - Unas 20 láminas; trípticos nuevos para biografía y «un día con fotos» (unos 8): dar prompts y nombres.txt al construir.
-* ÍNDICE: regenerarlo UNA vez al terminar la R14b (R14 -> R14a «listo» + R14b), con todo lo pendiente de «listo» (M3-x, M4,
-  R01-R14b, M1/M6/M7) y las piezas nuevas (banco de escritura, bloqueo reestructurado si ya están).
+* ÍNDICE: regenerarlo UNA vez (la R14b ya está hecha, 23/10 noche): R14 -> R14a «listo» + R14b «listo», con todo lo pendiente
+  de «listo» (M3-x, M4, R01-R14b, M1/M6/M7) y las piezas nuevas (banco de escritura y bloqueo reestructurado).
 * El kit M3-1 (y M0, M3-2..5, M4-1..3, R01, R02, R04, R05) todavía NO tiene las flechas de la barra de pestañas: arreglarlo sobre los
   HTML subidos con un script pequeño que meta NAV_CSS + NAV_JS de curso_comun.py (hace falta que María adjunte los HTML), o al
   regenerar cada pieza.
@@ -135,10 +151,11 @@ SIGUIENTE
      M3-5 Textos modelo aprobado / excelente (DELEA2_curso_M3_textos_modelo.html).
   4) HECHO (12/10; reestructurado el 23/10): Qué hacer si me bloqueo (DELEA2_curso_M4_bloqueo.html).
 * FICHAS DE REMEDIO ANTES DE LOS SIMULACROS (María, 14/10; 21/10: AHORA R08, R10, R13 y R14, ver MODELOS): HECHAS R05 (14/10), R06 (14/10; ampliada el 14/10
-  con hace / desde hace / durante / en), R07 (14/10), R08 (22/10), R10 (22/10 noche), R13 (22/10 noche) y R14a (23/10).
-  Fichas hechas: R01, R02, R04, R05, R06, R07, R08, R10, R13, R14a.
+  con hace / desde hace / durante / en), R07 (14/10), R08 (22/10), R10 (22/10 noche), R13 (22/10 noche), R14a (23/10) y R14b
+  (23/10 noche).
+  Fichas hechas: R01, R02, R04, R05, R06, R07, R08, R10, R13, R14a, R14b.
   Pendientes del plan (para más adelante): R03 ser y estar, R09 verbos como gustar, R11 planes
-  y futuro, R12 traer/llevar, ir/venir, pedir/preguntar, R14b vocabulario de fuera de casa (SIGUIENTE).
+  y futuro, R12 traer/llevar, ir/venir, pedir/preguntar.
   (Cuando exista la R11, añadirla a las fichas del contenido "planes" de los modelos. Cuando exista la R09, enlazarla
   desde la R10: el aviso de *la gusta ya la nombra. La R03 ser y estar enlazaría bien con los avisos *soy cansada / es
   preocupada de la R14a.)
@@ -146,14 +163,13 @@ SIGUIENTE
   haciendo esos ejercicios. Un chat por ficha, en este orden: R08 conectores (HECHA, 22/10) -> R10 lo / la / le
   (HECHA, 22/10 noche) -> R13 fórmulas y funciones de los correos (HECHA, 22/10 noche, a la vez que la R10) -> R14
   vocabulario por áreas, DIVIDIDA EN DOS (María, 23/10): R14a la casa y el día a día (HECHA, 23/10) -> R14b fuera de casa
-  (SIGUIENTE). Mismo formato y motor que R01-R14a (curso_comun.py, barajado seeded() arreglado, barra de pestañas nueva,
+  (HECHA, 23/10 noche). Mismo formato y motor que R01-R14a (curso_comun.py, barajado seeded() arreglado, barra de pestañas nueva,
   corrección inmediata, detector en «Ahora tú», Copiar para el corrector de María). Antes de construir cada una,
   proponer a María el enfoque en pocas líneas.
   YA HECHO PARA LAS CUATRO (23/10): FICHAS_LISTAS y láminas en curso_tareas.py del corrector (aplicado al
   corrector de María el 23/10); el script anadir_fichas_modelos.py para los contenidos de los modelos (falta pasarlo a las
-  fuentes M01, M06 y M07 y regenerarlas: en el chat del M2). FALTA marcarlas en el índice (build_indice.py). La R14b,
-  cuando esté: añadirla a FICHAS (y FICHAS_LISTAS si va con otra clave) y FICHAS_AT de curso_tareas.py y a NUEVAS /
-  ANADIR de anadir_fichas_modelos.py (p. ej. «tiempo» y «normas»).
+  fuentes M01, M06 y M07 y regenerarlas: en el chat del M2). FALTA marcarlas en el índice (build_indice.py). La R14b ya
+  está en curso_tareas.py (FICHAS, FICHAS_LISTAS, FICHAS_AT) y en anadir_fichas_modelos.py (23/10 noche).
   DESPUÉS, el M2 (María ya tiene escrito su prompt del M2, 22/10; abajo hay otro actualizado).
   PROMPTS PREPARADOS (23/10), para pegar en un chat nuevo cada uno:
   - BANCO DE ESCRITURA (siguiente, 23/10 noche): «Vamos con el banco de refuerzo de la escritura del curso DELE A2. Antes
@@ -170,29 +186,19 @@ SIGUIENTE
     para el corrector de María. Trípticos nuevos para biografía y «un día con fotos» (unos 8): dame los prompts (estilo
     natural, 3:1) y el nombres.txt. Antes de construir, propónme en pocas líneas los tipos, el reparto de las 20 láminas y
     los temas. Al terminar: archivos y dónde subirlos, build y banco en el repo (push), las láminas en curso_tareas.py del
-    corrector si hace falta, el estado actualizado y el prompt siguiente (la R14b).»
-  - R14b: «Vamos con la ficha de remedio R14b «Vocabulario en escenas (2): fuera de casa» del curso DELE A2. Antes de
-    empezar, lee claude/DELE_A2_curso_estado.txt (sobre todo el bloque de la R14a y la nota «ANTES DEL M2»), el plan
-    (apartado 3: las 12 áreas) y en el Plan curricular el apartado 5 (léxico LX). Es la segunda mitad de la R14, con el
-    mismo enfoque, las mismas pestañas y el mismo motor que la R14a: copia claude/build_R14a_vocabulario.py y
-    claude/banco_R14a_vocabulario.py como build_R14b / banco_R14b y cambia solo el contenido. Áreas de frecuencia ALTA:
-    viajes, transporte y alojamiento (LX-14), ocio, deporte y espectáculos (LX-08), estudios (LX-06), trabajo (LX-07) y
-    el tiempo y las estaciones (LX-20); al final, un rincón corto con las de frecuencia MEDIA (servicios LX-11, medios y
-    móvil LX-09 y LX-16, fiestas). «Escucha y elige» con 12 audios (sin efectos, etiquetas de emoción, ninguna voz de la
-    R14a ni del último modelo), prompts de las viñetas y nombres.txt; anuncios de la lectura con paráfrasis; nada de B1;
-    ejemplos propios que no repitan la R14a ni los modelos. Antes de construir, propónme en pocas líneas las escenas y
-    los ejemplos. Al terminar: archivos y dónde subirlos, build y banco en el proyecto, estado actualizado, la R14b en
-    curso_tareas.py del corrector (FICHAS y láminas) y en anadir_fichas_modelos.py, y el prompt del M2.»
-  - M2: «Vamos con el Modelo 2 del curso DELE A2 (de entrada; perfil + = − =). Antes de empezar, lee
-    claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE MODELO: M2», el bloque del M1 y el del 23/10 sobre las fichas de
-    los modelos) y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Copia del proyecto lo que
-    haga falta para construir (build_modelo.py, adaptar_motor.py, motor_modelo_extra.py, el motor, la libreta, voces.txt
-    y fuente_M01.py como base). Lo primero: pasa claude/anadir_fichas_modelos.py a fuente_M01.py, fuente_M06.py (antes,
-    corregir_M06.py si hace falta) y fuente_M07.py, regenera esos tres modelos y súbelos, para que enlacen ya las fichas
-    R08, R10, R13 y R14. Después, propónme en pocas líneas los temas del M2 (sin repetir los del M1, M6 y M7 ni las
-    escenas de la R14) y no construyas hasta que te diga que sí. Al terminar: archivos y dónde subirlos, comando de
-    Terminal de los audios, prompts y nombres.txt de las imágenes, fuente y datos en el proyecto, la escritura del M2 (y
-    las del M7 y el M1, que faltan) en curso_tareas.py del corrector y el estado actualizado.»
+    corrector si hace falta, el estado actualizado y el prompt siguiente (el M2: la R14b ya está hecha).»
+  - M2 (actualizado 23/10 noche, con el repo): «Vamos con el Modelo 2 del curso DELE A2 (de entrada; perfil + = − =).
+    Antes de empezar, lee claude/DELE_A2_instrucciones_proyecto.txt, claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE
+    MODELO: M2» y los bloques del 23/10) y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Clona el
+    repo mariarv1976-ops/dele-a2-curso y, del historial (historial/DELE_A2_curso_historial_hasta_23oct.txt), lee solo los
+    bloques del M1 y del M7 (busca «MODELO 1 COMPLETO» y «MODELO 7 COMPLETO»). Lo primero: pasa claude/anadir_fichas_modelos.py
+    a fuente_M01.py, fuente_M06.py (antes, corregir_M06.py si no lleva «Pintar la casa») y fuente_M07.py, pasa
+    patch_libreta_vivo.py a DELE_oral_profesora.py, regenera esos tres modelos (examen y libreta) y dámelos, para que enlacen
+    ya las fichas R08, R10, R13, R14a y R14b. Después, propónme en pocas líneas los temas del M2 (sin repetir los del M1, M6
+    y M7 ni las escenas, audios y anuncios de la R14a y la R14b) y no construyas hasta que te diga que sí. Al terminar:
+    archivos y dónde subirlos, comando de Terminal de los audios, prompts y nombres.txt de las imágenes, fuentes y datos en el
+    repo (commit y push), la escritura del M2 (y las del M7 y el M1, que faltan) en curso_tareas.py del corrector y el estado
+    actualizado en el proyecto.»
   >>> SIGUIENTE MODELO: M2 (de entrada; perfil + = − =: lectura en la parte alta del examen, sin salir del A2; auditiva
   como el examen; escritura en la parte fácil del examen; oral como el examen).
   Cómo se hace: copiar claude/fuente_M01.py (o fuente_M07.py) como fuente_M02.py y cambiar el contenido (M = "02",
@@ -202,7 +208,7 @@ SIGUIENTE
   python3 adaptar_motor.py; python3 DELE_A2_motor_modelo.py DELEA2_curso_M02_datos. Si en el chat no están en disco
   el motor, la libreta, DELEA2_F1_U02_datos.py y voces.txt, copiarlos tal cual de project_read solo para ejecutar
   (no reescribirlos ni subirlos). 23/10: copiar la fuente DESPUÉS de pasarle anadir_fichas_modelos.py (o pasárselo a
-  fuente_M02.py): así el M2 nace con las fichas R08, R10, R13 y R14a.
+  fuente_M02.py): así el M2 nace con las fichas R08, R10, R13, R14a y R14b.
   ANTES DE EMPEZAR, LEER claude/DELE_A2_examen_real_hallazgos.txt (manda sobre todo lo demás).
   "+" EN LA LECTURA (sin salir del A2, como el M7): textos en la parte alta de la extensión oficial, más información
   por texto, distractores finos (otra persona, otro día, un plan que cambia), paráfrasis y léxico A2 menos frecuente.
@@ -222,7 +228,12 @@ SIGUIENTE
   para la semana) y un alumno de 68 años (CL4); el M1 tiene salud (CA1), un trabajo nuevo y el mercado; el M6, un viaje a
   la montaña. 23/10, OJO TAMBIÉN con la R14a: su escucha y sus anuncios usan restaurante (el pescado que se ha terminado,
   la tortilla), menú del día de La Huerta, piso en alquiler, frutería, zapatería, centro de salud y farmacia de guardia:
-  si el M2 tiene restaurante en la CA1, que no sean los mismos platos ni las mismas situaciones. Antes de construir,
+  si el M2 tiene restaurante en la CA1, que no sean los mismos platos ni las mismas situaciones. 23/10 noche, OJO con la R14b:
+  su escucha usa la boda en Sevilla en tren, el hotel con la habitación doble, castillo / museo / mercado, el teatro, el abuelo
+  que pinta, las notas de Pablo, la cafetería para estudiar, el uniforme del hotel, los turnos, la excursión y la previsión, las
+  vacaciones lluviosas en Asturias y el móvil roto; sus anuncios, un albergue, un tren turístico, senderismo, teatro, una
+  academia con matrícula gratuita, la biblioteca en exámenes, dos ofertas de trabajo, la previsión y unas fiestas de barrio.
+  Si el M2 tiene una academia (CA3 curso, oral «clases para adultos»), que no sea con matrícula gratuita ni la misma situación. Antes de construir,
   proponer los temas a María en pocas líneas.
   AUDIO (María, 15/10): NADA DE SONIDOS ENLATADOS (ni sintonía de radio, ni din-don de megafonía, ni pitido de
   contestador: el examen real tampoco los tiene) y TODAS las voces con la expresividad que pide su contexto (etiquetas

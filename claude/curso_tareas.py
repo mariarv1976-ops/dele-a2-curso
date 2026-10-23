@@ -6,6 +6,7 @@
 # "pz": pieza del curso de la que sale la lamina (para el desplegable).
 # 23/10/2026 (chat de la R14a): FICHAS con los nombres de archivo reales de R10 y R14a y los titulos de R08, R10 y R13;
 # FICHAS_LISTAS con R08, R10, R13 y R14; laminas de "Ahora tu" de R08, R10, R13 y R14a en FICHAS_AT.
+# 23/10/2026 noche (chat de la R14b): ficha R14b (vocabulario de fuera de casa) en FICHAS y FICHAS_LISTAS, y sus dos laminas.
 
 def t1(instr, inp, lead, pautas):
     return {"instr": instr, "input": inp, "lead": lead, "pautas": pautas, "min": 60, "max": 70}
@@ -194,10 +195,19 @@ FICHAS_AT = [
  rl("A2-R14a-casa", "R14a Vocabulario · Revista: Mi casa, antes y ahora", 2, "", "",
     "Una revista para estudiantes de español busca textos sobre «Mi casa: antes y ahora». Escriba un texto para la revista. Hable de:",
     ["cómo era la casa donde vivía de niño o de niña;", "con quién vivía y cómo era esa persona;", "cómo es su casa ahora: las partes y los muebles;", "qué tareas de la casa hace usted y cuáles no le gustan;", "qué quiere cambiar en su casa y por qué."]),
+ # --- 23/10 noche: R14b (mismos textos que banco_R14b_vocabulario.py, LAMINAS)
+ rl("A2-R14b-sara", "R14b Vocabulario · Correo a Sara (un viaje en julio)", 1, "Ha recibido este mensaje de su amiga Sara:",
+    "¡Hola! ¡Por fin he terminado los exámenes! Ahora quiero hacer un viaje contigo en julio. ¿Adónde podemos ir? ¿Cómo viajamos? ¿Y qué tiempo hace allí? Cuéntame también qué tal en tu trabajo nuevo. Muchos besos, Sara",
+    "Escriba un correo a Sara. En él tiene que:",
+    ["felicitarla por los exámenes y preguntarle por sus notas;", "contarle qué tal en su trabajo este mes;", "proponerle un sitio para ir y cómo viajar;", "decirle qué tiempo hace allí en julio y qué tiene que llevar;", "proponerle qué hacer allí en el tiempo libre y despedirse."]),
+ rl("A2-R14b-semana", "R14b Vocabulario · Revista: Mi semana (trabajo, estudios y tiempo libre)", 2, "", "",
+    "Una revista para estudiantes de español busca textos sobre «Mi semana: trabajo, estudios y tiempo libre». Escriba un texto para la revista. Hable de:",
+    ["dónde trabaja o estudia y cómo es su horario;", "qué hacía en su tiempo libre cuando era niño o niña;", "qué hace ahora los fines de semana y con quién;", "para qué usa el móvil y las redes sociales;", "qué estación del año prefiere para salir y por qué."]),
 ]
 
 # Fichas de remedio publicadas (el informe enlaza la ficha cuando hay errores de ese contenido)
-# R14 = vocabulario: de momento enlaza la R14a (la casa y el día a día); cuando exista la R14b (fuera de casa), añadirla.
+# R14 = vocabulario de la casa y del día a día (R14a); R14b = vocabulario de fuera de casa (viajes, ocio, estudios, trabajo,
+# tiempo, servicios). patch_corrector.py pone los dos códigos en la petición para Claude.
 FICHAS = {
  "R01": ["Los pasados y las preguntas", "DELEA2_curso_R01_pasados.html"],
  "R02": ["Hay, está y es", "DELEA2_curso_R02_hay_esta_es.html"],
@@ -213,7 +223,8 @@ FICHAS = {
  "R12": ["Traer / llevar · ir / venir · pedir / preguntar", "DELEA2_curso_R12_traer_llevar.html"],
  "R13": ["Las funciones de los correos", "DELEA2_curso_R13_formulas_correo.html"],
  "R14": ["Vocabulario en escenas (1): la casa y el día a día", "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html"],
+ "R14b": ["Vocabulario en escenas (2): fuera de casa", "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html"],
 }
-FICHAS_LISTAS = ["R01", "R02", "R04", "R05", "R06", "R07", "R08", "R10", "R13", "R14"]
+FICHAS_LISTAS = ["R01", "R02", "R04", "R05", "R06", "R07", "R08", "R10", "R13", "R14", "R14b"]
 
 NUEVOS = MODELOS + TALLERES + FICHAS_AT

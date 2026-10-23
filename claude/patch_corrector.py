@@ -35,6 +35,15 @@ D["fichas"] = FICHAS
 D["listas"] = FICHAS_LISTAS
 s = s[:m.start(1)] + json.dumps(D, ensure_ascii=True) + s[m.end(1):]
 
+# 23/10 noche (R14b): la peticion para Claude tiene que conocer los dos codigos de vocabulario. Cambio suave: si no
+# encuentra el texto, avisa y sigue (el enlace a la R14b funciona igual si Claude devuelve "R14b").
+R14_OLD = "R14 vocabulario.');"
+R14_NEW = ("R14 vocabulario de casa y del d\\u00EDa a d\\u00EDa (personas, casa, comida, compras, salud) \\u00B7 "
+           "R14b vocabulario de fuera de casa (viajes, ocio, estudios, trabajo, el tiempo, servicios y m\\u00F3vil).');")
+if "R14b vocabulario" in s: pass
+elif s.count(R14_OLD) == 1: s = s.replace(R14_OLD, R14_NEW)
+else: print("AVISO: no encuentro la lista de codigos de la peticion (R14 vocabulario): R14b no sale en la lista para Claude")
+
 YA = "/* curso-dele-a2 */" in s
 if not YA:
     # ------------------------------------------------------------------ 2. estado y ayudas

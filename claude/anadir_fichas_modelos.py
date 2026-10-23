@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Anade las fichas de remedio R08, R10, R13 y R14a a los contenidos de los modelos completos (fuente_Mxx.py).
+# Anade las fichas de remedio R08, R10, R13, R14a y R14b (23/10 noche) a los contenidos de los modelos completos (fuente_Mxx.py).
 # Uso (en la carpeta de las fuentes):   python3 anadir_fichas_modelos.py fuente_M01.py fuente_M06.py fuente_M07.py
 # Despues, volver a construir cada modelo (build_modelo.py -> adaptar_motor.py -> DELE_A2_motor_modelo.py) y subir
 # su DELEA2_curso_Mxx_examen.html: en Resultados, "Que tienes que repasar" enlaza tambien las fichas nuevas.
@@ -12,12 +12,15 @@ NUEVAS = {
     "R10": ("Lo, la, le: el paquete y el destinatario", "DELEA2_curso_R10_lo_la_le.html"),
     "R13": ("Las funciones de los correos", "DELEA2_curso_R13_formulas_correo.html"),
     "R14a": ("Vocabulario en escenas (1): la casa y el día a día", "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html"),
+    "R14b": ("Vocabulario en escenas (2): fuera de casa", "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html"),
 }
 # contenido -> fichas que se anaden (detras de las que ya tiene)
 ANADIR = {
     "personas": ["R10", "R14a"],   # descripcion de personas, familia; pronombres para no repetir
     "opinion": ["R08"],            # dar la opinion con porque / por eso / pero / ademas
-    "planes": ["R13", "R08"],      # invitar, aceptar, rechazar, proponer; "al final" = el plan cambio
+    "planes": ["R13", "R08", "R14b"],   # invitar, aceptar, rechazar, proponer; "al final" = el plan cambio; ocio y viajes
+    "normas": ["R14b"],            # anuncios: incluido, gratis, plazas, horario de atencion (parejas de la R14b)
+    "tiempo": ["R14b"],            # horarios, turnos, el tiempo que hace
     "cantidad": ["R14a"],          # compras, tiendas, precios
     "lugares": ["R14a"],           # la casa, las tiendas del barrio
 }

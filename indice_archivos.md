@@ -38,7 +38,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/DELE_A2_referencias_oficiales.md` | 7 KB | Referencias oficiales y manuales · lo útil de los PDF |
 | `claude/actualizar_libreta_html.py` | 4 KB | Pone el GUION EN VIVO a una libreta oral A2 YA HECHA (DELEA2_..._oral_profesora.html), sin el motor ni los datos: |
 | `claude/adaptar_motor.py` | 4 KB | Crea DELE_A2_motor_modelo.py a partir de DELE_A2_motor_simulacro.py (sin tocar el original). |
-| `claude/anadir_fichas_modelos.py` | 4 KB | Anade las fichas de remedio R08, R10, R13 y R14a a los contenidos de los modelos completos (fuente_Mxx.py). |
+| `claude/anadir_fichas_modelos.py` | 4 KB | Anade las fichas de remedio R08, R10, R13, R14a y R14b a los contenidos de los modelos completos (fuente_Mxx.py). |
 | `claude/arreglar_R06_tiempo.py` | 4 KB | Mete la pestana "Hace y durante" (tiempo_R06.py) en la ficha R06 de preposiciones. |
 | `claude/arreglar_seeded.py` | 1 KB | ARREGLO DEL MOTOR DE HUECOS (curso DELE A2, 14/10/2026) |
 | `claude/banco_R01_pasados.py` | 32 KB | BANCO DE LA FICHA DE REMEDIO R01: LOS PASADOS Y LAS PREGUNTAS (curso DELE A2) |
@@ -51,6 +51,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/banco_R10_pronombres.py` | 42 KB | BANCO DE LA FICHA DE REMEDIO R10: LO, LA, LE (curso DELE A2) |
 | `claude/banco_R13_funciones.py` | 54 KB | BANCO DE LA FICHA DE REMEDIO R13 DEL CURSO DE PREPARACION DELE A2: LAS FUNCIONES DE LOS CORREOS |
 | `claude/banco_R14a_vocabulario.py` | 61 KB | BANCO DE LA FICHA DE REMEDIO R14a: VOCABULARIO EN ESCENAS (1) · LA CASA Y EL DIA A DIA (curso DELE A2) |
+| `claude/banco_R14b_vocabulario.py` | 67 KB | BANCO DE LA FICHA DE REMEDIO R14b: VOCABULARIO EN ESCENAS (2) · FUERA DE CASA (curso DELE A2) |
 | `claude/banco_banda1_M3.py` | 41 KB | BANCO DE "DE LA BANDA 1 A LA BANDA 2" (MODULO 3 · TALLER DE ESCRITURA · PIEZA 3) DEL CURSO DE PREPARACION DELE A2 |
 | `claude/banco_bloqueo_M4.py` | 48 KB | BANCO DE "QUE HACER SI ME BLOQUEO" · ORAL (DELE A2) · curso de preparacion, Modulo 4 |
 | `claude/banco_dialogos_T3.py` | 47 KB | BANCO DE DIALOGOS · TAREA 3 DE LA ORAL (DELE A2) · curso de preparacion, Modulo 4 |
@@ -83,6 +84,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/build_R10_pronombres.py` | 71 KB | FICHA DE REMEDIO R10 DEL CURSO DE PREPARACION DELE A2: LO, LA, LE (EL PAQUETE Y EL DESTINATARIO) |
 | `claude/build_R13_funciones.py` | 72 KB | FICHA DE REMEDIO R13 DEL CURSO DE PREPARACION DELE A2: LAS FUNCIONES DE LOS CORREOS |
 | `claude/build_R14a_vocabulario.py` | 91 KB | FICHA DE REMEDIO R14a DEL CURSO DE PREPARACION DELE A2: VOCABULARIO EN ESCENAS (1) · LA CASA Y EL DIA A DIA |
+| `claude/build_R14b_vocabulario.py` | 92 KB | FICHA DE REMEDIO R14b DEL CURSO DE PREPARACION DELE A2: VOCABULARIO EN ESCENAS (2) · FUERA DE CASA |
 | `claude/build_corrector.py` | 42 KB | CORRECTOR DE LA ESCRITURA DE LA PROFESORA (curso DELE A2) |
 | `claude/build_indice.py` | 20 KB | INDICE DEL CURSO DE PREPARACION DELE A2 (solo para la profesora) |
 | `claude/build_modelo.py` | 35 KB | BUILD DE LOS MODELOS COMPLETOS DEL CURSO DE PREPARACIÓN DELE A2 (M1-M8) |

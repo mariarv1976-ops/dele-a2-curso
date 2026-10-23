@@ -1960,3 +1960,48 @@ AÑADIDO 23/10/2026 (noche) · M4 «QUÉ HACER SI ME BLOQUEO» REESTRUCTURADO
   ENTREGADO: DELEA2_curso_M4_bloqueo.html -> SUBIR a recursos/A2/dele-curso/ (sustituye al anterior).
   NOTA: claude/DELE_A2_curso_estado_23oct.txt no existía (ni en el proyecto ni en el repo): las pestañas aprobadas ya
   estaban en este archivo, así que no había nada que pasar.
+
+HECHO (23/10/2026, noche) · chat de la R14b
+* Ficha de remedio R14b "Vocabulario en escenas (2): fuera de casa": claude/build_R14b_vocabulario.py +
+  claude/banco_R14b_vocabulario.py -> DELEA2_curso_R14b_vocabulario_fuera_de_casa.html (recursos/A2/dele-curso/),
+  DELEA2_curso_R14b_guion.txt (12 audios), R14b_prompts_imagenes.txt + nombres.txt (12 trípticos de viñetas A-B-C).
+  storageKey dele-a2-curso-R14b. Importa curso_comun.py.
+  El build es una COPIA del de la R14a (mismo motor, mismas 7 pestañas, mismas comprobaciones); solo cambian el banco, los
+  textos que nombraban la R14a (escenas de ejemplo, reglas del cuaderno, lista de revisión, opinión, Copiar), los colores e
+  iconos de las seis áreas y tres comprobaciones: el rincón con una sola conversación, las fotos 1-6 de la oral y el reparto de
+  voces (ver abajo).
+  ÁREAS: vi viajes (LX-14) · oc ocio (LX-08, LX-18) · es estudios (LX-06) · tr trabajo (LX-07) · ti el tiempo (LX-20) · y el
+  RINCÓN de frecuencia media ri «Servicios, móvil y fiestas» (LX-11, LX-09, LX-16, LX-19), con dos escenas como las demás y UNA
+  sola conversación (María, 23/10). Escenas: el viaje (tren a Santander) y el hostal de Granada; un sábado activo y el estreno de
+  una obra de teatro; me apunto a un curso (academia) y época de exámenes (universidad); busco trabajo y mi primer mes en la
+  empresa; ¿qué tiempo hace? (la previsión) y las estaciones y el paisaje (el pueblo de los abuelos); recados de la mañana
+  (correos, cajero, ayuntamiento) y el móvil y las fiestas del barrio. 303 palabras en las redes.
+  ESCUCHA Y ELIGE (12): cómo va Marta a la boda (avión / tren / autobús), qué les dan en el hotel, qué visitan mañana (castillo
+  / museo / mercado), adónde van esta noche (concierto / cine / teatro), qué hace ahora el abuelo (nadar / pintar / bailar), qué
+  asignatura ha suspendido Pablo, dónde estudia ahora Irene, qué ropa lleva Andrés en el trabajo (traje / uniforme / deporte),
+  qué turno tiene Carlos, qué se lleva Nuria a la excursión (paraguas / gorra / abrigo), qué tiempo hizo en las vacaciones de
+  Javier (llovió / calor / nieve) y qué le pasa al móvil de Laura. Nada de la R14a ni de las tareas 1 de M1, M6 y M7.
+  VOCES (María, 23/10 noche): sin las de la R14a y el M1 solo quedaba libre una voz peninsular (EFRAYN). DECIDIDO: cada
+  conversación lleva UNA voz peninsular repetida de la R14a (doce distintas: SUSANA, MARTIN_3, ESTELA, RAQUEL, CAROLINA, MIA,
+  SARA, EMILIO, MILO, GABRIEL_ES, JAVIER, DAVID_M1) y UNA latinoamericana libre (ANA_MARIA, NINOSKA, DIEGO_PE, AGUSTIN, GABI,
+  MARIO_LAT, JUAN_RESTREPO, LUISA, TOMAS). El build lo comprueba con voces.txt (una de «España» por conversación; de la R14a solo
+  peninsulares). Ninguna del M1 ni descartada. Para el M2: VOCES_EVITAR = las del M1 (no cambia).
+  ANUNCIOS (10, con paráfrasis): albergue con desayuno incluido, tren turístico, club de senderismo, teatro los miércoles,
+  academia con matrícula gratuita, biblioteca en época de exámenes, camarero de media jornada, recepcionista de fin de semana,
+  previsión del fin de semana y fiestas del barrio de San Roque.
+  DETECTOR (34 pruebas, igual en node que en Python): ROJO *jugar fútbol, *jugar la guitarra, *atender a clase, *tomar un
+  examen, *aplicar para un trabajo, *hace lluvia / nublado / niebla / tormenta, *es calor / sol / viento, *billete del concierto,
+  *hacer vacaciones; ÁMBAR ticket del tren, mirar una película, pasar el examen, cosa / bonito / divertido tres veces.
+  AHORA TÚ: lámina T1 correo a Sara (un viaje en julio; mensaje de 40 palabras) y T2 revista «Mi semana: trabajo, estudios y
+  tiempo libre»; oral «la escena en un minuto» con las fotos 1-6 del taller de la foto (la R14a usa las 7-12).
+  Probado en Chromium (Playwright), 133 comprobaciones: las 7 pestañas, las 12 escenas (tapa y recuerda, tilde, cuaderno), las 12
+  conversaciones sin audio (leer y contestar; transcripción con lo bueno y dos descartes), parejas, une la pareja, anuncios, los
+  tres ejercicios, los cuatro textos hueco a hueco, la revisión de la escritura (2 rojos en un texto malo, ninguno en uno bueno),
+  el oral, Copiar, recargar con el progreso guardado y móvil 390 px sin scroll lateral; sin errores de consola.
+* CORRECTOR (curso_tareas.py): R14b en FICHAS («Vocabulario en escenas (2): fuera de casa») y en FICHAS_LISTAS, y sus dos
+  láminas (A2-R14b-sara, A2-R14b-semana) en FICHAS_AT. El código R14 sigue siendo la R14a. patch_corrector.py cambia ahora
+  también la lista de códigos de la petición para Claude: «R14 vocabulario de casa y del día a día (...) · R14b vocabulario de
+  fuera de casa (...)» (cambio suave: si no encuentra el texto, avisa y sigue). FALTA aplicarlo al corrector de María
+  (python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html, con curso_tareas.py al lado) y subirlo.
+* MODELOS (anadir_fichas_modelos.py): R14b en NUEVAS y en los contenidos «planes», «normas» y «tiempo». Probado sobre copias de
+  fuente_M01, M06 y M07 (las tres quedan con las cinco fichas y F() las encuentra). Se pasa en el chat del M2.
