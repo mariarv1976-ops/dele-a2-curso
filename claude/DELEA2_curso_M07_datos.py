@@ -58,6 +58,18 @@ DATA = {
     {
      "t": "Taller oral: habla con el examinador",
      "u": "DELEA2_curso_M4_T3_dialogos.html"
+    },
+    {
+     "t": "Las funciones de los correos",
+     "u": "DELEA2_curso_R13_formulas_correo.html"
+    },
+    {
+     "t": "Conectores: las flechas entre frases",
+     "u": "DELEA2_curso_R08_conectores.html"
+    },
+    {
+     "t": "Vocabulario en escenas (2): fuera de casa",
+     "u": "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html"
     }
    ]
   },
@@ -69,6 +81,10 @@ DATA = {
     {
      "t": "Conoce el examen: las reglas de oro",
      "u": "DELEA2_curso_M0_conoce_el_examen.html"
+    },
+    {
+     "t": "Vocabulario en escenas (2): fuera de casa",
+     "u": "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html"
     }
    ]
   },
@@ -80,6 +96,10 @@ DATA = {
     {
      "t": "Preposiciones frecuentes (tambi\u00e9n hace, desde hace y durante)",
      "u": "DELEA2_curso_R06_preposiciones.html"
+    },
+    {
+     "t": "Vocabulario en escenas (2): fuera de casa",
+     "u": "DELEA2_curso_R14b_vocabulario_fuera_de_casa.html"
     }
    ]
   },
@@ -95,6 +115,10 @@ DATA = {
     {
      "t": "Preposiciones frecuentes (tambi\u00e9n hace, desde hace y durante)",
      "u": "DELEA2_curso_R06_preposiciones.html"
+    },
+    {
+     "t": "Vocabulario en escenas (1): la casa y el d\u00eda a d\u00eda",
+     "u": "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html"
     }
    ]
   },
@@ -106,6 +130,10 @@ DATA = {
     {
      "t": "Muy y mucho, tambi\u00e9n y tampoco",
      "u": "DELEA2_curso_R05_muy_mucho_tambien_tampoco.html"
+    },
+    {
+     "t": "Vocabulario en escenas (1): la casa y el d\u00eda a d\u00eda",
+     "u": "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html"
     }
    ]
   },
@@ -121,6 +149,14 @@ DATA = {
     {
      "t": "T\u00fa y usted",
      "u": "DELEA2_curso_R07_tu_usted.html"
+    },
+    {
+     "t": "Lo, la, le: el paquete y el destinatario",
+     "u": "DELEA2_curso_R10_lo_la_le.html"
+    },
+    {
+     "t": "Vocabulario en escenas (1): la casa y el d\u00eda a d\u00eda",
+     "u": "DELEA2_curso_R14a_vocabulario_casa_dia_a_dia.html"
     }
    ]
   },
@@ -132,6 +168,10 @@ DATA = {
     {
      "t": "Muy y mucho, tambi\u00e9n y tampoco",
      "u": "DELEA2_curso_R05_muy_mucho_tambien_tampoco.html"
+    },
+    {
+     "t": "Conectores: las flechas entre frases",
+     "u": "DELEA2_curso_R08_conectores.html"
     }
    ]
   }

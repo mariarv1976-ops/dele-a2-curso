@@ -5,9 +5,14 @@
 # (van a la carpeta protegida biblioteca/profesora/ de la web; nunca a la parte pública).
 # - Escala analítica por tarea (coherencia, fluidez, corrección, alcance, 0-3) y holística global.
 # - Nota orientativa /25: holística 40 % + analítica 60 % (B2: T1 35 %, T2 35 %, T3 30 %; A2: tercios).
+# - A2: guion en vivo (libreta_vivo.py, 23/10/2026): solo la opción o la foto elegida, grande; la tarea 3 paso a paso.
 # - Apuntes al vuelo por categorías, recuento rápido, cronómetros, informe con consejos automáticos,
 #   PDF para el estudiante y PDF completo, historial por estudiante (compartido entre todas las libretas).
 import json, re
+try:  # guion en vivo de la libreta A2 (23/10/2026): libreta_vivo.py en la misma carpeta
+    from libreta_vivo import CSS_VIVO, JS_VIVO, vivo_a2
+except ImportError:  # sin libreta_vivo.py, la libreta de siempre
+    CSS_VIVO, JS_VIVO, vivo_a2 = "", "", None
 TALLIES = [["pausa", "Silencio largo", False], ["muletilla", "Muletilla", False], ["repetir", "Pide que repita", False],
            ["autocorr", "Se corrige solo", True], ["parafrasis", "Explica con otras palabras", True]]
 LEVELS = {
@@ -281,12 +286,13 @@ function head(){
 function vTask(n){
  var tk=D.tasks.filter(function(x){return x.n===n;})[0], st=E.t[n], op=tk.opts[st.op]||tk.opts[0], o='<h3>'+tk.name+' <span class="muted small">'+tk.dur+'</span></h3>';
  if(tk.opts.length>1){ o+='<div class="opsel">Ha elegido: '+tk.opts.map(function(x,i){ return '<button class="chip'+(st.op===i?' on':'')+'" data-a="op" data-n="'+n+'" data-i="'+i+'">'+esc(x.title)+'</button>'; }).join('')+'</div>'; }
+ if(tk.live) o+=vLive(tk,n,st);
  o+='<div class="cols"><div class="col">';
  o+='<div class="card"><h4>Tiempos</h4>'+tk.phases.map(function(ph){ return '<div class="phrow">'+swHtml(n+'-'+ph[0],ph[1],ph[2],ph[3])+'</div>'; }).join('')+'</div>';
  o+=noteCard(n);
  o+='<div class="card"><h4>Recuento rápido</h4><div class="tallies">'+LV.tallies.map(function(t){ var v=st.tal[t[0]]||0; return '<div class="tally'+(t[2]?' pos':'')+'"><span>'+t[1]+'</span><button data-a="tal" data-n="'+n+'" data-k="'+t[0]+'" data-d="-1" aria-label="Restar">&minus;</button><b>'+v+'</b><button data-a="tal" data-n="'+n+'" data-k="'+t[0]+'" data-d="1" aria-label="Sumar">+</button></div>'; }).join('')+'</div></div>';
- o+='<div class="card"><h4>Lo que ve el estudiante</h4>'+op.lamina+'</div>';
- o+='<div class="card"><h4>'+(tk.guionTitle||'Guion del entrevistador')+'</h4>'+(op.ent&&op.ent.length?'<ol class="ent">'+op.ent.map(function(q){return '<li>'+q+'</li>';}).join('')+'</ol>':'')+(tk.guion?'<div class="small pre">'+tk.guion+'</div>':'')+'<p class="small muted"><b>Si se bloquea:</b> '+tk.ayudas.join(' · ')+'</p></div>';
+ if(!tk.live) o+='<div class="card"><h4>Lo que ve el estudiante</h4>'+op.lamina+'</div>';
+ if(!tk.live) o+='<div class="card"><h4>'+(tk.guionTitle||'Guion del entrevistador')+'</h4>'+(op.ent&&op.ent.length?'<ol class="ent">'+op.ent.map(function(q){return '<li>'+q+'</li>';}).join('')+'</ol>':'')+(tk.guion?'<div class="small pre">'+tk.guion+'</div>':'')+'<p class="small muted"><b>Si se bloquea:</b> '+tk.ayudas.join(' · ')+'</p></div>';
  if(D.errores) o+='<div class="card"><h4>Errores esperables en esta unidad</h4><div class="small pre">'+D.errores+'</div></div>';
  o+='</div><div class="col">';
  o+='<div class="card"><h4>¿Cumple la tarea?</h4>'+tk.checks.map(function(c,i){ var v=st.ck[i]; return '<div class="ckrow"><span>'+c+'</span><span class="tri">'+['Sí','A medias','No'].map(function(l,j){ return '<button class="tb t'+j+(v===j?' on':'')+'" data-a="ck" data-n="'+n+'" data-i="'+i+'" data-v="'+j+'">'+l+'</button>'; }).join('')+'</span></div>'; }).join('')+'</div>';
@@ -297,6 +303,7 @@ function vTask(n){
  o+='</div></div>';
  return o;
 }
+__JS_VIVO__
 function noteCard(n){
  var o='<div class="card notecard"><h4>Apuntes al vuelo</h4>';
  o+='<div class="logrow"><input id="dijo" placeholder="Lo que ha dicho (ej.: *yo sabo)" autocomplete="off"><input id="corr" placeholder="Forma correcta (opcional)" autocomplete="off"></div>';
@@ -420,7 +427,11 @@ document.addEventListener('click', function(e){
  var b=e.target.closest('[data-a]'); if(!b) return; var a=b.getAttribute('data-a'), n=+b.getAttribute('data-n');
  if(a==='tab'){ var t=b.getAttribute('data-t'); E.tab = (t==='inf'||t==='his')?t:+t; }
  else if(a==='copycode'){ copyText(D.codigo, $('ccok')); return; }
- else if(a==='op'){ E.t[n].op=+b.getAttribute('data-i'); }
+ else if(a==='op'){ E.t[n].op=+b.getAttribute('data-i'); if(n===2 && E.t[3] && D.tasks[2] && D.tasks[2].live && E.t[3].op!==E.t[2].op && E.t[2].op<D.tasks[2].opts.length){ E.t[3].op=E.t[2].op; E.t[3].steps={}; } }
+ else if(a==='lvstep'){ var LS=E.t[n].steps||(E.t[n].steps={}), lk=b.getAttribute('data-i'); LS[lk]=!LS[lk]; }
+ else if(a==='lvreset'){ E.t[n].steps={}; }
+ else if(a==='lvans'){ LV_ANS=!LV_ANS; saveJ('2st_oral_lv_respuestas', LV_ANS); }
+ else if(a==='lvzoom'){ b.classList.toggle('big'); return; }
  else if(a==='ck'){ var i=b.getAttribute('data-i'), v=+b.getAttribute('data-v'); if(E.t[n].ck[i]===v) delete E.t[n].ck[i]; else E.t[n].ck[i]=v; }
  else if(a==='sc'){ var k=b.getAttribute('data-k'), v2=+b.getAttribute('data-v'); if(E.t[n].sc[k]===v2) delete E.t[n].sc[k]; else E.t[n].sc[k]=v2; }
  else if(a==='hol'){ var v3=+b.getAttribute('data-v'); E.hol = E.hol===v3?null:v3; }
@@ -519,20 +530,21 @@ def _enc_js(s):
             o -= 0x10000; out.append("\\u%04X\\u%04X" % (0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)))
     return "".join(out)
 
-def build(level, examen, codigo, title, oral, cats, base_css, guion=None, errores=None):
+def build(level, examen, codigo, title, oral, cats, base_css, guion=None, errores=None, extra=None):
     """Devuelve el HTML de la libreta oral de la profesora."""
     if level == "B2":
         tasks, mirar = tareas_b2(oral), ""
     else:
         tasks, mirar = tareas_a2(oral, guion)
+        if vivo_a2: tasks = vivo_a2(tasks, oral, guion, extra)  # extra: imgBase y oralModelos (si no, los del motor)
     err = "\n".join(x for x in [mirar, (errores or "").strip()] if x).strip()
     data = {"level": level, "examen": examen, "codigo": codigo, "title": title, "tasks": tasks,
             "cats": {k: {"name": v["name"], "repaso": v.get("repaso", "")} for k, v in cats.items()}, "errores": err}
-    js = JS.replace("__DATA__", json.dumps(data, ensure_ascii=True)).replace("__LEVELS__", json.dumps(LEVELS, ensure_ascii=True))
+    js = JS.replace("__JS_VIVO__", JS_VIVO).replace("__DATA__", json.dumps(data, ensure_ascii=True)).replace("__LEVELS__", json.dumps(LEVELS, ensure_ascii=True))
     body = ('<header class="top"><div class="top-in"><div class="brand"><div><h1 style="font-size:1.3rem;margin:0">' + title +
             ' · Oral</h1><small>Libreta de la profesora · ' + examen + ' · no compartir</small></div></div></div></header>'
             '<main class="wrap" id="app"></main><div id="print"></div>')
     return ('<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             '<meta name="robots" content="noindex, nofollow">\n<title>' + _enc_html(title + ' · Oral · Profesora') + '</title>\n'
-            '<style>' + _enc_html(base_css + CSS) + '</style>\n</head>\n<body>\n' + _enc_html(body) +
+            '<style>' + _enc_html(base_css + CSS + CSS_VIVO) + '</style>\n</head>\n<body>\n' + _enc_html(body) +
             '<script>\n' + _enc_js(js) + '\n</script>\n</body>\n</html>\n')
