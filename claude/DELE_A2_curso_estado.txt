@@ -113,8 +113,7 @@ HECHO (24/10, madrugada) · BANCO DE ESCRITURA M3-6 (detalle en el historial del
   condicional salvo me gustaría / podría de cortesía, subjuntivo, aunque...) y las fotos (fotos_M3.check). Probado en Chromium
   (ordenador y móvil 390 px sin scroll lateral, reloj y pausa, recarga, Copiar), sin errores.
 * Corrector: las 20 láminas en BANCO de curso_tareas.py (claves «Banco de escritura · <título>», ids A2-B-a1...u2); probado con
-  el parseCurso del parche: reconoce las láminas de Practica y de Como en el examen. FALTA aplicarlo (junto con la R14b) al
-  corrector de María: python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html -> biblioteca/profesora/.
+  el parseCurso del parche: reconoce las láminas de Practica y de Como en el examen. Aplicado al corrector de María el 24/10.
 * ENTREGADO: DELEA2_curso_M3_banco_escritura.html (SUBIR a recursos/A2/dele-curso/), M3_banco_prompts_imagenes.txt +
   nombres.txt (8 trípticos, CARPETA DELE_A2_curso, a WordPress 2026/10; si se suben en noviembre, MES_WP = "2026/11" en
   build_M3_banco.py y volver a construir). Código en el repo (commit 2088fb6).
@@ -142,9 +141,11 @@ HECHO (24/10, 01:20) · MODELO 2 Y FICHAS NUEVAS EN M1, M6 Y M7 (detalle en el h
   DELEA2_curso_M02_CA_T1..T4.m4a a WordPress 2026/10), M02_prompts_imagenes.txt + nombres.txt (2 fotos de la oral, el
   tríptico de Lucía y 7 viñetas; CARPETA DELE_A2_curso, a WordPress 2026/10), cuadernillos del estudiante y de la profesora.
 * CORRECTOR: escrituras del M1, M2 y M7 en MODELOS de curso_tareas.py (con el script nuevo claude/anadir_modelos_corrector.py,
-  que las copia de la fuente: para el M3 y siguientes, python3 anadir_modelos_corrector.py fuente_M03). FALTA aplicarlo, junto
-  con la R14b y el banco M3-6, al corrector de María: python3 patch_corrector.py corrector_escritura.html
-  corrector_escritura_curso.html -> biblioteca/profesora/.
+  que las copia de la fuente: para el M3 y siguientes, python3 anadir_modelos_corrector.py fuente_M03). APLICADO (24/10, 20:08)
+  al corrector que pasó María: 69 tareas (antes 44): modelos M06, M01, M02 y M07, las 20 láminas del banco M3-6 y las dos de la
+  R14b; fichas R01-R14b. ENTREGADO: corrector_escritura.html -> biblioteca/profesora/ (sustituye al anterior). El aviso «no
+  encuentro la lista de codigos (R14 vocabulario)» no importa: la petición para Claude saca los códigos de D.fichas, que ya
+  tiene la R14b. Con el M3: anadir_modelos_corrector.py fuente_M03 y volver a pasar patch_corrector.py a este corrector.
 * ÍNDICE: el M2 pasa a «listo» en build_indice.py. ENTREGADO: DELEA2_curso_indice.html -> SUBIR a biblioteca/profesora/.
 
 DECIDIDO CON MARÍA (23/10)
