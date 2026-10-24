@@ -2124,3 +2124,65 @@ HECHO (24/10/2026, 01:20)
   MODELOS = A2-M06, A2-M01, A2-M02, A2-M07, con la misma forma que la entrada del M6. FALTA aplicar patch_corrector.py al
   corrector de María (no está en el repo; el corrector del curso, build_corrector.py, no lleva ese parche).
 * ÍNDICE: M2 «listo» en build_indice.py (61 piezas, 32 listas). PENDIENTE de antes: marcar el M7 como «listo» ya estaba hecho.
+
+HECHO (24/10/2026, noche)
+* MODELO 3 COMPLETO, "auditiva exigente" (perfil = + = =: lectura, escritura y oral como el examen; auditiva en la parte
+  alta, sin salir del A2, como la del M7). Propuesta aprobada por María (24/10, 20:13).
+  ARCHIVOS: claude/fuente_M03.py y claude/DELEA2_curso_M03_datos.py (generado). Se construye igual que el M2:
+  python3 build_modelo.py fuente_M03 -> python3 adaptar_motor.py -> python3 DELE_A2_motor_modelo.py DELEA2_curso_M03_datos.
+  En la fuente: PERFIL {"lectura": "=", "auditiva": "+", "escrita": "=", "oral": "="} (con "cuando" y "nota"),
+  SIN_EFECTOS = True, ETIQUETAS = True, NIVEL "auditiva exigente".
+  CÓMO SE HA HECHO EL "+" DE LA AUDITIVA: extensiones en la parte alta (CA1 70-76, CA2 53-56, CA3 261, CA4 41-43); en la T1 las
+  tres opciones salen y el descarte llega tarde («Ah, ¿al lado de la iglesia? Muy bien» -> «No, no, espere, que ya no está
+  allí»; «No sé, no sé... Bueno, vale»; el gorro que es «rojo, de niño» y la bufanda que aparece al final); preguntas con
+  ya / ahora / mañana; en la T2 muchos datos por audio y paráfrasis (se paga aparte = no está incluido; si hay nubes, lo
+  dejamos para el sábado siguiente = se cambia de día; cada veinte por la tarde = pasan menos); en la T3, «ninguno» con la
+  hermana de Héctor (vive en el ático; va a las reuniones) y con lo que Irene solo quiere hacer (organizar una reunión) o
+  pensó y no hizo (la nota); en la T4, enunciados generales y parejas (pedir prestado / ofrecer; abre más tarde / cierra
+  antes; un pedido llega otro día / se ha cancelado).
+  CONTENIDO: CL1 correo de Teresa a Olga (deja el banco tras veinte años y abre La Hoja Verde, librería-café en Ruzafa;
+  quería un local en el centro y al final en su calle, en una antigua tienda de lámparas; Ernesto pintó y montó las
+  estanterías, pero sigue en el hospital; Marcos ayuda los sábados; cuentacuentos los jueves; presentación de la novela de
+  Inés Bravo, compañera del instituto, el 12 de marzo; Olga puede dormir en la habitación de Marcos) · CL2 punto limpio móvil
+  (ej.), banco de libros del instituto, trasteros El Almacén, ajedrez para mayores en la biblioteca, copia de llaves en la
+  ferretería Hermanos Ruiz, horario de invierno de la oficina de turismo, festival de cortos, foro para compartir coche
+  (Álvaro), lavado de coches Brillo · CL3 tres tiendas con historia: la mercería de Amparo (Valladolid; su nieta, la tienda en
+  internet, el punto de los martes), Ferretería Gil (Oviedo; arreglos desde hace dos años; cerrada tres meses en 2019) y el
+  quiosco de Tomás (Cádiz; todos los días del año; la libreta de mensajes de los vecinos) · CL4 reportaje «Las bañistas de
+  invierno» (Carmen, 63, enfermera jubilada, A Coruña; la vecina Lola; el primer minuto; el café del paseo; Andrés nunca se ha
+  bañado; la hija lo probó en Navidad; normas de la médica; el baño de febrero para el hospital infantil; los disfraces, solo
+  idea) · CA1 qué ha comprado ya para el cumpleaños (ej.: velas), dónde cuelgan el cuadro (pasillo), qué se dejó en el taxi
+  (bufanda), qué hace Leo ahora los martes (inglés), qué compra en la ferretería (cinta), dónde está ahora la parada (enfrente
+  del mercado), qué arregla mañana el dueño del piso (la persiana) · CA2 «Mañanas de domingo» (ej.), Colchones Sueño Azul,
+  noche de estrellas en el observatorio, parada nueva del tranvía, mercadillo de ropa infantil, taller de cocina para niños en
+  el mercado, oficina de empleo · CA3 Irene (vecinos con un bebé; tapones; los invitó a cenar; cuida al bebé) y Héctor (vive
+  encima de un bar; busca piso; su hermana Marta en el ático y presidenta de la comunidad; el dueño del bar) · CA4 academia
+  Idiomas Plus (ej.), la nevera llega el jueves, el taller sube el presupuesto, la escuela infantil (recoger a Lucas a las
+  doce), la fiesta sorpresa de Toni, el centro comercial cierra antes (megafonía), Silvia ofrece su tienda de campaña,
+  Correos; sobran: pedir algo prestado, abrir más tarde, un pedido cancelado · ESCRITURA T1 correo DE TÚ a Fede (cena de
+  antiguos compañeros del instituto en Salamanca: qué te parece, si vas, qué has hecho estos años, quedar antes del verano,
+  dos preguntas) · T2 op. 1 revista «mi primer trabajo» · op. 2 TRÍPTICO de Mateo y el piano (1998 con su abuela; 2012 con
+  la orquesta de las fiestas; hoy profesor en una escuela de música de Calatayud; suposición: por qué dejó la orquesta) · ORAL
+  T1 «una persona importante en mi vida» (pauta que se sale: a quién admira la gente de su país) / «mi barrio» (si en su país
+  la gente conoce a sus vecinos) · T2 foto 1 «Hacer deporte» (una mujer de unos 55 y un chico de unos 25 en los aparatos de
+  gimnasia de un parque, mañana de otoño; el perro atado a la farola) y foto 2 «Ver la televisión» (una señora de unos 75 y un
+  chico de unos 16 en el sofá con el mando y el menú de una plataforma, tarde de invierno, sopa en la mesa) · T3 LAS DOS DE TÚ:
+  «Empezar un deporte juntos» (problema: el examinador tiene mal la rodilla y no puede correr) y «¿Qué serie vemos?» con un
+  compañero de piso (problema: ya vio la primera temporada). Diálogos de 12 turnos; libreta_vivo.comprobar() sin avisos.
+  Se cambió el nombre del amigo de la CA3 (Hugo en la propuesta -> Héctor), para no confundirlo con la voz descartada HUGO.
+  Voces (ninguna del M2 ni descartada): CA1 MARIO + AITANA, EVA + DANIEL_ES, DAVID_M2 + LINA, SARA_JOVEN + VOLU, FIONA + MILO,
+  TATIANA + LUIS_VEGA, SOFIA + JAVI_ROJAS; CA2 SERGIO, BOBBY, DIANA, SANTIAGO_ES, TAMARA, LYDIA, DAVID_LAT; CA3 IRENE = ESTELA,
+  HÉCTOR = DANI; CA4 MARINA_ES, OSCAR, DANIEL_CO, SARA_2, RITA, ENRIQUE, JANET, ALBERTO. EN EL M4, VOCES_EVITAR = ESTAS.
+  Situaciones nuevas en SITUACIONES_USADAS["M03"]: aparatos de gimnasia de un parque: una mujer y un chico joven hacen
+  ejercicio y miran un móvil; salón de un piso: un chico enseña a una señora mayor a usar el mando de la tele.
+  Imágenes (nombres.txt, CARPETA DELE_A2_curso): M03_oral_foto1_parque_deporte, M03_oral_foto2_salon_tele_mando,
+  M03_escrita_mateo_piano (tríptico 3:1) y las 7 viñetas M03_CA1_0..6 (velas_globos_platos, salon_dormitorio_pasillo,
+  guantes_bufanda_gorro, ingles_futbol_natacion, bombilla_pilas_cinta, banco_iglesia_mercado, ducha_persiana_calefaccion).
+  Código de la oral: A2-M03 -> 9AZNM.
+  Probado en Chromium (Playwright), ordenador y móvil 390 px: perfil oculto en Inicio y visible en Resultados; 25 preguntas de
+  lectura contestadas y entregadas; auditiva sin etiquetas en pantalla; escritura entregada con los textos modelo; fichas R14a
+  y R14b enlazadas; recarga con todo guardado; oral abierta con el código y la T3; libreta con el código, la foto, el esquema,
+  los dos pequeños problemas y la T3 en vivo (TÚ, «Usted es...», «Espere a que proponga»); sin scroll lateral; sin errores de
+  JavaScript (solo fallan las cargas de audios e imágenes, que todavía no están en WordPress).
+  CORRECTOR: A2-M03 en MODELOS de curso_tareas.py (anadir_modelos_corrector.py fuente_M03). ÍNDICE: M3 «listo» (61 piezas, 34
+  listas).

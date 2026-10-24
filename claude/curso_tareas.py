@@ -80,6 +80,18 @@ MODELOS = [
                    ["cómo era su vida de niña y qué hacía en la panadería;", "qué cambió en 2003 y cómo era entonces su trabajo;", "qué hace ahora y por qué cree usted que ya no tiene la panadería."],
                    photos=["1982. Encarna, una niña de unos ocho años, ayuda a su padre a sacar el pan del horno en la panadería de la familia.", "2003. Encarna, ya adulta, abre la puerta de la panadería por la mañana. Ahora la panadería es suya.", "Hoy. Encarna, con el pelo gris, enseña a hacer pan a un grupo de personas en la cocina de su casa."],
                    intro2="Escriba un texto sobre la vida de Encarna. Hable de:")}},
+ {"id": "A2-M03", "nombre": "Modelo 3 · auditiva exigente", "pz": "Modelos completos",
+  "t1": t1("Su amigo Fede le ha escrito este correo.",
+           ["¡Hola! ¿Te acuerdas de mí? Estoy organizando una cena con los compañeros del instituto: ¡hace veinte años que terminamos! Es el sábado 14 de junio, en Salamanca. ¿Vas a venir? Y cuéntame qué es de tu vida, que no sé nada de ti.", "Un abrazo, Fede"],
+           "Conteste a Fede. En el correo tiene que:",
+           ["saludar y decirle qué le parece la idea de la cena;", "decirle si va a ir o no, y por qué;", "contarle qué ha hecho estos años y a qué se dedica ahora;", "proponerle quedar los dos antes del verano: día, lugar y qué pueden hacer;", "hacerle dos preguntas sobre los antiguos compañeros y despedirse."]),
+  "t2": {"instr": T2_INSTR, "min": 70, "max": 80,
+         "op1": t2("Una revista en español busca textos de sus lectores sobre el trabajo. Escriba un texto sobre su primer trabajo. Hable de:",
+                   ["qué trabajo era, cuántos años tenía y cómo lo encontró;", "cómo era un día normal: el horario, las tareas y los compañeros;", "algo bueno o malo que le pasó allí y qué aprendió;", "qué hace ahora y en qué se parece o no a ese primer trabajo;", "cómo es para usted un buen trabajo."]),
+         "op2": t2("Mateo Ruiz es profesor de piano en Calatayud, un pueblo de Zaragoza. Aquí tiene tres fotos de su vida.",
+                   ["cómo empezó Mateo con la música y cómo era su abuela;", "qué hacía en la orquesta y cómo era su vida en esa época;", "qué hace ahora y por qué cree usted que dejó la orquesta."],
+                   photos=["1998. Mateo, un niño de unos ocho años, toca el piano en el salón de su casa. Su abuela, sentada a su lado, le enseña las notas.", "2012. Mateo, de unos veintidós años, toca el teclado con la orquesta de las fiestas, en un escenario en la plaza de un pueblo, de noche.", "Hoy. Mateo da clase de piano a una niña en una escuela de música; detrás, otros niños esperan con sus mochilas."],
+                   intro2="Escriba un texto sobre la vida de Mateo. Hable de:")}},
 ]
 
 # ------------------------------------------------------------------ TALLER DE ESCRITURA (M3): "Ahora tú"

@@ -37,9 +37,9 @@ PIEZAS HECHAS (build -> HTML · clave de localStorage). Todas usan claude/curso_
   · R07 tú/usted · R08 conectores · R10 lo/la/le (DELEA2_curso_R10_lo_la_le.html) · R13 fórmulas del correo
   · R14a vocabulario casa y día a día · R14b vocabulario fuera de casa (build_R14b_vocabulario.py + banco_R14b_vocabulario.py
   -> DELEA2_curso_R14b_vocabulario_fuera_de_casa.html · dele-a2-curso-R14b; 23/10 noche). Pendientes: R03, R09, R11, R12.
-* M2 Modelos completos: M1, M2, M6 y M7 hechos (fuente_Mxx.py -> build_modelo.py -> DELEA2_curso_Mxx_datos.py ->
+* M2 Modelos completos: M1, M2, M3, M6 y M7 hechos (fuente_Mxx.py -> build_modelo.py -> DELEA2_curso_Mxx_datos.py ->
   adaptar_motor.py (motor + motor_modelo_extra.py) -> DELEA2_curso_M0N_examen.html y _oral_profesora.html).
-  Códigos de la oral: M01 7P33R · M02 4ZJ2J · M06 3SG9J · M07 9GBB7. Las cuatro fuentes llevan ya las fichas R08, R10,
+  Códigos de la oral: M01 7P33R · M02 4ZJ2J · M03 9AZNM · M06 3SG9J · M07 9GBB7. Las cinco fuentes llevan ya las fichas R08, R10,
   R13, R14a y R14b, y DELE_oral_profesora.py del repo ya lleva el guion en vivo (24/10).
 * Herramientas de la profesora (biblioteca/profesora/): corrector de la escritura (build_corrector.py +
   corrector_tareas.py + curso_tareas.py), corrector oral (corrector_oral.html + transcribir_oral.py), índice
@@ -145,8 +145,34 @@ HECHO (24/10, 01:20) · MODELO 2 Y FICHAS NUEVAS EN M1, M6 Y M7 (detalle en el h
   al corrector que pasó María: 69 tareas (antes 44): modelos M06, M01, M02 y M07, las 20 láminas del banco M3-6 y las dos de la
   R14b; fichas R01-R14b. ENTREGADO: corrector_escritura.html -> biblioteca/profesora/ (sustituye al anterior). El aviso «no
   encuentro la lista de codigos (R14 vocabulario)» no importa: la petición para Claude saca los códigos de D.fichas, que ya
-  tiene la R14b. Con el M3: anadir_modelos_corrector.py fuente_M03 y volver a pasar patch_corrector.py a este corrector.
+  tiene la R14b. Con el M3: anadir_modelos_corrector.py fuente_M03 y volver a pasar patch_corrector.py a este corrector. (24/10 noche: A2-M03
+  ya está en curso_tareas.py; FALTA pasar patch_corrector.py al corrector de María, que no está en el repo: que lo adjunte.)
 * ÍNDICE: el M2 pasa a «listo» en build_indice.py. ENTREGADO: DELEA2_curso_indice.html -> SUBIR a biblioteca/profesora/.
+
+HECHO (24/10, noche) · MODELO 3 (detalle en el historial del repo, buscar «MODELO 3 COMPLETO»)
+* MODELO 3 «auditiva exigente» (= + = =), temas aprobados por María (24/10, 20:13). CL1 Teresa deja el banco y abre la
+  librería-café La Hoja Verde en Ruzafa (correo a Olga) · CL2 punto limpio móvil (ej.), banco de libros, trasteros, ajedrez para
+  mayores, copia de llaves, oficina de turismo, festival de cortos, compartir coche, lavado de coches · CL3 tres tiendas con
+  historia (mercería de Amparo en Valladolid, Ferretería Gil en Oviedo, quiosco de Tomás en Cádiz) · CL4 «Las bañistas de
+  invierno» (Carmen, A Coruña) · CA1 el cumpleaños (ej.), el cuadro, el taxi, el inglés de Leo, la ferretería, la parada, el
+  dueño del piso · CA2 «Mañanas de domingo» (ej.), colchones, observatorio, tranvía, mercadillo de ropa infantil, taller de
+  cocina, oficina de empleo · CA3 Irene y Héctor y sus vecinos (el bebé de arriba; el bar de abajo; la hermana en el ático) ·
+  CA4 academia (ej.), nevera, taller, escuela infantil, fiesta sorpresa, centro comercial, tienda de campaña, Correos ·
+  ESCRITURA T1 correo DE TÚ a Fede (cena de antiguos compañeros del instituto) · T2 op. 1 «mi primer trabajo» · op. 2 tríptico
+  de Mateo y el piano (suposición: por qué dejó la orquesta) · ORAL T1 una persona importante / mi barrio · T2 «Hacer deporte»
+  (aparatos del parque) y «Ver la televisión» (el mando y la señora) · T3 DE TÚ «Empezar un deporte juntos» (problema: la
+  rodilla) y «¿Qué serie vemos?» (problema: ya vio la primera temporada). El amigo de la CA3 se llama Héctor (no Hugo, como en
+  la propuesta, para no confundirlo con la voz descartada HUGO).
+  Extensiones: CL1 269, CL2 58-75, CL3 103-105, CL4 393; CA1 70-76, CA2 53-56, CA3 261, CA4 41-43. Voces: ninguna del M2.
+  Probado en Chromium (ordenador y móvil 390 px, examen y libreta, sin errores de JavaScript): código de la oral 9AZNM.
+  ENTREGADO: DELEA2_curso_M03_examen.html (SUBIR a recursos/A2/dele-curso/), DELEA2_curso_M03_oral_profesora.html (SUBIR a
+  biblioteca/profesora/), M03_guion.txt (audios: python3 generar_audios.py M03_guion.txt en Documentos/DELE_AUDIO ->
+  DELEA2_curso_M03_CA_T1..T4.m4a a WordPress 2026/10), M03_prompts_imagenes.txt + nombres.txt (2 fotos de la oral, el
+  tríptico de Mateo y 7 viñetas; CARPETA DELE_A2_curso, a WordPress 2026/10; si se suben en noviembre, MES_WP = "2026/11" en
+  fuente_M03.py y volver a construir), cuadernillos del estudiante y de la profesora, DELEA2_curso_indice.html (M3 «listo»;
+  SUBIR a biblioteca/profesora/).
+* CORRECTOR: A2-M03 en MODELOS de curso_tareas.py (anadir_modelos_corrector.py fuente_M03). FALTA pasar patch_corrector.py al
+  corrector de María (python3 patch_corrector.py corrector_escritura.html corrector_escritura_curso.html): no está en el repo.
 
 DECIDIDO CON MARÍA (23/10)
 * GUION EN VIVO EN TODAS LAS LIBRETAS: A2 HECHO (modelos y unidades). B2: en el proyecto «DELE B2 simulacros Examenes», con sus
@@ -226,7 +252,7 @@ SIGUIENTE
   está en curso_tareas.py (FICHAS, FICHAS_LISTAS, FICHAS_AT) y en anadir_fichas_modelos.py (23/10 noche).
   DESPUÉS, el M2 (María ya tiene escrito su prompt del M2, 22/10; abajo hay otro actualizado).
   PROMPTS PREPARADOS (23/10), para pegar en un chat nuevo cada uno:
-  - BANCO DE ESCRITURA: HECHO (24/10). M2: HECHO (24/10). SIGUIENTE: el M3, con el prompt de abajo.
+  - BANCO DE ESCRITURA: HECHO (24/10). M2: HECHO (24/10). M3: HECHO (24/10 noche). SIGUIENTE: el M4, con el prompt de abajo.
   - M2 (HECHO el 24/10; se deja como modelo para el prompt del M3): «Vamos con el Modelo 2 del curso DELE A2 (de entrada; perfil + = − =).
     Antes de empezar, lee claude/DELE_A2_instrucciones_proyecto.txt, claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE
     MODELO: M2» y los bloques del 23/10) y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Clona el
@@ -239,7 +265,7 @@ SIGUIENTE
     archivos y dónde subirlos, comando de Terminal de los audios, prompts y nombres.txt de las imágenes, fuentes y datos en el
     repo (commit y push), la escritura del M2 (y las del M7 y el M1, que faltan) en curso_tareas.py del corrector y el estado
     actualizado en el proyecto.»
-  - M3 (24/10): «Vamos con el Modelo 3 del curso DELE A2 (perfil = + = =: la auditiva aprieta). Antes de empezar, lee
+  - M3 (HECHO el 24/10 noche): «Vamos con el Modelo 3 del curso DELE A2 (perfil = + = =: la auditiva aprieta). Antes de empezar, lee
     claude/DELE_A2_instrucciones_proyecto.txt, claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE MODELO: M3») y
     claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Clona el repo mariarv1976-ops/dele-a2-curso y,
     del historial, lee solo los bloques del M2 y del M7 (busca «MODELO 2 COMPLETO» y «MODELO 7 COMPLETO»). Propónme en
@@ -247,7 +273,34 @@ SIGUIENTE
     y no construyas hasta que te diga que sí. Al terminar: archivos y dónde subirlos, comando de Terminal de los audios,
     prompts y nombres.txt de las imágenes, fuentes y datos en el repo (commit y push), la escritura del M3 en curso_tareas.py
     (anadir_modelos_corrector.py) y el estado actualizado en el proyecto.»
-  >>> SIGUIENTE MODELO: M3 (perfil = + = =: lectura como el examen; auditiva en la parte alta, sin salir del A2; escritura
+  - M4 (24/10 noche): «Vamos con el Modelo 4 del curso DELE A2 (perfil − = + +: la escritura y la oral aprietan). Antes de
+    empezar, lee claude/DELE_A2_instrucciones_proyecto.txt, claude/DELE_A2_curso_estado.txt (la nota «SIGUIENTE MODELO: M4»)
+    y claude/DELE_A2_examen_real_hallazgos.txt, que manda sobre todo lo demás. Clona el repo mariarv1976-ops/dele-a2-curso y,
+    del historial (historial/DELE_A2_curso_historial_hasta_23oct.txt), lee solo los bloques del M3 y del M7 (busca «MODELO 3
+    COMPLETO» y «MODELO 7 COMPLETO»). Propónme en pocas líneas los temas del M4 (sin repetir los del M1, M2, M3, M6 y M7 ni las
+    escenas, audios y anuncios de la R14a y la R14b) y no construyas hasta que te diga que sí. Al terminar: archivos y dónde
+    subirlos, comando de Terminal de los audios, prompts y nombres.txt de las imágenes, fuentes y datos en el repo (commit y
+    push), la escritura del M4 en curso_tareas.py (con anadir_modelos_corrector.py), el índice con el M4 «listo», el estado
+    actualizado en el proyecto y el prompt para el siguiente modelo. Si te adjunto corrector_escritura.html, pásale también
+    patch_corrector.py.»
+  >>> SIGUIENTE MODELO: M4 (perfil − = + +: lectura en la parte fácil del examen; auditiva como el examen; escritura y oral
+  en la parte alta, sin salir del A2). Copiar claude/fuente_M03.py como fuente_M04.py; VOCES_EVITAR = las voces del M3 (REPARTO
+  de fuente_M03.py) + las descartadas; SITUACIONES_USADAS con "M04".
+  "−" EN LA LECTURA (como la auditiva del M1, pero en la lectura): textos en la parte baja de la extensión oficial (CL1 ~255,
+  CL2 50-60, CL3 100-105, CL4 ~380), una idea clara por pregunta, distractores que se descartan con claridad, pocas paráfrasis.
+  "=" EN LA AUDITIVA: como el M2 (centro de la extensión: CA1 51-65, CA2 51-60, CA3 ~250, CA4 35-44).
+  "+" EN LA ESCRITURA: T1 de tú con pautas de dos o tres piezas (entrada de 45 palabras); T2 con PAUTAS DENSAS que mezclan
+  pasado, presente habitual, recuerdo y opinión en la misma pauta (como el Modelo 0); en la opción 2, la suposición y algún
+  dato que hay que relacionar entre las fotos. Textos modelo en el límite alto (T1 66-70, T2 76-80).
+  "+" EN LA ORAL: T1 con pautas de dos piezas y la que sorprende; T3 con 6 pautas (una más que en el M3), dos de ellas de
+  contar experiencias o dar una opinión con su porqué, y un problema que obliga a negociar (la primera propuesta del candidato
+  tampoco vale). Fotos 2022 que ningún modelo ha usado como tema: Antes de salir de casa, Cambiar de casa, De compras, Regalos
+  (OJO: M4T2 ya tiene un recibidor antes de salir y la R14a un piso en alquiler). Temas de la T1 de 2022 que quedan: el plato
+  favorito, una red social, un curso que hice, mis mejores vacaciones.
+  El M3 ya usa: la librería de Ruzafa, tiendas con historia (Valladolid, Oviedo, Cádiz), bañistas en A Coruña, los vecinos,
+  el cumpleaños y el taxi, la parada provisional, la cena de antiguos compañeros, el primer trabajo, el piano, el deporte en el
+  parque y la tele.
+  (Texto anterior, para el M3:) SIGUIENTE MODELO: M3 (perfil = + = =: lectura como el examen; auditiva en la parte alta, sin salir del A2; escritura
   y oral como el examen). Copiar claude/fuente_M02.py (ya con las fichas nuevas y SITUACIONES_USADAS hasta M02) como
   fuente_M03.py; VOCES_EVITAR = las voces del M2 (REPARTO de fuente_M02.py); SITUACIONES_USADAS con "M03"; "+" en la
   auditiva como el M7 (extensiones en la parte alta: CA1 65-76, CA2 50-57, CA3 ~257, CA4 38-43; más paráfrasis, opciones
@@ -298,7 +351,7 @@ SIGUIENTE
   DIFICULTAD POR PRUEBAS (CONFIRMADA por María el 15/10): ningún modelo por debajo del
   examen; cada modelo con al menos una prueba «+» y otra más amable. (− = parte fácil del examen · = como el examen
   · + = parte alta, sin salir del A2.) Lectura / Auditiva / Escritura / Oral:
-    M1 = − = − (hecho, 20/10 noche) · M2 + = − = (hecho, 24/10) · M3 = + = = · M4 − = + + · M5 = = = = (termómetro) · M6 = + = = (hecho) ·
+    M1 = − = − (hecho, 20/10 noche) · M2 + = − = (hecho, 24/10) · M3 = + = = (hecho, 24/10 noche) · M4 − = + + · M5 = = = = (termómetro) · M6 = + = = (hecho) ·
     M7 + + + = (hecho, 20/10) · M8 = = = = (ensayo general, la última semana).
   (Nota: el M1 = − = − no tiene ninguna prueba "+": es el modelo de entrada; la regla de "al menos una +" se
   cumple en el conjunto, no en el M1.)

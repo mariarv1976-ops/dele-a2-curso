@@ -31,6 +31,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `build_unidad.py` | 21 KB | Genera a partir de fuente_Uxx.py: datos.py, cuadernillos, guion de audio (las 4 tareas de auditiva: |
 | `claude/DELEA2_curso_M01_datos.py` | 92 KB | DATOS DEL MODELO 01 (curso de preparación DELE A2) · generado con build_modelo.py |
 | `claude/DELEA2_curso_M02_datos.py` | 97 KB | Datos del Modelo 2 (generado por build_modelo.py desde fuente_M02.py) |
+| `claude/DELEA2_curso_M03_datos.py` | 98 KB | Datos del Modelo 3 (generado por build_modelo.py desde fuente_M03.py) |
 | `claude/DELEA2_curso_M06_datos.py` | 95 KB | Datos del Modelo 6 (generado por build_modelo.py desde fuente_M06.py; en el repo desde el 24/10) |
 | `claude/DELEA2_curso_M07_datos.py` | 97 KB | DATOS DEL MODELO 07 (curso de preparación DELE A2) · generado con build_modelo.py |
 | `claude/DELE_A2_curso_estado.txt` | 22 KB | ESTADO DEL CURSO DE PREPARACIÓN DELE A2 · VERSIÓN CORTA (actualizar en cada chat) |
@@ -101,6 +102,7 @@ Dónde está cada archivo y para qué sirve. **Proyecto** = en el proyecto de cl
 | `claude/fotos_M3.py` | 9 KB | FOTOS DE LAS LAMINAS DEL TALLER DE ESCRITURA (Modulo 3 del curso de preparacion DELE A2) |
 | `claude/fuente_M01.py` | 85 KB | FUENTE DEL MODELO 1 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
 | `claude/fuente_M02.py` | 92 KB | FUENTE DEL MODELO 2 · Curso de preparación DELE A2 (de entrada, perfil + = − =) |
+| `claude/fuente_M03.py` | 93 KB | FUENTE DEL MODELO 3 · Curso de preparación DELE A2 (auditiva exigente, perfil = + = =) |
 | `claude/fuente_M06.py` | 83 KB | FUENTE DEL MODELO 6 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
 | `claude/fuente_M07.py` | 89 KB | FUENTE DEL MODELO 7 · Curso de preparación DELE A2 (Módulo 2, modelos completos) |
 | `claude/fuente_U06.py` | 66 KB | FUENTE DE LA UNIDAD 6 (fase 1) · Guía del ocio |
